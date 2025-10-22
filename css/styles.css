@@ -56,6 +56,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Prevent anchor targets from hiding behind fixed header */
+  scroll-padding-top: var(--header-height);
   color-scheme: dark;
 }
 
@@ -150,6 +152,8 @@ p {
   z-index: 1000;
   transition: background-color var(--transition-base), box-shadow var(--transition-base);
   backdrop-filter: blur(12px);
+  /* Account for device safe areas on mobile */
+  padding-top: env(safe-area-inset-top, 0);
 }
 
 .site-header.transparent {
@@ -958,6 +962,12 @@ p {
   .story-grid {
     grid-template-columns: 1fr;
   }
+
+  /* Make primary CTAs full-width inside forms for easier tapping */
+  .order-form .cta-button,
+  .visit-form .cta-button {
+    width: 100%;
+  }
 }
 
 @media (max-width: 768px) {
@@ -991,6 +1001,11 @@ p {
     flex-direction: column;
     text-align: center;
   }
+
+  /* Tighten vertical rhythm slightly on small screens */
+  .section {
+    padding: 72px 0;
+  }
 }
 
 @media (max-width: 520px) {
@@ -1012,5 +1027,107 @@ p {
 
   .hamburger span {
     width: 24px;
+  }
+}
+
+/* Orders section – mobile‑first responsive layout */
+.orders-layout {
+  display: grid;
+  gap: 28px;
+}
+
+.orders-content {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 24px;
+  align-items: start;
+}
+
+.order-form {
+  display: grid;
+  gap: 20px;
+}
+
+.order-fieldset {
+  margin: 0;
+  padding: 20px;
+  border-radius: 20px;
+  border: 1px solid var(--border-soft);
+  background: var(--color-overlay-panel);
+  box-shadow: var(--shadow-medium);
+}
+
+.order-fieldset > legend {
+  padding: 0 8px;
+  font-size: 0.95rem;
+  letter-spacing: 0.08rem;
+  text-transform: uppercase;
+  color: var(--color-text-tint);
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 16px;
+}
+
+.order-items {
+  display: grid;
+  gap: 16px;
+}
+
+.cart-panel {
+  background: var(--color-overlay-glass);
+  border: 1px solid var(--border-soft);
+  border-radius: 20px;
+  box-shadow: var(--shadow-medium);
+}
+
+.cart-panel-inner {
+  padding: 20px;
+  display: grid;
+  gap: 14px;
+}
+
+.cart-items {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.cart-total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 10px;
+  margin-top: 6px;
+  border-top: 1px solid var(--border-subtle);
+}
+
+.cart-empty,
+.cart-note {
+  font-size: 0.9rem;
+  color: var(--color-text-soft);
+}
+
+/* Improve touch targets for inputs on mobile */
+.form-field input,
+.form-field textarea,
+.form-field select {
+  min-height: 44px;
+}
+
+/* Larger screens: two-column order layout with sticky cart */
+@media (min-width: 992px) {
+  .orders-content {
+    grid-template-columns: 2fr 1fr;
+    gap: 28px;
+  }
+
+  .cart-panel {
+    position: sticky;
+    top: calc(var(--header-height) + 24px);
   }
 }
