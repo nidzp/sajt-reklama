@@ -1,0 +1,15 @@
+{
+  "recommendations": [
+    "esbenp.prettier-vscode",
+    "dbaeumer.vscode-eslint",
+    "ritwickdey.liveserver",
+    "ecmel.vscode-html-css",
+    "christian-kohler.path-intellisense",
+    "formulahendry.auto-rename-tag",
+    "Zignd.html-css-class-completion",
+    "editorconfig.editorconfig",
+    "naumovs.color-highlight",
+    "ms-python.python"
+  ]
+}
+
