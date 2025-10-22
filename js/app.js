@@ -16,6 +16,18 @@
 
   let currentLanguage = 'en';
   let lastFocusedElement = null;
+  let heroSequenceActivated = false;
+
+  const setHamburgerLabel = () => {
+    if (!hamburger) return;
+    const isOpen = nav?.classList.contains('open');
+    const langSuffix = currentLanguage === 'en' ? 'En' : 'Sr';
+    const key = isOpen ? `ariaClose${langSuffix}` : `ariaOpen${langSuffix}`;
+    const label = hamburger.dataset[key];
+    if (label) {
+      hamburger.setAttribute('aria-label', label);
+    }
+  };
 
   const throttle = (fn, wait) => {
     let inThrottle = false;
@@ -63,6 +75,7 @@
     hamburger.setAttribute('aria-expanded', 'false');
     hamburger.classList.remove('is-active');
     document.body.classList.remove('menu-open');
+    setHamburgerLabel();
   };
 
   const toggleMobileNav = () => {
@@ -71,9 +84,8 @@
     hamburger.setAttribute('aria-expanded', String(isOpen));
     hamburger.classList.toggle('is-active', isOpen);
     document.body.classList.toggle('menu-open', isOpen);
+    setHamburgerLabel();
   };
-
-  let heroSequenceActivated = false;
 
   const applyLanguage = (lang) => {
     currentLanguage = lang;
@@ -132,6 +144,7 @@
 
     root.setAttribute('lang', lang === 'en' ? 'en' : 'sr');
     root.dataset.lang = lang;
+    setHamburgerLabel();
   };
 
   const cycleLanguage = () => {
