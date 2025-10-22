@@ -15,7 +15,7 @@
     <header class="site-header transparent" data-header>
       <div class="container header-inner">
         <a href="#home" class="wordmark" data-i18n-en="Vespera Hearth Bakery" data-i18n-sr="Pekara Vespera Ognjiste">Vespera Hearth Bakery</a>
-        <nav class="main-nav" data-nav>
+        <nav class="main-nav" id="primary-navigation" data-nav>
           <ul>
             <li><a href="#home" data-i18n-en="Home" data-i18n-sr="Pocetna">Home</a></li>
             <li><a href="#story" data-i18n-en="Story" data-i18n-sr="Prica">Story</a></li>
@@ -23,12 +23,12 @@
             <li><a href="#gallery" data-i18n-en="Gallery" data-i18n-sr="Galerija">Gallery</a></li>
             <li><a href="#visit" data-i18n-en="Visit" data-i18n-sr="Poseta">Visit</a></li>
           </ul>
-          <button class="language-toggle" type="button" aria-label="Toggle language" data-lang-toggle>
+          <button class="language-toggle" type="button" aria-label="Toggle language" data-lang-toggle data-i18n-aria-en="Toggle language" data-i18n-aria-sr="Promeni jezik">
             <span data-i18n-en="EN" data-i18n-sr="SR">EN</span>
             <small data-i18n-en="| SR" data-i18n-sr="| EN">| SR</small>
           </button>
         </nav>
-        <button class="hamburger" type="button" aria-label="Open navigation" aria-expanded="false" data-hamburger>
+        <button class="hamburger" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation" data-hamburger data-i18n-aria-en="Open navigation" data-i18n-aria-sr="Otvori navigaciju">
           <span></span>
           <span></span>
           <span></span>
@@ -82,7 +82,7 @@
           <div class="specialty-grid">
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-1.svg" alt="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-en="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-sr="Hleb Ponosni Hleb sa neon korom">
+                <img src="assets/img/specialty-1.svg" alt="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-en="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-sr="Ponocni hleb sa neon korom">
                 <!-- Replace with artisanal sourdough imagery -->
               </div>
               <div class="specialty-body">
@@ -106,7 +106,7 @@
             </article>
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-3.svg" alt="Chocolate torte with prismatic mirror glaze" data-i18n-alt-en="Chocolate torte with prismatic mirror glaze" data-i18n-alt-sr="Cokoladna torta sa prizmatskom glazurom"> 
+                <img src="assets/img/specialty-3.svg" alt="Chocolate torte with prismatic mirror glaze" data-i18n-alt-en="Chocolate torte with prismatic mirror glaze" data-i18n-alt-sr="Cokoladna torta sa prizmatskom glazurom">
                 <!-- Replace with decadent cake imagery -->
               </div>
               <div class="specialty-body">
@@ -163,35 +163,35 @@
             <p data-i18n-en="Wander through flickers of ovens, artisans, and twilight tastings." data-i18n-sr="Prosetajte kroz odsjaje peci, zanatlija i sumrak degustacija.">Wander through flickers of ovens, artisans, and twilight tastings.</p>
           </div>
           <div class="gallery-grid">
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Hand scoring sourdough loaves at dawn." data-caption-sr="Rucno zarezivanje hlebova u zoru." data-image="assets/img/gallery-1.svg" aria-label="Open gallery item 1">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Hand scoring sourdough loaves at dawn." data-caption-sr="Rucno zarezivanje hlebova u zoru." data-image="assets/img/gallery-1.svg" aria-label="Open gallery item 1" data-i18n-aria-en="Open gallery item 1" data-i18n-aria-sr="Otvori galeriju stavka 1">
               <img src="assets/img/gallery-1.svg" alt="Baker scoring sourdough loaves" data-i18n-alt-en="Baker scoring sourdough loaves" data-i18n-alt-sr="Pekar zarezuje hlebove">
               <!-- Replace with artisan scoring photo -->
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Croissants brushed with violet glaze." data-caption-sr="Kroasani premazani ljubicastom glazurom." data-image="assets/img/gallery-2.svg" aria-label="Open gallery item 2">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Croissants brushed with violet glaze." data-caption-sr="Kroasani premazani ljubicastom glazurom." data-image="assets/img/gallery-2.svg" aria-label="Open gallery item 2" data-i18n-aria-en="Open gallery item 2" data-i18n-aria-sr="Otvori galeriju stavka 2">
               <img src="assets/img/gallery-2.svg" alt="Glazed croissants on tray" data-i18n-alt-en="Glazed croissants on tray" data-i18n-alt-sr="Glazirani kroasani na tacni">
               <!-- Replace with croissant photo -->
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Moonlit tasting table with candles." data-caption-sr="Degustacioni sto obasjan mesecom sa svecama." data-image="assets/img/gallery-3.svg" aria-label="Open gallery item 3">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Moonlit tasting table with candles." data-caption-sr="Degustacioni sto obasjan mesecom sa svecama." data-image="assets/img/gallery-3.svg" aria-label="Open gallery item 3" data-i18n-aria-en="Open gallery item 3" data-i18n-aria-sr="Otvori galeriju stavka 3">
               <img src="assets/img/gallery-3.svg" alt="Atmospheric tasting table" data-i18n-alt-en="Atmospheric tasting table" data-i18n-alt-sr="Atmosferski degustacioni sto">
               <!-- Replace with tasting table photo -->
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Lavender being folded into pastry cream." data-caption-sr="Lavanda koja se mesa u kremu za kolace." data-image="assets/img/gallery-4.svg" aria-label="Open gallery item 4">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Lavender being folded into pastry cream." data-caption-sr="Lavanda koja se mesa u kremu za kolace." data-image="assets/img/gallery-4.svg" aria-label="Open gallery item 4" data-i18n-aria-en="Open gallery item 4" data-i18n-aria-sr="Otvori galeriju stavka 4">
               <img src="assets/img/gallery-4.svg" alt="Lavender pastry cream preparation" data-i18n-alt-en="Lavender pastry cream preparation" data-i18n-alt-sr="Priprema kreme sa lavandom">
               <!-- Replace with pastry cream photo -->
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Family kneading dough together." data-caption-sr="Porodica zajedno mesi testo." data-image="assets/img/gallery-5.svg" aria-label="Open gallery item 5">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Family kneading dough together." data-caption-sr="Porodica zajedno mesi testo." data-image="assets/img/gallery-5.svg" aria-label="Open gallery item 5" data-i18n-aria-en="Open gallery item 5" data-i18n-aria-sr="Otvori galeriju stavka 5">
               <img src="assets/img/gallery-5.svg" alt="Family kneading dough" data-i18n-alt-en="Family kneading dough" data-i18n-alt-sr="Porodica mesi testo">
               <!-- Replace with family baking photo -->
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Glowing shelves of artisan breads." data-caption-sr="Svetlece police sa zanatskim hlebovima." data-image="assets/img/gallery-6.svg" aria-label="Open gallery item 6">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Glowing shelves of artisan breads." data-caption-sr="Svetlece police sa zanatskim hlebovima." data-image="assets/img/gallery-6.svg" aria-label="Open gallery item 6" data-i18n-aria-en="Open gallery item 6" data-i18n-aria-sr="Otvori galeriju stavka 6">
               <img src="assets/img/gallery-6.svg" alt="Shelves with artisan breads" data-i18n-alt-en="Shelves with artisan breads" data-i18n-alt-sr="Police sa zanatskim hlebom">
               <!-- Replace with bread shelf photo -->
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Espresso and brioche pairing at the bar." data-caption-sr="Espreso i briosi par u baru." data-image="assets/img/gallery-7.svg" aria-label="Open gallery item 7">
-              <img src="assets/img/gallery-7.svg" alt="Espresso served with brioche" data-i18n-alt-en="Espresso served with brioche" data-i18n-alt-sr="Espreso posluzen uz brioš">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Espresso and brioche pairing at the bar." data-caption-sr="Espreso i briosi par u baru." data-image="assets/img/gallery-7.svg" aria-label="Open gallery item 7" data-i18n-aria-en="Open gallery item 7" data-i18n-aria-sr="Otvori galeriju stavka 7">
+              <img src="assets/img/gallery-7.svg" alt="Espresso served with brioche" data-i18n-alt-en="Espresso served with brioche" data-i18n-alt-sr="Espreso posluzen uz brios">
               <!-- Replace with coffee service photo -->
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Exterior marquee glowing at twilight." data-caption-sr="Spoljasnji natpis koji svetli u sumraku." data-image="assets/img/gallery-8.svg" aria-label="Open gallery item 8">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Exterior marquee glowing at twilight." data-caption-sr="Spoljasnji natpis koji svetli u sumraku." data-image="assets/img/gallery-8.svg" aria-label="Open gallery item 8" data-i18n-aria-en="Open gallery item 8" data-i18n-aria-sr="Otvori galeriju stavka 8">
               <img src="assets/img/gallery-8.svg" alt="Bakery exterior with glowing sign" data-i18n-alt-en="Bakery exterior with glowing sign" data-i18n-alt-sr="Eksterijer pekare sa svetlucavim znakom">
               <!-- Replace with exterior photo -->
             </button>
@@ -268,11 +268,11 @@
     <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" hidden data-lightbox-modal>
       <div class="lightbox-backdrop" data-close-lightbox></div>
       <div class="lightbox-content" role="document">
-        <button class="lightbox-close" type="button" aria-label="Close gallery" data-close-lightbox>&times;</button>
+        <button class="lightbox-close" type="button" aria-label="Close gallery" data-close-lightbox data-i18n-aria-en="Close gallery" data-i18n-aria-sr="Zatvori galeriju">&times;</button>
         <figure>
           <img src="" alt="" data-lightbox-image>
           <figcaption>
-            <p data-lightbox-caption data-i18n-en="" data-i18n-sr=""></p>
+            <p data-lightbox-caption></p>
           </figcaption>
         </figure>
       </div>
