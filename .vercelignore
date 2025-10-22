@@ -1,0 +1,12 @@
+## Ignore VCS and editor directories
+.git/
+.vscode/
+
+## Local temp or tooling artifacts
+temp_chars.txt
+openai.chatgpt.Codex
+check_sr.py
+
+## OS files
+Thumbs.db
+.DS_Store
