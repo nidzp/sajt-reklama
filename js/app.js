@@ -17,6 +17,10 @@
   let currentLanguage = 'en';
   let lastFocusedElement = null;
   let heroSequenceActivated = false;
+  const heroSequenceTimeouts = [];
+  const motionPreference = typeof window.matchMedia === 'function' ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
+  let reduceMotion = motionPreference?.matches ?? false;
+  let revealObserver = null;
 
   const setHamburgerLabel = () => {
     if (!hamburger) return;
@@ -152,33 +156,84 @@
     applyLanguage(nextLang);
   };
 
+  const showSequenceImmediately = () => {
+    heroSequenceTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
+    heroSequenceTimeouts.length = 0;
+    sequenceElements.forEach((element) => element.classList.add('is-visible'));
+  };
+
   const initSequences = () => {
     if (heroSequenceActivated) return;
     heroSequenceActivated = true;
+    if (reduceMotion) {
+      showSequenceImmediately();
+      return;
+    }
     sequenceElements.forEach((element, index) => {
       const delay = 200 + index * 200;
-      setTimeout(() => {
+      const timeoutId = window.setTimeout(() => {
         element.classList.add('is-visible');
       }, delay);
+      heroSequenceTimeouts.push(timeoutId);
     });
   };
 
-  const revealObserver = new IntersectionObserver(
-    (entries, observerInstance) => {
-      entries.forEach((entry) => {
-        if (entry.isIntersecting) {
-          entry.target.classList.add('is-visible');
-          observerInstance.unobserve(entry.target);
-        }
-      });
-    },
-    {
-      threshold: 0.18,
-      rootMargin: '40px',
-    }
-  );
+  const createRevealObserver = () =>
+    new IntersectionObserver(
+      (entries, observerInstance) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observerInstance.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: 0.18,
+        rootMargin: '40px',
+      }
+    );
 
-  revealElements.forEach((element) => revealObserver.observe(element));
+  const initializeReveals = () => {
+    if (!revealElements.length) {
+      return;
+    }
+    if (reduceMotion) {
+      revealElements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+    revealObserver?.disconnect();
+    revealObserver = createRevealObserver();
+    revealElements.forEach((element) => {
+      if (!element.classList.contains('is-visible')) {
+        revealObserver.observe(element);
+      }
+    });
+  };
+
+  const handleMotionPreferenceChange = (event) => {
+    reduceMotion = event.matches;
+    if (reduceMotion) {
+      showSequenceImmediately();
+      revealObserver?.disconnect();
+      revealElements.forEach((element) => element.classList.add('is-visible'));
+      return;
+    }
+    heroSequenceTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
+    heroSequenceTimeouts.length = 0;
+    sequenceElements.forEach((element) => element.classList.remove('is-visible'));
+    heroSequenceActivated = false;
+    initializeReveals();
+    initSequences();
+  };
+
+  if (motionPreference) {
+    if (typeof motionPreference.addEventListener === 'function') {
+      motionPreference.addEventListener('change', handleMotionPreferenceChange);
+    } else if (typeof motionPreference.addListener === 'function') {
+      motionPreference.addListener(handleMotionPreferenceChange);
+    }
+  }
 
   const focusableSelectors = [
     'a[href]',
@@ -347,6 +402,7 @@
   const init = () => {
     applyLanguage(currentLanguage);
     initHeroSequence();
+    initializeReveals();
     initNavigation();
     initScrollWatcher();
     initializeLightbox();

@@ -1,10 +1,26 @@
 ﻿<!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-current-lang="en">
   <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Vespera Hearth Bakery</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n-title-en="Vespera Hearth Bakery | Twilight Boulangerie" data-i18n-title-sr="Pekara Vespera Ognjište | Pekara sumraka">Vespera Hearth Bakery | Twilight Boulangerie</title>
+    <meta name="description" data-i18n-content-en="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers." data-i18n-content-sr="Pekara Vespera Ognjište stvara hlebove u malim serijama i sjajne poslastice za sanjare beogradskih noći." content="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers.">
+    <meta property="og:title" data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie" data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka" content="Vespera Hearth Bakery | Twilight Boulangerie">
+    <meta property="og:description" data-i18n-content-en="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront." data-i18n-content-sr="Zakoračite u sjaj zanatskih hlebova, svetlucavih poslastica i večernjih degustacija na Beogradu na vodi." content="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesperahearth.example.com/">
+    <meta property="og:image" content="assets/img/hero-backdrop.svg">
+    <meta property="og:locale" data-i18n-content-en="en_US" data-i18n-content-sr="sr_RS" content="en_US">
+    <meta property="og:locale:alternate" content="sr_RS">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie" data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka" content="Vespera Hearth Bakery | Twilight Boulangerie">
+    <meta name="twitter:description" data-i18n-content-en="Reserve artisan breads, croissants, and moonlit tastings with Belgrade’s nocturnal bakery." data-i18n-content-sr="Rezervišite zanatske hlebove, kroasane i degustacije pod mesečinom uz beogradsku noćnu pekaru." content="Reserve artisan breads, croissants, and moonlit tastings with Belgrade’s nocturnal bakery.">
+    <meta name="theme-color" content="#130924">
+    <link rel="canonical" href="https://vesperahearth.example.com/">
+    <link rel="alternate" hreflang="en" href="https://vesperahearth.example.com/en">
+    <link rel="alternate" hreflang="sr" href="https://vesperahearth.example.com/sr">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -14,16 +30,16 @@
   <body>
     <header class="site-header transparent" data-header>
       <div class="container header-inner">
-        <a href="#home" class="wordmark" data-i18n-en="Vespera Hearth Bakery" data-i18n-sr="Pekara Vespera Ognjiste">Vespera Hearth Bakery</a>
-        <nav class="main-nav" id="primary-navigation" data-nav>
+        <a href="#home" class="wordmark" data-i18n-en="Vespera Hearth Bakery" data-i18n-sr="Pekara Vespera Ognjište">Vespera Hearth Bakery</a>
+        <nav class="main-nav" id="primary-navigation" data-nav aria-label="Primary navigation" data-i18n-aria-en="Primary navigation" data-i18n-aria-sr="Glavna navigacija">
           <ul>
-            <li><a href="#home" data-i18n-en="Home" data-i18n-sr="Pocetna">Home</a></li>
-            <li><a href="#story" data-i18n-en="Story" data-i18n-sr="Prica">Story</a></li>
+            <li><a href="#home" data-i18n-en="Home" data-i18n-sr="Početna">Home</a></li>
+            <li><a href="#story" data-i18n-en="Story" data-i18n-sr="Priča">Story</a></li>
             <li><a href="#specialties" data-i18n-en="Specialties" data-i18n-sr="Specijaliteti">Specialties</a></li>
             <li><a href="#gallery" data-i18n-en="Gallery" data-i18n-sr="Galerija">Gallery</a></li>
             <li><a href="#visit" data-i18n-en="Visit" data-i18n-sr="Poseta">Visit</a></li>
           </ul>
-          <button class="language-toggle" type="button" aria-label="Toggle language" data-lang-toggle data-i18n-aria-en="Toggle language" data-i18n-aria-sr="Promeni jezik">
+          <button class="language-toggle" type="button" aria-label="Toggle language" aria-pressed="false" data-lang-toggle data-i18n-aria-en="Toggle language" data-i18n-aria-sr="Promeni jezik">
             <span data-i18n-en="EN" data-i18n-sr="SR">EN</span>
             <small data-i18n-en="| SR" data-i18n-sr="| EN">| SR</small>
           </button>
@@ -40,18 +56,18 @@
       <section id="home" class="hero">
         <div class="hero-background">
           <!-- Replace hero backdrop with royalty-free looping video or still -->
-          <img src="assets/img/hero-backdrop.svg" alt="Moody neon gradient backdrop" data-i18n-alt-en="Moody neon gradient backdrop" data-i18n-alt-sr="Nocni neon gradient pozadina">
+          <img src="assets/img/hero-backdrop.svg" alt="Moody neon gradient backdrop" data-i18n-alt-en="Moody neon gradient backdrop" data-i18n-alt-sr="Noćni neon gradijent" decoding="async">
         </div>
         <div class="container hero-content">
-          <h1 class="hero-title reveal-sequence" data-i18n-en="Vespera Hearth Bakery" data-i18n-sr="Pekara Vespera Ognjiste">Vespera Hearth Bakery</h1>
-          <p class="hero-subtitle reveal-sequence" data-i18n-en="Where heritage rises daily" data-i18n-sr="Mesto gde tradicija svakog jutra narasta">Where heritage rises daily</p>
-          <p class="hero-subtitle secondary reveal-sequence" data-i18n-en="Small-batch breads and luminous pastries crafted for nightfall dreamers." data-i18n-sr="Male serije hlebova i svetlucavih poslastica stvarene za sanjare u sumraku.">Small-batch breads and luminous pastries crafted for nightfall dreamers.</p>
+          <h1 class="hero-title reveal-sequence" data-i18n-en="Vespera Hearth Bakery" data-i18n-sr="Pekara Vespera Ognjište">Vespera Hearth Bakery</h1>
+          <p class="hero-subtitle reveal-sequence" data-i18n-en="Where heritage rises nightly" data-i18n-sr="Mesto gde tradicija raste svake noći">Where heritage rises nightly</p>
+          <p class="hero-subtitle secondary reveal-sequence" data-i18n-en="Small-batch breads and luminous pastries crafted for nightfall dreamers." data-i18n-sr="Male serije hlebova i svetlucavih poslastica stvarene za sanjare sumraka.">Small-batch breads and luminous pastries crafted for nightfall dreamers.</p>
           <div class="hero-actions reveal-sequence">
-            <a href="#specialties" class="cta-button" data-i18n-en="Explore Specialties" data-i18n-sr="Istrazi Specijalitete">Explore Specialties</a>
+            <a href="#specialties" class="cta-button" data-i18n-en="Explore Specialties" data-i18n-sr="Istraži specijalitete">Explore Specialties</a>
           </div>
           <div class="scroll-cue reveal-sequence">
             <span data-i18n-en="Scroll" data-i18n-sr="Skroluj">Scroll</span>
-            <div class="arrow"></div>
+            <div class="arrow" aria-hidden="true"></div>
           </div>
         </div>
       </section>
@@ -59,97 +75,89 @@
       <section id="story" class="story section">
         <div class="container story-grid">
           <div class="story-text reveal-on-scroll">
-            <h2 data-i18n-en="Our Story" data-i18n-sr="Nasa Prica">Our Story</h2>
-            <p data-i18n-en="From the first ember lit by founder Livia Vespera to the whispered recipes passed down at dawn, every loaf carries three generations of devotion." data-i18n-sr="Od prvog zara koji je zapalila osnivac Livia Vespera do recepta prosaptanih u zoru, svaki hleb nosi tri generacije posvecenosti.">From the first ember lit by founder Livia Vespera to the whispered recipes passed down at dawn, every loaf carries three generations of devotion.</p>
-            <p data-i18n-en="We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike." data-i18n-sr="Testo odmaramo sa strpljenjem, puter pustamo da se opusti pod nocnim svetlima, a lavandini dim ispunjava vazduh kako bismo docekali komsije i putnike.">We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike.</p>
-            <p data-i18n-en="Step inside and you will hear the hush of hearth-stones, the low hum of vintage ovens, and the laughter of the Vespera family shaping dawn together." data-i18n-sr="Udjite i cuticete sum ognjista, tihi huk starinskih peci i smeh porodice Vespera koja zajedno oblikuje svitanje.">Step inside and you will hear the hush of hearth-stones, the low hum of vintage ovens, and the laughter of the Vespera family shaping dawn together.</p>
+            <h2 data-i18n-en="Our Story" data-i18n-sr="Naša priča">Our Story</h2>
+            <p data-i18n-en="Founder Livia Vespera lit the first ember to revive her grandmother’s twilight recipes. Every loaf carries three generations of whispered devotion." data-i18n-sr="Osnivačica Livia Vespera zapalila je prvi žar kako bi oživela bakine recepte sumraka. Svaki hleb nosi tri generacije šaputave posvećenosti.">Founder Livia Vespera lit the first ember to revive her grandmother’s twilight recipes. Every loaf carries three generations of whispered devotion.</p>
+            <p data-i18n-en="We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike." data-i18n-sr="Testo odmaramo sa strpljenjem, puštamo puter da se opusti pod noćnim svetlima i provlačimo dim lavande kroz vazduh da dočekamo komšije i putnike.">We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike.</p>
+            <p data-i18n-en="Step inside to hear the hush of hearth-stones, the hum of vintage ovens, and the laughter of the night crew who believes bread tastes best after dusk." data-i18n-sr="Zakoračite unutra da čujete tišinu ognjišta, zujanje starih peći i smeh noćne ekipe koja veruje da hleb ima najbolji ukus posle sumraka.">Step inside to hear the hush of hearth-stones, the hum of vintage ovens, and the laughter of the night crew who believes bread tastes best after dusk.</p>
           </div>
-          <div class="story-media reveal-on-scroll">
-            <figure class="glow-frame">
-              <img src="assets/img/story-hearth.svg" alt="Radiant bakery hearth illustration" data-i18n-alt-en="Radiant bakery hearth illustration" data-i18n-alt-sr="Ilustracija svetlucavog ognjista pekare">
-              <!-- Replace with portrait of the bakery interior or founders -->
-            </figure>
-          </div>
+          <figure class="story-visual reveal-on-scroll">
+            <img src="assets/img/story-hearth.svg" alt="Radiant bakery hearth illustration" data-i18n-alt-en="Radiant bakery hearth illustration" data-i18n-alt-sr="Ilustracija sjajnog pekarskog ognjišta" loading="lazy" decoding="async">
+            <figcaption data-i18n-en="Illustration inspired by our nightly bakehouse rituals." data-i18n-sr="Ilustracija nadahnuta našim noćnim pekarskim ritualima.">Illustration inspired by our nightly bakehouse rituals.</figcaption>
+          </figure>
         </div>
       </section>
 
       <section id="specialties" class="specialties section">
         <div class="container">
           <div class="section-heading reveal-on-scroll">
-            <h2 data-i18n-en="Signature Specialties" data-i18n-sr="Potpisani Specijaliteti">Signature Specialties</h2>
-            <p data-i18n-en="Curated for midnight revelers and sunrise seekers, each creation glows with imaginative craft." data-i18n-sr="Krojeni za nocne hedoniste i jutarnje tragace, svaki zalogaj svetli maste i zanata.">Curated for midnight revelers and sunrise seekers, each creation glows with imaginative craft.</p>
+            <h2 data-i18n-en="Signature Specialties" data-i18n-sr="Potpisni specijaliteti">Signature Specialties</h2>
+            <p data-i18n-en="Taste a constellation of breads, pâtisserie, and savory rituals plated after dusk." data-i18n-sr="Probajte sazvežđe hlebova, poslastica i slanih rituala koji se služe nakon sumraka.">Taste a constellation of breads, pâtisserie, and savory rituals plated after dusk.</p>
           </div>
           <div class="specialty-grid">
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-1.svg" alt="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-en="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-sr="Ponocni hleb sa neon korom">
-                <!-- Replace with artisanal sourdough imagery -->
+                <img src="assets/img/specialty-1.svg" alt="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-en="Loaf of Midnight Sourdough with neon crust" data-i18n-alt-sr="Hleb Midnight Sourdough sa neonskom korom" loading="lazy" decoding="async">
               </div>
               <div class="specialty-body">
-                <h3 data-i18n-en="Midnight Sourdough" data-i18n-sr="Ponocni Hleb">Midnight Sourdough</h3>
-                <p data-i18n-en="Wild-fermented rye rested under indigo cloth for notes of plum, smoke, and caramel." data-i18n-sr="Divlji fermentirani raz odmaran pod indigo platnom, sa notama sljive, dima i karamela.">Wild-fermented rye rested under indigo cloth for notes of plum, smoke, and caramel.</p>
-                <span class="quality-badge" data-i18n-en="48-hour ferment" data-i18n-sr="48 sati fermentacije">48-hour ferment</span>
-                <p class="flavor-note" data-i18n-en="Pair with ash-aged goat cheese at twilight." data-i18n-sr="Uparite sa kozjim sirom sazrelim u pepelu pri sumraku.">Pair with ash-aged goat cheese at twilight.</p>
+                <h3 data-i18n-en="Midnight Sourdough" data-i18n-sr="Midnight sourdough">Midnight Sourdough</h3>
+                <p data-i18n-en="Slow-fermented wheat kissed with blackberry smoke and ember salt." data-i18n-sr="Polako fermentisana pšenica dodirnuta dimom kupine i solju žara.">Slow-fermented wheat kissed with blackberry smoke and ember salt.</p>
+                <span class="quality-badge" data-i18n-en="Baked in stone hearth" data-i18n-sr="Pečeno u kamenom ognjištu">Baked in stone hearth</span>
+                <p class="flavor-note" data-i18n-en="Order for twilight dinner tables." data-i18n-sr="Poručite za sumračne trpeze.">Order for twilight dinner tables.</p>
               </div>
             </article>
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-2.svg" alt="Galaxy glazed brioche knots" data-i18n-alt-en="Galaxy glazed brioche knots" data-i18n-alt-sr="Galaksija brios pletenice sa glazurom">
-                <!-- Replace with brioche pastry imagery -->
+                <img src="assets/img/specialty-2.svg" alt="Galaxy glazed brioche knots" data-i18n-alt-en="Galaxy glazed brioche knots" data-i18n-alt-sr="Galaksija brioš čvorovi sa glazurom" loading="lazy" decoding="async">
               </div>
               <div class="specialty-body">
-                <h3 data-i18n-en="Aurora Brioche Knots" data-i18n-sr="Aurora Briosi Cvorovi">Aurora Brioche Knots</h3>
-                <p data-i18n-en="Hand-plaited brioche kissed with yuzu, violet sugar, and midnight shimmer." data-i18n-sr="Rucno pleteni brios premazan juzuom, ljubicastim secerom i ponocnim sjajem.">Hand-plaited brioche kissed with yuzu, violet sugar, and midnight shimmer.</p>
-                <span class="quality-badge" data-i18n-en="Hand-glazed each morning" data-i18n-sr="Rucno glazirano svako jutro">Hand-glazed each morning</span>
-                <p class="flavor-note" data-i18n-en="Serve warm with lavender mascarpone." data-i18n-sr="Posluzite toplo uz lavanda maskarpone.">Serve warm with lavender mascarpone.</p>
+                <h3 data-i18n-en="Violet Nebula Brioche" data-i18n-sr="Violet nebula brioš">Violet Nebula Brioche</h3>
+                <p data-i18n-en="Feather-light knots brushed with cassis syrup and pearlescent sugar." data-i18n-sr="Lagani čvorovi premazani sirupom od crne ribizle i bisernim šećerom.">Feather-light knots brushed with cassis syrup and pearlescent sugar.</p>
+                <span class="quality-badge" data-i18n-en="Served warm after sunset" data-i18n-sr="Služi se toplo posle zalaska sunca">Served warm after sunset</span>
+                <p class="flavor-note" data-i18n-en="Pair with lavender cold brew." data-i18n-sr="Uparite sa hladnom kafom od lavande.">Pair with lavender cold brew.</p>
               </div>
             </article>
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-3.svg" alt="Chocolate torte with prismatic mirror glaze" data-i18n-alt-en="Chocolate torte with prismatic mirror glaze" data-i18n-alt-sr="Cokoladna torta sa prizmatskom glazurom">
-                <!-- Replace with decadent cake imagery -->
+                <img src="assets/img/specialty-3.svg" alt="Chocolate torte with prismatic mirror glaze" data-i18n-alt-en="Chocolate torte with prismatic mirror glaze" data-i18n-alt-sr="Čokoladna torta sa prizmatičnom glazurom" loading="lazy" decoding="async">
               </div>
               <div class="specialty-body">
-                <h3 data-i18n-en="Prism Velvet Torte" data-i18n-sr="Prizma Velvet Torta">Prism Velvet Torte</h3>
-                <p data-i18n-en="Dark cacao sponge layered with blackberry silk creme and a prismatic glaze gleam." data-i18n-sr="Tamni kakao biskvit u slojevima sa svilom od kupine i prizmatskom glazurom.">Dark cacao sponge layered with blackberry silk creme and a prismatic glaze gleam.</p>
-                <span class="quality-badge" data-i18n-en="Single-origin cacao" data-i18n-sr="Kakao jednog porekla">Single-origin cacao</span>
-                <p class="flavor-note" data-i18n-en="Finish with smoked sea salt at plating." data-i18n-sr="Zavrsiti dimljenim morskim solju prilikom serviranja.">Finish with smoked sea salt at plating.</p>
+                <h3 data-i18n-en="Prismatic Torte" data-i18n-sr="Prizmatična torta">Prismatic Torte</h3>
+                <p data-i18n-en="Velvet sponge layered with star anise ganache and mirror glaze." data-i18n-sr="Baršunasta kora sa ganašom od zvezdanog anisa i ogledalskom glazurom.">Velvet sponge layered with star anise ganache and mirror glaze.</p>
+                <span class="quality-badge" data-i18n-en="Made to celebrate milestones" data-i18n-sr="Stvorena za obeležavanje trenutaka">Made to celebrate milestones</span>
+                <p class="flavor-note" data-i18n-en="Reserve 48 hours ahead." data-i18n-sr="Rezervišite 48 sati unapred.">Reserve 48 hours ahead.</p>
               </div>
             </article>
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-4.svg" alt="Pastel-hued mille feuille slices" data-i18n-alt-en="Pastel-hued mille feuille slices" data-i18n-alt-sr="Pastelne mille-feuille kocke">
-                <!-- Replace with mille-feuille imagery -->
+                <img src="assets/img/specialty-4.svg" alt="Pastel-hued mille feuille slices" data-i18n-alt-en="Pastel-hued mille feuille slices" data-i18n-alt-sr="Pastelne mille-feuille kocke" loading="lazy" decoding="async">
               </div>
               <div class="specialty-body">
-                <h3 data-i18n-en="Lunar Mille Feuille" data-i18n-sr="Lunarni Mille Feuille">Lunar Mille Feuille</h3>
-                <p data-i18n-en="Featherweight pastry layers cradling vanilla bean custard and chamomile mist." data-i18n-sr="Laki slojevi testa sa kremom od vanile i kamilice.">Featherweight pastry layers cradling vanilla bean custard and chamomile mist.</p>
-                <span class="quality-badge" data-i18n-en="Thousand-layer lamination" data-i18n-sr="Hiljadu slojeva laminacije">Thousand-layer lamination</span>
-                <p class="flavor-note" data-i18n-en="Best shared with late-night storytellers." data-i18n-sr="Najbolje za nocne pripovedace.">Best shared with late-night storytellers.</p>
+                <h3 data-i18n-en="Aurora Mille-Feuille" data-i18n-sr="Aurora mille-feuille">Aurora Mille-Feuille</h3>
+                <p data-i18n-en="Puff pastry laminated with vanilla bean custard and candied petals." data-i18n-sr="Lisnato testo sa kremom od mahune vanile i kandiranim laticama.">Puff pastry laminated with vanilla bean custard and candied petals.</p>
+                <span class="quality-badge" data-i18n-en="Layers crackle at first bite" data-i18n-sr="Slojevi pucketaju pri prvom zalogaju">Layers crackle at first bite</span>
+                <p class="flavor-note" data-i18n-en="Serve with midnight tea flights." data-i18n-sr="Poslužite uz noćne čajne degustacije.">Serve with midnight tea flights.</p>
               </div>
             </article>
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-5.svg" alt="Savory focaccia topped with ember vegetables" data-i18n-alt-en="Savory focaccia topped with ember vegetables" data-i18n-alt-sr="Slana focaccia sa pecenim povrcem">
-                <!-- Replace with focaccia imagery -->
+                <img src="assets/img/specialty-5.svg" alt="Savory focaccia topped with ember vegetables" data-i18n-alt-en="Savory focaccia topped with ember vegetables" data-i18n-alt-sr="Slana fokača sa povrćem iz žara" loading="lazy" decoding="async">
               </div>
               <div class="specialty-body">
-                <h3 data-i18n-en="Ember Garden Focaccia" data-i18n-sr="Zar Vrt Fokaca">Ember Garden Focaccia</h3>
-                <p data-i18n-en="Charred rosemary oil, ember-roasted tomatoes, and cracked pepper stardust." data-i18n-sr="Uljem od ruzmarina, paradajzom pecenim u zaru i zrnima papra kao zvezdana prasina.">Charred rosemary oil, ember-roasted tomatoes, and cracked pepper stardust.</p>
-                <span class="quality-badge" data-i18n-en="Stone-hearth baked" data-i18n-sr="Peceno na kamenom ognjistu">Stone-hearth baked</span>
-                <p class="flavor-note" data-i18n-en="Slice alongside luminous soups." data-i18n-sr="Secite uz svetlucave supe.">Slice alongside luminous soups.</p>
+                <h3 data-i18n-en="Ember Garden Focaccia" data-i18n-sr="Žar vrt fokača">Ember Garden Focaccia</h3>
+                <p data-i18n-en="Charred rosemary oil, ember-roasted tomatoes, and cracked pepper stardust." data-i18n-sr="Uljem od žarenog ruzmarina, paradajzom pečenim u žaru i zrncima bibera kao zvezdana prašina.">Charred rosemary oil, ember-roasted tomatoes, and cracked pepper stardust.</p>
+                <span class="quality-badge" data-i18n-en="Stone-hearth baked" data-i18n-sr="Pečeno na kamenom ognjištu">Stone-hearth baked</span>
+                <p class="flavor-note" data-i18n-en="Slice alongside luminous soups." data-i18n-sr="Sečite uz svetlucave supe.">Slice alongside luminous soups.</p>
               </div>
             </article>
             <article class="specialty-card reveal-on-scroll">
               <div class="image-wrap">
-                <img src="assets/img/specialty-6.svg" alt="Seasonal mooncake with constellations" data-i18n-alt-en="Seasonal mooncake with constellations" data-i18n-alt-sr="Sezonski kolac sa sazvezdjima">
-                <!-- Replace with seasonal highlight imagery -->
+                <img src="assets/img/specialty-6.svg" alt="Seasonal mooncake with constellations" data-i18n-alt-en="Seasonal mooncake with constellations" data-i18n-alt-sr="Sezonski kolač sa sazvežđima" loading="lazy" decoding="async">
               </div>
               <div class="specialty-body">
-                <h3 data-i18n-en="Solstice Mooncake" data-i18n-sr="Solsticijski Kolac">Solstice Mooncake</h3>
-                <p data-i18n-en="Golden lotus paste, blackberry compote, and glittered sesame crust." data-i18n-sr="Lotus nadev, kompot od kupine i susamova kora sa sjajem.">Golden lotus paste, blackberry compote, and glittered sesame crust.</p>
-                <span class="quality-badge" data-i18n-en="Limited seasonal release" data-i18n-sr="Ograniceno sezonsko izdanje">Limited seasonal release</span>
-                <p class="flavor-note" data-i18n-en="Reserve for celebrations under the stars." data-i18n-sr="Rezervisite za proslave pod zvezdama.">Reserve for celebrations under the stars.</p>
+                <h3 data-i18n-en="Solstice Mooncake" data-i18n-sr="Solsticijski kolač">Solstice Mooncake</h3>
+                <p data-i18n-en="Golden lotus paste, blackberry compote, and glittered sesame crust." data-i18n-sr="Zlatni lotus nadev, kompot od kupine i sjajna susamova kora.">Golden lotus paste, blackberry compote, and glittered sesame crust.</p>
+                <span class="quality-badge" data-i18n-en="Limited seasonal release" data-i18n-sr="Ograničeno sezonsko izdanje">Limited seasonal release</span>
+                <p class="flavor-note" data-i18n-en="Reserve for celebrations under the stars." data-i18n-sr="Rezervišite za proslave pod zvezdama.">Reserve for celebrations under the stars.</p>
               </div>
             </article>
           </div>
@@ -159,41 +167,33 @@
       <section id="gallery" class="gallery section">
         <div class="container">
           <div class="section-heading reveal-on-scroll">
-            <h2 data-i18n-en="Immersive Gallery" data-i18n-sr="Imerzivna Galerija">Immersive Gallery</h2>
-            <p data-i18n-en="Wander through flickers of ovens, artisans, and twilight tastings." data-i18n-sr="Prosetajte kroz odsjaje peci, zanatlija i sumrak degustacija.">Wander through flickers of ovens, artisans, and twilight tastings.</p>
+            <h2 data-i18n-en="Immersive Gallery" data-i18n-sr="Imerzivna galerija">Immersive Gallery</h2>
+            <p data-i18n-en="Wander through flickers of ovens, artisans, and twilight tastings." data-i18n-sr="Prošetajte kroz odsjaje peći, zanatlija i sumračnih degustacija.">Wander through flickers of ovens, artisans, and twilight tastings.</p>
           </div>
           <div class="gallery-grid">
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Hand scoring sourdough loaves at dawn." data-caption-sr="Rucno zarezivanje hlebova u zoru." data-image="assets/img/gallery-1.svg" aria-label="Open gallery item 1" data-i18n-aria-en="Open gallery item 1" data-i18n-aria-sr="Otvori galeriju stavka 1">
-              <img src="assets/img/gallery-1.svg" alt="Baker scoring sourdough loaves" data-i18n-alt-en="Baker scoring sourdough loaves" data-i18n-alt-sr="Pekar zarezuje hlebove">
-              <!-- Replace with artisan scoring photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Hand scoring sourdough loaves at dawn." data-caption-sr="Ručno zarezivanje hlebova u zoru." data-image="assets/img/gallery-1.svg" aria-label="Open gallery item 1" data-i18n-aria-en="Open gallery item 1" data-i18n-aria-sr="Otvori stavku galerije 1">
+              <img src="assets/img/gallery-1.svg" alt="Baker scoring sourdough loaves" data-i18n-alt-en="Baker scoring sourdough loaves" data-i18n-alt-sr="Pekar zarezuje hlebove" loading="lazy" decoding="async">
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Croissants brushed with violet glaze." data-caption-sr="Kroasani premazani ljubicastom glazurom." data-image="assets/img/gallery-2.svg" aria-label="Open gallery item 2" data-i18n-aria-en="Open gallery item 2" data-i18n-aria-sr="Otvori galeriju stavka 2">
-              <img src="assets/img/gallery-2.svg" alt="Glazed croissants on tray" data-i18n-alt-en="Glazed croissants on tray" data-i18n-alt-sr="Glazirani kroasani na tacni">
-              <!-- Replace with croissant photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Croissants brushed with violet glaze." data-caption-sr="Kroasani premazani ljubičastom glazurom." data-image="assets/img/gallery-2.svg" aria-label="Open gallery item 2" data-i18n-aria-en="Open gallery item 2" data-i18n-aria-sr="Otvori stavku galerije 2">
+              <img src="assets/img/gallery-2.svg" alt="Glazed croissants on tray" data-i18n-alt-en="Glazed croissants on tray" data-i18n-alt-sr="Glazirani kroasani na tacni" loading="lazy" decoding="async">
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Moonlit tasting table with candles." data-caption-sr="Degustacioni sto obasjan mesecom sa svecama." data-image="assets/img/gallery-3.svg" aria-label="Open gallery item 3" data-i18n-aria-en="Open gallery item 3" data-i18n-aria-sr="Otvori galeriju stavka 3">
-              <img src="assets/img/gallery-3.svg" alt="Atmospheric tasting table" data-i18n-alt-en="Atmospheric tasting table" data-i18n-alt-sr="Atmosferski degustacioni sto">
-              <!-- Replace with tasting table photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Moonlit tasting table with candles." data-caption-sr="Degustacioni sto obasjan mesecom sa svećama." data-image="assets/img/gallery-3.svg" aria-label="Open gallery item 3" data-i18n-aria-en="Open gallery item 3" data-i18n-aria-sr="Otvori stavku galerije 3">
+              <img src="assets/img/gallery-3.svg" alt="Atmospheric tasting table" data-i18n-alt-en="Atmospheric tasting table" data-i18n-alt-sr="Atmosferski degustacioni sto" loading="lazy" decoding="async">
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Lavender being folded into pastry cream." data-caption-sr="Lavanda koja se mesa u kremu za kolace." data-image="assets/img/gallery-4.svg" aria-label="Open gallery item 4" data-i18n-aria-en="Open gallery item 4" data-i18n-aria-sr="Otvori galeriju stavka 4">
-              <img src="assets/img/gallery-4.svg" alt="Lavender pastry cream preparation" data-i18n-alt-en="Lavender pastry cream preparation" data-i18n-alt-sr="Priprema kreme sa lavandom">
-              <!-- Replace with pastry cream photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Lavender being folded into pastry cream." data-caption-sr="Lavanda koja se meša u kremu za kolače." data-image="assets/img/gallery-4.svg" aria-label="Open gallery item 4" data-i18n-aria-en="Open gallery item 4" data-i18n-aria-sr="Otvori stavku galerije 4">
+              <img src="assets/img/gallery-4.svg" alt="Lavender pastry cream preparation" data-i18n-alt-en="Lavender pastry cream preparation" data-i18n-alt-sr="Priprema kreme sa lavandom" loading="lazy" decoding="async">
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Family kneading dough together." data-caption-sr="Porodica zajedno mesi testo." data-image="assets/img/gallery-5.svg" aria-label="Open gallery item 5" data-i18n-aria-en="Open gallery item 5" data-i18n-aria-sr="Otvori galeriju stavka 5">
-              <img src="assets/img/gallery-5.svg" alt="Family kneading dough" data-i18n-alt-en="Family kneading dough" data-i18n-alt-sr="Porodica mesi testo">
-              <!-- Replace with family baking photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Family kneading dough together." data-caption-sr="Porodica zajedno mesi testo." data-image="assets/img/gallery-5.svg" aria-label="Open gallery item 5" data-i18n-aria-en="Open gallery item 5" data-i18n-aria-sr="Otvori stavku galerije 5">
+              <img src="assets/img/gallery-5.svg" alt="Family kneading dough" data-i18n-alt-en="Family kneading dough" data-i18n-alt-sr="Porodica mesi testo" loading="lazy" decoding="async">
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Glowing shelves of artisan breads." data-caption-sr="Svetlece police sa zanatskim hlebovima." data-image="assets/img/gallery-6.svg" aria-label="Open gallery item 6" data-i18n-aria-en="Open gallery item 6" data-i18n-aria-sr="Otvori galeriju stavka 6">
-              <img src="assets/img/gallery-6.svg" alt="Shelves with artisan breads" data-i18n-alt-en="Shelves with artisan breads" data-i18n-alt-sr="Police sa zanatskim hlebom">
-              <!-- Replace with bread shelf photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Glowing shelves of artisan breads." data-caption-sr="Svetleće police sa zanatskim hlebovima." data-image="assets/img/gallery-6.svg" aria-label="Open gallery item 6" data-i18n-aria-en="Open gallery item 6" data-i18n-aria-sr="Otvori stavku galerije 6">
+              <img src="assets/img/gallery-6.svg" alt="Shelves with artisan breads" data-i18n-alt-en="Shelves with artisan breads" data-i18n-alt-sr="Police sa zanatskim hlebom" loading="lazy" decoding="async">
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Espresso and brioche pairing at the bar." data-caption-sr="Espreso i briosi par u baru." data-image="assets/img/gallery-7.svg" aria-label="Open gallery item 7" data-i18n-aria-en="Open gallery item 7" data-i18n-aria-sr="Otvori galeriju stavka 7">
-              <img src="assets/img/gallery-7.svg" alt="Espresso served with brioche" data-i18n-alt-en="Espresso served with brioche" data-i18n-alt-sr="Espreso posluzen uz brios">
-              <!-- Replace with coffee service photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Espresso and brioche pairing at the bar." data-caption-sr="Espreso i brioš spoj na šanku." data-image="assets/img/gallery-7.svg" aria-label="Open gallery item 7" data-i18n-aria-en="Open gallery item 7" data-i18n-aria-sr="Otvori stavku galerije 7">
+              <img src="assets/img/gallery-7.svg" alt="Espresso served with brioche" data-i18n-alt-en="Espresso served with brioche" data-i18n-alt-sr="Espreso poslužen uz brioš" loading="lazy" decoding="async">
             </button>
-            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Exterior marquee glowing at twilight." data-caption-sr="Spoljasnji natpis koji svetli u sumraku." data-image="assets/img/gallery-8.svg" aria-label="Open gallery item 8" data-i18n-aria-en="Open gallery item 8" data-i18n-aria-sr="Otvori galeriju stavka 8">
-              <img src="assets/img/gallery-8.svg" alt="Bakery exterior with glowing sign" data-i18n-alt-en="Bakery exterior with glowing sign" data-i18n-alt-sr="Eksterijer pekare sa svetlucavim znakom">
-              <!-- Replace with exterior photo -->
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Exterior marquee glowing at twilight." data-caption-sr="Spoljašnji natpis koji svetli u sumraku." data-image="assets/img/gallery-8.svg" aria-label="Open gallery item 8" data-i18n-aria-en="Open gallery item 8" data-i18n-aria-sr="Otvori stavku galerije 8">
+              <img src="assets/img/gallery-8.svg" alt="Bakery exterior with glowing sign" data-i18n-alt-en="Bakery exterior with glowing sign" data-i18n-alt-sr="Eksterijer pekare sa svetlucavim znakom" loading="lazy" decoding="async">
             </button>
           </div>
         </div>
@@ -202,19 +202,19 @@
       <section id="visit" class="visit section">
         <div class="container visit-grid">
           <div class="visit-info reveal-on-scroll">
-            <h2 data-i18n-en="Visit Us" data-i18n-sr="Posetite Nas">Visit Us</h2>
-            <p data-i18n-en="We welcome you into the glow each evening and at first light. Reach out or arrive ready to savor." data-i18n-sr="Dobrodosli ste u nase svetlo svake veceri i u zoru. Javite se ili dodjite spremni da uzivate.">We welcome you into the glow each evening and at first light. Reach out or arrive ready to savor.</p>
+            <h2 data-i18n-en="Visit Us" data-i18n-sr="Posetite nas">Visit Us</h2>
+            <p data-i18n-en="We welcome you into the glow each evening and at first light. Reach out or arrive ready to savor." data-i18n-sr="Dobrodošli ste u naš sjaj svake večeri i u zoru. Javite se ili dođite spremni da uživate.">We welcome you into the glow each evening and at first light. Reach out or arrive ready to savor.</p>
             <ul class="contact-list">
               <li>
                 <span class="label" data-i18n-en="Address" data-i18n-sr="Adresa">Address</span>
-                <span class="value" data-i18n-en="112 Ember Lane, Belgrade Waterfront" data-i18n-sr="Ember Ulica 112, Beograd Waterfront">112 Ember Lane, Belgrade Waterfront</span>
+                <span class="value" data-i18n-en="112 Ember Lane, Belgrade Waterfront" data-i18n-sr="Ulica Ember 112, Beograd na vodi">112 Ember Lane, Belgrade Waterfront</span>
               </li>
               <li>
                 <span class="label" data-i18n-en="Phone" data-i18n-sr="Telefon">Phone</span>
                 <a class="value" href="tel:+381601234567" data-i18n-en="+381 60 123 4567" data-i18n-sr="+381 60 123 4567">+381 60 123 4567</a>
               </li>
               <li>
-                <span class="label" data-i18n-en="Email" data-i18n-sr="Email">Email</span>
+                <span class="label" data-i18n-en="Email" data-i18n-sr="E-mail">Email</span>
                 <a class="value" href="mailto:hello@vesperahearth.com" data-i18n-en="hello@vesperahearth.com" data-i18n-sr="hello@vesperahearth.com">hello@vesperahearth.com</a>
               </li>
               <li>
@@ -224,31 +224,35 @@
             </ul>
           </div>
           <div class="visit-media reveal-on-scroll">
-            <figure class="map-frame">
-              <img src="assets/img/map-placeholder.svg" alt="Stylized neighborhood map illustration" data-i18n-alt-en="Stylized neighborhood map illustration" data-i18n-alt-sr="Stilizovana mapa naselja">
-              <!-- Replace with embedded map or detailed illustration; integrate Google Maps here if desired -->
+            <figure class="map-frame" aria-labelledby="map-caption">
+              <img src="assets/img/map-placeholder.svg" alt="Stylized neighborhood map illustration" data-i18n-alt-en="Stylized neighborhood map illustration" data-i18n-alt-sr="Stilizovana mapa komšiluka" loading="lazy" decoding="async">
+              <figcaption id="map-caption" data-i18n-en="Illustrative map of our Belgrade Waterfront neighborhood." data-i18n-sr="Ilustrativna mapa našeg kvarta na Beogradu na vodi.">Illustrative map of our Belgrade Waterfront neighborhood.</figcaption>
             </figure>
           </div>
           <div class="visit-form reveal-on-scroll">
-            <h3 data-i18n-en="Say Hello" data-i18n-sr="Pozdravite Nas">Say Hello</h3>
+            <h3 data-i18n-en="Say Hello" data-i18n-sr="Pozdravite nas">Say Hello</h3>
             <form id="contact-form" novalidate>
               <div class="form-field">
                 <label for="name" data-i18n-en="Name" data-i18n-sr="Ime">Name</label>
-                <input id="name" name="name" type="text" required aria-required="true" placeholder="Your full name" data-i18n-placeholder-en="Your full name" data-i18n-placeholder-sr="Vase puno ime">
-                <small data-i18n-en="Tell us who is visiting the hearth." data-i18n-sr="Recite nam ko posecuje ognjiste.">Tell us who is visiting the hearth.</small>
+                <input id="name" name="name" type="text" required aria-required="true" placeholder="Your full name" data-i18n-placeholder-en="Your full name" data-i18n-placeholder-sr="Vaše puno ime">
+                <small data-i18n-en="Tell us who is visiting the hearth." data-i18n-sr="Recite nam ko posećuje ognjište.">Tell us who is visiting the hearth.</small>
+                <p class="input-error" role="alert" hidden data-i18n-en="Please enter your name." data-i18n-sr="Unesite svoje ime.">Please enter your name.</p>
               </div>
               <div class="form-field">
-                <label for="email" data-i18n-en="Email" data-i18n-sr="Email">Email</label>
+                <label for="email" data-i18n-en="Email" data-i18n-sr="E-mail">Email</label>
                 <input id="email" name="email" type="email" required aria-required="true" placeholder="you@example.com" data-i18n-placeholder-en="you@example.com" data-i18n-placeholder-sr="vi@primer.com">
-                <small data-i18n-en="We will reply with a warm note shortly." data-i18n-sr="Odgovoricemo uskoro toplom porukom.">We will reply with a warm note shortly.</small>
+                <small data-i18n-en="We will reply with a warm note shortly." data-i18n-sr="Odgovorićemo uskoro toplom porukom.">We will reply with a warm note shortly.</small>
+                <p class="input-error" role="alert" hidden data-i18n-en="Please provide a valid email address." data-i18n-sr="Unesite važeću e-mail adresu.">Please provide a valid email address.</p>
               </div>
               <div class="form-field">
                 <label for="message" data-i18n-en="Message" data-i18n-sr="Poruka">Message</label>
                 <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="Share your thoughts or requests" data-i18n-placeholder-en="Share your thoughts or requests" data-i18n-placeholder-sr="Podelite svoje misli ili zahteve"></textarea>
-                <small data-i18n-en="Let us know if you crave something luminous." data-i18n-sr="Javite nam ako zelite nesto svetlucavo.">Let us know if you crave something luminous.</small>
+                <small data-i18n-en="Let us know if you crave something luminous." data-i18n-sr="Javite nam ako žudite za nečim svetlucavim.">Let us know if you crave something luminous.</small>
+                <p class="input-error" role="alert" hidden data-i18n-en="Please share a message so we can reply." data-i18n-sr="Podelite poruku kako bismo mogli da odgovorimo.">Please share a message so we can reply.</p>
               </div>
-              <button type="submit" class="cta-button" data-i18n-en="Send Message" data-i18n-sr="Posalji Poruku">Send Message</button>
-              <p class="form-feedback" role="alert" hidden data-i18n-en="Thank you! Your note is en route to our night bakers." data-i18n-sr="Hvala! Vasa poruka je stigla nasim nocnim pekarima.">Thank you! Your note is en route to our night bakers.</p>
+              <button type="submit" class="cta-button" data-i18n-en="Send Message" data-i18n-sr="Pošalji poruku">Send Message</button>
+              <p class="form-feedback" role="status" hidden data-i18n-en="Thank you! Your note is en route to our night bakers." data-i18n-sr="Hvala! Vaša poruka je stigla našim noćnim pekarima.">Thank you! Your note is en route to our night bakers.</p>
+              <p class="form-disclaimer" data-i18n-en="Demo notice: submissions stay local and no email is sent." data-i18n-sr="Napomena: zbog demonstracije poruke ostaju lokalno i e-mail se ne šalje.">Demo notice: submissions stay local and no email is sent.</p>
             </form>
           </div>
         </div>
@@ -257,18 +261,21 @@
 
     <footer class="site-footer">
       <div class="container footer-inner">
-        <p data-i18n-en="Copyright 2025 Vespera Hearth Bakery. Crafted with devotion in Belgrade." data-i18n-sr="Copyright 2025 Pekara Vespera Ognjiste. Stvoreno sa posvecenoscu u Beogradu.">Copyright 2025 Vespera Hearth Bakery. Crafted with devotion in Belgrade.</p>
+        <p data-i18n-en="© 2025 Vespera Hearth Bakery. Crafted with devotion in Belgrade." data-i18n-sr="© 2025 Pekara Vespera Ognjište. Stvoreno sa posvećenošću u Beogradu.">© 2025 Vespera Hearth Bakery. Crafted with devotion in Belgrade.</p>
         <div class="footer-links">
           <a href="#home" data-i18n-en="Back to top" data-i18n-sr="Nazad na vrh">Back to top</a>
-          <a href="#specialties" data-i18n-en="Menu Highlights" data-i18n-sr="Istaknuti Meni">Menu Highlights</a>
+          <a href="#specialties" data-i18n-en="Menu Highlights" data-i18n-sr="Istaknuti meni">Menu Highlights</a>
         </div>
       </div>
     </footer>
 
     <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" hidden data-lightbox-modal>
       <div class="lightbox-backdrop" data-close-lightbox></div>
-      <div class="lightbox-content" role="document">
-        <button class="lightbox-close" type="button" aria-label="Close gallery" data-close-lightbox data-i18n-aria-en="Close gallery" data-i18n-aria-sr="Zatvori galeriju">&times;</button>
+      <div class="lightbox-content" role="document" aria-labelledby="lightbox-title">
+        <header class="lightbox-header">
+          <h2 id="lightbox-title" data-i18n-en="Gallery preview" data-i18n-sr="Pregled galerije">Gallery preview</h2>
+          <button class="lightbox-close" type="button" aria-label="Close gallery" data-close-lightbox data-i18n-aria-en="Close gallery" data-i18n-aria-sr="Zatvori galeriju">×</button>
+        </header>
         <figure>
           <img src="" alt="" data-lightbox-image>
           <figcaption>
@@ -279,7 +286,5 @@
     </div>
   </body>
 </html>
-
-
 
 
