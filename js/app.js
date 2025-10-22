@@ -1,4 +1,4 @@
-(() => {
+﻿(() => {
   const root = document.documentElement;
   const header = document.querySelector('[data-header]');
   const nav = document.querySelector('[data-nav]');
@@ -14,18 +14,26 @@
   const closeLightboxButtons = document.querySelectorAll('[data-close-lightbox]');
   const contactForm = document.getElementById('contact-form');
 
-  let currentLanguage = 'en';
+  const STORAGE_KEY = 'vespera-preferred-language';
+  const DEFAULT_LANGUAGE = 'en';
+
+  let currentLanguage = DEFAULT_LANGUAGE;
   let lastFocusedElement = null;
+  let heroSequenceInitialized = false;
   let heroSequenceActivated = false;
   const heroSequenceTimeouts = [];
-  const motionPreference = typeof window.matchMedia === 'function' ? window.matchMedia('(prefers-reduced-motion: reduce)') : null;
-  let reduceMotion = motionPreference?.matches ?? false;
   let revealObserver = null;
+  const motionPreference = typeof window.matchMedia === 'function'
+    ? window.matchMedia('(prefers-reduced-motion: reduce)')
+    : null;
+  let reduceMotion = motionPreference?.matches ?? false;
+
+  const getLangSuffix = (lang) => (lang === 'en' ? 'En' : 'Sr');
 
   const setHamburgerLabel = () => {
     if (!hamburger) return;
     const isOpen = nav?.classList.contains('open');
-    const langSuffix = currentLanguage === 'en' ? 'En' : 'Sr';
+    const langSuffix = getLangSuffix(currentLanguage);
     const key = isOpen ? `ariaClose${langSuffix}` : `ariaOpen${langSuffix}`;
     const label = hamburger.dataset[key];
     if (label) {
@@ -48,7 +56,7 @@
       fn.apply(this, args);
       inThrottle = true;
 
-      setTimeout(() => {
+      window.setTimeout(() => {
         inThrottle = false;
         if (savedArgs) {
           throttledFn.apply(savedThis, savedArgs);
@@ -91,9 +99,40 @@
     setHamburgerLabel();
   };
 
+  const syncLanguageToggleState = (lang) => {
+    if (langToggle) {
+      langToggle.setAttribute('aria-pressed', lang === 'sr' ? 'true' : 'false');
+    }
+  };
+
+  const updateOpenLightboxContent = (langSuffix) => {
+    if (!lightbox || lightbox.hasAttribute('hidden')) {
+      return;
+    }
+    const activeTriggerId = lightbox.dataset.activeTrigger;
+    if (!activeTriggerId) {
+      return;
+    }
+    const trigger = document.querySelector(`[data-lightbox][data-trigger-id="${activeTriggerId}"]`);
+    if (!trigger) {
+      return;
+    }
+    const caption = trigger.dataset[`caption${langSuffix}`];
+    if (caption) {
+      lightboxCaption.textContent = caption;
+    }
+    const triggerImage = trigger.querySelector('img');
+    if (triggerImage) {
+      const altTranslation = triggerImage.dataset[`i18nAlt${langSuffix}`];
+      if (altTranslation) {
+        lightboxImage.setAttribute('alt', altTranslation);
+      }
+    }
+  };
+
   const applyLanguage = (lang) => {
     currentLanguage = lang;
-    const langSuffix = lang === 'en' ? 'En' : 'Sr';
+    const langSuffix = getLangSuffix(lang);
 
     document.querySelectorAll('[data-i18n-en]').forEach((el) => {
       if (el.hasAttribute('data-lightbox-caption')) {
@@ -126,29 +165,35 @@
       }
     });
 
-    if (lightbox && !lightbox.hasAttribute('hidden')) {
-      const activeTriggerId = lightbox.dataset.activeTrigger;
-      if (activeTriggerId) {
-        const trigger = document.querySelector(`[data-lightbox][data-trigger-id="${activeTriggerId}"]`);
-        if (trigger) {
-          const caption = trigger.dataset[`caption${langSuffix}`];
-          if (caption) {
-            lightboxCaption.textContent = caption;
-          }
-          const triggerImage = trigger.querySelector('img');
-          if (triggerImage) {
-            const altTranslation = triggerImage.dataset[`i18nAlt${langSuffix}`];
-            if (altTranslation) {
-              lightboxImage.setAttribute('alt', altTranslation);
-            }
-          }
-        }
+    document.querySelectorAll('[data-i18n-content-en]').forEach((el) => {
+      const translation = el.dataset[`i18nContent${langSuffix}`];
+      if (typeof translation === 'string') {
+        el.setAttribute('content', translation);
+      }
+    });
+
+    const titleElement = document.querySelector('title[data-i18n-title-en]');
+    if (titleElement) {
+      const translation = titleElement.dataset[`i18nTitle${langSuffix}`];
+      if (typeof translation === 'string') {
+        document.title = translation;
+        titleElement.textContent = translation;
       }
     }
 
-    root.setAttribute('lang', lang === 'en' ? 'en' : 'sr');
+    root.setAttribute('lang', lang === 'sr' ? 'sr' : 'en');
     root.dataset.lang = lang;
+    root.dataset.currentLang = lang;
+
+    syncLanguageToggleState(lang);
+    updateOpenLightboxContent(langSuffix);
     setHamburgerLabel();
+
+    try {
+      window.localStorage.setItem(STORAGE_KEY, lang);
+    } catch (error) {
+      // Ignore storage errors (e.g., privacy mode)
+    }
   };
 
   const cycleLanguage = () => {
@@ -160,15 +205,21 @@
     heroSequenceTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
     heroSequenceTimeouts.length = 0;
     sequenceElements.forEach((element) => element.classList.add('is-visible'));
+    heroSequenceActivated = true;
   };
 
   const initSequences = () => {
-    if (heroSequenceActivated) return;
-    heroSequenceActivated = true;
+    if (!sequenceElements.length) {
+      return;
+    }
     if (reduceMotion) {
       showSequenceImmediately();
       return;
     }
+    if (heroSequenceActivated) {
+      return;
+    }
+    heroSequenceActivated = true;
     sequenceElements.forEach((element, index) => {
       const delay = 200 + index * 200;
       const timeoutId = window.setTimeout(() => {
@@ -176,6 +227,26 @@
       }, delay);
       heroSequenceTimeouts.push(timeoutId);
     });
+  };
+
+  const initHeroSequence = () => {
+    if (reduceMotion) {
+      showSequenceImmediately();
+      heroSequenceInitialized = true;
+      return;
+    }
+    if (heroSequenceInitialized) {
+      if (!heroSequenceActivated) {
+        initSequences();
+      }
+      return;
+    }
+    heroSequenceInitialized = true;
+    if (document.readyState === 'complete') {
+      initSequences();
+    } else {
+      window.addEventListener('load', initSequences, { once: true });
+    }
   };
 
   const createRevealObserver = () =>
@@ -199,6 +270,7 @@
       return;
     }
     if (reduceMotion) {
+      revealObserver?.disconnect();
       revealElements.forEach((element) => element.classList.add('is-visible'));
       return;
     }
@@ -213,25 +285,29 @@
 
   const handleMotionPreferenceChange = (event) => {
     reduceMotion = event.matches;
+    heroSequenceTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
+    heroSequenceTimeouts.length = 0;
+    heroSequenceActivated = false;
+
     if (reduceMotion) {
       showSequenceImmediately();
       revealObserver?.disconnect();
       revealElements.forEach((element) => element.classList.add('is-visible'));
       return;
     }
-    heroSequenceTimeouts.forEach((timeoutId) => window.clearTimeout(timeoutId));
-    heroSequenceTimeouts.length = 0;
+
     sequenceElements.forEach((element) => element.classList.remove('is-visible'));
-    heroSequenceActivated = false;
+    revealElements.forEach((element) => element.classList.remove('is-visible'));
     initializeReveals();
     initSequences();
   };
 
   if (motionPreference) {
+    const motionListener = (event) => handleMotionPreferenceChange(event);
     if (typeof motionPreference.addEventListener === 'function') {
-      motionPreference.addEventListener('change', handleMotionPreferenceChange);
+      motionPreference.addEventListener('change', motionListener);
     } else if (typeof motionPreference.addListener === 'function') {
-      motionPreference.addListener(handleMotionPreferenceChange);
+      motionPreference.addListener(motionListener);
     }
   }
 
@@ -276,6 +352,7 @@
     lightbox.setAttribute('hidden', '');
     lightbox.setAttribute('aria-hidden', 'true');
     lightboxImage.setAttribute('src', '');
+    lightboxImage.setAttribute('alt', '');
     lightboxCaption.textContent = '';
     document.body.classList.remove('lightbox-open');
     lightbox.dataset.activeTrigger = '';
@@ -290,7 +367,7 @@
     if (!lightbox || !lightboxImage || !lightboxCaption) {
       return;
     }
-    const langSuffix = currentLanguage === 'en' ? 'En' : 'Sr';
+    const langSuffix = getLangSuffix(currentLanguage);
     const src = trigger.dataset.image;
     const caption = trigger.dataset[`caption${langSuffix}`] || '';
     const triggerImg = trigger.querySelector('img');
@@ -303,10 +380,10 @@
     lightbox.setAttribute('aria-hidden', 'false');
     document.body.classList.add('lightbox-open');
     lastFocusedElement = document.activeElement;
-    const triggerId = trigger.dataset.triggerId;
-    if (triggerId) {
-      lightbox.dataset.activeTrigger = triggerId;
+    if (!trigger.dataset.triggerId) {
+      trigger.dataset.triggerId = `lightbox-trigger-${Math.floor(Math.random() * 1e6)}`;
     }
+    lightbox.dataset.activeTrigger = trigger.dataset.triggerId || '';
     const closeButton = lightbox.querySelector('.lightbox-close');
     if (closeButton) {
       closeButton.focus();
@@ -341,28 +418,112 @@
     }
   };
 
+  const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  const toggleFieldError = (field, hasError) => {
+    const fieldWrapper = field.closest('.form-field');
+    if (!fieldWrapper) return;
+    const error = fieldWrapper.querySelector('.input-error');
+    if (!error) return;
+    field.setAttribute('aria-invalid', hasError ? 'true' : 'false');
+    error.hidden = !hasError;
+  };
+
+  const validateField = (field) => {
+    if (!(field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement)) {
+      return true;
+    }
+    const value = field.value.trim();
+    let isValid = true;
+
+    switch (field.name) {
+      case 'name':
+        isValid = value.length >= 2;
+        break;
+      case 'email':
+        isValid = emailPattern.test(value);
+        break;
+      case 'message':
+        isValid = value.length >= 10;
+        break;
+      default:
+        isValid = true;
+    }
+
+    toggleFieldError(field, !isValid);
+    return isValid;
+  };
+
   const initializeContactForm = () => {
     if (!contactForm) return;
+    const feedback = contactForm.querySelector('.form-feedback');
+    const nameField = contactForm.elements.namedItem('name');
+    const emailField = contactForm.elements.namedItem('email');
+    const messageField = contactForm.elements.namedItem('message');
+
     contactForm.addEventListener('submit', (event) => {
       event.preventDefault();
-      const feedback = contactForm.querySelector('.form-feedback');
+      const fields = [nameField, emailField, messageField];
+      let isValid = true;
+
+      fields.forEach((field) => {
+        if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+          const fieldValid = validateField(field);
+          if (!fieldValid) {
+            isValid = false;
+          }
+        }
+      });
+
+      if (!isValid) {
+        if (feedback) {
+          feedback.hidden = true;
+          feedback.classList.remove('is-visible');
+        }
+        return;
+      }
+
       if (feedback) {
         feedback.hidden = false;
         feedback.classList.add('is-visible');
-        setTimeout(() => {
+        window.setTimeout(() => {
           feedback.hidden = true;
           feedback.classList.remove('is-visible');
         }, 4000);
       }
+
       contactForm.reset();
+      fields.forEach((field) => {
+        if (field instanceof HTMLInputElement || field instanceof HTMLTextAreaElement) {
+          toggleFieldError(field, false);
+        }
+      });
+    });
+
+    contactForm.addEventListener('input', (event) => {
+      const target = event.target;
+      if (target instanceof HTMLInputElement || target instanceof HTMLTextAreaElement) {
+        if (['name', 'email', 'message'].includes(target.name)) {
+          validateField(target);
+        }
+      }
     });
   };
 
-  const initHeroSequence = () => {
-    window.addEventListener('load', initSequences);
-    if (document.readyState === 'complete') {
-      initSequences();
+  const getInitialLanguage = () => {
+    try {
+      const stored = window.localStorage.getItem(STORAGE_KEY);
+      if (stored === 'sr' || stored === 'en') {
+        return stored;
+      }
+    } catch (error) {
+      // Ignore storage errors
     }
+    const browserLanguage = navigator.language || (Array.isArray(navigator.languages) ? navigator.languages[0] : null);
+    if (typeof browserLanguage === 'string' && browserLanguage.toLowerCase().startsWith('sr')) {
+      return 'sr';
+    }
+    return DEFAULT_LANGUAGE;
   };
 
   const initLanguageToggle = () => {
@@ -400,21 +561,28 @@
   };
 
   const init = () => {
+    currentLanguage = getInitialLanguage();
     applyLanguage(currentLanguage);
+    initNavigation();
+    initLanguageToggle();
     initHeroSequence();
     initializeReveals();
-    initNavigation();
     initScrollWatcher();
     initializeLightbox();
     initializeContactForm();
-    initLanguageToggle();
 
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && nav?.classList.contains('open')) {
-        closeMobileNav();
+      if (event.key === 'Escape') {
+        if (nav?.classList.contains('open')) {
+          closeMobileNav();
+        }
+        if (lightbox && !lightbox.hasAttribute('hidden')) {
+          closeLightbox();
+        }
       }
     });
   };
 
   init();
 })();
+
