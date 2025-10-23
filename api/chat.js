@@ -1,8 +1,11 @@
 // Vercel Serverless Function for chatbot API
-const ChatbotService = require("../chatbot-service.js");
+const Groq = require("groq-sdk");
 
-// Initialize chatbot service
-const chatbot = new ChatbotService();
+// Initialize Groq client
+let groq = null;
+if (process.env.GROQ_API_KEY) {
+  groq = new Groq({ apiKey: process.env.GROQ_API_KEY });
+}
 
 module.exports = async (req, res) => {
   // CORS headers
@@ -50,14 +53,47 @@ module.exports = async (req, res) => {
     // Get page context (defaults to 'bakery')
     const context = pageContext || "bakery";
 
-    // Get chatbot response
-    const result = await chatbot.chat(message, conversationHistory, context);
+    // System prompts based on context
+    const bakeryPrompt = "You are a friendly AI assistant for Vespera Hearth Bakery. Provide helpful information about artisan breads, sourdough health benefits, and baking traditions.";
+    const portfolioPrompt = "You are an AI assistant helping clients learn about nidzp, an AI web architect. Emphasize lightning speed (60-min sprint), creative excellence, AI-powered workflow, and transparent pricing ($500-$3000). Contact: nikola.djokic10@gmail.com";
+    
+    const systemPrompt = context === "portfolio" ? portfolioPrompt : bakeryPrompt;
 
-    // Return response
+    // Try Groq AI
+    if (groq) {
+      try {
+        const completion = await groq.chat.completions.create({
+          messages: [
+            { role: "system", content: systemPrompt },
+            ...conversationHistory,
+            { role: "user", content: message }
+          ],
+          model: "llama3-8b-8192",
+          temperature: 0.7,
+          max_tokens: 500,
+        });
+
+        return res.status(200).json({
+          message: completion.choices[0]?.message?.content || "No response",
+          source: "ai",
+          model: "llama3-8b-8192",
+          context: context,
+          timestamp: new Date().toISOString(),
+        });
+      } catch (aiError) {
+        console.error("Groq AI error:", aiError);
+      }
+    }
+
+    // Fallback response
+    const fallbackMsg = context === "portfolio" 
+      ? "Hi! I'm experiencing technical difficulties. Please contact nidzp directly at nikola.djokic10@gmail.com or use the contact form above. Services include websites ($500+), apps ($1500-$3000), and AI integration. The 60-minute sprint process delivers results fast!"
+      : "Welcome to Vespera Hearth Bakery! 🥖 For menu info, health benefits of sourdough, or orders, please use our contact form. This is a demo site showcasing web development capabilities.";
+
     res.status(200).json({
-      message: result.response,
-      source: result.source,
-      model: result.model,
+      message: fallbackMsg,
+      source: "fallback",
+      model: "none",
       context: context,
       timestamp: new Date().toISOString(),
     });
