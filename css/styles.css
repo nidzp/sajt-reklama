@@ -737,6 +737,11 @@ p {
   z-index: 2000;
 }
 
+.lightbox[hidden] {
+  /* Force the closed modal to fully disappear and release underlying controls. */
+  display: none !important;
+}
+
 .lightbox-backdrop {
   position: absolute;
   inset: 0;
