@@ -4,10 +4,6 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
-    },
-    {
-      "src": "public/**",
-      "use": "@vercel/static"
     }
   ],
   "routes": [
@@ -16,8 +12,32 @@
       "dest": "server.js"
     },
     {
-      "src": "/(.*)",
+      "src": "/chatbot.js",
+      "dest": "public/chatbot.js"
+    },
+    {
+      "src": "/chatbot-styles.css",
+      "dest": "public/chatbot-styles.css"
+    },
+    {
+      "src": "/cookie-consent.js",
+      "dest": "public/cookie-consent.js"
+    },
+    {
+      "src": "/cookie-styles.css",
+      "dest": "public/cookie-styles.css"
+    },
+    {
+      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))",
       "dest": "public/$1"
+    },
+    {
+      "src": "/upload",
+      "dest": "public/upload.html"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "public/index.html"
     }
   ],
   "env": {

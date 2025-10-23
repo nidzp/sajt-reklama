@@ -2,10 +2,8 @@ class Chatbot {
   constructor() {
     this.isOpen = false;
     this.conversationHistory = [];
-    this.API_URL =
-      window.location.hostname === "localhost"
-        ? "http://localhost:3000/api"
-        : "/api";
+    // Fixed API URL for Vercel deployment
+    this.API_URL = "/api";
     this.isTyping = false;
 
     this.init();
@@ -20,10 +18,19 @@ class Chatbot {
   async checkStatus() {
     try {
       const response = await fetch(`${this.API_URL}/chat/status`);
+      if (!response.ok) {
+        console.log("Chatbot API not available, using fallback mode");
+        return;
+      }
       const data = await response.json();
-      console.log("Chatbot status:", data);
+      console.log("✓ Chatbot status:", data);
+
+      // Update UI based on status
+      if (!data.enabled || !data.hasApiKey) {
+        document.querySelector(".chatbot-status").textContent = "Fallback Mode";
+      }
     } catch (error) {
-      console.log("Chatbot status check failed:", error);
+      console.log("Chatbot running in fallback mode");
     }
   }
 
@@ -173,15 +180,16 @@ class Chatbot {
         },
         body: JSON.stringify({
           message: message,
-          history: this.conversationHistory,
+          history: this.conversationHistory.slice(-20), // Limit history size
         }),
       });
 
-      const data = await response.json();
-
       if (!response.ok) {
-        throw new Error(data.error || "Greška pri slanju poruke");
+        const errorData = await response.json();
+        throw new Error(errorData.error || "Network error");
       }
+
+      const data = await response.json();
 
       // Update conversation history
       this.conversationHistory.push(
@@ -189,7 +197,7 @@ class Chatbot {
         { role: "assistant", content: data.message }
       );
 
-      // Keep only last 10 messages
+      // Keep only last 20 messages (10 exchanges)
       if (this.conversationHistory.length > 20) {
         this.conversationHistory = this.conversationHistory.slice(-20);
       }
@@ -199,16 +207,21 @@ class Chatbot {
         this.addMessage(data.message, "bot", data.source);
 
         // Update model badge
-        if (data.model) {
-          document.getElementById("chat-model").textContent =
-            data.source === "ai" ? "AI Model" : "Auto Reply";
+        const modelBadge = document.getElementById("chat-model");
+        if (modelBadge && data.model) {
+          modelBadge.textContent = data.source === "ai" ? "🤖 AI" : "💬 Auto";
         }
       }, 500);
     } catch (error) {
       console.error("Chat error:", error);
       this.hideTyping();
+
+      // Friendly error message
       this.addMessage(
-        "Izvinjavam se, došlo je do greške. Molimo pokušajte ponovo ili kontaktirajte podršku.",
+        "😊 Trenutno imam tehničke poteškoće. Evo nekoliko načina da dobijete pomoć:\n\n" +
+          "📧 Email: info@sajt-reklama.rs\n" +
+          "📞 Telefon: +381 11 123 4567\n" +
+          "💬 Ili probajte ponovo za trenutak!",
         "bot",
         "error"
       );
@@ -243,13 +256,16 @@ class Chatbot {
   }
 
   formatMessage(text) {
+    // Escape HTML to prevent XSS
+    text = text.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+
     // Convert line breaks
     text = text.replace(/\n/g, "<br>");
 
     // Convert URLs to links
     text = text.replace(
       /(https?:\/\/[^\s]+)/g,
-      '<a href="$1" target="_blank" rel="noopener">$1</a>'
+      '<a href="$1" target="_blank" rel="noopener noreferrer">$1</a>'
     );
 
     // Convert emails to mailto links
@@ -274,7 +290,17 @@ class Chatbot {
 
 // Initialize chatbot when DOM is ready
 if (document.readyState === "loading") {
-  document.addEventListener("DOMContentLoaded", () => new Chatbot());
+  document.addEventListener("DOMContentLoaded", () => {
+    try {
+      new Chatbot();
+    } catch (error) {
+      console.error("Failed to initialize chatbot:", error);
+    }
+  });
 } else {
-  new Chatbot();
+  try {
+    new Chatbot();
+  } catch (error) {
+    console.error("Failed to initialize chatbot:", error);
+  }
 }

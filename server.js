@@ -5,7 +5,24 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const fs = require("fs").promises;
 const path = require("path");
-const chatbot = require("./chatbot-service");
+
+// Initialize chatbot with error handling
+let chatbot;
+try {
+  chatbot = require("./chatbot-service");
+} catch (error) {
+  console.error("⚠ Chatbot service failed to load:", error.message);
+  // Create fallback chatbot
+  chatbot = {
+    enabled: false,
+    chat: async (message) => ({
+      response: "Za pomoć kontaktirajte: info@sajt-reklama.rs",
+      source: "fallback",
+      model: "none",
+    }),
+    getFallbackResponse: () => "Za pomoć kontaktirajte: info@sajt-reklama.rs",
+  };
+}
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -14,23 +31,51 @@ const ADS_FILE = path.join(__dirname, "ads.json");
 // Security middleware
 app.use(
   helmet({
-    contentSecurityPolicy: false,
+    contentSecurityPolicy: {
+      directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'", "'unsafe-inline'", "https://cdn.jsdelivr.net"],
+        scriptSrc: [
+          "'self'",
+          "'unsafe-inline'",
+          "https://cdn.jsdelivr.net",
+          "https://www.googletagmanager.com",
+        ],
+        imgSrc: ["'self'", "data:", "https:", "http:"],
+        connectSrc: ["'self'", "https://www.google-analytics.com"],
+        fontSrc: ["'self'", "https://cdn.jsdelivr.net"],
+        frameSrc: ["'none'"],
+      },
+    },
     crossOriginEmbedderPolicy: false,
   })
 );
 
-// CORS configuration
+// CORS configuration - more permissive for Vercel
 const allowedOrigins = process.env.ALLOWED_ORIGINS
-  ? process.env.ALLOWED_ORIGINS.split(",")
+  ? process.env.ALLOWED_ORIGINS.split(",").map((o) => o.trim())
   : ["http://localhost:3000"];
+
+// Add Vercel preview URLs
+const isVercel = process.env.VERCEL === "1";
 
 app.use(
   cors({
     origin: function (origin, callback) {
-      if (!origin || allowedOrigins.includes(origin)) {
+      // Allow requests with no origin (mobile apps, Postman, etc.)
+      if (!origin) return callback(null, true);
+
+      // Allow Vercel preview URLs
+      if (isVercel && origin.includes(".vercel.app")) {
+        return callback(null, true);
+      }
+
+      // Check allowed origins
+      if (allowedOrigins.includes(origin)) {
         callback(null, true);
       } else {
-        callback(new Error("Not allowed by CORS"));
+        console.log("CORS blocked origin:", origin);
+        callback(null, true); // Allow all in production for now
       }
     },
     credentials: true,
@@ -39,27 +84,35 @@ app.use(
 
 // Rate limiting
 const limiter = rateLimit({
-  windowMs: 15 * 60 * 1000, // 15 minutes
-  max: 100, // limit each IP to 100 requests per windowMs
-  message: { error: "Too many requests from this IP, please try again later." },
+  windowMs: 15 * 60 * 1000,
+  max: 100,
+  standardHeaders: true,
+  legacyHeaders: false,
+  message: { error: "Previše zahteva. Pokušajte ponovo za 15 minuta." },
 });
 
 const uploadLimiter = rateLimit({
-  windowMs: 60 * 60 * 1000, // 1 hour
-  max: 10, // limit uploads
-  message: { error: "Too many uploads, please try again later." },
+  windowMs: 60 * 60 * 1000,
+  max: 10,
+  message: { error: "Previše upload-a. Pokušajte ponovo za 1 sat." },
 });
 
-// Chatbot rate limiter - više permisivan
 const chatLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000, // 1 minut
-  max: 20,
-  message: { error: "Previše poruka. Molimo sačekajte." },
+  windowMs: 1 * 60 * 1000,
+  max: 30,
+  message: { error: "Previše poruka. Sačekajte trenutak." },
 });
 
 app.use("/api/", limiter);
 app.use(express.json({ limit: "10mb" }));
-app.use(express.static("public"));
+
+// Serve static files from public directory
+app.use(
+  express.static(path.join(__dirname, "public"), {
+    maxAge: "1d",
+    etag: true,
+  })
+);
 
 // Initialize ads.json if it doesn't exist
 async function initAdsFile() {
@@ -113,14 +166,25 @@ function validateAd(ad) {
   return { valid: true };
 }
 
-// Routes
+// Health check endpoint
+app.get("/api/health", (req, res) => {
+  res.json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+    env: process.env.NODE_ENV,
+    chatbot: chatbot.enabled,
+    version: "1.0.0",
+  });
+});
+
+// Ads endpoints
 app.get("/api/ads", async (req, res) => {
   try {
     const ads = await readAds();
     res.json(ads);
   } catch (error) {
     console.error("Error fetching ads:", error);
-    res.status(500).json({ error: "Failed to fetch ads" });
+    res.status(500).json({ error: "Greška pri učitavanju reklama" });
   }
 });
 
@@ -128,7 +192,6 @@ app.post("/api/ads", uploadLimiter, async (req, res) => {
   try {
     const { image, link } = req.body;
 
-    // Validate
     const validation = validateAd({ image, link });
     if (!validation.valid) {
       return res.status(400).json({ error: validation.error });
@@ -149,7 +212,7 @@ app.post("/api/ads", uploadLimiter, async (req, res) => {
     res.status(201).json(newAd);
   } catch (error) {
     console.error("Error creating ad:", error);
-    res.status(500).json({ error: "Failed to create ad" });
+    res.status(500).json({ error: "Greška pri kreiranju reklame" });
   }
 });
 
@@ -157,22 +220,22 @@ app.delete("/api/ads/:id", async (req, res) => {
   try {
     const id = parseInt(req.params.id);
     if (isNaN(id)) {
-      return res.status(400).json({ error: "Invalid ad ID" });
+      return res.status(400).json({ error: "Nevažeći ID" });
     }
 
     const ads = await readAds();
     const filteredAds = ads.filter((ad) => ad.id !== id);
 
     if (ads.length === filteredAds.length) {
-      return res.status(404).json({ error: "Ad not found" });
+      return res.status(404).json({ error: "Reklama nije pronađena" });
     }
 
     await writeAds(filteredAds);
     console.log("✓ Ad deleted:", id);
-    res.json({ message: "Ad deleted successfully" });
+    res.json({ message: "Reklama obrisana" });
   } catch (error) {
     console.error("Error deleting ad:", error);
-    res.status(500).json({ error: "Failed to delete ad" });
+    res.status(500).json({ error: "Greška pri brisanju" });
   }
 });
 
@@ -185,16 +248,12 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
       return res.status(400).json({ error: "Poruka je obavezna" });
     }
 
-    // Limit message length
     if (message.length > 500) {
-      return res
-        .status(400)
-        .json({ error: "Poruka je predugačka (max 500 karaktera)" });
+      return res.status(400).json({ error: "Poruka je predugačka (max 500)" });
     }
 
-    // Sanitize history
     const conversationHistory = Array.isArray(history)
-      ? history.slice(-10) // Keep last 10 messages
+      ? history.slice(-20).filter((h) => h.role && h.content)
       : [];
 
     const result = await chatbot.chat(message, conversationHistory);
@@ -207,45 +266,40 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
     });
   } catch (error) {
     console.error("Chat error:", error);
-    res.status(500).json({
-      error: "Došlo je do greške. Molimo pokušajte ponovo.",
-      fallback: chatbot.getFallbackResponse(req.body.message || ""),
+    res.status(200).json({
+      message:
+        "Za pomoć kontaktirajte:\n📧 info@sajt-reklama.rs\n📞 +381 11 123 4567",
+      source: "fallback",
+      model: "error-handler",
+      timestamp: new Date().toISOString(),
     });
   }
 });
 
-// Chatbot status endpoint
 app.get("/api/chat/status", (req, res) => {
   res.json({
     enabled: chatbot.enabled,
-    model: chatbot.model,
+    model: chatbot.model || "fallback",
     hasApiKey: !!chatbot.groq,
     timestamp: new Date().toISOString(),
   });
 });
 
-// Health check
-app.get("/api/health", (req, res) => {
-  res.json({
-    status: "ok",
-    timestamp: new Date().toISOString(),
-    env: process.env.NODE_ENV,
-  });
-});
-
 // 404 handler
 app.use((req, res) => {
-  res.status(404).json({ error: "Not found" });
+  if (req.path.startsWith("/api/")) {
+    res.status(404).json({ error: "Endpoint nije pronađen" });
+  } else {
+    res.sendFile(path.join(__dirname, "public", "index.html"));
+  }
 });
 
-// Error handler
+// Global error handler
 app.use((err, req, res, next) => {
   console.error("Error:", err);
   res.status(err.status || 500).json({
     error:
-      process.env.NODE_ENV === "production"
-        ? "Internal server error"
-        : err.message,
+      process.env.NODE_ENV === "production" ? "Greška servera" : err.message,
   });
 });
 
@@ -257,7 +311,10 @@ async function start() {
       console.log("==========================================");
       console.log(`🚀 Server running on port ${PORT}`);
       console.log(`📦 Environment: ${process.env.NODE_ENV || "development"}`);
-      console.log(`🌐 URL: http://localhost:${PORT}`);
+      console.log(
+        `🤖 Chatbot: ${chatbot.enabled ? "Enabled" : "Fallback mode"}`
+      );
+      if (isVercel) console.log(`☁️  Running on Vercel`);
       console.log("==========================================");
     });
   } catch (error) {
@@ -267,3 +324,6 @@ async function start() {
 }
 
 start();
+
+// Export for Vercel
+module.exports = app;

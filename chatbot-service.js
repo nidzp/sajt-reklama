@@ -6,17 +6,33 @@ class ChatbotService {
     this.enabled = process.env.CHATBOT_ENABLED === "true";
     this.model = process.env.AI_MODEL || "llama3-8b-8192";
 
+    // Try to initialize Groq
     if (
       this.enabled &&
       process.env.GROQ_API_KEY &&
-      process.env.GROQ_API_KEY !== "gsk_your_api_key_here"
+      process.env.GROQ_API_KEY !== "gsk_your_api_key_here" &&
+      process.env.GROQ_API_KEY.startsWith("gsk_")
     ) {
-      this.groq = new Groq({
-        apiKey: process.env.GROQ_API_KEY,
-      });
-      console.log("✓ AI Chatbot enabled with Groq");
+      try {
+        const Groq = require("groq-sdk");
+        this.groq = new Groq({
+          apiKey: process.env.GROQ_API_KEY,
+        });
+        console.log("✓ AI Chatbot enabled with Groq (" + this.model + ")");
+      } catch (error) {
+        console.error("⚠ Failed to initialize Groq:", error.message);
+        this.enabled = false;
+      }
     } else {
       console.log("⚠ AI Chatbot disabled - using fallback responses");
+      console.log(
+        "  Reason:",
+        !this.enabled
+          ? "Disabled in config"
+          : !process.env.GROQ_API_KEY
+          ? "No API key"
+          : "Invalid API key format"
+      );
     }
 
     this.systemPrompt = `Ti si AI asistent za platformu za reklame "Sajt Reklama". 
@@ -38,23 +54,7 @@ Ako ne znaš odgovor, uputi korisnika da kontaktira podršku na: info@sajt-rekla
       upload:
         "Da postavite reklamu:\n1. Kliknite na 'Upload' dugme\n2. Unesite URL slike\n3. Dodajte link ka vašem sajtu\n4. Kliknite 'Upload Reklamu'\n\nCena osnovnog paketa je 100 RSD/mesec.",
       prices:
-        "Naši paketi:\n\n📦 BASIC - 100 RSD/mesec\n- Do 5 reklama\n- Osnovna analitika\n\n⭐ PREMIUM - 500 RSD/mesec\n- Do 20 reklama\n- Napredna analitika\n- Prioritetna podrška\n\n👑 VIP - 1000 RSD/mesec\n- Neograničeno reklama\n- Premium analitika\n- Dedicated menadžer",
-      contact:
-        "📧 Email: info@sajt-reklama.rs\n📞 Telefon: +381 11 123 4567\n🕒 Radno vreme: Pon-Pet 09:00-17:00",
-      tech: "Za tehničku podršku:\n- Email: tech@sajt-reklama.rs\n- Live chat: Dostupan radnim danima\n- Ticket sistem: support.sajt-reklama.rs",
-    };
-  }
-
-  detectIntent(message) {
-    const lower = message.toLowerCase();
-
-    if (lower.match(/zdravo|cao|hi|hello|pozdrav/)) return "greeting";
-    if (lower.match(/upload|postav|kako|dodaj|reklam/)) return "upload";
-    if (lower.match(/cena|cene|paket|paketi|kosta|price|pricing/))
-      return "prices";
-    if (lower.match(/kontakt|email|telefon|poziv|reach/)) return "contact";
-    if (lower.match(/problem|greska|bug|ne radi|error|tech|podrska/))
-      return "tech";
+        "Naši paketi:\n\n📦 BASIC - 100 RSD/mesec\n- Do 5 reklama\n- Osnovna analitika\n\n⭐ PREMIUM - 500 RSD/mesec\n- Do 20 reklama\n- Napredna analitika\n- Prioritetna podrška\n\n👑 VIP - 100
 
     return "default";
   }
