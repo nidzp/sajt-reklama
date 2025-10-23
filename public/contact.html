@@ -274,54 +274,65 @@
     <div class="contact-container">
       <!-- Portfolio Info -->
       <div class="portfolio-section">
-        <h2>🎨 Web Developer</h2>
+        <h2>🚀 nidzp – AI Web Architect</h2>
         <p>
-          Hi! I'm a web developer specializing in creating beautiful, functional
-          websites for small businesses, bakeries, restaurants, and artisan
-          shops. This bakery website you're viewing? It's one of my showcase
-          projects.
+          <strong>Innovation Meets Speed:</strong> I'm an AI-driven web architect who turns bold ideas into live products at lightning speed. With a multidisciplinary background in video editing, design, and marketing, I bring a creative edge to tech projects. I've been leveraging cutting-edge tools (think neural networks and intelligent automation) to deliver results before most people even knew such AI was possible.
+        </p>
+        <p>
+          If you have a vision that seems too ambitious or a deadline that's "impossible," I'm the person who makes it happen – often in hours, not weeks.
         </p>
 
-        <h3>Why Work With Me?</h3>
+        <h3>⚡ The 60-Minute Sprint</h3>
         <p>
-          ✨ <strong>Modern Design</strong> - Clean, professional aesthetics
-          that convert visitors to customers<br />
-          🤖 <strong>AI Integration</strong> - Smart chatbots that answer
-          customer questions 24/7<br />
-          📱 <strong>Mobile-First</strong> - Perfect on phones, tablets, and
-          desktops<br />
-          ⚡ <strong>Fast & Secure</strong> - Optimized loading, SSL security,
-          GDPR compliant<br />
-          💬 <strong>Ongoing Support</strong> - I'm here even after launch
+          Imagine your idea brought to life in the time it takes to have a coffee. My signature process is a focused <strong>60-minute development sprint</strong> where AI speed meets human creativity:
+        </p>
+        <p>
+          <strong>1. Brief & Brainstorm</strong> - We clarify your goal. I quickly blueprint a solution.<br />
+          <strong>2. AI-Assisted Build</strong> - Generate drafts for design, copy, and code in minutes.<br />
+          <strong>3. Real-time Refinement</strong> - Iterate on-the-fly with your feedback.<br />
+          <strong>4. Launch-Ready Delivery</strong> - Functional, polished product ready to go live.
+        </p>
+        <p style="font-style: italic; color: var(--accent-gold);">
+          This hyper-efficient process is transparent and exhilarating. You're essentially watching your idea leap from concept to reality in front of your eyes.
         </p>
 
-        <h3>Technologies I Use</h3>
+        <h3>💡 Why Choose Me?</h3>
+        <p>
+          🚀 <strong>Lightning-Fast Turnaround</strong> - I thrive under pressure. Impossible deadline? I specialize in delivering quality work under insanely tight timelines.<br />
+          💡 <strong>Creative + Technical Excellence</strong> - My background in design and media means your project isn't just coded well – it's visually engaging and market-savvy.<br />
+          ⚡ <strong>AI-Optimized Workflow</strong> - By harnessing advanced AI tools behind the scenes, I eliminate repetitive "busywork." This efficiency slashes typical costs (up to 90% vs. traditional agencies).<br />
+          📱 <strong>Mobile-First & Secure</strong> - Modern best practices: mobile-responsive, security hardening, GDPR compliance where needed.<br />
+          🤝 <strong>Post-Launch Support</strong> - Ongoing updates and support are part of the package. Your success is my success.
+        </p>
+
+        <h3>🛠️ What I Build</h3>
         <div class="skills-grid">
-          <div class="skill-tag">React & Next.js</div>
-          <div class="skill-tag">Node.js & Express</div>
-          <div class="skill-tag">AI Chatbots (Groq)</div>
-          <div class="skill-tag">Modern CSS/Animations</div>
-          <div class="skill-tag">MongoDB & PostgreSQL</div>
-          <div class="skill-tag">Vercel Deployment</div>
+          <div class="skill-tag">Blazing-Fast Websites</div>
+          <div class="skill-tag">Custom Applications</div>
+          <div class="skill-tag">AI Chatbot Integration</div>
+          <div class="skill-tag">E-commerce Platforms</div>
+          <div class="skill-tag">Interactive Games/Prototypes</div>
+          <div class="skill-tag">Rapid Consulting & Iteration</div>
         </div>
 
         <div class="info-box">
-          <h4>💰 Pricing</h4>
+          <h4>💰 Transparent Pricing</h4>
           <p>
-            <strong>Landing Page:</strong> Starting from $500<br />
-            <strong>Full Website + AI Bot:</strong> $1,500 - $3,000<br />
-            <strong>E-commerce:</strong> Custom quote<br />
-            <em>Payment plans available. Free consultation!</em>
+            <strong>Landing Pages:</strong> ~$500 (1-2 days)<br />
+            <strong>Full AI-Enhanced Websites:</strong> $1,500 - $3,000 (1-2 weeks)<br />
+            <strong>Custom Applications/Games:</strong> Custom quote<br />
+            <strong>AI Chatbot Add-on:</strong> Included or +$300 standalone<br />
+            <em>Free consultation always included. Payment plans available.</em>
           </p>
         </div>
 
         <div class="info-box" style="border-left-color: var(--accent-rose)">
           <h4>🔒 Why Anonymous?</h4>
           <p>
-            I prefer to let my work speak for itself. Quality code, happy
-            clients, and beautiful results matter more than personal branding.
-            Check my portfolio, talk to me via AI assistant below, and you'll
-            see I'm the real deal.
+            I choose to remain anonymous (goes by <strong>nidzp</strong>) to let my work speak for itself. Professionalism and results matter more than personal fame. This bakery site you're viewing? It's a demo showcasing what I can build. Quality code, happy clients, and beautiful results – that's what counts.
+          </p>
+          <p style="margin-top: 0.5rem;">
+            📧 Direct contact: <strong>nikola.djokic10@gmail.com</strong>
           </p>
         </div>
       </div>
@@ -440,14 +451,32 @@
             message: document.getElementById("message").value,
           };
 
-          // In production, this would send to your backend
-          console.log("Form submitted:", formData);
+          // Format email body
+          const emailSubject = `New Project Inquiry from ${formData.name}`;
+          const emailBody = `
+Name: ${formData.name}
+Email: ${formData.email}
+Phone: ${formData.phone || 'Not provided'}
+Project Type: ${formData.projectType}
+Budget: ${formData.budget}
 
-          alert(
-            `Thanks ${formData.name}! 🎉\n\nI'll review your project details and get back to you within 24 hours.\n\nIn the meantime, feel free to chat with my AI assistant if you have any questions!\n\n- nidzp`
-          );
+Message:
+${formData.message}
 
-          e.target.reset();
+---
+Sent via nidzp portfolio contact form
+          `.trim();
+
+          // Open email client with pre-filled data
+          window.location.href = `mailto:nikola.djokic10@gmail.com?subject=${encodeURIComponent(emailSubject)}&body=${encodeURIComponent(emailBody)}`;
+
+          // Show confirmation
+          setTimeout(() => {
+            alert(
+              `Thanks ${formData.name}! 🎉\n\nYour email client should open with your inquiry pre-filled.\n\nI'll review your project details and get back to you within 24 hours.\n\nFeel free to chat with my AI assistant if you have any questions!\n\n- nidzp`
+            );
+            e.target.reset();
+          }, 500);
         });
 
       // Add page context for chatbot
