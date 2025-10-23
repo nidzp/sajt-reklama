@@ -4,40 +4,56 @@
     {
       "src": "server.js",
       "use": "@vercel/node"
+    },
+    {
+      "src": "public/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "css/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "js/**",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "assets/**",
+      "use": "@vercel/static"
     }
   ],
   "routes": [
     {
       "src": "/api/(.*)",
-      "dest": "server.js"
+      "dest": "/server.js"
     },
     {
-      "src": "/chatbot.js",
-      "dest": "public/chatbot.js"
+      "src": "/css/(.*)",
+      "dest": "/css/$1"
     },
     {
-      "src": "/chatbot-styles.css",
-      "dest": "public/chatbot-styles.css"
+      "src": "/js/(.*)",
+      "dest": "/js/$1"
     },
     {
-      "src": "/cookie-consent.js",
-      "dest": "public/cookie-consent.js"
+      "src": "/assets/(.*)",
+      "dest": "/assets/$1"
     },
     {
-      "src": "/cookie-styles.css",
-      "dest": "public/cookie-styles.css"
-    },
-    {
-      "src": "/(.*\\.(css|js|png|jpg|jpeg|gif|svg|ico))",
-      "dest": "public/$1"
+      "src": "/(chatbot\\.js|chatbot-styles\\.css|cookie-consent\\.js|cookie-styles\\.css)",
+      "dest": "/public/$1"
     },
     {
       "src": "/upload",
-      "dest": "public/upload.html"
+      "dest": "/public/upload.html"
+    },
+    {
+      "src": "/",
+      "dest": "/public/index.html"
     },
     {
       "src": "/(.*)",
-      "dest": "public/index.html"
+      "dest": "/public/index.html"
     }
   ],
   "env": {
