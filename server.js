@@ -5,6 +5,7 @@ const helmet = require("helmet");
 const rateLimit = require("express-rate-limit");
 const fs = require("fs").promises;
 const path = require("path");
+const chatbot = require("./chatbot-service");
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -47,6 +48,13 @@ const uploadLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
   max: 10, // limit uploads
   message: { error: "Too many uploads, please try again later." },
+});
+
+// Chatbot rate limiter - više permisivan
+const chatLimiter = rateLimit({
+  windowMs: 1 * 60 * 1000, // 1 minut
+  max: 20,
+  message: { error: "Previše poruka. Molimo sačekajte." },
 });
 
 app.use("/api/", limiter);
@@ -166,6 +174,52 @@ app.delete("/api/ads/:id", async (req, res) => {
     console.error("Error deleting ad:", error);
     res.status(500).json({ error: "Failed to delete ad" });
   }
+});
+
+// Chatbot endpoints
+app.post("/api/chat", chatLimiter, async (req, res) => {
+  try {
+    const { message, history } = req.body;
+
+    if (!message || typeof message !== "string" || message.trim() === "") {
+      return res.status(400).json({ error: "Poruka je obavezna" });
+    }
+
+    // Limit message length
+    if (message.length > 500) {
+      return res.status(400).json({ error: "Poruka je predugačka (max 500 karaktera)" });
+    }
+
+    // Sanitize history
+    const conversationHistory = Array.isArray(history)
+      ? history.slice(-10) // Keep last 10 messages
+      : [];
+
+    const result = await chatbot.chat(message, conversationHistory);
+
+    res.json({
+      message: result.response,
+      source: result.source,
+      model: result.model,
+      timestamp: new Date().toISOString(),
+    });
+  } catch (error) {
+    console.error("Chat error:", error);
+    res.status(500).json({
+      error: "Došlo je do greške. Molimo pokušajte ponovo.",
+      fallback: chatbot.getFallbackResponse(req.body.message || ""),
+    });
+  }
+});
+
+// Chatbot status endpoint
+app.get("/api/chat/status", (req, res) => {
+  res.json({
+    enabled: chatbot.enabled,
+    model: chatbot.model,
+    hasApiKey: !!chatbot.groq,
+    timestamp: new Date().toISOString(),
+  });
 });
 
 // Health check

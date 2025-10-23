@@ -1,101 +1,112 @@
 <!DOCTYPE html>
 <html lang="sr">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Upload Reklamu</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="cookie-styles.css">
-</head>
-<body>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="cookie-styles.css" />
+    <link rel="stylesheet" href="chatbot-styles.css" />
+  </head>
+  <body>
     <div class="container mt-5">
-        <h1>Upload Reklamu</h1>
-        <form id="uploadForm">
-            <div class="mb-3">
-                <label for="imageUrl" class="form-label">URL slike</label>
-                <input type="text" class="form-control" id="imageUrl" required>
-            </div>
-            <div class="mb-3">
-                <label for="adLink" class="form-label">URL reklame</label>
-                <input type="text" class="form-control" id="adLink" required>
-            </div>
-            <button type="submit" class="btn btn-primary">Upload Reklamu</button>
-        </form>
-        <div id="preview" class="mt-3" style="display:none;">
-            <h3>Pregled</h3>
-            <img id="previewImage" src="" alt="Pregled slike" class="img-fluid">
-            <a id="previewLink" href="" target="_blank" class="btn btn-success mt-2">Pogledajte reklamu</a>
+      <h1>Upload Reklamu</h1>
+      <form id="uploadForm">
+        <div class="mb-3">
+          <label for="imageUrl" class="form-label">URL slike</label>
+          <input type="text" class="form-control" id="imageUrl" required />
         </div>
+        <div class="mb-3">
+          <label for="adLink" class="form-label">URL reklame</label>
+          <input type="text" class="form-control" id="adLink" required />
+        </div>
+        <button type="submit" class="btn btn-primary">Upload Reklamu</button>
+      </form>
+      <div id="preview" class="mt-3" style="display: none">
+        <h3>Pregled</h3>
+        <img id="previewImage" src="" alt="Pregled slike" class="img-fluid" />
+        <a id="previewLink" href="" target="_blank" class="btn btn-success mt-2"
+          >Pogledajte reklamu</a
+        >
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script src="cookie-consent.js"></script>
+    <script src="chatbot.js"></script>
     <script>
-        const API_URL = window.location.hostname === 'localhost' 
-            ? 'http://localhost:3000/api' 
-            : '/api';
+      const API_URL =
+        window.location.hostname === "localhost"
+          ? "http://localhost:3000/api"
+          : "/api";
 
-        document.getElementById('imageUrl').addEventListener('input', function() {
-            const imageUrl = this.value.trim();
-            const previewImage = document.getElementById('previewImage');
-            const previewLink = document.getElementById('previewLink');
+      document
+        .getElementById("imageUrl")
+        .addEventListener("input", function () {
+          const imageUrl = this.value.trim();
+          const previewImage = document.getElementById("previewImage");
+          const previewLink = document.getElementById("previewLink");
 
-            if (imageUrl) {
-                previewImage.src = imageUrl;
-                previewLink.href = imageUrl;
-                document.getElementById('preview').style.display = 'block';
-            } else {
-                document.getElementById('preview').style.display = 'none';
-            }
+          if (imageUrl) {
+            previewImage.src = imageUrl;
+            previewLink.href = imageUrl;
+            document.getElementById("preview").style.display = "block";
+          } else {
+            document.getElementById("preview").style.display = "none";
+          }
         });
 
-        async function uploadAd(event) {
-            event.preventDefault();
-            
-            const imageUrl = document.getElementById('imageUrl').value.trim();
-            const adLink = document.getElementById('adLink').value.trim();
-            
-            if (!imageUrl || !adLink) {
-                alert('Molimo unesite oba polja!');
-                return;
-            }
+      async function uploadAd(event) {
+        event.preventDefault();
 
-            const submitBtn = document.querySelector('button[type="submit"]');
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Uploadujem...';
+        const imageUrl = document.getElementById("imageUrl").value.trim();
+        const adLink = document.getElementById("adLink").value.trim();
 
-            try {
-                const response = await fetch(`${API_URL}/ads`, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({
-                        image: imageUrl,
-                        link: adLink
-                    })
-                });
-
-                const data = await response.json();
-
-                if (!response.ok) {
-                    throw new Error(data.error || 'Greška pri upload-u');
-                }
-
-                alert('Reklama je uspešno dodata!');
-                document.getElementById('uploadForm').reset();
-                document.getElementById('preview').style.display = 'none';
-                
-            } catch (error) {
-                console.error('Greška:', error);
-                alert('Greška: ' + error.message);
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = 'Upload Reklamu';
-            }
+        if (!imageUrl || !adLink) {
+          alert("Molimo unesite oba polja!");
+          return;
         }
 
-        document.getElementById('uploadForm').addEventListener('submit', uploadAd);
+        const submitBtn = document.querySelector('button[type="submit"]');
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Uploadujem...";
+
+        try {
+          const response = await fetch(`${API_URL}/ads`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              image: imageUrl,
+              link: adLink,
+            }),
+          });
+
+          const data = await response.json();
+
+          if (!response.ok) {
+            throw new Error(data.error || "Greška pri upload-u");
+          }
+
+          alert("Reklama je uspešno dodata!");
+          document.getElementById("uploadForm").reset();
+          document.getElementById("preview").style.display = "none";
+        } catch (error) {
+          console.error("Greška:", error);
+          alert("Greška: " + error.message);
+        } finally {
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Upload Reklamu";
+        }
+      }
+
+      document
+        .getElementById("uploadForm")
+        .addEventListener("submit", uploadAd);
     </script>
-</body>
+  </body>
 </html>
