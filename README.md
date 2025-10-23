@@ -188,6 +188,7 @@ fetch("/api/chat", {
 ### Method 1: GitHub Integration (Recommended)
 
 1. **Push to GitHub:**
+
    ```bash
    git add .
    git commit -m "Ready for deployment"
@@ -195,6 +196,7 @@ fetch("/api/chat", {
    ```
 
 2. **Connect Vercel:**
+
    - Go to [vercel.com](https://vercel.com) and login
    - Click "Add New Project"
    - Import your GitHub repository
@@ -202,15 +204,15 @@ fetch("/api/chat", {
 
 3. **Add Environment Variables:**
    In Vercel dashboard → Settings → Environment Variables:
-   
-   | Variable | Value | Description |
-   |----------|-------|-------------|
-   | `NODE_ENV` | `production` | Environment mode |
-   | `ALLOWED_ORIGINS` | `https://your-app.vercel.app` | CORS allowed origins |
-   | `GROQ_API_KEY` | `gsk_your_actual_key` | Groq API key (get free at console.groq.com) |
-   | `AI_MODEL` | `llama3-8b-8192` | AI model to use |
-   | `CHATBOT_ENABLED` | `true` | Enable/disable chatbot |
-   | `GOOGLE_ANALYTICS_ID` | `G-XXXXXXXXXX` | (Optional) GA4 tracking ID |
+
+   | Variable              | Value                         | Description                                 |
+   | --------------------- | ----------------------------- | ------------------------------------------- |
+   | `NODE_ENV`            | `production`                  | Environment mode                            |
+   | `ALLOWED_ORIGINS`     | `https://your-app.vercel.app` | CORS allowed origins                        |
+   | `GROQ_API_KEY`        | `gsk_your_actual_key`         | Groq API key (get free at console.groq.com) |
+   | `AI_MODEL`            | `llama3-8b-8192`              | AI model to use                             |
+   | `CHATBOT_ENABLED`     | `true`                        | Enable/disable chatbot                      |
+   | `GOOGLE_ANALYTICS_ID` | `G-XXXXXXXXXX`                | (Optional) GA4 tracking ID                  |
 
 4. **Deploy:**
    - Click "Deploy"
@@ -241,14 +243,17 @@ vercel --prod
 ### Troubleshooting Vercel Deployment
 
 **404 NOT_FOUND Error:**
+
 - ✅ Fixed in `vercel.json` with proper static file serving
 - Check that `vercel.json` includes builds for `public/`, `css/`, `js/`, `assets/`
 
 **API not working:**
+
 - Verify environment variables are set in Vercel dashboard
 - Check Vercel logs: Dashboard → Deployments → [Latest] → View Function Logs
 
 **Chatbot not responding:**
+
 - Ensure `GROQ_API_KEY` is set correctly
 - Chatbot will use fallback responses if API key is missing
 - Test status endpoint: `https://your-app.vercel.app/api/chat/status`
@@ -258,23 +263,28 @@ vercel --prod
 ### Quick Smoke Test (2 minutes)
 
 1. **Visit Homepage:**
+
    ```
    https://sajt-reklama.vercel.app/
    ```
+
    - ✅ Purple gradient theme loads
    - ✅ "Sajt Reklama Platform" title visible
    - ✅ Features section shows 6 cards
    - ✅ Demo ads display in grid
 
 2. **Test Upload:**
+
    ```
    https://sajt-reklama.vercel.app/upload.html
    ```
+
    - ✅ Form visible with 2 input fields
    - ✅ Preview updates when typing image URL
    - ✅ Submit creates new ad
 
 3. **Test AI Chatbot:**
+
    - ✅ Chat widget button (bottom right corner)
    - ✅ Click opens chat window
    - ✅ Type "Kako da postavim reklamu?" and press Enter
