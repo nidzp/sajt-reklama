@@ -65,12 +65,12 @@ class Chatbot {
           <div class="chatbot-message bot">
             <div class="message-avatar">🤖</div>
             <div class="message-content">
-              <p>Hello! 👋 Welcome to my portfolio.</p>
-              <p>I'm an AI assistant here to answer your questions about my work, skills, and experience. How can I help you today?</p>
+              <p>Hello! 👋 Welcome to Vespera Hearth Bakery.</p>
+              <p>I'm your AI baking assistant. I can help you with our menu, health benefits of sourdough, baking history, or placing an order!</p>
               <div class="quick-actions">
-                <button class="quick-action" data-message="Tell me about your projects">� Projects</button>
-                <button class="quick-action" data-message="What are your skills?">� Skills</button>
-                <button class="quick-action" data-message="How can I contact you?">� Contact</button>
+                <button class="quick-action" data-message="What are your best-selling breads?">🥖 Best Sellers</button>
+                <button class="quick-action" data-message="Tell me about health benefits of sourdough">💚 Health Benefits</button>
+                <button class="quick-action" data-message="How do I order?">📦 Order Info</button>
               </div>
             </div>
           </div>
@@ -173,6 +173,10 @@ class Chatbot {
     this.showTyping();
 
     try {
+      // Detect page context
+      const pageContext = window.portfolioPageContext?.type || 
+                         (window.location.pathname.includes('contact') ? 'portfolio' : 'bakery');
+
       const response = await fetch(`${this.API_URL}/chat`, {
         method: "POST",
         headers: {
@@ -181,6 +185,7 @@ class Chatbot {
         body: JSON.stringify({
           message: message,
           history: this.conversationHistory.slice(-20), // Limit history size
+          pageContext: pageContext
         }),
       });
 

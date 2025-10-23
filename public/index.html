@@ -1,2731 +1,434 @@
-<!DOCTYPE html><!DOCTYPE html><!DOCTYPE html>
-
-<html lang="en">
-
-<head><html lang="en"><html lang="sr">
-
+﻿<!DOCTYPE html>
+<html lang="en" data-current-lang="en">
+  <head>
     <meta charset="UTF-8">
-
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"><head>  <head>
-
-    <title>Web Developer Portfolio | AI-Powered Showcase</title>
-
-    <meta name="description" content="Professional web developer portfolio with AI chatbot assistant showcasing cutting-edge projects and skills">    <meta charset="UTF-8">    <meta charset="UTF-8" />
-
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title data-i18n-title-en="Vespera Hearth Bakery | Twilight Boulangerie" data-i18n-title-sr="Pekara Vespera Ognjište | Pekara sumraka">Vespera Hearth Bakery | Twilight Boulangerie</title>
+    <meta name="description" data-i18n-content-en="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers." data-i18n-content-sr="Pekara Vespera Ognjište stvara hlebove u malim serijama i sjajne poslastice za sanjare beogradskih noci." content="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers.">
+    <meta property="og:title" data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie" data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka" content="Vespera Hearth Bakery | Twilight Boulangerie">
+    <meta property="og:description" data-i18n-content-en="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront." data-i18n-content-sr="Zakoracite u sjaj zanatskih hlebova, svetlucavih poslastica i vecernjih degustacija na Beogradu na vodi." content="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://vesperahearth.example.com/">
+    <meta property="og:image" content="assets/img/10.jpg">
+    <meta property="og:locale" data-i18n-content-en="en_US" data-i18n-content-sr="sr_RS" content="en_US">
+    <meta property="og:locale:alternate" content="sr_RS">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie" data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka" content="Vespera Hearth Bakery | Twilight Boulangerie">
+    <meta name="twitter:description" data-i18n-content-en="Reserve artisan breads, croissants, and moonlit tastings with Belgrade’s nocturnal bakery." data-i18n-content-sr="Rezervišite zanatske hlebove, kroasane i degustacije pod mesecinom uz beogradsku nocnu pekaru." content="Reserve artisan breads, croissants, and moonlit tastings with Belgrade’s nocturnal bakery.">
+    <meta name="theme-color" content="#130924">
+    <link rel="canonical" href="https://vesperahearth.example.com/">
+    <link rel="alternate" hreflang="en" href="https://vesperahearth.example.com/en">
+    <link rel="alternate" hreflang="sr" href="https://vesperahearth.example.com/sr">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-
-    <link rel="stylesheet" href="/public/chatbot-styles.css">    <title>Web Developer Portfolio | AI-Powered Showcase</title>    <title>Sajt Reklama - AI Powered Advertising Platform</title>
-
-    <link rel="stylesheet" href="/public/cookie-styles.css">
-
-    <style>    <meta name="description" content="Professional web developer portfolio with AI chatbot assistant showcasing cutting-edge projects and skills">    <meta
-
-        * {
-
-            margin: 0;    <link rel="preconnect" href="https://fonts.googleapis.com">      name="description"
-
-            padding: 0;
-
-            box-sizing: border-box;    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>      content="Modern advertising platform with AI chatbot assistant, admin panel and GDPR cookie consent system."
-
-        }
-
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">    />
-
-        :root {
-
-            --bg-primary: #000000;    <link rel="stylesheet" href="/public/chatbot-styles.css">    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
-
-            --bg-secondary: #0a0a0a;
-
-            --bg-card: rgba(15, 15, 25, 0.8);    <link rel="stylesheet" href="/public/cookie-styles.css">    <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-            --accent-red: #ff0055;
-
-            --accent-purple: #8b00ff;    <style>    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-            --accent-blue: #00d4ff;
-
-            --accent-cyan: #00ffff;        * {    <link
-
-            --text-primary: #ffffff;
-
-            --text-secondary: #b0b0b0;            margin: 0;      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap"
-
-            --text-muted: #6b7280;
-
-            --glow-blue: 0 0 30px rgba(0, 212, 255, 0.6);            padding: 0;      rel="stylesheet"
-
-            --glow-red: 0 0 30px rgba(255, 0, 85, 0.6);
-
-            --glow-purple: 0 0 30px rgba(139, 0, 255, 0.6);            box-sizing: border-box;    />
-
-        }
-
-        }    <link rel="stylesheet" href="/css/styles.css" />
-
-        body {
-
-            font-family: 'Inter', sans-serif;    <link rel="stylesheet" href="/public/cookie-styles.css" />
-
-            background: var(--bg-primary);
-
-            color: var(--text-primary);        :root {    <link rel="stylesheet" href="/public/chatbot-styles.css" />
-
-            line-height: 1.6;
-
-            overflow-x: hidden;            --bg-primary: #000000;    <style>
-
-        }
-
-            --bg-secondary: #0a0a0a;      :root {
-
-        .orbitron {
-
-            font-family: 'Orbitron', sans-serif;            --bg-card: rgba(15, 15, 25, 0.8);        --color-bg-dark: #0a0a0a;
-
-        }
-
-            --accent-red: #ff0055;        --color-bg-darker: #050505;
-
-        .bg-animated {
-
-            position: fixed;            --accent-purple: #8b00ff;        --color-primary-red: #dc143c;
-
-            top: 0;
-
-            left: 0;            --accent-blue: #00d4ff;        --color-primary-purple: #8b00ff;
-
-            width: 100%;
-
-            height: 100%;            --accent-cyan: #00ffff;        --color-dark-blue: #0d1b2a;
-
-            z-index: -1;
-
-            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),            --text-primary: #ffffff;        --color-light-blue: #00d4ff;
-
-                        radial-gradient(circle at 80% 50%, rgba(255, 0, 85, 0.1) 0%, transparent 50%);
-
-        }            --text-secondary: #b0b0b0;        --color-cyan-glow: #00ffff;
-
-
-
-        .grid-overlay {            --text-muted: #6b7280;        --color-text-white: #ffffff;
-
-            position: fixed;
-
-            top: 0;            --glow-blue: 0 0 30px rgba(0, 212, 255, 0.6);        --color-text-gray: #b0b0b0;
-
-            left: 0;
-
-            width: 100%;            --glow-red: 0 0 30px rgba(255, 0, 85, 0.6);        --color-card-bg: rgba(13, 27, 42, 0.6);
-
-            height: 100%;
-
-            background-image:             --glow-purple: 0 0 30px rgba(139, 0, 255, 0.6);        --color-border: rgba(0, 212, 255, 0.3);
-
-                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),
-
-                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);        }        --glow-blue: 0 0 20px rgba(0, 212, 255, 0.6),
-
-            background-size: 50px 50px;
-
-            z-index: -1;          0 0 40px rgba(0, 212, 255, 0.3);
-
-            opacity: 0.3;
-
-        }        body {        --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.8),
-
-
-
-        nav {            font-family: 'Inter', sans-serif;          0 0 40px rgba(0, 255, 255, 0.4);
-
-            position: fixed;
-
-            top: 0;            background: var(--bg-primary);        --glow-red: 0 0 20px rgba(220, 20, 60, 0.6),
-
-            left: 0;
-
-            right: 0;            color: var(--text-primary);          0 0 40px rgba(220, 20, 60, 0.3);
-
-            padding: 1.5rem 2rem;
-
-            background: rgba(0, 0, 0, 0.95);            line-height: 1.6;      }
-
-            backdrop-filter: blur(20px);
-
-            border-bottom: 1px solid rgba(0, 212, 255, 0.2);            overflow-x: hidden;
-
-            z-index: 1000;
-
-            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);        }      * {
-
-        }
-
-        margin: 0;
-
-        .nav-container {
-
-            max-width: 1400px;        .orbitron {        padding: 0;
-
-            margin: 0 auto;
-
-            display: flex;            font-family: 'Orbitron', sans-serif;        box-sizing: border-box;
-
-            justify-content: space-between;
-
-            align-items: center;        }      }
-
-        }
-
-
-
-        .logo {
-
-            font-size: 1.8rem;        /* Animated Background */      body {
-
-            font-weight: 900;
-
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-red));        .bg-animated {        font-family: "Rajdhani", sans-serif;
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent;            position: fixed;        background: linear-gradient(
-
-            background-clip: text;
-
-            letter-spacing: 2px;            top: 0;          135deg,
-
-        }
-
-            left: 0;          var(--color-bg-darker) 0%,
-
-        .nav-links {
-
-            display: flex;            width: 100%;          var(--color-dark-blue) 50%,
-
-            gap: 3rem;
-
-            list-style: none;            height: 100%;          var(--color-bg-dark) 100%
-
-        }
-
-            z-index: -1;        );
-
-        .nav-links a {
-
-            color: var(--text-secondary);            background: radial-gradient(circle at 20% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%),        color: var(--color-text-white);
-
-            text-decoration: none;
-
-            font-weight: 600;                        radial-gradient(circle at 80% 50%, rgba(255, 0, 85, 0.1) 0%, transparent 50%);        min-height: 100vh;
-
-            letter-spacing: 1px;
-
-            transition: all 0.3s;        }        overflow-x: hidden;
-
-            position: relative;
-
-        }      }
-
-
-
-        .nav-links a:hover {        .grid-overlay {
-
-            color: var(--accent-cyan);
-
-            text-shadow: var(--glow-blue);            position: fixed;      .orbitron {
-
-        }
-
-            top: 0;        font-family: "Orbitron", sans-serif;
-
-        .nav-links a::after {
-
-            content: '';            left: 0;      }
-
-            position: absolute;
-
-            bottom: -5px;            width: 100%;    </style>
-
-            left: 0;
-
-            width: 0;            height: 100%;  </head>
-
-            height: 2px;
-
-            background: var(--accent-blue);            background-image:   <body>
-
-            transition: width 0.3s;
-
-        }                linear-gradient(rgba(0, 212, 255, 0.03) 1px, transparent 1px),    <header
-
-
-
-        .nav-links a:hover::after {                linear-gradient(90deg, rgba(0, 212, 255, 0.03) 1px, transparent 1px);      style="
-
-            width: 100%;
-
-        }            background-size: 50px 50px;        padding: 1.5rem 0;
-
-
-
-        .hero {            z-index: -1;        background: rgba(10, 10, 10, 0.95);
-
-            min-height: 100vh;
-
-            display: flex;            opacity: 0.3;        backdrop-filter: blur(10px);
-
-            align-items: center;
-
-            justify-content: center;        }        border-bottom: 2px solid var(--color-light-blue);
-
-            padding: 8rem 2rem 4rem;
-
-            position: relative;        box-shadow: 0 4px 30px rgba(0, 212, 255, 0.2);
-
-        }
-
-        /* Navigation */        position: sticky;
-
-        .hero-content {
-
-            max-width: 1200px;        nav {        top: 0;
-
-            text-align: center;
-
-            z-index: 1;            position: fixed;        z-index: 1000;
-
-        }
-
-            top: 0;      "
-
-        .hero-badge {
-
-            display: inline-block;            left: 0;    >
-
-            padding: 0.6rem 1.5rem;
-
-            background: rgba(0, 212, 255, 0.1);            right: 0;      <div
-
-            border: 1px solid var(--accent-blue);
-
-            border-radius: 50px;            padding: 1.5rem 2rem;        style="
-
-            margin-bottom: 2rem;
-
-            font-size: 0.9rem;            background: rgba(0, 0, 0, 0.95);          max-width: 1400px;
-
-            font-weight: 600;
-
-            letter-spacing: 2px;            backdrop-filter: blur(20px);          margin: 0 auto;
-
-            color: var(--accent-cyan);
-
-            box-shadow: var(--glow-blue);            border-bottom: 1px solid rgba(0, 212, 255, 0.2);          padding: 0 2rem;
-
-            animation: pulse 2s ease-in-out infinite;
-
-        }            z-index: 1000;          display: flex;
-
-
-
-        @keyframes pulse {            box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);          justify-content: space-between;
-
-            0%, 100% { transform: scale(1); }
-
-            50% { transform: scale(1.05); }        }          align-items: center;
-
-        }
-
-        "
-
-        .hero h1 {
-
-            font-size: 5rem;        .nav-container {      >
-
-            font-weight: 900;
-
-            line-height: 1.1;            max-width: 1400px;        <a
-
-            margin-bottom: 1.5rem;
-
-            background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 30%, var(--accent-purple) 60%, var(--accent-red) 100%);            margin: 0 auto;          href="/"
-
-            -webkit-background-clip: text;
-
-            -webkit-text-fill-color: transparent;            display: flex;          class="orbitron"
-
-            background-clip: text;
-
-            letter-spacing: 2px;            justify-content: space-between;          style="
-
-        }
-
-            align-items: center;            font-size: 1.8rem;
-
-        .hero h2 {
-
-            font-size: 2.5rem;        }            font-weight: 900;
-
-            font-weight: 700;
-
-            color: var(--accent-blue);            background: linear-gradient(
-
-            text-shadow: var(--glow-blue);
-
-            margin-bottom: 1rem;        .logo {              135deg,
-
-            letter-spacing: 3px;
-
-        }            font-size: 1.8rem;              var(--color-light-blue),
-
-
-
-        .hero-description {            font-weight: 900;              var(--color-primary-purple),
-
-            font-size: 1.3rem;
-
-            color: var(--text-secondary);            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple), var(--accent-red));              var(--color-primary-red)
-
-            max-width: 800px;
-
-            margin: 0 auto 3rem;            -webkit-background-clip: text;            );
-
-            line-height: 1.8;
-
-        }            -webkit-text-fill-color: transparent;            -webkit-background-clip: text;
-
-
-
-        .hero-description span {            background-clip: text;            -webkit-text-fill-color: transparent;
-
-            color: var(--accent-cyan);
-
-            font-weight: 700;            letter-spacing: 2px;            background-clip: text;
-
-        }
-
-            text-shadow: var(--glow-blue);            text-decoration: none;
-
-        .cta-buttons {
-
-            display: flex;        }            text-shadow: var(--glow-cyan);
-
-            gap: 1.5rem;
-
-            justify-content: center;            letter-spacing: 2px;
-
-            flex-wrap: wrap;
-
-        }        .nav-links {          "
-
-
-
-        .btn-primary {            display: flex;        >
-
-            padding: 1.2rem 3rem;
-
-            background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));            gap: 3rem;          SAJT REKLAMA
-
-            color: white;
-
-            text-decoration: none;            list-style: none;        </a>
-
-            border-radius: 50px;
-
-            font-weight: 700;        }        <nav style="display: flex; gap: 3rem; align-items: center">
-
-            font-size: 1.1rem;
-
-            letter-spacing: 2px;          <a
-
-            box-shadow: var(--glow-red);
-
-            transition: all 0.3s;        .nav-links a {            href="/"
-
-            border: none;
-
-            cursor: pointer;            color: var(--text-secondary);            class="orbitron"
-
-        }
-
-            text-decoration: none;            style="
-
-        .btn-primary:hover {
-
-            transform: translateY(-5px) scale(1.05);            font-weight: 600;              color: var(--color-light-blue);
-
-            box-shadow: 0 15px 50px rgba(255, 0, 85, 0.6);
-
-        }            letter-spacing: 1px;              text-decoration: none;
-
-
-
-        .btn-secondary {            transition: all 0.3s;              font-weight: 600;
-
-            padding: 1.2rem 3rem;
-
-            background: rgba(0, 212, 255, 0.1);            position: relative;              font-size: 1.1rem;
-
-            backdrop-filter: blur(10px);
-
-            border: 2px solid var(--accent-blue);        }              transition: all 0.3s ease;
-
-            color: var(--accent-blue);
-
-            text-decoration: none;              letter-spacing: 1px;
-
-            border-radius: 50px;
-
-            font-weight: 700;        .nav-links a:hover {            "
-
-            font-size: 1.1rem;
-
-            letter-spacing: 2px;            color: var(--accent-cyan);            onmouseover="this.style.textShadow='var(--glow-cyan)'; this.style.color='var(--color-cyan-glow)'"
-
-            box-shadow: var(--glow-blue);
-
-            transition: all 0.3s;            text-shadow: var(--glow-blue);            onmouseout="this.style.textShadow='none'; this.style.color='var(--color-light-blue)'"
-
-            cursor: pointer;
-
-        }        }            >HOME</a
-
-
-
-        .btn-secondary:hover {          >
-
-            transform: translateY(-5px) scale(1.05);
-
-            background: rgba(0, 212, 255, 0.2);        .nav-links a::after {          <a
-
-        }
-
-            content: '';            href="/upload.html"
-
-        .stats {
-
-            display: grid;            position: absolute;            class="orbitron"
-
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-            gap: 2rem;            bottom: -5px;            style="
-
-            max-width: 1200px;
-
-            margin: 4rem auto;            left: 0;              color: var(--color-light-blue);
-
-            padding: 0 2rem;
-
-        }            width: 0;              text-decoration: none;
-
-
-
-        .stat-card {            height: 2px;              font-weight: 600;
-
-            padding: 2rem;
-
-            background: var(--bg-card);            background: var(--accent-blue);              font-size: 1.1rem;
-
-            border-radius: 20px;
-
-            border: 1px solid rgba(0, 212, 255, 0.2);            transition: width 0.3s;              transition: all 0.3s ease;
-
-            backdrop-filter: blur(10px);
-
-            text-align: center;        }              letter-spacing: 1px;
-
-            transition: all 0.3s;
-
-        }            "
-
-
-
-        .stat-card:hover {        .nav-links a:hover::after {            onmouseover="this.style.textShadow='var(--glow-cyan)'; this.style.color='var(--color-cyan-glow)'"
-
-            transform: translateY(-10px);
-
-            box-shadow: var(--glow-blue);            width: 100%;            onmouseout="this.style.textShadow='none'; this.style.color='var(--color-light-blue)'"
-
-            border-color: var(--accent-blue);
-
-        }        }            >UPLOAD</a
-
-
-
-        .stat-icon {          >
-
-            font-size: 3rem;
-
-            margin-bottom: 1rem;        /* Hero Section */          <a
-
-        }
-
-        .hero {            href="/portfolio.html"
-
-        .stat-number {
-
-            font-size: 3rem;            min-height: 100vh;            class="orbitron"
-
-            font-weight: 900;
-
-            color: var(--accent-blue);            display: flex;            style="
-
-            text-shadow: var(--glow-blue);
-
-        }            align-items: center;              color: var(--color-light-blue);
-
-
-
-        .stat-label {            justify-content: center;              text-decoration: none;
-
-            font-size: 1.1rem;
-
-            color: var(--text-secondary);            padding: 8rem 2rem 4rem;              font-weight: 600;
-
-            margin-top: 0.5rem;
-
-        }            position: relative;              font-size: 1.1rem;
-
-
-
-        .section {        }              transition: all 0.3s ease;
-
-            padding: 6rem 2rem;
-
-            max-width: 1400px;              letter-spacing: 1px;
-
-            margin: 0 auto;
-
-        }        .hero-content {            "
-
-
-
-        .section-title {            max-width: 1200px;            onmouseover="this.style.textShadow='var(--glow-cyan)'; this.style.color='var(--color-cyan-glow)'"
-
-            font-size: 3.5rem;
-
-            font-weight: 900;            text-align: center;            onmouseout="this.style.textShadow='none'; this.style.color='var(--color-light-blue)'"
-
-            text-align: center;
-
-            margin-bottom: 1rem;            z-index: 1;            >PORTFOLIO</a
-
-            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));
-
-            -webkit-background-clip: text;        }          >
-
-            -webkit-text-fill-color: transparent;
-
-            background-clip: text;        </nav>
-
-            letter-spacing: 3px;
-
-        }        .hero-badge {      </div>
-
-
-
-        .section-subtitle {            display: inline-block;    </header>
-
-            text-align: center;
-
-            color: var(--text-secondary);            padding: 0.6rem 1.5rem;
-
-            font-size: 1.2rem;
-
-            margin-bottom: 4rem;            background: rgba(0, 212, 255, 0.1);    <main>
-
-        }
-
-            border: 1px solid var(--accent-blue);      <section
-
-        .projects-grid {
-
-            display: grid;            border-radius: 50px;        style="
-
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-
-            gap: 2.5rem;            margin-bottom: 2rem;          padding: 6rem 0;
-
-        }
-
-            font-size: 0.9rem;          text-align: center;
-
-        .project-card {
-
-            background: var(--bg-card);            font-weight: 600;          background: radial-gradient(
-
-            border-radius: 20px;
-
-            overflow: hidden;            letter-spacing: 2px;              circle at 50% 50%,
-
-            border: 1px solid rgba(0, 212, 255, 0.2);
-
-            transition: all 0.3s;            color: var(--accent-cyan);              rgba(0, 212, 255, 0.1) 0%,
-
-            cursor: pointer;
-
-        }            box-shadow: var(--glow-blue);              transparent 50%
-
-
-
-        .project-card:hover {            animation: pulse 2s ease-in-out infinite;            ),
-
-            transform: translateY(-10px);
-
-            box-shadow: var(--glow-blue);        }            linear-gradient(
-
-            border-color: var(--accent-blue);
-
-        }              135deg,
-
-
-
-        .project-image {        @keyframes pulse {              var(--color-bg-darker) 0%,
-
-            width: 100%;
-
-            height: 250px;            0%, 100% { transform: scale(1); }              var(--color-dark-blue) 100%
-
-            object-fit: cover;
-
-            border-bottom: 2px solid var(--accent-blue);            50% { transform: scale(1.05); }            );
-
-        }
-
-        }          position: relative;
-
-        .project-content {
-
-            padding: 2rem;          overflow: hidden;
-
-        }
-
-        .hero h1 {        "
-
-        .project-title {
-
-            font-size: 1.8rem;            font-size: 5rem;      >
-
-            font-weight: 700;
-
-            color: var(--accent-cyan);            font-weight: 900;        <!-- Animated background elements -->
-
-            margin-bottom: 1rem;
-
-        }            line-height: 1.1;        <div
-
-
-
-        .project-description {            margin-bottom: 1.5rem;          style="
-
-            color: var(--text-secondary);
-
-            margin-bottom: 1.5rem;            background: linear-gradient(135deg, #ffffff 0%, var(--accent-blue) 30%, var(--accent-purple) 60%, var(--accent-red) 100%);            position: absolute;
-
-            line-height: 1.6;
-
-        }            -webkit-background-clip: text;            top: 20%;
-
-
-
-        .project-tags {            -webkit-text-fill-color: transparent;            left: 10%;
-
-            display: flex;
-
-            flex-wrap: wrap;            background-clip: text;            width: 300px;
-
-            gap: 0.5rem;
-
-            margin-bottom: 1.5rem;            letter-spacing: 2px;            height: 300px;
-
-        }
-
-        }            background: radial-gradient(
-
-        .tag {
-
-            padding: 0.4rem 1rem;              circle,
-
-            background: rgba(0, 212, 255, 0.1);
-
-            border: 1px solid var(--accent-blue);        .hero h2 {              var(--color-primary-red) 0%,
-
-            border-radius: 20px;
-
-            font-size: 0.85rem;            font-size: 2.5rem;              transparent 70%
-
-            color: var(--accent-cyan);
-
-        }            font-weight: 700;            );
-
-
-
-        .project-link {            color: var(--accent-blue);            opacity: 0.1;
-
-            display: inline-block;
-
-            padding: 0.8rem 2rem;            text-shadow: var(--glow-blue);            filter: blur(80px);
-
-            background: linear-gradient(135deg, var(--accent-purple), var(--accent-red));
-
-            color: white;            margin-bottom: 1rem;            animation: float 8s ease-in-out infinite;
-
-            text-decoration: none;
-
-            border-radius: 25px;            letter-spacing: 3px;          "
-
-            font-weight: 600;
-
-            transition: all 0.3s;        }        ></div>
-
-        }
-
-        <div
-
-        .project-link:hover {
-
-            transform: scale(1.05);        .hero-description {          style="
-
-            box-shadow: var(--glow-red);
-
-        }            font-size: 1.3rem;            position: absolute;
-
-
-
-        .skills-grid {            color: var(--text-secondary);            bottom: 20%;
-
-            display: grid;
-
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));            max-width: 800px;            right: 10%;
-
-            gap: 2rem;
-
-        }            margin: 0 auto 3rem;            width: 400px;
-
-
-
-        .skill-card {            line-height: 1.8;            height: 400px;
-
-            padding: 2rem;
-
-            background: var(--bg-card);        }            background: radial-gradient(
-
-            border-radius: 20px;
-
-            border: 1px solid rgba(0, 212, 255, 0.2);              circle,
-
-            text-align: center;
-
-            transition: all 0.3s;        .hero-description span {              var(--color-light-blue) 0%,
-
-        }
-
-            color: var(--accent-cyan);              transparent 70%
-
-        .skill-card:hover {
-
-            transform: translateY(-5px);            font-weight: 700;            );
-
-            box-shadow: var(--glow-purple);
-
-            border-color: var(--accent-purple);        }            opacity: 0.15;
-
-        }
-
-            filter: blur(100px);
-
-        .skill-icon {
-
-            font-size: 3.5rem;        .cta-buttons {            animation: float 10s ease-in-out infinite reverse;
-
-            margin-bottom: 1rem;
-
-        }            display: flex;          "
-
-
-
-        .skill-name {            gap: 1.5rem;        ></div>
-
-            font-size: 1.3rem;
-
-            font-weight: 700;            justify-content: center;
-
-            color: var(--accent-blue);
-
-            margin-bottom: 0.5rem;            flex-wrap: wrap;        <div
-
-        }
-
-        }          style="
-
-        .skill-level {
-
-            font-size: 0.9rem;            max-width: 1400px;
-
-            color: var(--text-muted);
-
-        }        .btn-primary {            margin: 0 auto;
-
-
-
-        .about-container {            padding: 1.2rem 3rem;            padding: 0 2rem;
-
-            display: grid;
-
-            grid-template-columns: 1fr 1fr;            background: linear-gradient(135deg, var(--accent-red), var(--accent-purple));            position: relative;
-
-            gap: 4rem;
-
-            align-items: center;            color: white;            z-index: 1;
-
-        }
-
-            text-decoration: none;          "
-
-        .about-image {
-
-            width: 100%;            border-radius: 50px;        >
-
-            border-radius: 20px;
-
-            border: 2px solid var(--accent-blue);            font-weight: 700;          <div
-
-            box-shadow: var(--glow-blue);
-
-        }            font-size: 1.1rem;            style="
-
-
-
-        .about-text h3 {            letter-spacing: 2px;              display: inline-block;
-
-            font-size: 2.5rem;
-
-            color: var(--accent-cyan);            box-shadow: var(--glow-red);              padding: 0.5rem 1.5rem;
-
-            margin-bottom: 1.5rem;
-
-        }            transition: all 0.3s;              background: rgba(0, 212, 255, 0.1);
-
-
-
-        .about-text p {            border: none;              border: 1px solid var(--color-light-blue);
-
-            color: var(--text-secondary);
-
-            font-size: 1.1rem;            cursor: pointer;              border-radius: 50px;
-
-            line-height: 1.8;
-
-            margin-bottom: 1rem;        }              margin-bottom: 2rem;
-
-        }
-
-              box-shadow: var(--glow-blue);
-
-        .contact-form {
-
-            max-width: 800px;        .btn-primary:hover {            "
-
-            margin: 0 auto;
-
-            padding: 3rem;            transform: translateY(-5px) scale(1.05);          >
-
-            background: var(--bg-card);
-
-            border-radius: 20px;            box-shadow: 0 15px 50px rgba(255, 0, 85, 0.6);            <span
-
-            border: 1px solid rgba(0, 212, 255, 0.2);
-
-        }        }              class="orbitron"
-
-
-
-        .form-group {              style="
-
-            margin-bottom: 2rem;
-
-        }        .btn-secondary {                color: var(--color-cyan-glow);
-
-
-
-        .form-group label {            padding: 1.2rem 3rem;                font-size: 0.9rem;
-
-            display: block;
-
-            margin-bottom: 0.5rem;            background: rgba(0, 212, 255, 0.1);                font-weight: 600;
-
-            color: var(--accent-cyan);
-
-            font-weight: 600;            backdrop-filter: blur(10px);                letter-spacing: 2px;
-
-        }
-
-            border: 2px solid var(--accent-blue);              "
-
-        .form-group input,
-
-        .form-group textarea {            color: var(--accent-blue);              >⚡ AI-POWERED PLATFORM</span
-
-            width: 100%;
-
-            padding: 1rem;            text-decoration: none;            >
-
-            background: rgba(0, 0, 0, 0.5);
-
-            border: 1px solid rgba(0, 212, 255, 0.3);            border-radius: 50px;          </div>
-
-            border-radius: 10px;
-
-            color: white;            font-weight: 700;
-
-            font-size: 1rem;
-
-            transition: all 0.3s;            font-size: 1.1rem;          <h1
-
-            font-family: inherit;
-
-        }            letter-spacing: 2px;            class="orbitron"
-
-
-
-        .form-group input:focus,            box-shadow: var(--glow-blue);            style="
-
-        .form-group textarea:focus {
-
-            outline: none;            transition: all 0.3s;              font-size: 4.5rem;
-
-            border-color: var(--accent-blue);
-
-            box-shadow: var(--glow-blue);            cursor: pointer;              font-weight: 900;
-
-        }
-
-        }              margin-bottom: 1.5rem;
-
-        .form-group textarea {
-
-            min-height: 150px;              background: linear-gradient(
-
-            resize: vertical;
-
-        }        .btn-secondary:hover {                135deg,
-
-
-
-        footer {            transform: translateY(-5px) scale(1.05);                #ffffff 0%,
-
-            padding: 3rem 2rem;
-
-            background: rgba(0, 0, 0, 0.95);            background: rgba(0, 212, 255, 0.2);                var(--color-light-blue) 30%,
-
-            border-top: 1px solid rgba(0, 212, 255, 0.2);
-
-            text-align: center;        }                var(--color-primary-purple) 60%,
-
-        }
-
-                var(--color-primary-red) 100%
-
-        .social-links {
-
-            display: flex;        /* Stats Section */              );
-
-            justify-content: center;
-
-            gap: 2rem;        .stats {              -webkit-background-clip: text;
-
-            margin-bottom: 2rem;
-
-        }            display: grid;              -webkit-text-fill-color: transparent;
-
-
-
-        .social-link {            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));              background-clip: text;
-
-            font-size: 2rem;
-
-            color: var(--accent-blue);            gap: 2rem;              text-shadow: 0 0 40px rgba(0, 212, 255, 0.3);
-
-            transition: all 0.3s;
-
-            text-decoration: none;            max-width: 1200px;              line-height: 1.2;
-
-        }
-
-            margin: 4rem auto;              letter-spacing: 3px;
-
-        .social-link:hover {
-
-            color: var(--accent-cyan);            padding: 0 2rem;            "
-
-            transform: translateY(-5px);
-
-        }        }          >
-
-
-
-        @media (max-width: 768px) {            SAJT REKLAMA
-
-            .hero h1 {
-
-                font-size: 3rem;        .stat-card {          </h1>
-
-            }
-
-            padding: 2rem;
-
-            .hero h2 {
-
-                font-size: 1.8rem;            background: var(--bg-card);          <h2
-
-            }
-
-            border-radius: 20px;            class="orbitron"
-
-            .nav-links {
-
-                gap: 1.5rem;            border: 1px solid rgba(0, 212, 255, 0.2);            style="
-
-                font-size: 0.9rem;
-
-            }            backdrop-filter: blur(10px);              font-size: 2rem;
-
-
-
-            .about-container {            text-align: center;              font-weight: 700;
-
-                grid-template-columns: 1fr;
-
-            }            transition: all 0.3s;              margin-bottom: 1rem;
-
-
-
-            .section-title {        }              color: var(--color-light-blue);
-
-                font-size: 2.5rem;
-
-            }              text-shadow: var(--glow-blue);
-
-
-
-            .projects-grid {        .stat-card:hover {              letter-spacing: 2px;
-
-                grid-template-columns: 1fr;
-
-            }            transform: translateY(-10px);            "
-
-        }
-
-            box-shadow: var(--glow-blue);          >
-
-        .fade-in {
-
-            opacity: 0;            border-color: var(--accent-blue);            ADVERTISING PLATFORM
-
-            transform: translateY(30px);
-
-            transition: all 0.6s;        }          </h2>
-
-        }
-
-
-
-        .fade-in.visible {
-
-            opacity: 1;        .stat-icon {          <p
-
-            transform: translateY(0);
-
-        }            font-size: 3rem;            style="
-
-    </style>
-
-</head>            margin-bottom: 1rem;              font-size: 1.3rem;
-
-<body>
-
-    <div class="bg-animated"></div>        }              color: var(--color-text-gray);
-
-    <div class="grid-overlay"></div>
-
-              margin-bottom: 3rem;
-
-    <nav>
-
-        <div class="nav-container">        .stat-number {              max-width: 800px;
-
-            <div class="logo orbitron">PORTFOLIO</div>
-
-            <ul class="nav-links orbitron">            font-size: 3rem;              margin-left: auto;
-
-                <li><a href="#home">HOME</a></li>
-
-                <li><a href="#projects">PROJECTS</a></li>            font-weight: 900;              margin-right: auto;
-
-                <li><a href="#skills">SKILLS</a></li>
-
-                <li><a href="#about">ABOUT</a></li>            color: var(--accent-blue);              line-height: 1.6;
-
-                <li><a href="#contact">CONTACT</a></li>
-
-            </ul>            text-shadow: var(--glow-blue);              font-weight: 500;
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header transparent" data-header>
+      <div class="container header-inner">
+        <a href="#home" class="wordmark" data-i18n-en="Vespera Hearth Bakery" data-i18n-sr="Pekara Vespera Ognjište">Vespera Hearth Bakery</a>
+        <nav class="main-nav" id="primary-navigation" data-nav aria-label="Primary navigation" data-i18n-aria-en="Primary navigation" data-i18n-aria-sr="Glavna navigacija">
+          <ul>
+            <li><a href="#home" data-i18n-en="Home" data-i18n-sr="Pocetna">Home</a></li>
+            <li><a href="#story" data-i18n-en="Story" data-i18n-sr="Prica">Story</a></li>
+            <li><a href="#specialties" data-i18n-en="Specialties" data-i18n-sr="Specijaliteti">Specialties</a></li>
+            <li><a href="#catalog" data-i18n-en="Catalog" data-i18n-sr="Katalog">Catalog</a></li>
+            <li><a href="#gallery" data-i18n-en="Gallery" data-i18n-sr="Galerija">Gallery</a></li>
+            <li><a href="#stories" data-i18n-en="Bakery Stories" data-i18n-sr="Bakerske price">Bakery Stories</a></li>
+            <li><a href="#orders" data-i18n-en="Orders" data-i18n-sr="Porudzbine">Orders</a></li>
+            <li><a href="#visit" data-i18n-en="Visit" data-i18n-sr="Poseta">Visit</a></li>
+            <li><a href="/public/contact.html" data-i18n-en="Contact Developer" data-i18n-sr="Kontaktiraj Developera" style="color: #d4af37; font-weight: 600;">Contact Developer</a></li>
+          </ul>
+          <button class="language-toggle" type="button" aria-label="Toggle language" aria-pressed="false" data-lang-toggle data-i18n-aria-en="Toggle language" data-i18n-aria-sr="Promeni jezik">
+            <span data-i18n-en="EN" data-i18n-sr="SR">EN</span>
+            <small data-i18n-en="| SR" data-i18n-sr="| EN">| SR</small>
+          </button>
+        </nav>
+        <button class="hamburger" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="primary-navigation" data-hamburger data-aria-open-en="Open navigation" data-aria-open-sr="Otvori navigaciju" data-aria-close-en="Close navigation" data-aria-close-sr="Zatvori navigaciju">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </header>
+
+    <main>
+      <section id="home" class="hero">
+        <div class="hero-background">
+          <img src="assets/img/10.jpg" alt="Hands presenting a hearth-baked sourdough loaf" data-i18n-alt-en="Hands presenting a hearth-baked sourdough loaf" data-i18n-alt-sr="Ruke drze hleb pecen na ognjistu" decoding="async">
         </div>
-
-    </nav>        }            "
-
-
-
-    <section id="home" class="hero">          >
-
-        <div class="hero-content">
-
-            <div class="hero-badge orbitron">⚡ AI-POWERED WEB DEVELOPER</div>        .stat-label {            Moderna platforma za prikaz i upravljanje reklamama sa
-
-            <h1 class="orbitron">WEB DEVELOPER</h1>
-
-            <h2 class="orbitron">BUILDING THE FUTURE</h2>            font-size: 1.1rem;            <span style="color: var(--color-light-blue); font-weight: 700"
-
-            <p class="hero-description">
-
-                Creating <span>cutting-edge web experiences</span> with modern technologies.             color: var(--text-secondary);              >AI chatbot</span
-
-                Specialized in <span>AI integration</span>, <span>responsive design</span>, and <span>performance optimization</span>. 
-
-                Let's build something extraordinary together.            margin-top: 0.5rem;            >
-
-            </p>
-
-            <div class="cta-buttons">        }            asistentom, admin panelom i GDPR sistemom
-
-                <button class="btn-primary orbitron" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">GET IN TOUCH</button>
-
-                <button class="btn-secondary orbitron" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">VIEW PROJECTS</button>          </p>
-
-            </div>
-
-        </div>        /* Projects Section */
-
-    </section>
-
-        .section {          <div
-
-    <div class="stats">
-
-        <div class="stat-card fade-in">            padding: 6rem 2rem;            style="
-
-            <div class="stat-icon">🚀</div>
-
-            <div class="stat-number orbitron">50+</div>            max-width: 1400px;              display: flex;
-
-            <div class="stat-label">Projects Completed</div>
-
-        </div>            margin: 0 auto;              gap: 1.5rem;
-
-        <div class="stat-card fade-in">
-
-            <div class="stat-icon">⚡</div>        }              justify-content: center;
-
-            <div class="stat-number orbitron">5+</div>
-
-            <div class="stat-label">Years Experience</div>              flex-wrap: wrap;
-
+        <div class="container hero-content">
+          <h1 class="hero-title reveal-sequence" data-i18n-en="Vespera Hearth Bakery" data-i18n-sr="Pekara Vespera Ognjište">Vespera Hearth Bakery</h1>
+          <p class="hero-subtitle reveal-sequence" data-i18n-en="Where heritage rises nightly" data-i18n-sr="Mesto gde tradicija raste svake noci">Where heritage rises nightly</p>
+          <p class="hero-subtitle secondary reveal-sequence" data-i18n-en="Small-batch breads and luminous pastries crafted for nightfall dreamers." data-i18n-sr="Male serije hlebova i svetlucavih poslastica stvarene za sanjare sumraka.">Small-batch breads and luminous pastries crafted for nightfall dreamers.</p>
+          <div class="hero-actions reveal-sequence">
+            <a href="#specialties" class="cta-button" data-i18n-en="Explore Specialties" data-i18n-sr="Istraži specijalitete">Explore Specialties</a>
+          </div>
+          <div class="scroll-cue reveal-sequence">
+            <span data-i18n-en="Scroll" data-i18n-sr="Skroluj">Scroll</span>
+            <div class="arrow" aria-hidden="true"></div>
+          </div>
         </div>
+      </section>
 
-        <div class="stat-card fade-in">        .section-title {              margin-bottom: 3rem;
-
-            <div class="stat-icon">🎯</div>
-
-            <div class="stat-number orbitron">100%</div>            font-size: 3.5rem;            "
-
-            <div class="stat-label">Client Satisfaction</div>
-
-        </div>            font-weight: 900;          >
-
-        <div class="stat-card fade-in">
-
-            <div class="stat-icon">🤖</div>            text-align: center;            <a
-
-            <div class="stat-number orbitron">AI</div>
-
-            <div class="stat-label">Powered Solutions</div>            margin-bottom: 1rem;              href="/upload.html"
-
+      <section id="story" class="story section">
+        <div class="container story-grid">
+          <div class="story-text reveal-on-scroll">
+            <h2 data-i18n-en="Our Story" data-i18n-sr="Naša prica">Our Story</h2>
+            <p data-i18n-en="Founder Livia Vespera lit the first ember to revive her grandmother’s twilight recipes. Every loaf carries three generations of whispered devotion." data-i18n-sr="Osnivacica Livia Vespera zapalila je prvi žar kako bi oživela bakine recepte sumraka. Svaki hleb nosi tri generacije šaputave posvecenosti.">Founder Livia Vespera lit the first ember to revive her grandmother’s twilight recipes. Every loaf carries three generations of whispered devotion.</p>
+            <p data-i18n-en="We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike." data-i18n-sr="Testo odmaramo sa strpljenjem, puštamo puter da se opusti pod nocnim svetlima i provlacimo dim lavande kroz vazduh da docekamo komšije i putnike.">We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike.</p>
+            <p data-i18n-en="Step inside to hear the hush of hearth-stones, the hum of vintage ovens, and the laughter of the night crew who believes bread tastes best after dusk." data-i18n-sr="Zakoracite unutra da cujete tišinu ognjišta, zujanje starih peci i smeh nocne ekipe koja veruje da hleb ima najbolji ukus posle sumraka.">Step inside to hear the hush of hearth-stones, the hum of vintage ovens, and the laughter of the night crew who believes bread tastes best after dusk.</p>
+          </div>
+          <figure class="story-visual reveal-on-scroll">
+            <img src="assets/img/6.jpg" alt="Bakery counter filled with brownies and twists" data-i18n-alt-en="Bakery counter filled with brownies and twists" data-i18n-alt-sr="Ilustracija sjajnog pekarskog ognjišta" loading="lazy" decoding="async">
+            <figcaption data-i18n-en="Evening counter set with hearth baked brownies and twists." data-i18n-sr="Ilustracija nadahnuta našim nocnim pekarskim ritualima.">Evening counter set with hearth baked brownies and twists.</figcaption>
+          </figure>
         </div>
+      </section>
 
-    </div>            background: linear-gradient(135deg, var(--accent-blue), var(--accent-purple));              class="orbitron"
+      <section id="specialties" class="specialties section">
+        <div class="container">
+          <div class="section-heading reveal-on-scroll">
+            <h2 data-i18n-en="Signature Specialties" data-i18n-sr="Potpisni specijaliteti">Signature Specialties</h2>
+            <p data-i18n-en="Taste a constellation of breads, pâtisserie, and savory rituals plated after dusk." data-i18n-sr="Probajte sazvežde hlebova, poslastica i slanih rituala koji se služe nakon sumraka.">Taste a constellation of breads, pâtisserie, and savory rituals plated after dusk.</p>
+          </div>
+          <div class="specialty-grid">
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img src="assets/img/8.jpg" alt="Rustic sourdough loaf sliced on a baking tray" data-i18n-alt-en="Rustic sourdough loaf sliced on a baking tray" data-i18n-alt-sr="Rusticni hleb od kiselog testa narezan na plehu" loading="lazy" decoding="async">
+              </div>
+              <div class="specialty-body">
+                <h3 data-i18n-en="Midnight Sourdough" data-i18n-sr="Midnight sourdough">Midnight Sourdough</h3>
+                <p data-i18n-en="Slow-fermented wheat kissed with blackberry smoke and ember salt." data-i18n-sr="Polako fermentisana pšenica dodirnuta dimom kupine i solju žara.">Slow-fermented wheat kissed with blackberry smoke and ember salt.</p>
+                <span class="quality-badge" data-i18n-en="Baked in stone hearth" data-i18n-sr="Peceno u kamenom ognjištu">Baked in stone hearth</span>
+                <p class="flavor-note" data-i18n-en="Order for twilight dinner tables." data-i18n-sr="Porucite za sumracne trpeze.">Order for twilight dinner tables.</p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img src="assets/img/7.jpg" alt="Croissants drizzled with dark chocolate" data-i18n-alt-en="Croissants drizzled with dark chocolate" data-i18n-alt-sr="Galaksija brioš cvorovi sa glazurom" loading="lazy" decoding="async">
+              </div>
+              <div class="specialty-body">
+                <h3 data-i18n-en="Violet Nebula Brioche" data-i18n-sr="Violet nebula brioš">Violet Nebula Brioche</h3>
+                <p data-i18n-en="Feather-light knots brushed with cassis syrup and pearlescent sugar." data-i18n-sr="Lagani cvorovi premazani sirupom od crne ribizle i bisernim šecerom.">Feather-light knots brushed with cassis syrup and pearlescent sugar.</p>
+                <span class="quality-badge" data-i18n-en="Served warm after sunset" data-i18n-sr="Služi se toplo posle zalaska sunca">Served warm after sunset</span>
+                <p class="flavor-note" data-i18n-en="Pair with lavender cold brew." data-i18n-sr="Uparite sa hladnom kafom od lavande.">Pair with lavender cold brew.</p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img src="assets/img/2.jpg" alt="Whole chocolate torte on a linen covered stand" data-i18n-alt-en="Whole chocolate torte on a linen covered stand" data-i18n-alt-sr="Cokoladna torta na postolju prekrivenom platnom" loading="lazy" decoding="async">
+              </div>
+              <div class="specialty-body">
+                <h3 data-i18n-en="Prismatic Torte" data-i18n-sr="Prizmaticna torta">Prismatic Torte</h3>
+                <p data-i18n-en="Velvet sponge layered with star anise ganache and mirror glaze." data-i18n-sr="Baršunasta kora sa ganašom od zvezdanog anisa i ogledalskom glazurom.">Velvet sponge layered with star anise ganache and mirror glaze.</p>
+                <span class="quality-badge" data-i18n-en="Made to celebrate milestones" data-i18n-sr="Stvorena za obeležavanje trenutaka">Made to celebrate milestones</span>
+                <p class="flavor-note" data-i18n-en="Reserve 48 hours ahead." data-i18n-sr="Rezervišite 48 sati unapred.">Reserve 48 hours ahead.</p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img src="assets/img/1.jpg" alt="Assorted iced pastries stacked on a bakery table" data-i18n-alt-en="Assorted iced pastries stacked on a bakery table" data-i18n-alt-sr="Razne glazirane poslastice na pekarskom stolu" loading="lazy" decoding="async">
+              </div>
+              <div class="specialty-body">
+                <h3 data-i18n-en="Aurora Mille-Feuille" data-i18n-sr="Aurora mille-feuille">Aurora Mille-Feuille</h3>
+                <p data-i18n-en="Puff pastry laminated with vanilla bean custard and candied petals." data-i18n-sr="Lisnato testo sa kremom od mahune vanile i kandiranim laticama.">Puff pastry laminated with vanilla bean custard and candied petals.</p>
+                <span class="quality-badge" data-i18n-en="Layers crackle at first bite" data-i18n-sr="Slojevi pucketaju pri prvom zalogaju">Layers crackle at first bite</span>
+                <p class="flavor-note" data-i18n-en="Serve with midnight tea flights." data-i18n-sr="Poslužite uz nocne cajne degustacije.">Serve with midnight tea flights.</p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img src="assets/img/5.jpg" alt="Seed crusted loaf partly sliced on board" data-i18n-alt-en="Seed crusted loaf partly sliced on board" data-i18n-alt-sr="Slana fokaca sa povrcem iz žara" loading="lazy" decoding="async">
+              </div>
+              <div class="specialty-body">
+                <h3 data-i18n-en="Ember Garden Focaccia" data-i18n-sr="Žar vrt fokaca">Ember Garden Focaccia</h3>
+                <p data-i18n-en="Charred rosemary oil, ember-roasted tomatoes, and cracked pepper stardust." data-i18n-sr="Uljem od žarenog ruzmarina, paradajzom pecenim u žaru i zrncima bibera kao zvezdana prašina.">Charred rosemary oil, ember-roasted tomatoes, and cracked pepper stardust.</p>
+                <span class="quality-badge" data-i18n-en="Stone-hearth baked" data-i18n-sr="Peceno na kamenom ognjištu">Stone-hearth baked</span>
+                <p class="flavor-note" data-i18n-en="Slice alongside luminous soups." data-i18n-sr="Secite uz svetlucave supe.">Slice alongside luminous soups.</p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img src="assets/img/19.jpg" alt="Colorful gourmet donuts arranged in display" data-i18n-alt-en="Colorful gourmet donuts arranged in display" data-i18n-alt-sr="Sezonski kolac sa sazveždima" loading="lazy" decoding="async">
+              </div>
+              <div class="specialty-body">
+                <h3 data-i18n-en="Solstice Mooncake" data-i18n-sr="Solsticijski kolac">Solstice Mooncake</h3>
+                <p data-i18n-en="Golden lotus paste, blackberry compote, and glittered sesame crust." data-i18n-sr="Zlatni lotus nadev, kompot od kupine i sjajna susamova kora.">Golden lotus paste, blackberry compote, and glittered sesame crust.</p>
+                <span class="quality-badge" data-i18n-en="Limited seasonal release" data-i18n-sr="Ograniceno sezonsko izdanje">Limited seasonal release</span>
+                <p class="flavor-note" data-i18n-en="Reserve for celebrations under the stars." data-i18n-sr="Rezervišite za proslave pod zvezdama.">Reserve for celebrations under the stars.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
 
+      <section id="catalog" class="catalog section">
+        <div class="container">
+          <div class="section-heading reveal-on-scroll">
+            <h2 data-i18n-en="Nightfall Catalog" data-i18n-sr="Katalog sumraka">Nightfall Catalog</h2>
+            <p data-i18n-en="Browse every loaf, pastry, and cake we craft after dusk. Filter by craving and open each card to explore ingredients." data-i18n-sr="Pregledajte svaki hleb, poslasticu i tortu koje pravimo posle sumraka. Filtrirajte po zelji i otvorite kartice da otkrijete sastojke.">Browse every loaf, pastry, and cake we craft after dusk. Filter by craving and open each card to explore ingredients.</p>
+          </div>
+          <div class="catalog-controls reveal-on-scroll" role="tablist" aria-label="Catalog categories" data-catalog-filters></div>
+          <div class="catalog-meta reveal-on-scroll">
+            <p class="catalog-count" data-catalog-count data-i18n-en="Showing all items" data-i18n-sr="Prikaz svih stavki">Showing all items</p>
+            <p class="catalog-hint" data-i18n-en="Tip: tap 'More Info' to view stories, ingredients, and pairing ideas." data-i18n-sr="Savet: pritisnite 'Vise informacija' za price, sastojke i preporuke za slaganje.">Tip: tap 'More Info' to view stories, ingredients, and pairing ideas.</p>
+          </div>
+          <div class="catalog-grid reveal-on-scroll" data-catalog-list role="list"></div>
+          <noscript>
+            <p class="noscript-note">Enable JavaScript to explore the interactive catalog.</p>
+          </noscript>
+        </div>
+      </section>
 
+      <section id="gallery" class="gallery section">
+        <div class="container">
+          <div class="section-heading reveal-on-scroll">
+            <h2 data-i18n-en="Immersive Gallery" data-i18n-sr="Imerzivna galerija">Immersive Gallery</h2>
+            <p data-i18n-en="Wander through flickers of ovens, artisans, and twilight tastings." data-i18n-sr="Prošetajte kroz odsjaje peci, zanatlija i sumracnih degustacija.">Wander through flickers of ovens, artisans, and twilight tastings.</p>
+          </div>
+          <div class="gallery-grid">
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Hands cradling our hearth sourdough just after baking." data-caption-sr="Ruke nose nas hleb iz ognjista odmah posle pecenja." data-image="assets/img/11.jpg" aria-label="Open gallery item 1" data-i18n-aria-en="Open gallery item 1" data-i18n-aria-sr="Otvori stavku galerije 1">
+              <img src="assets/img/11.jpg" alt="Hands cradling sourdough loaf" data-i18n-alt-en="Hands cradling sourdough loaf" data-i18n-alt-sr="Ruke drze hleb od kiselog testa" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Fresh baguettes cooling beside the brick oven." data-caption-sr="Svez bageti hlade se pored zidane peci." data-image="assets/img/17.jpg" aria-label="Open gallery item 2" data-i18n-aria-en="Open gallery item 2" data-i18n-aria-sr="Otvori stavku galerije 2">
+              <img src="assets/img/17.jpg" alt="Fresh baguettes stacked beside brick oven" data-i18n-alt-en="Fresh baguettes stacked beside brick oven" data-i18n-alt-sr="Svezi bageti naslagani pored zidane peci" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Evening pastry counter lined with brownies and braided twists." data-caption-sr="Vecernji pult sa braunijima i uvijenim pecivom." data-image="assets/img/6.jpg" aria-label="Open gallery item 3" data-i18n-aria-en="Open gallery item 3" data-i18n-aria-sr="Otvori stavku galerije 3">
+              <img src="assets/img/6.jpg" alt="Bakery counter filled with brownies and twists" data-i18n-alt-en="Bakery counter filled with brownies and twists" data-i18n-alt-sr="Pult pekare sa braunijima i uvijenim pecivom" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Cinnamon swirls cooling on a napkin-lined plate." data-caption-sr="Lavanda koja se meša u kremu za kolace." data-image="assets/img/9.jpg" aria-label="Open gallery item 4" data-i18n-aria-en="Open gallery item 4" data-i18n-aria-sr="Otvori stavku galerije 4">
+              <img src="assets/img/9.jpg" alt="Lavender pastry cream preparation" data-i18n-alt-en="Lavender pastry cream preparation" data-i18n-alt-sr="Priprema kreme sa lavandom" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Family kneading dough together." data-caption-sr="Porodica zajedno mesi testo." data-image="assets/img/3.jpg" aria-label="Open gallery item 5" data-i18n-aria-en="Open gallery item 5" data-i18n-aria-sr="Otvori stavku galerije 5">
+              <img src="assets/img/3.jpg" alt="Family kneading dough" data-i18n-alt-en="Family kneading dough" data-i18n-alt-sr="Porodica mesi testo" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Glowing shelves of artisan breads." data-caption-sr="Svetlece police sa zanatskim hlebovima." data-image="assets/img/2.jpg" aria-label="Open gallery item 6" data-i18n-aria-en="Open gallery item 6" data-i18n-aria-sr="Otvori stavku galerije 6">
+              <img src="assets/img/2.jpg" alt="Shelves with artisan breads" data-i18n-alt-en="Shelves with artisan breads" data-i18n-alt-sr="Police sa zanatskim hlebom" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Espresso and brioche pairing at the bar." data-caption-sr="Espreso i brioš spoj na šanku." data-image="assets/img/13.jpg" aria-label="Open gallery item 7" data-i18n-aria-en="Open gallery item 7" data-i18n-aria-sr="Otvori stavku galerije 7">
+              <img src="assets/img/13.jpg" alt="Espresso served with brioche" data-i18n-alt-en="Espresso served with brioche" data-i18n-alt-sr="Espreso poslužen uz brioš" loading="lazy" decoding="async">
+            </button>
+            <button class="gallery-item reveal-on-scroll" type="button" data-lightbox data-caption-en="Exterior marquee glowing at twilight." data-caption-sr="Spoljašnji natpis koji svetli u sumraku." data-image="assets/img/18.jpg" aria-label="Open gallery item 8" data-i18n-aria-en="Open gallery item 8" data-i18n-aria-sr="Otvori stavku galerije 8">
+              <img src="assets/img/18.jpg" alt="Bakery exterior with glowing sign" data-i18n-alt-en="Bakery exterior with glowing sign" data-i18n-alt-sr="Eksterijer pekare sa svetlucavim znakom" loading="lazy" decoding="async">
+            </button>
+          </div>
+        </div>
+      </section>
 
-    <section id="projects" class="section">            -webkit-background-clip: text;              style="
+      <section id="stories" class="stories section">
+        <div class="container">
+          <div class="section-heading reveal-on-scroll">
+            <h2 data-i18n-en="Bakery Stories" data-i18n-sr="Bakerske price">Bakery Stories</h2>
+            <p data-i18n-en="Settle in for new recipes, community nights, and tales from the Vespera family oven." data-i18n-sr="Smestite se uz nove recepte, veceri u zajednici i price iz porodicne peci Vespera.">Settle in for new recipes, community nights, and tales from the Vespera family oven.</p>
+          </div>
+          <div class="stories-toolbar reveal-on-scroll">
+            <form class="stories-search" role="search" data-blog-search-form>
+              <label class="sr-only" for="stories-search" data-i18n-en="Search stories" data-i18n-sr="Pretrazi price">Search stories</label>
+              <input id="stories-search" type="search" name="story-search" data-blog-search-input placeholder="Search stories" aria-describedby="stories-search-hint">
+              <span id="stories-search-hint" class="search-hint" data-i18n-en="Type a keyword like 'lavender', 'community', or 'midnight'." data-i18n-sr="Unesite kljucnu rec poput 'lavanda', 'zajednica' ili 'ponoc'." >Type a keyword like 'lavender', 'community', or 'midnight'.</span>
+              <button type="reset" class="search-clear" data-blog-search-reset data-i18n-en="Clear" data-i18n-sr="Ocisti">Clear</button>
+            </form>
+          </div>
+          <div class="stories-grid reveal-on-scroll" data-blog-list role="list"></div>
+          <p class="stories-empty" data-blog-empty hidden data-i18n-en="No stories match your search yet. Try a different phrase." data-i18n-sr="Nijedna prica trenutno ne odgovara pretrazi. Pokusajte drugu rec.">No stories match your search yet. Try a different phrase.</p>
+        </div>
+      </section>
 
-        <h2 class="section-title orbitron">FEATURED PROJECTS</h2>
-
-        <p class="section-subtitle">Showcase of my latest work and innovations</p>            -webkit-text-fill-color: transparent;                display: inline-block;
-
-        
-
-        <div class="projects-grid">            background-clip: text;                padding: 1.2rem 3rem;
-
-            <div class="project-card fade-in">
-
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="E-Commerce Platform" class="project-image">            letter-spacing: 3px;                background: linear-gradient(
-
-                <div class="project-content">
-
-                    <h3 class="project-title orbitron">E-Commerce Platform</h3>        }                  135deg,
-
-                    <p class="project-description">Full-stack e-commerce solution with AI-powered product recommendations and real-time inventory management.</p>
-
-                    <div class="project-tags">                  var(--color-primary-red),
-
-                        <span class="tag">React</span>
-
-                        <span class="tag">Node.js</span>        .section-subtitle {                  var(--color-primary-purple)
-
-                        <span class="tag">AI/ML</span>
-
-                        <span class="tag">MongoDB</span>            text-align: center;                );
-
-                    </div>
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>            color: var(--text-secondary);                color: white;
-
+      <section id="orders" class="orders section">
+        <div class="container orders-layout">
+          <div class="orders-intro reveal-on-scroll">
+            <h2 data-i18n-en="Pre-Order & Catering" data-i18n-sr="Prednarucivanje i ketering">Pre-Order & Catering</h2>
+            <p data-i18n-en="Reserve breads for gatherings, schedule pastry boxes, or design a custom midnight feast." data-i18n-sr="Rezervisite hlebove za okupljanja, zakazite kutije poslastica ili dizajnirajte svoju ponocnu gozbu.">Reserve breads for gatherings, schedule pastry boxes, or design a custom midnight feast.</p>
+            <p data-i18n-en="Select your cravings, choose a pickup time, and we will confirm within a few moonlit minutes." data-i18n-sr="Odaberite sta zelite, izaberite termin preuzimanja i potvrdicemo u roku od nekoliko mesecinom obasjanih minuta.">Select your cravings, choose a pickup time, and we will confirm within a few moonlit minutes.</p>
+          </div>
+          <div class="orders-content">
+            <form id="order-form" class="order-form reveal-on-scroll" novalidate data-order-form aria-describedby="order-feedback">
+              <fieldset class="order-fieldset">
+                <legend data-i18n-en="Your Details" data-i18n-sr="Vasi podaci">Your Details</legend>
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="order-name" data-i18n-en="Full Name" data-i18n-sr="Puno ime">Full Name</label>
+                    <input id="order-name" name="order-name" type="text" required aria-required="true" data-i18n-placeholder-en="Your name" data-i18n-placeholder-sr="Vase ime" placeholder="Your name">
+                    <p class="input-error" role="alert" hidden data-i18n-en="Please tell us who the order is for." data-i18n-sr="Recite nam na koga se porudzbina odnosi.">Please tell us who the order is for.</p>
+                  </div>
+                  <div class="form-field">
+                    <label for="order-email" data-i18n-en="Email" data-i18n-sr="E-mail">Email</label>
+                    <input id="order-email" name="order-email" type="email" required aria-required="true" data-i18n-placeholder-en="you@example.com" data-i18n-placeholder-sr="vi@primer.com" placeholder="you@example.com">
+                    <p class="input-error" role="alert" hidden data-i18n-en="Enter a valid email so we can confirm." data-i18n-sr="Unesite vazecu e-mail adresu kako bismo potvrdili.">Enter a valid email so we can confirm.</p>
+                  </div>
+                  <div class="form-field">
+                    <label for="order-phone" data-i18n-en="Phone" data-i18n-sr="Telefon">Phone</label>
+                    <input id="order-phone" name="order-phone" type="tel" required aria-required="true" data-i18n-placeholder-en="+381 60 000 000" data-i18n-placeholder-sr="+381 60 000 000" placeholder="+381 60 000 000">
+                    <p class="input-error" role="alert" hidden data-i18n-en="Please share a phone number for day-of updates." data-i18n-sr="Upisite broj telefona za azuriranja na dan preuzimanja.">Please share a phone number for day-of updates.</p>
+                  </div>
                 </div>
+              </fieldset>
 
-            </div>            font-size: 1.2rem;                text-decoration: none;
+              <fieldset class="order-fieldset">
+                <legend data-i18n-en="Choose Items" data-i18n-sr="Odaberite stavke">Choose Items</legend>
+                <p class="fieldset-hint" data-i18n-en="Quantities sync with the cart on the right. You can adjust anytime." data-i18n-sr="Kolicine se automatski uskladjuju sa korpom desno. Mozete ih menjati u svakom trenutku.">Quantities sync with the cart on the right. You can adjust anytime.</p>
+                <div class="order-items" data-order-items></div>
+              </fieldset>
 
-
-
-            <div class="project-card fade-in">            margin-bottom: 4rem;                border-radius: 50px;
-
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Analytics Dashboard" class="project-image">
-
-                <div class="project-content">        }                font-weight: 700;
-
-                    <h3 class="project-title orbitron">Analytics Dashboard</h3>
-
-                    <p class="project-description">Real-time analytics platform with interactive data visualization and AI-driven insights for business intelligence.</p>                font-size: 1.1rem;
-
-                    <div class="project-tags">
-
-                        <span class="tag">Vue.js</span>        .projects-grid {                letter-spacing: 2px;
-
-                        <span class="tag">D3.js</span>
-
-                        <span class="tag">Python</span>            display: grid;                box-shadow: 0 10px 40px rgba(220, 20, 60, 0.4), var(--glow-red);
-
-                        <span class="tag">AI</span>
-
-                    </div>            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));                transition: all 0.3s ease;
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>
-
-                </div>            gap: 2.5rem;                border: 2px solid transparent;
-
-            </div>
-
-        }              "
-
-            <div class="project-card fade-in">
-
-                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="AI Chatbot" class="project-image">              onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.boxShadow='0 15px 50px rgba(220, 20, 60, 0.6), var(--glow-red)'"
-
-                <div class="project-content">
-
-                    <h3 class="project-title orbitron">AI Chatbot System</h3>        .project-card {              onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 40px rgba(220, 20, 60, 0.4), var(--glow-red)'"
-
-                    <p class="project-description">Intelligent chatbot with natural language processing, integrated with multiple platforms for customer support.</p>
-
-                    <div class="project-tags">            background: var(--bg-card);            >
-
-                        <span class="tag">Groq AI</span>
-
-                        <span class="tag">Express</span>            border-radius: 20px;              🚀 UPLOAD REKLAMU
-
-                        <span class="tag">NLP</span>
-
-                        <span class="tag">WebSocket</span>            overflow: hidden;            </a>
-
-                    </div>
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>            border: 1px solid rgba(0, 212, 255, 0.2);            <a
-
+              <fieldset class="order-fieldset">
+                <legend data-i18n-en="Pickup Details" data-i18n-sr="Preuzimanje">Pickup Details</legend>
+                <div class="form-grid">
+                  <div class="form-field">
+                    <label for="order-date" data-i18n-en="Pickup Date" data-i18n-sr="Datum preuzimanja">Pickup Date</label>
+                    <input id="order-date" name="order-date" type="date" required aria-required="true">
+                    <p class="input-error" role="alert" hidden data-i18n-en="Select a pickup date." data-i18n-sr="Izaberite datum preuzimanja.">Select a pickup date.</p>
+                  </div>
+                  <div class="form-field">
+                    <label for="order-time" data-i18n-en="Preferred Time" data-i18n-sr="Zeljeno vreme">Preferred Time</label>
+                    <input id="order-time" name="order-time" type="time" required aria-required="true">
+                    <p class="input-error" role="alert" hidden data-i18n-en="Choose a time so we can plan the bake." data-i18n-sr="Izaberite vreme da bismo isplanirali pecenje.">Choose a time so we can plan the bake.</p>
+                  </div>
                 </div>
-
-            </div>            transition: all 0.3s;              href="/portfolio.html"
-
-
-
-            <div class="project-card fade-in">            cursor: pointer;              class="orbitron"
-
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80" alt="Fintech Dashboard" class="project-image">
-
-                <div class="project-content">        }              style="
-
-                    <h3 class="project-title orbitron">Fintech Dashboard</h3>
-
-                    <p class="project-description">Financial technology platform with real-time stock tracking, portfolio management, and AI-powered investment advice.</p>                display: inline-block;
-
-                    <div class="project-tags">
-
-                        <span class="tag">Next.js</span>        .project-card:hover {                padding: 1.2rem 3rem;
-
-                        <span class="tag">TypeScript</span>
-
-                        <span class="tag">GraphQL</span>            transform: translateY(-10px);                background: rgba(0, 212, 255, 0.1);
-
-                        <span class="tag">WebSocket</span>
-
-                    </div>            box-shadow: var(--glow-blue);                backdrop-filter: blur(10px);
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>
-
-                </div>            border-color: var(--accent-blue);                border: 2px solid var(--color-light-blue);
-
-            </div>
-
-        }                color: var(--color-light-blue);
-
-            <div class="project-card fade-in">
-
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80" alt="SaaS Platform" class="project-image">                text-decoration: none;
-
-                <div class="project-content">
-
-                    <h3 class="project-title orbitron">SaaS Management Platform</h3>        .project-image {                border-radius: 50px;
-
-                    <p class="project-description">Multi-tenant SaaS platform for project management with team collaboration, time tracking, and automated reporting.</p>
-
-                    <div class="project-tags">            width: 100%;                font-weight: 700;
-
-                        <span class="tag">React</span>
-
-                        <span class="tag">PostgreSQL</span>            height: 250px;                font-size: 1.1rem;
-
-                        <span class="tag">Redis</span>
-
-                        <span class="tag">Docker</span>            object-fit: cover;                letter-spacing: 2px;
-
-                    </div>
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>            border-bottom: 2px solid var(--accent-blue);                box-shadow: var(--glow-blue);
-
+                <div class="form-field">
+                  <label for="order-notes" data-i18n-en="Special Notes" data-i18n-sr="Posebne napomene">Special Notes</label>
+                  <textarea id="order-notes" name="order-notes" rows="3" data-i18n-placeholder-en="Allergies, themes, delivery details..." data-i18n-placeholder-sr="Alergije, teme, detalji isporuke..." placeholder="Allergies, themes, delivery details..."></textarea>
                 </div>
-
-            </div>        }                transition: all 0.3s ease;
-
-
-
-            <div class="project-card fade-in">              "
-
-                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80" alt="IoT Hub" class="project-image">
-
-                <div class="project-content">        .project-content {              onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.background='rgba(0, 212, 255, 0.2)'; this.style.boxShadow='0 15px 50px rgba(0, 212, 255, 0.6)'"
-
-                    <h3 class="project-title orbitron">Smart Home IoT Hub</h3>
-
-                    <p class="project-description">IoT platform connecting smart home devices with AI automation, voice control, and energy optimization features.</p>            padding: 2rem;              onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.background='rgba(0, 212, 255, 0.1)'; this.style.boxShadow='var(--glow-blue)'"
-
-                    <div class="project-tags">
-
-                        <span class="tag">Node.js</span>        }            >
-
-                        <span class="tag">MQTT</span>
-
-                        <span class="tag">TensorFlow</span>              📂 VIEW PORTFOLIO
-
-                        <span class="tag">AWS IoT</span>
-
-                    </div>        .project-title {            </a>
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>
-
-                </div>            font-size: 1.8rem;          </div>
-
-            </div>
-
-        </div>            font-weight: 700;
-
-    </section>
-
-            color: var(--accent-cyan);          <!-- Stats -->
-
-    <section id="skills" class="section" style="background: rgba(10, 10, 10, 0.5);">
-
-        <h2 class="section-title orbitron">TECHNICAL SKILLS</h2>            margin-bottom: 1rem;          <div
-
-        <p class="section-subtitle">Technologies I work with every day</p>
-
-                }            style="
-
-        <div class="skills-grid">
-
-            <div class="skill-card fade-in">              display: grid;
-
-                <div class="skill-icon">⚛️</div>
-
-                <div class="skill-name orbitron">React / Next.js</div>        .project-description {              grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-
-                <div class="skill-level">Expert Level</div>
-
-            </div>            color: var(--text-secondary);              gap: 2rem;
-
-            <div class="skill-card fade-in">
-
-                <div class="skill-icon">🟢</div>            margin-bottom: 1.5rem;              max-width: 900px;
-
-                <div class="skill-name orbitron">Node.js / Express</div>
-
-                <div class="skill-level">Expert Level</div>            line-height: 1.6;              margin: 0 auto;
-
-            </div>
-
-            <div class="skill-card fade-in">        }              margin-top: 4rem;
-
-                <div class="skill-icon">🤖</div>
-
-                <div class="skill-name orbitron">AI Integration</div>            "
-
-                <div class="skill-level">Advanced</div>
-
-            </div>        .project-tags {          >
-
-            <div class="skill-card fade-in">
-
-                <div class="skill-icon">🗄️</div>            display: flex;            <div
-
-                <div class="skill-name orbitron">MongoDB / SQL</div>
-
-                <div class="skill-level">Expert Level</div>            flex-wrap: wrap;              style="
-
-            </div>
-
-            <div class="skill-card fade-in">            gap: 0.5rem;                padding: 1.5rem;
-
-                <div class="skill-icon">🎨</div>
-
-                <div class="skill-name orbitron">UI/UX Design</div>            margin-bottom: 1.5rem;                background: var(--color-card-bg);
-
-                <div class="skill-level">Advanced</div>
-
-            </div>        }                border-radius: 20px;
-
-            <div class="skill-card fade-in">
-
-                <div class="skill-icon">☁️</div>                border: 1px solid var(--color-border);
-
-                <div class="skill-name orbitron">Cloud / DevOps</div>
-
-                <div class="skill-level">Intermediate</div>        .tag {                backdrop-filter: blur(10px);
-
-            </div>
-
-            <div class="skill-card fade-in">            padding: 0.4rem 1rem;                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
-                <div class="skill-icon">📱</div>
-
-                <div class="skill-name orbitron">Mobile Development</div>            background: rgba(0, 212, 255, 0.1);              "
-
-                <div class="skill-level">Advanced</div>
-
-            </div>            border: 1px solid var(--accent-blue);            >
-
-            <div class="skill-card fade-in">
-
-                <div class="skill-icon">🔒</div>            border-radius: 20px;              <div
-
-                <div class="skill-name orbitron">Security</div>
-
-                <div class="skill-level">Advanced</div>            font-size: 0.85rem;                class="orbitron"
-
-            </div>
-
-        </div>            color: var(--accent-cyan);                style="
-
-    </section>
-
-        }                  font-size: 2.5rem;
-
-    <section id="about" class="section">
-
-        <h2 class="section-title orbitron">ABOUT ME</h2>                  font-weight: 900;
-
-        <p class="section-subtitle">The person behind the code</p>
-
-                .project-link {                  color: var(--color-light-blue);
-
-        <div class="about-container">
-
-            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=800&q=80" alt="Developer Workspace" class="about-image fade-in">            display: inline-block;                  text-shadow: var(--glow-blue);
-
-            <div class="about-text fade-in">
-
-                <h3 class="orbitron">Building Tomorrow's Web Today</h3>            padding: 0.8rem 2rem;                  margin-bottom: 0.5rem;
-
-                <p>
-
-                    I'm a passionate web developer with 5+ years of experience creating innovative digital solutions.             background: linear-gradient(135deg, var(--accent-purple), var(--accent-red));                "
-
-                    My journey in web development has been driven by curiosity and a constant desire to push boundaries.
-
-                </p>            color: white;              >
-
-                <p>
-
-                    Specializing in modern JavaScript frameworks and AI integration, I've helped dozens of clients             text-decoration: none;                ⚡
-
-                    transform their ideas into reality. From startups to established businesses, I bring a unique 
-
-                    blend of technical expertise and creative problem-solving to every project.            border-radius: 25px;              </div>
-
-                </p>
-
-                <p>            font-weight: 600;              <div
-
-                    When I'm not coding, you'll find me exploring the latest tech trends, contributing to open-source 
-
-                    projects, or experimenting with new AI technologies. I believe in continuous learning and staying             transition: all 0.3s;                class="orbitron"
-
-                    ahead of the curve in this rapidly evolving industry.
-
-                </p>        }                style="
-
-                <p style="color: var(--accent-cyan); font-weight: 700;">
-
-                    Let's collaborate and create something extraordinary together! 🚀                  font-size: 1.1rem;
-
-                </p>
-
-            </div>        .project-link:hover {                  font-weight: 700;
-
+              </fieldset>
+
+              <div class="form-actions">
+                <button type="submit" class="cta-button" data-i18n-en="Submit Order Request" data-i18n-sr="Posalji zahtev za porudzbinu">Submit Order Request</button>
+                <button type="button" class="ghost-button" data-order-reset data-i18n-en="Reset Form" data-i18n-sr="Resetuj formu">Reset Form</button>
+              </div>
+              <p id="order-feedback" class="form-feedback" role="alert" hidden data-i18n-en="Thank you! A confirmation is softly rising in our oven inbox." data-i18n-sr="Hvala! Potvrda lagano narasta u nasem pecnickom inbox-u.">Thank you! A confirmation is softly rising in our oven inbox.</p>
+            </form>
+
+            <aside class="cart-panel reveal-on-scroll" aria-live="polite">
+              <div class="cart-panel-inner">
+                <h3 data-i18n-en="Cart Summary" data-i18n-sr="Rezime korpe">Cart Summary</h3>
+                <p class="cart-empty" data-cart-empty data-i18n-en="No items yet. Choose favorites to build your night basket." data-i18n-sr="Nema stavki. Odaberite omiljene kako biste napunili nocnu korpu.">No items yet. Choose favorites to build your night basket.</p>
+                <ul class="cart-items" data-cart-items></ul>
+                <div class="cart-total">
+                  <span data-i18n-en="Subtotal" data-i18n-sr="Meduzbir">Subtotal</span>
+                  <strong data-cart-total>0.00</strong>
+                </div>
+                <p class="cart-note" data-i18n-en="All orders are paid upon pickup. Prices include VAT." data-i18n-sr="Sve porudzbine se placaju pri preuzimanju. Cene ukljucuju PDV.">All orders are paid upon pickup. Prices include VAT.</p>
+              </div>
+            </aside>
+          </div>
         </div>
+      </section>
 
-    </section>            transform: scale(1.05);                  color: var(--color-text-white);
-
-
-
-    <section id="contact" class="section" style="background: rgba(10, 10, 10, 0.5);">            box-shadow: var(--glow-red);                  letter-spacing: 1px;
-
-        <h2 class="section-title orbitron">GET IN TOUCH</h2>
-
-        <p class="section-subtitle">Let's discuss your next project</p>        }                "
-
-        
-
-        <form class="contact-form fade-in" id="contactForm">              >
-
-            <div class="form-group">
-
-                <label for="name" class="orbitron">YOUR NAME</label>        /* Skills Section */                INSTANT
-
-                <input type="text" id="name" required placeholder="John Doe">
-
-            </div>        .skills-grid {              </div>
-
-            <div class="form-group">
-
-                <label for="email" class="orbitron">YOUR EMAIL</label>            display: grid;              <div
-
-                <input type="email" id="email" required placeholder="john@example.com">
-
-            </div>            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                style="
-
-            <div class="form-group">
-
-                <label for="project" class="orbitron">PROJECT TYPE</label>            gap: 2rem;                  font-size: 0.9rem;
-
-                <input type="text" id="project" required placeholder="E-commerce, Landing Page, Web App...">
-
-            </div>        }                  color: var(--color-text-gray);
-
-            <div class="form-group">
-
-                <label for="message" class="orbitron">YOUR MESSAGE</label>                  margin-top: 0.5rem;
-
-                <textarea id="message" required placeholder="Tell me about your project..."></textarea>
-
-            </div>        .skill-card {                "
-
-            <button type="submit" class="btn-primary orbitron" style="width: 100%;">SEND MESSAGE 🚀</button>
-
-        </form>            padding: 2rem;              >
-
-    </section>
-
-            background: var(--bg-card);                Upload u sekundi
-
-    <footer>
-
-        <div class="social-links">            border-radius: 20px;              </div>
-
-            <a href="https://github.com" target="_blank" class="social-link" title="GitHub">🐙</a>
-
-            <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">💼</a>            border: 1px solid rgba(0, 212, 255, 0.2);            </div>
-
-            <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">🐦</a>
-
-            <a href="mailto:contact@example.com" class="social-link" title="Email">📧</a>            text-align: center;            <div
-
+      <section id="visit" class="visit section">
+        <div class="container visit-grid">
+          <div class="visit-info reveal-on-scroll">
+            <h2 data-i18n-en="Visit Us" data-i18n-sr="Posetite nas">Visit Us</h2>
+            <p data-i18n-en="We welcome you into the glow each evening and at first light. Reach out or arrive ready to savor." data-i18n-sr="Dobrodošli ste u naš sjaj svake veceri i u zoru. Javite se ili dodite spremni da uživate.">We welcome you into the glow each evening and at first light. Reach out or arrive ready to savor.</p>
+            <ul class="contact-list">
+              <li>
+                <span class="label" data-i18n-en="Address" data-i18n-sr="Adresa">Address</span>
+                <span class="value" data-i18n-en="112 Ember Lane, Belgrade Waterfront" data-i18n-sr="Ulica Ember 112, Beograd na vodi">112 Ember Lane, Belgrade Waterfront</span>
+              </li>
+              <li>
+                <span class="label" data-i18n-en="Phone" data-i18n-sr="Telefon">Phone</span>
+                <a class="value" href="tel:+381601234567" data-i18n-en="+381 60 123 4567" data-i18n-sr="+381 60 123 4567">+381 60 123 4567</a>
+              </li>
+              <li>
+                <span class="label" data-i18n-en="Email" data-i18n-sr="E-mail">Email</span>
+                <a class="value" href="mailto:hello@vesperahearth.com" data-i18n-en="hello@vesperahearth.com" data-i18n-sr="hello@vesperahearth.com">hello@vesperahearth.com</a>
+              </li>
+              <li>
+                <span class="label" data-i18n-en="Hours" data-i18n-sr="Radno vreme">Hours</span>
+                <span class="value" data-i18n-en="Tue - Sun: 17:00 - 02:00 | Mon: Closed" data-i18n-sr="Uto - Ned: 17:00 - 02:00 | Pon: Zatvoreno">Tue - Sun: 17:00 - 02:00 | Mon: Closed</span>
+              </li>
+            </ul>
+          </div>
+          <div class="visit-media reveal-on-scroll">
+            <figure class="map-frame" aria-labelledby="map-caption">
+              <img src="assets/img/map-placeholder.svg" alt="Stylized neighborhood map illustration" data-i18n-alt-en="Stylized neighborhood map illustration" data-i18n-alt-sr="Stilizovana mapa komšiluka" loading="lazy" decoding="async">
+              <figcaption id="map-caption" data-i18n-en="Illustrative map of our Belgrade Waterfront neighborhood." data-i18n-sr="Ilustrativna mapa našeg kvarta na Beogradu na vodi.">Illustrative map of our Belgrade Waterfront neighborhood.</figcaption>
+            </figure>
+          </div>
+          <div class="visit-form reveal-on-scroll">
+            <h3 data-i18n-en="Say Hello" data-i18n-sr="Pozdravite nas">Say Hello</h3>
+            <form id="contact-form" novalidate>
+              <div class="form-field">
+                <label for="name" data-i18n-en="Name" data-i18n-sr="Ime">Name</label>
+                <input id="name" name="name" type="text" required aria-required="true" placeholder="Your full name" data-i18n-placeholder-en="Your full name" data-i18n-placeholder-sr="Vaše puno ime">
+                <small data-i18n-en="Tell us who is visiting the hearth." data-i18n-sr="Recite nam ko posecuje ognjište.">Tell us who is visiting the hearth.</small>
+                <p class="input-error" role="alert" hidden data-i18n-en="Please enter your name." data-i18n-sr="Unesite svoje ime.">Please enter your name.</p>
+              </div>
+              <div class="form-field">
+                <label for="email" data-i18n-en="Email" data-i18n-sr="E-mail">Email</label>
+                <input id="email" name="email" type="email" required aria-required="true" placeholder="you@example.com" data-i18n-placeholder-en="you@example.com" data-i18n-placeholder-sr="vi@primer.com">
+                <small data-i18n-en="We will reply with a warm note shortly." data-i18n-sr="Odgovoricemo uskoro toplom porukom.">We will reply with a warm note shortly.</small>
+                <p class="input-error" role="alert" hidden data-i18n-en="Please provide a valid email address." data-i18n-sr="Unesite važecu e-mail adresu.">Please provide a valid email address.</p>
+              </div>
+              <div class="form-field">
+                <label for="message" data-i18n-en="Message" data-i18n-sr="Poruka">Message</label>
+                <textarea id="message" name="message" rows="4" required aria-required="true" placeholder="Share your thoughts or requests" data-i18n-placeholder-en="Share your thoughts or requests" data-i18n-placeholder-sr="Podelite svoje misli ili zahteve"></textarea>
+                <small data-i18n-en="Let us know if you crave something luminous." data-i18n-sr="Javite nam ako žudite za necim svetlucavim.">Let us know if you crave something luminous.</small>
+                <p class="input-error" role="alert" hidden data-i18n-en="Please share a message so we can reply." data-i18n-sr="Podelite poruku kako bismo mogli da odgovorimo.">Please share a message so we can reply.</p>
+              </div>
+              <button type="submit" class="cta-button" data-i18n-en="Send Message" data-i18n-sr="Pošalji poruku">Send Message</button>
+              <p class="form-feedback" role="status" hidden data-i18n-en="Thank you! Your note is en route to our night bakers." data-i18n-sr="Hvala! Vaša poruka je stigla našim nocnim pekarima.">Thank you! Your note is en route to our night bakers.</p>
+              <p class="form-disclaimer" data-i18n-en="Demo notice: submissions stay local and no email is sent." data-i18n-sr="Napomena: zbog demonstracije poruke ostaju lokalno i e-mail se ne šalje.">Demo notice: submissions stay local and no email is sent.</p>
+            </form>
+          </div>
         </div>
+      </section>
+    </main>
 
-        <p style="color: var(--text-muted);">            transition: all 0.3s;              style="
-
-            © 2025 Web Developer Portfolio. Built with 💙 and AI.
-
-        </p>        }                padding: 1.5rem;
-
-        <p style="color: var(--text-muted); margin-top: 1rem;">
-
-            <a href="/portfolio.html" style="color: var(--accent-blue); text-decoration: none;">View All Projects</a> |                 background: var(--color-card-bg);
-
-            <a href="/about.html" style="color: var(--accent-blue); text-decoration: none;">About</a>
-
-        </p>        .skill-card:hover {                border-radius: 20px;
-
+    <footer class="site-footer">
+      <div class="container footer-inner">
+        <p data-i18n-en="&copy; 2025 Vespera Hearth Bakery. Crafted with devotion in Belgrade." data-i18n-sr="&copy; 2025 Pekara Vespera Ognjište. Stvoreno sa posvecenošcu u Beogradu.">&copy; 2025 Vespera Hearth Bakery. Crafted with devotion in Belgrade.</p>
+        <div class="footer-links">
+          <a href="#home" data-i18n-en="Back to top" data-i18n-sr="Nazad na vrh">Back to top</a>
+          <a href="#specialties" data-i18n-en="Menu Highlights" data-i18n-sr="Istaknuti meni">Menu Highlights</a>
+        </div>
+      </div>
     </footer>
 
-            transform: translateY(-5px);                border: 1px solid var(--color-border);
+    <div class="lightbox" aria-hidden="true" role="dialog" aria-modal="true" hidden data-lightbox-modal>
+      <div class="lightbox-backdrop" data-close-lightbox></div>
+      <div class="lightbox-content" role="document" aria-labelledby="lightbox-title">
+        <header class="lightbox-header">
+          <h2 id="lightbox-title" data-i18n-en="Gallery preview" data-i18n-sr="Pregled galerije">Gallery preview</h2>
+          <button class="lightbox-close" type="button" aria-label="Close gallery" data-close-lightbox data-i18n-aria-en="Close gallery" data-i18n-aria-sr="Zatvori galeriju">×</button>
+        </header>
+        <figure>
+          <img src="" alt="" data-lightbox-image>
+          <figcaption>
+            <p data-lightbox-caption></p>
+          </figcaption>
+        </figure>
+      </div>
+    </div>
 
+    <div class="modal" hidden aria-hidden="true" data-modal-root>
+      <div class="modal-backdrop" data-modal-dismiss></div>
+      <div class="modal-dialog" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+        <header class="modal-header">
+          <h2 id="modal-title" data-modal-title></h2>
+          <button type="button" class="modal-close" data-modal-dismiss aria-label="Close this dialog">x</button>
+        </header>
+        <div class="modal-body" data-modal-body></div>
+        <footer class="modal-footer" data-modal-footer></footer>
+      </div>
+    </div>
+
+    <div class="toast" role="status" aria-live="polite" hidden data-toast>
+      <p data-toast-message></p>
+      <button type="button" class="toast-close" data-toast-dismiss aria-label="Close notification">x</button>
+    </div>
+
+    <!-- AI Chatbot -->
+    <link rel="stylesheet" href="/public/chatbot-styles.css">
+    <link rel="stylesheet" href="/public/cookie-styles.css">
     <script src="/public/chatbot.js"></script>
-
-    <script src="/public/cookie-consent.js"></script>            box-shadow: var(--glow-purple);                backdrop-filter: blur(10px);
-
-
-
-    <script>            border-color: var(--accent-purple);                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
-        const observerOptions = {
-
-            threshold: 0.1,        }              "
-
-            rootMargin: '0px 0px -50px 0px'
-
-        };            >
-
-
-
-        const observer = new IntersectionObserver((entries) => {        .skill-icon {              <div
-
-            entries.forEach(entry => {
-
-                if (entry.isIntersecting) {            font-size: 3.5rem;                class="orbitron"
-
-                    entry.target.classList.add('visible');
-
-                }            margin-bottom: 1rem;                style="
-
-            });
-
-        }, observerOptions);        }                  font-size: 2.5rem;
-
-
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));                  font-weight: 900;
-
-
-
-        document.getElementById('contactForm').addEventListener('submit', (e) => {        .skill-name {                  color: var(--color-primary-purple);
-
-            e.preventDefault();
-
-            alert('Thanks for your message! I\'ll get back to you soon. 🚀\n\n(This is a demo - form submission would be handled by backend API)');            font-size: 1.3rem;                  text-shadow: 0 0 20px rgba(139, 0, 255, 0.6);
-
-            e.target.reset();
-
-        });            font-weight: 700;                  margin-bottom: 0.5rem;
-
-
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {            color: var(--accent-blue);                "
-
-            anchor.addEventListener('click', function (e) {
-
-                e.preventDefault();            margin-bottom: 0.5rem;              >
-
-                const target = document.querySelector(this.getAttribute('href'));
-
-                if (target) {        }                🤖
-
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-                }              </div>
-
-            });
-
-        });        .skill-level {              <div
-
-    </script>
-
-</body>            font-size: 0.9rem;                class="orbitron"
-
-</html>
-
-            color: var(--text-muted);                style="
-
-        }                  font-size: 1.1rem;
-
-                  font-weight: 700;
-
-        /* About Section */                  color: var(--color-text-white);
-
-        .about-container {                  letter-spacing: 1px;
-
-            display: grid;                "
-
-            grid-template-columns: 1fr 1fr;              >
-
-            gap: 4rem;                AI CHATBOT
-
-            align-items: center;              </div>
-
-        }              <div
-
-                style="
-
-        .about-image {                  font-size: 0.9rem;
-
-            width: 100%;                  color: var(--color-text-gray);
-
-            border-radius: 20px;                  margin-top: 0.5rem;
-
-            border: 2px solid var(--accent-blue);                "
-
-            box-shadow: var(--glow-blue);              >
-
-        }                24/7 podrška
-
-              </div>
-
-        .about-text h3 {            </div>
-
-            font-size: 2.5rem;            <div
-
-            color: var(--accent-cyan);              style="
-
-            margin-bottom: 1.5rem;                padding: 1.5rem;
-
-        }                background: var(--color-card-bg);
-
-                border-radius: 20px;
-
-        .about-text p {                border: 1px solid var(--color-border);
-
-            color: var(--text-secondary);                backdrop-filter: blur(10px);
-
-            font-size: 1.1rem;                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
-
-            line-height: 1.8;              "
-
-            margin-bottom: 1rem;            >
-
-        }              <div
-
-                class="orbitron"
-
-        /* Contact Section */                style="
-
-        .contact-form {                  font-size: 2.5rem;
-
-            max-width: 800px;                  font-weight: 900;
-
-            margin: 0 auto;                  color: var(--color-primary-red);
-
-            padding: 3rem;                  text-shadow: var(--glow-red);
-
-            background: var(--bg-card);                  margin-bottom: 0.5rem;
-
-            border-radius: 20px;                "
-
-            border: 1px solid rgba(0, 212, 255, 0.2);              >
-
-        }                🔒
-
-              </div>
-
-        .form-group {              <div
-
-            margin-bottom: 2rem;                class="orbitron"
-
-        }                style="
-
-                  font-size: 1.1rem;
-
-        .form-group label {                  font-weight: 700;
-
-            display: block;                  color: var(--color-text-white);
-
-            margin-bottom: 0.5rem;                  letter-spacing: 1px;
-
-            color: var(--accent-cyan);                "
-
-            font-weight: 600;              >
-
-        }                SECURE
-
-              </div>
-
-        .form-group input,              <div
-
-        .form-group textarea {                style="
-
-            width: 100%;                  font-size: 0.9rem;
-
-            padding: 1rem;                  color: var(--color-text-gray);
-
-            background: rgba(0, 0, 0, 0.5);                  margin-top: 0.5rem;
-
-            border: 1px solid rgba(0, 212, 255, 0.3);                "
-
-            border-radius: 10px;              >
-
-            color: white;                GDPR compliant
-
-            font-size: 1rem;              </div>
-
-            transition: all 0.3s;            </div>
-
-        }          </div>
-
-        </div>
-
-        .form-group input:focus,      </section>
-
-        .form-group textarea:focus {
-
-            outline: none;      <style>
-
-            border-color: var(--accent-blue);        @keyframes float {
-
-            box-shadow: var(--glow-blue);          0%,
-
-        }          100% {
-
-            transform: translateY(0) scale(1);
-
-        .form-group textarea {          }
-
-            min-height: 150px;          50% {
-
-            resize: vertical;            transform: translateY(-30px) scale(1.1);
-
-        }          }
-
-        }
-
-        /* Footer */      </style>
-
-        footer {
-
-            padding: 3rem 2rem;      <section
-
-            background: rgba(0, 0, 0, 0.95);        id="features"
-
-            border-top: 1px solid rgba(0, 212, 255, 0.2);        style="
-
-            text-align: center;          padding: 6rem 0;
-
-        }          background: linear-gradient(
-
-            180deg,
-
-        .social-links {            var(--color-bg-darker) 0%,
-
-            display: flex;            rgba(13, 27, 42, 0.3) 100%
-
-            justify-content: center;          );
-
-            gap: 2rem;          position: relative;
-
-            margin-bottom: 2rem;        "
-
-        }      >
-
-        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem">
-
-        .social-link {          <div style="text-align: center; margin-bottom: 4rem">
-
-            font-size: 2rem;            <h2
-
-            color: var(--accent-blue);              class="orbitron"
-
-            transition: all 0.3s;              style="
-
-        }                font-size: 3rem;
-
-                font-weight: 900;
-
-        .social-link:hover {                margin-bottom: 1rem;
-
-            color: var(--accent-cyan);                background: linear-gradient(
-
-            text-shadow: var(--glow-cyan);                  135deg,
-
-            transform: translateY(-5px);                  var(--color-light-blue),
-
-        }                  var(--color-primary-purple)
-
-                );
-
-        /* Responsive */                -webkit-background-clip: text;
-
-        @media (max-width: 768px) {                -webkit-text-fill-color: transparent;
-
-            .hero h1 {                background-clip: text;
-
-                font-size: 3rem;                letter-spacing: 3px;
-
-            }              "
-
-            >
-
-            .hero h2 {              PLATFORM FEATURES
-
-                font-size: 1.8rem;            </h2>
-
-            }            <div
-
-              style="
-
-            .nav-links {                width: 100px;
-
-                gap: 1.5rem;                height: 3px;
-
-            }                background: linear-gradient(
-
-                  90deg,
-
-            .about-container {                  transparent,
-
-                grid-template-columns: 1fr;                  var(--color-light-blue),
-
-            }                  transparent
-
-                );
-
-            .section-title {                margin: 1rem auto;
-
-                font-size: 2.5rem;                box-shadow: var(--glow-blue);
-
-            }              "
-
-        }            ></div>
-
-          </div>
-
-        /* Scroll animations */
-
-        .fade-in {          <div
-
-            opacity: 0;            style="
-
-            transform: translateY(30px);              display: grid;
-
-            transition: all 0.6s;              grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-
-        }              gap: 2rem;
-
-            "
-
-        .fade-in.visible {          >
-
-            opacity: 1;            <div
-
-            transform: translateY(0);              style="
-
-        }                padding: 2rem;
-
-    </style>                background: var(--color-overlay-panel);
-
-</head>                border-radius: 16px;
-
-<body>                border: 1px solid var(--border-soft);
-
-    <div class="bg-animated"></div>              "
-
-    <div class="grid-overlay"></div>            >
-
-              <h3
-
-    <!-- Navigation -->                style="
-
-    <nav>                  font-size: 1.5rem;
-
-        <div class="nav-container">                  margin-bottom: 1rem;
-
-            <div class="logo orbitron">PORTFOLIO</div>                  color: var(--color-accent-bright);
-
-            <ul class="nav-links orbitron">                "
-
-                <li><a href="#home">HOME</a></li>              >
-
-                <li><a href="#projects">PROJECTS</a></li>                🤖 AI Chatbot
-
-                <li><a href="#skills">SKILLS</a></li>              </h3>
-
-                <li><a href="#about">ABOUT</a></li>              <p style="color: var(--color-text-soft)">
-
-                <li><a href="#contact">CONTACT</a></li>                Groq-powered AI asistent za korisnički servis sa automatskim
-
-            </ul>                fallback odgovorima
-
-        </div>              </p>
-
-    </nav>            </div>
-
-            <div
-
-    <!-- Hero Section -->              style="
-
-    <section id="home" class="hero">                padding: 2rem;
-
-        <div class="hero-content">                background: var(--color-overlay-panel);
-
-            <div class="hero-badge orbitron">⚡ AI-POWERED WEB DEVELOPER</div>                border-radius: 16px;
-
-            <h1 class="orbitron">WEB DEVELOPER</h1>                border: 1px solid var(--border-soft);
-
-            <h2 class="orbitron">BUILDING THE FUTURE</h2>              "
-
-            <p class="hero-description">            >
-
-                Creating <span>cutting-edge web experiences</span> with modern technologies.               <h3
-
-                Specialized in <span>AI integration</span>, <span>responsive design</span>, and <span>performance optimization</span>.                 style="
-
-                Let's build something extraordinary together.                  font-size: 1.5rem;
-
-            </p>                  margin-bottom: 1rem;
-
-            <div class="cta-buttons">                  color: var(--color-accent-bright);
-
-                <button class="btn-primary orbitron" onclick="document.getElementById('contact').scrollIntoView({behavior: 'smooth'})">GET IN TOUCH</button>                "
-
-                <button class="btn-secondary orbitron" onclick="document.getElementById('projects').scrollIntoView({behavior: 'smooth'})">VIEW PROJECTS</button>              >
-
-            </div>                📱 Responsive Design
-
-        </div>              </h3>
-
-    </section>              <p style="color: var(--color-text-soft)">
-
-                Moderan UI sa gradient animacijama i smooth transitions, radi na
-
-    <!-- Stats -->                svim uređajima
-
-    <div class="stats">              </p>
-
-        <div class="stat-card fade-in">            </div>
-
-            <div class="stat-icon">🚀</div>            <div
-
-            <div class="stat-number orbitron">50+</div>              style="
-
-            <div class="stat-label">Projects Completed</div>                padding: 2rem;
-
-        </div>                background: var(--color-overlay-panel);
-
-        <div class="stat-card fade-in">                border-radius: 16px;
-
-            <div class="stat-icon">⚡</div>                border: 1px solid var(--border-soft);
-
-            <div class="stat-number orbitron">5+</div>              "
-
-            <div class="stat-label">Years Experience</div>            >
-
-        </div>              <h3
-
-        <div class="stat-card fade-in">                style="
-
-            <div class="stat-icon">🎯</div>                  font-size: 1.5rem;
-
-            <div class="stat-number orbitron">100%</div>                  margin-bottom: 1rem;
-
-            <div class="stat-label">Client Satisfaction</div>                  color: var(--color-accent-bright);
-
-        </div>                "
-
-        <div class="stat-card fade-in">              >
-
-            <div class="stat-icon">🤖</div>                🛡️ Sigurnost
-
-            <div class="stat-number orbitron">AI</div>              </h3>
-
-            <div class="stat-label">Powered Solutions</div>              <p style="color: var(--color-text-soft)">
-
-        </div>                Helmet, CORS, Rate Limiting, Input validation - sve najbolje
-
-    </div>                security prakse
-
-              </p>
-
-    <!-- Projects Section -->            </div>
-
-    <section id="projects" class="section">            <div
-
-        <h2 class="section-title orbitron">FEATURED PROJECTS</h2>              style="
-
-        <p class="section-subtitle">Showcase of my latest work and innovations</p>                padding: 2rem;
-
-                        background: var(--color-overlay-panel);
-
-        <div class="projects-grid">                border-radius: 16px;
-
-            <div class="project-card fade-in">                border: 1px solid var(--border-soft);
-
-                <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800&q=80" alt="Project 1" class="project-image">              "
-
-                <div class="project-content">            >
-
-                    <h3 class="project-title orbitron">E-Commerce Platform</h3>              <h3
-
-                    <p class="project-description">Full-stack e-commerce solution with AI-powered product recommendations and real-time inventory management.</p>                style="
-
-                    <div class="project-tags">                  font-size: 1.5rem;
-
-                        <span class="tag">React</span>                  margin-bottom: 1rem;
-
-                        <span class="tag">Node.js</span>                  color: var(--color-accent-bright);
-
-                        <span class="tag">AI/ML</span>                "
-
-                        <span class="tag">MongoDB</span>              >
-
-                    </div>                🍪 GDPR Compliant
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>              </h3>
-
-                </div>              <p style="color: var(--color-text-soft)">
-
-            </div>                Cookie consent sistem sa podešavanjima za potpunu usklađenost sa
-
-                GDPR
-
-            <div class="project-card fade-in">              </p>
-
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&q=80" alt="Project 2" class="project-image">            </div>
-
-                <div class="project-content">            <div
-
-                    <h3 class="project-title orbitron">Analytics Dashboard</h3>              style="
-
-                    <p class="project-description">Real-time analytics platform with interactive data visualization and AI-driven insights for business intelligence.</p>                padding: 2rem;
-
-                    <div class="project-tags">                background: var(--color-overlay-panel);
-
-                        <span class="tag">Vue.js</span>                border-radius: 16px;
-
-                        <span class="tag">D3.js</span>                border: 1px solid var(--border-soft);
-
-                        <span class="tag">Python</span>              "
-
-                        <span class="tag">AI</span>            >
-
-                    </div>              <h3
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>                style="
-
-                </div>                  font-size: 1.5rem;
-
-            </div>                  margin-bottom: 1rem;
-
-                  color: var(--color-accent-bright);
-
-            <div class="project-card fade-in">                "
-
-                <img src="https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?w=800&q=80" alt="Project 3" class="project-image">              >
-
-                <div class="project-content">                🚀 Vercel Ready
-
-                    <h3 class="project-title orbitron">AI Chatbot System</h3>              </h3>
-
-                    <p class="project-description">Intelligent chatbot with natural language processing, integrated with multiple platforms for customer support.</p>              <p style="color: var(--color-text-soft)">
-
-                    <div class="project-tags">                Instant deployment sa automatskim SSL, global CDN i preview URLs
-
-                        <span class="tag">Groq AI</span>              </p>
-
-                        <span class="tag">Express</span>            </div>
-
-                        <span class="tag">NLP</span>            <div
-
-                        <span class="tag">WebSocket</span>              style="
-
-                    </div>                padding: 2rem;
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>                background: var(--color-overlay-panel);
-
-                </div>                border-radius: 16px;
-
-            </div>                border: 1px solid var(--border-soft);
-
-              "
-
-            <div class="project-card fade-in">            >
-
-                <img src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=800&q=80" alt="Project 4" class="project-image">              <h3
-
-                <div class="project-content">                style="
-
-                    <h3 class="project-title orbitron">Fintech Dashboard</h3>                  font-size: 1.5rem;
-
-                    <p class="project-description">Financial technology platform with real-time stock tracking, portfolio management, and AI-powered investment advice.</p>                  margin-bottom: 1rem;
-
-                    <div class="project-tags">                  color: var(--color-accent-bright);
-
-                        <span class="tag">Next.js</span>                "
-
-                        <span class="tag">TypeScript</span>              >
-
-                        <span class="tag">GraphQL</span>                📊 Analytics Ready
-
-                        <span class="tag">WebSocket</span>              </h3>
-
-                    </div>              <p style="color: var(--color-text-soft)">
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>                Google Analytics integracija za detaljno praćenje performansi
-
-                </div>              </p>
-
-            </div>            </div>
-
-          </div>
-
-            <div class="project-card fade-in">        </div>
-
-                <img src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?w=800&q=80" alt="Project 5" class="project-image">      </section>
-
-                <div class="project-content">
-
-                    <h3 class="project-title orbitron">SaaS Management Platform</h3>      <section
-
-                    <p class="project-description">Multi-tenant SaaS platform for project management with team collaboration, time tracking, and automated reporting.</p>        id="ads"
-
-                    <div class="project-tags">        style="padding: 4rem 0; background: var(--color-overlay-soft)"
-
-                        <span class="tag">React</span>      >
-
-                        <span class="tag">PostgreSQL</span>        <div
-
-                        <span class="tag">Redis</span>          class="container"
-
-                        <span class="tag">Docker</span>          style="max-width: 1200px; margin: 0 auto; padding: 0 1rem"
-
-                    </div>        >
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>          <h2
-
-                </div>            style="
-
-            </div>              text-align: center;
-
-              font-size: 2.5rem;
-
-            <div class="project-card fade-in">              margin-bottom: 3rem;
-
-                <img src="https://images.unsplash.com/photo-1558655146-d09347e92766?w=800&q=80" alt="Project 6" class="project-image">              color: var(--color-text-bright);
-
-                <div class="project-content">            "
-
-                    <h3 class="project-title orbitron">Smart Home IoT Hub</h3>          >
-
-                    <p class="project-description">IoT platform connecting smart home devices with AI automation, voice control, and energy optimization features.</p>            Trenutne Reklame
-
-                    <div class="project-tags">          </h2>
-
-                        <span class="tag">Node.js</span>          <div
-
-                        <span class="tag">MQTT</span>            id="adsContainer"
-
-                        <span class="tag">TensorFlow</span>            style="
-
-                        <span class="tag">AWS IoT</span>              display: grid;
-
-                    </div>              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-
-                    <a href="/portfolio.html" class="project-link orbitron">VIEW PROJECT</a>              gap: 2rem;
-
-                </div>            "
-
-            </div>          >
-
-        </div>            <div
-
-    </section>              style="
-
-                text-align: center;
-
-    <!-- Skills Section -->                padding: 3rem;
-
-    <section id="skills" class="section" style="background: rgba(10, 10, 10, 0.5);">                color: var(--color-text-soft);
-
-        <h2 class="section-title orbitron">TECHNICAL SKILLS</h2>              "
-
-        <p class="section-subtitle">Technologies I work with every day</p>            >
-
-                      <div style="font-size: 3rem; margin-bottom: 1rem">⏳</div>
-
-        <div class="skills-grid">              <p>Učitavanje reklama...</p>
-
-            <div class="skill-card fade-in">            </div>
-
-                <div class="skill-icon">⚛️</div>          </div>
-
-                <div class="skill-name orbitron">React / Next.js</div>        </div>
-
-                <div class="skill-level">Expert Level</div>      </section>
-
-            </div>
-
-            <div class="skill-card fade-in">      <section id="tech-stack" style="padding: 4rem 0">
-
-                <div class="skill-icon">🟢</div>        <div
-
-                <div class="skill-name orbitron">Node.js / Express</div>          class="container"
-
-                <div class="skill-level">Expert Level</div>          style="max-width: 1200px; margin: 0 auto; padding: 0 1rem"
-
-            </div>        >
-
-            <div class="skill-card fade-in">          <h2
-
-                <div class="skill-icon">🤖</div>            style="
-
-                <div class="skill-name orbitron">AI Integration</div>              text-align: center;
-
-                <div class="skill-level">Advanced</div>              font-size: 2.5rem;
-
-            </div>              margin-bottom: 3rem;
-
-            <div class="skill-card fade-in">              color: var(--color-text-bright);
-
-                <div class="skill-icon">🗄️</div>            "
-
-                <div class="skill-name orbitron">MongoDB / SQL</div>          >
-
-                <div class="skill-level">Expert Level</div>            Tech Stack
-
-            </div>          </h2>
-
-            <div class="skill-card fade-in">          <div
-
-                <div class="skill-icon">🎨</div>            style="
-
-                <div class="skill-name orbitron">UI/UX Design</div>              display: grid;
-
-                <div class="skill-level">Advanced</div>              grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-
-            </div>              gap: 1.5rem;
-
-            <div class="skill-card fade-in">              text-align: center;
-
-                <div class="skill-icon">☁️</div>            "
-
-                <div class="skill-name orbitron">Cloud / DevOps</div>          >
-
-                <div class="skill-level">Intermediate</div>            <div>
-
-            </div>              <h3
-
-            <div class="skill-card fade-in">                style="color: var(--color-accent-bright); margin-bottom: 0.5rem"
-
-                <div class="skill-icon">📱</div>              >
-
-                <div class="skill-name orbitron">Mobile Development</div>                Backend
-
-                <div class="skill-level">Advanced</div>              </h3>
-
-            </div>              <p style="color: var(--color-text-soft)">Node.js + Express</p>
-
-            <div class="skill-card fade-in">            </div>
-
-                <div class="skill-icon">🔒</div>            <div>
-
-                <div class="skill-name orbitron">Security</div>              <h3
-
-                <div class="skill-level">Advanced</div>                style="color: var(--color-accent-bright); margin-bottom: 0.5rem"
-
-            </div>              >
-
-        </div>                AI
-
-    </section>              </h3>
-
-              <p style="color: var(--color-text-soft)">Groq SDK + LLaMA 3</p>
-
-    <!-- About Section -->            </div>
-
-    <section id="about" class="section">            <div>
-
-        <h2 class="section-title orbitron">ABOUT ME</h2>              <h3
-
-        <p class="section-subtitle">The person behind the code</p>                style="color: var(--color-accent-bright); margin-bottom: 0.5rem"
-
-                      >
-
-        <div class="about-container">                Security
-
-            <img src="https://images.unsplash.com/photo-1571171637578-41bc2dd41cd2?w=800&q=80" alt="Developer" class="about-image fade-in">              </h3>
-
-            <div class="about-text fade-in">              <p style="color: var(--color-text-soft)">
-
-                <h3 class="orbitron">Building Tomorrow's Web Today</h3>                Helmet + CORS + Rate Limiting
-
-                <p>              </p>
-
-                    I'm a passionate web developer with 5+ years of experience creating innovative digital solutions.             </div>
-
-                    My journey in web development has been driven by curiosity and a constant desire to push boundaries.            <div>
-
-                </p>              <h3
-
-                <p>                style="color: var(--color-accent-bright); margin-bottom: 0.5rem"
-
-                    Specializing in modern JavaScript frameworks and AI integration, I've helped dozens of clients               >
-
-                    transform their ideas into reality. From startups to established businesses, I bring a unique                 Deploy
-
-                    blend of technical expertise and creative problem-solving to every project.              </h3>
-
-                </p>              <p style="color: var(--color-text-soft)">
-
-                <p>                Vercel + GitHub Actions
-
-                    When I'm not coding, you'll find me exploring the latest tech trends, contributing to open-source               </p>
-
-                    projects, or experimenting with new AI technologies. I believe in continuous learning and staying             </div>
-
-                    ahead of the curve in this rapidly evolving industry.          </div>
-
-                </p>        </div>
-
-                <p style="color: var(--accent-cyan); font-weight: 700;">      </section>
-
-                    Let's collaborate and create something extraordinary together! 🚀    </main>
-
-                </p>
-
-            </div>    <footer
-
-        </div>      class="site-footer"
-
-    </section>      style="
-
-        padding: 2rem 0;
-
-    <!-- Contact Section -->        background: var(--color-surface);
-
-    <section id="contact" class="section" style="background: rgba(10, 10, 10, 0.5);">        text-align: center;
-
-        <h2 class="section-title orbitron">GET IN TOUCH</h2>        border-top: 1px solid var(--border-subtle);
-
-        <p class="section-subtitle">Let's discuss your next project</p>      "
-
-            >
-
-        <form class="contact-form fade-in" id="contactForm">      <div
-
-            <div class="form-group">        class="container"
-
-                <label for="name" class="orbitron">YOUR NAME</label>        style="max-width: 1200px; margin: 0 auto; padding: 0 1rem"
-
-                <input type="text" id="name" required placeholder="John Doe">      >
-
-            </div>        <p style="color: var(--color-text-soft); margin-bottom: 1rem">
-
-            <div class="form-group">          &copy; 2025 Sajt Reklama. AI-Powered Advertising Platform.
-
-                <label for="email" class="orbitron">YOUR EMAIL</label>        </p>
-
-                <input type="email" id="email" required placeholder="john@example.com">        <div
-
-            </div>          style="
-
-            <div class="form-group">            display: flex;
-
-                <label for="project" class="orbitron">PROJECT TYPE</label>            gap: 2rem;
-
-                <input type="text" id="project" required placeholder="E-commerce, Landing Page, Web App...">            justify-content: center;
-
-            </div>            flex-wrap: wrap;
-
-            <div class="form-group">          "
-
-                <label for="message" class="orbitron">YOUR MESSAGE</label>        >
-
-                <textarea id="message" required placeholder="Tell me about your project..."></textarea>          <a
-
-            </div>            href="/"
-
-            <button type="submit" class="btn-primary orbitron" style="width: 100%;">SEND MESSAGE 🚀</button>            style="color: var(--color-text-soft); text-decoration: none"
-
-        </form>            >Home</a
-
-    </section>          >
-
-          <a
-
-    <!-- Footer -->            href="/upload.html"
-
-    <footer>            style="color: var(--color-text-soft); text-decoration: none"
-
-        <div class="social-links">            >Upload</a
-
-            <a href="https://github.com" target="_blank" class="social-link" title="GitHub">🐙</a>          >
-
-            <a href="https://linkedin.com" target="_blank" class="social-link" title="LinkedIn">💼</a>          <a
-
-            <a href="https://twitter.com" target="_blank" class="social-link" title="Twitter">🐦</a>            href="/portfolio.html"
-
-            <a href="mailto:contact@example.com" class="social-link" title="Email">📧</a>            style="color: var(--color-text-soft); text-decoration: none"
-
-        </div>            >Portfolio</a
-
-        <p style="color: var(--text-muted);">          >
-
-            © 2025 Web Developer Portfolio. Built with 💙 and AI.          <a
-
-        </p>            href="https://github.com/nidzp/sajt-reklama"
-
-        <p style="color: var(--text-muted); margin-top: 1rem;">            target="_blank"
-
-            <a href="/portfolio.html" style="color: var(--accent-blue); text-decoration: none;">View All Projects</a> |             rel="noopener"
-
-            <a href="/about.html" style="color: var(--accent-blue); text-decoration: none;">About</a>            style="color: var(--color-text-soft); text-decoration: none"
-
-        </p>            >GitHub</a
-
-    </footer>          >
-
-        </div>
-
-    <!-- Chatbot Widget -->      </div>
-
-    <script src="/public/chatbot.js"></script>    </footer>
-
     <script src="/public/cookie-consent.js"></script>
-
-    <script src="/public/cookie-consent.js"></script>
-
-    <!-- Scroll Animations -->    <script src="/public/chatbot.js"></script>
-
-    <script>    <script>
-
-        // Scroll animations      const API_URL =
-
-        const observerOptions = {        window.location.hostname === "localhost"
-
-            threshold: 0.1,          ? "http://localhost:3000/api"
-
-            rootMargin: '0px 0px -50px 0px'          : "/api";
-
-        };
-
-      async function loadAds() {
-
-        const observer = new IntersectionObserver((entries) => {        try {
-
-            entries.forEach(entry => {          const response = await fetch(`${API_URL}/ads`);
-
-                if (entry.isIntersecting) {
-
-                    entry.target.classList.add('visible');          if (!response.ok) {
-
-                }            throw new Error(`HTTP error! status: ${response.status}`);
-
-            });          }
-
-        }, observerOptions);
-
-          const ads = await response.json();
-
-        document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));          displayAds(ads);
-
-        } catch (error) {
-
-        // Contact form          console.error("Greška pri učitavanju reklama:", error);
-
-        document.getElementById('contactForm').addEventListener('submit', (e) => {          document.getElementById("adsContainer").innerHTML =
-
-            e.preventDefault();            '<div style="text-align: center; padding: 3rem; color: var(--color-error);"><p>⚠️ Greška pri učitavanju reklama. Molimo osvežite stranicu.</p></div>';
-
-            alert('Thanks for your message! I\'ll get back to you soon. 🚀\n\n(This is a demo - form submission would be handled by backend API)');        }
-
-            e.target.reset();      }
-
-        });
-
-      function displayAds(ads) {
-
-        // Smooth scroll        const container = document.getElementById("adsContainer");
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-
-            anchor.addEventListener('click', function (e) {        if (ads.length === 0) {
-
-                e.preventDefault();          container.innerHTML =
-
-                const target = document.querySelector(this.getAttribute('href'));            '<div style="text-align: center; padding: 3rem; color: var(--color-text-soft);"><p>📢 Trenutno nema dostupnih reklama. Budite prvi!</p><a href="/upload.html" class="cta-button" style="display: inline-block; margin-top: 1rem; padding: 1rem 2rem; background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft)); color: white; text-decoration: none; border-radius: 12px; font-weight: 600;">Dodaj Reklamu</a></div>';
-
-                if (target) {          return;
-
-                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });        }
-
-                }
-
-            });        container.innerHTML = ads
-
-        });          .map(
-
-    </script>            (ad) => `
-
-</body>            <div style="position: relative; border-radius: 16px; overflow: hidden; background: var(--color-overlay-panel); border: 1px solid var(--border-soft); transition: transform 0.3s ease, box-shadow 0.3s ease;" onmouseover="this.style.transform='translateY(-8px)'; this.style.boxShadow='var(--shadow-lift)';" onmouseout="this.style.transform='translateY(0)'; this.style.boxShadow='none';">
-
-</html>              <a href="${ad.link}" target="_blank" rel="noopener" style="display: block; text-decoration: none;">
-
-                <img src="${ad.image}" alt="Reklama" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 width=%27400%27 height=%27250%27%3E%3Crect fill=%27%23222%27 width=%27400%27 height=%27250%27/%3E%3Ctext fill=%27%23666%27 font-family=%27Arial%27 font-size=%2720%27 x=%2750%25%27 y=%2750%25%27 text-anchor=%27middle%27%3ENo Image%3C/text%3E%3C/svg%3E';">
-                <div style="padding: 1rem;">
-                  <p style="color: var(--color-text-soft); font-size: 0.9rem; margin: 0;">Klikni za više info</p>
-                </div>
-              </a>
-              <button onclick="deleteAd(${ad.id})" style="position: absolute; top: 10px; right: 10px; background: rgba(255, 0, 0, 0.8); color: white; border: none; border-radius: 50%; width: 32px; height: 32px; cursor: pointer; font-weight: bold; transition: background 0.3s ease;" onmouseover="this.style.background='rgba(255, 0, 0, 1)';" onmouseout="this.style.background='rgba(255, 0, 0, 0.8)';">×</button>
-            </div>
-          `
-          )
-          .join("");
-      }
-
-      async function deleteAd(id) {
-        if (!confirm("Da li ste sigurni da želite da obrišete ovu reklamu?")) {
-          return;
-        }
-
-        try {
-          const response = await fetch(`${API_URL}/ads/${id}`, {
-            method: "DELETE",
-          });
-
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
-          }
-
-          loadAds();
-        } catch (error) {
-          console.error("Greška pri brisanju:", error);
-          alert("Greška pri brisanju reklame. Pokušajte ponovo.");
-        }
-      }
-
-      // Load ads on page load
-      loadAds();
-
-      // Refresh ads every 30 seconds
-      setInterval(loadAds, 30000);
-    </script>
   </body>
 </html>
+
+
+
+

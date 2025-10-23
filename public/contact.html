@@ -1,0 +1,468 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Vespera Hearth Bakery | Web Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Get in touch for custom website development. Specializing in modern, AI-powered web solutions for bakeries and small businesses."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/public/chatbot-styles.css" />
+    <link rel="stylesheet" href="/public/cookie-styles.css" />
+    <style>
+      :root {
+        --purple-900: #130924;
+        --purple-800: #1d0d35;
+        --purple-700: #2a1347;
+        --purple-600: #3d1b5f;
+        --purple-500: #5a2a87;
+        --purple-400: #7c3aad;
+        --accent-gold: #d4af37;
+        --accent-rose: #ff6b9d;
+        --text-light: #f5f0ff;
+        --text-muted: #b8a3d9;
+      }
+
+      body {
+        font-family: "Montserrat", sans-serif;
+        background: linear-gradient(
+          135deg,
+          var(--purple-900) 0%,
+          var(--purple-800) 100%
+        );
+        color: var(--text-light);
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
+      }
+
+      .contact-header {
+        text-align: center;
+        padding: 4rem 2rem 2rem;
+        background: linear-gradient(
+          180deg,
+          rgba(29, 13, 53, 0.8) 0%,
+          transparent 100%
+        );
+      }
+
+      .contact-header h1 {
+        font-family: "Lustria", serif;
+        font-size: 3.5rem;
+        margin-bottom: 1rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-gold),
+          var(--accent-rose)
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .contact-header p {
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        max-width: 600px;
+        margin: 0 auto;
+      }
+
+      .contact-container {
+        max-width: 1200px;
+        margin: 3rem auto;
+        padding: 0 2rem;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3rem;
+      }
+
+      .portfolio-section {
+        background: rgba(42, 19, 71, 0.6);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .portfolio-section h2 {
+        font-family: "Lustria", serif;
+        font-size: 2rem;
+        color: var(--accent-gold);
+        margin-bottom: 1.5rem;
+      }
+
+      .portfolio-section h3 {
+        font-size: 1.3rem;
+        color: var(--accent-rose);
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+      }
+
+      .portfolio-section p {
+        line-height: 1.8;
+        color: var(--text-muted);
+        margin-bottom: 1rem;
+      }
+
+      .skills-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+        margin-top: 1.5rem;
+      }
+
+      .skill-tag {
+        padding: 0.7rem 1rem;
+        background: rgba(90, 42, 135, 0.4);
+        border: 1px solid var(--accent-gold);
+        border-radius: 10px;
+        text-align: center;
+        font-size: 0.9rem;
+        color: var(--text-light);
+      }
+
+      .contact-form {
+        background: rgba(42, 19, 71, 0.6);
+        padding: 2.5rem;
+        border-radius: 20px;
+        border: 1px solid rgba(255, 107, 157, 0.2);
+        backdrop-filter: blur(10px);
+      }
+
+      .contact-form h2 {
+        font-family: "Lustria", serif;
+        font-size: 2rem;
+        color: var(--accent-rose);
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group {
+        margin-bottom: 1.5rem;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        color: var(--text-muted);
+        font-weight: 500;
+      }
+
+      .form-group input,
+      .form-group textarea,
+      .form-group select {
+        width: 100%;
+        padding: 1rem;
+        background: rgba(19, 9, 36, 0.8);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 10px;
+        color: var(--text-light);
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all 0.3s;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus {
+        outline: none;
+        border-color: var(--accent-gold);
+        box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+      }
+
+      .form-group textarea {
+        min-height: 120px;
+        resize: vertical;
+      }
+
+      .submit-btn {
+        width: 100%;
+        padding: 1.2rem;
+        background: linear-gradient(
+          135deg,
+          var(--accent-gold),
+          var(--accent-rose)
+        );
+        border: none;
+        border-radius: 10px;
+        color: white;
+        font-weight: 600;
+        font-size: 1.1rem;
+        cursor: pointer;
+        transition: all 0.3s;
+      }
+
+      .submit-btn:hover {
+        transform: translateY(-3px);
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.4);
+      }
+
+      .info-box {
+        background: rgba(90, 42, 135, 0.3);
+        padding: 1.5rem;
+        border-radius: 15px;
+        border-left: 4px solid var(--accent-gold);
+        margin-top: 2rem;
+      }
+
+      .info-box h4 {
+        color: var(--accent-gold);
+        margin-bottom: 0.5rem;
+      }
+
+      .info-box p {
+        margin: 0;
+        font-size: 0.95rem;
+      }
+
+      .back-link {
+        display: inline-block;
+        margin: 2rem auto;
+        padding: 1rem 2rem;
+        background: rgba(42, 19, 71, 0.6);
+        border: 1px solid var(--accent-gold);
+        border-radius: 10px;
+        color: var(--accent-gold);
+        text-decoration: none;
+        font-weight: 600;
+        transition: all 0.3s;
+        text-align: center;
+      }
+
+      .back-link:hover {
+        background: rgba(212, 175, 55, 0.1);
+        transform: translateY(-2px);
+      }
+
+      .link-container {
+        text-align: center;
+        margin-top: 3rem;
+        padding-bottom: 3rem;
+      }
+
+      @media (max-width: 768px) {
+        .contact-container {
+          grid-template-columns: 1fr;
+        }
+
+        .contact-header h1 {
+          font-size: 2.5rem;
+        }
+
+        .skills-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="contact-header">
+      <h1>Let's Work Together</h1>
+      <p>
+        Custom website development for your business. AI-powered, modern, and
+        beautiful.
+      </p>
+    </div>
+
+    <div class="contact-container">
+      <!-- Portfolio Info -->
+      <div class="portfolio-section">
+        <h2>🎨 Web Developer</h2>
+        <p>
+          Hi! I'm a web developer specializing in creating beautiful, functional
+          websites for small businesses, bakeries, restaurants, and artisan
+          shops. This bakery website you're viewing? It's one of my showcase
+          projects.
+        </p>
+
+        <h3>Why Work With Me?</h3>
+        <p>
+          ✨ <strong>Modern Design</strong> - Clean, professional aesthetics
+          that convert visitors to customers<br />
+          🤖 <strong>AI Integration</strong> - Smart chatbots that answer
+          customer questions 24/7<br />
+          📱 <strong>Mobile-First</strong> - Perfect on phones, tablets, and
+          desktops<br />
+          ⚡ <strong>Fast & Secure</strong> - Optimized loading, SSL security,
+          GDPR compliant<br />
+          💬 <strong>Ongoing Support</strong> - I'm here even after launch
+        </p>
+
+        <h3>Technologies I Use</h3>
+        <div class="skills-grid">
+          <div class="skill-tag">React & Next.js</div>
+          <div class="skill-tag">Node.js & Express</div>
+          <div class="skill-tag">AI Chatbots (Groq)</div>
+          <div class="skill-tag">Modern CSS/Animations</div>
+          <div class="skill-tag">MongoDB & PostgreSQL</div>
+          <div class="skill-tag">Vercel Deployment</div>
+        </div>
+
+        <div class="info-box">
+          <h4>💰 Pricing</h4>
+          <p>
+            <strong>Landing Page:</strong> Starting from $500<br />
+            <strong>Full Website + AI Bot:</strong> $1,500 - $3,000<br />
+            <strong>E-commerce:</strong> Custom quote<br />
+            <em>Payment plans available. Free consultation!</em>
+          </p>
+        </div>
+
+        <div class="info-box" style="border-left-color: var(--accent-rose)">
+          <h4>🔒 Why Anonymous?</h4>
+          <p>
+            I prefer to let my work speak for itself. Quality code, happy
+            clients, and beautiful results matter more than personal branding.
+            Check my portfolio, talk to me via AI assistant below, and you'll
+            see I'm the real deal.
+          </p>
+        </div>
+      </div>
+
+      <!-- Contact Form -->
+      <div class="contact-form">
+        <h2>📧 Get a Quote</h2>
+        <form id="contactForm">
+          <div class="form-group">
+            <label for="name">Your Name *</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              required
+              placeholder="John Doe"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="email">Email Address *</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              required
+              placeholder="john@example.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="phone">Phone Number</label>
+            <input
+              type="tel"
+              id="phone"
+              name="phone"
+              placeholder="+381 60 123 4567"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="projectType">Project Type *</label>
+            <select id="projectType" name="projectType" required>
+              <option value="">Select a project type</option>
+              <option value="landing">Landing Page</option>
+              <option value="website">Full Website</option>
+              <option value="ecommerce">E-commerce Store</option>
+              <option value="ai-bot">AI Chatbot Integration</option>
+              <option value="redesign">Website Redesign</option>
+              <option value="other">Other / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="budget">Estimated Budget</label>
+            <select id="budget" name="budget">
+              <option value="">Select your budget range</option>
+              <option value="500-1000">$500 - $1,000</option>
+              <option value="1000-2500">$1,000 - $2,500</option>
+              <option value="2500-5000">$2,500 - $5,000</option>
+              <option value="5000+">$5,000+</option>
+              <option value="flexible">Flexible / Not Sure</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="message">Project Details *</label>
+            <textarea
+              id="message"
+              name="message"
+              required
+              placeholder="Tell me about your business and what you need... (e.g., bakery website with online ordering, restaurant site with menu, portfolio site, etc.)"
+            ></textarea>
+          </div>
+
+          <button type="submit" class="submit-btn">Send Message 🚀</button>
+        </form>
+
+        <div
+          class="info-box"
+          style="margin-top: 2rem; border-left-color: var(--accent-rose)"
+        >
+          <h4>🤖 Talk to My AI Assistant</h4>
+          <p>
+            Click the chatbot button (bottom right) to ask questions about my
+            services, pricing, timeline, or anything else. It's powered by real
+            AI and knows all about my work!
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <div class="link-container">
+      <a href="/public/index.html" class="back-link"
+        >← Back to Bakery Homepage</a
+      >
+    </div>
+
+    <!-- AI Chatbot -->
+    <script src="/public/chatbot.js"></script>
+    <script src="/public/cookie-consent.js"></script>
+
+    <script>
+      // Form submission
+      document
+        .getElementById("contactForm")
+        .addEventListener("submit", async (e) => {
+          e.preventDefault();
+
+          const formData = {
+            name: document.getElementById("name").value,
+            email: document.getElementById("email").value,
+            phone: document.getElementById("phone").value,
+            projectType: document.getElementById("projectType").value,
+            budget: document.getElementById("budget").value,
+            message: document.getElementById("message").value,
+          };
+
+          // In production, this would send to your backend
+          console.log("Form submitted:", formData);
+
+          alert(
+            `Thanks ${formData.name}! 🎉\n\nI'll review your project details and get back to you within 24 hours.\n\nIn the meantime, feel free to chat with my AI assistant if you have any questions!\n\n- nidzp`
+          );
+
+          e.target.reset();
+        });
+
+      // Add page context for chatbot
+      window.portfolioPageContext = {
+        page: "contact",
+        type: "portfolio",
+        developer: "nidzp",
+        services: [
+          "web development",
+          "AI chatbots",
+          "modern websites",
+          "bakery websites",
+          "e-commerce",
+        ],
+      };
+    </script>
+  </body>
+</html>

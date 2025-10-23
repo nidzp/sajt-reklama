@@ -242,33 +242,36 @@ app.delete("/api/ads/:id", async (req, res) => {
 // Chatbot endpoints
 app.post("/api/chat", chatLimiter, async (req, res) => {
   try {
-    const { message, history } = req.body;
+    const { message, history, pageContext } = req.body;
 
     if (!message || typeof message !== "string" || message.trim() === "") {
-      return res.status(400).json({ error: "Poruka je obavezna" });
+      return res.status(400).json({ error: "Message is required" });
     }
 
     if (message.length > 500) {
-      return res.status(400).json({ error: "Poruka je predugačka (max 500)" });
+      return res.status(400).json({ error: "Message too long (max 500 characters)" });
     }
 
     const conversationHistory = Array.isArray(history)
       ? history.slice(-20).filter((h) => h.role && h.content)
       : [];
 
-    const result = await chatbot.chat(message, conversationHistory);
+    // Pass page context to chatbot (defaults to 'bakery' if not provided)
+    const context = pageContext || 'bakery';
+    const result = await chatbot.chat(message, conversationHistory, context);
 
     res.json({
       message: result.response,
       source: result.source,
       model: result.model,
+      context: context,
       timestamp: new Date().toISOString(),
     });
   } catch (error) {
     console.error("Chat error:", error);
     res.status(200).json({
       message:
-        "Za pomoć kontaktirajte:\n📧 info@sajt-reklama.rs\n📞 +381 11 123 4567",
+        "For help contact:\n📧 hello@vesperahearth.rs\n📞 +381 11 123 4567",
       source: "fallback",
       model: "error-handler",
       timestamp: new Date().toISOString(),
