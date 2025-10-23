@@ -873,6 +873,142 @@ p {
   }
 }
 
+.about-intro .about-grid {
+  display: grid;
+  gap: 48px;
+  align-items: start;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+}
+
+.about-copy {
+  display: grid;
+  gap: 18px;
+}
+
+.about-list {
+  margin: 24px 0 0;
+  padding-left: 24px;
+  display: grid;
+  gap: 10px;
+  color: var(--color-text-soft);
+}
+
+.about-list li {
+  line-height: 1.65;
+}
+
+.about-side {
+  display: flex;
+  justify-content: center;
+}
+
+.about-stat-card {
+  background: var(--color-overlay-panel);
+  border: 1px solid var(--border-soft);
+  border-radius: 28px;
+  padding: 32px;
+  box-shadow: var(--shadow-medium);
+  display: grid;
+  gap: 20px;
+  max-width: 420px;
+}
+
+.stat-eyebrow {
+  margin: 0;
+  letter-spacing: 0.28rem;
+  text-transform: uppercase;
+  font-size: 0.78rem;
+  color: var(--color-text-tint);
+}
+
+.about-stat-card h3 {
+  margin: 0;
+  font-size: 2rem;
+}
+
+.about-stat-card p {
+  margin: 0;
+}
+
+.about-stat-grid {
+  display: grid;
+  gap: 18px;
+}
+
+.about-stat {
+  background: var(--color-overlay-glass);
+  border: 1px solid var(--border-subtle);
+  border-radius: 20px;
+  padding: 18px;
+  display: grid;
+  gap: 8px;
+}
+
+.about-stat span {
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  color: var(--color-text-bright);
+}
+
+.about-step-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+.about-step {
+  background: var(--color-overlay-iris);
+  border-radius: 24px;
+  padding: 28px;
+  border: 1px solid var(--border-soft);
+  box-shadow: var(--shadow-soft);
+  display: grid;
+  gap: 12px;
+}
+
+.about-step h3 {
+  margin: 0;
+  font-size: 1.3rem;
+  letter-spacing: 0.12rem;
+  text-transform: uppercase;
+  color: var(--color-text-bright);
+}
+
+.about-step p {
+  margin: 0;
+  color: var(--color-text-soft);
+}
+
+.about-disclaimer-card {
+  background: var(--color-overlay-strong);
+  border: 1px solid var(--border-strong);
+  border-radius: 32px;
+  padding: 40px;
+  box-shadow: var(--shadow-strong);
+  display: grid;
+  gap: 18px;
+  text-align: center;
+}
+
+.about-disclaimer-card h2 {
+  margin: 0;
+  letter-spacing: 0.22rem;
+  text-transform: uppercase;
+}
+
+.about-disclaimer-card p {
+  margin: 0;
+}
+
+.about-cta {
+  margin-top: 12px;
+}
+
+.about-cta .cta-button {
+  display: inline-flex;
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
@@ -905,6 +1041,15 @@ p {
 @media (max-width: 1200px) {
   .gallery-grid {
     columns: 3;
+  }
+
+  .about-intro .about-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+  }
+
+  .about-step-grid {
+    gap: 24px;
   }
 }
 
@@ -968,6 +1113,24 @@ p {
     grid-template-columns: 1fr;
   }
 
+  .about-intro .about-grid {
+    grid-template-columns: 1fr;
+    gap: 36px;
+  }
+
+  .about-side {
+    justify-content: flex-start;
+  }
+
+  .about-stat-card {
+    max-width: 100%;
+  }
+
+  .about-step-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+  }
+
   /* Make primary CTAs full-width inside forms for easier tapping */
   .order-form .cta-button,
   .visit-form .cta-button {
@@ -982,6 +1145,19 @@ p {
 
   .section {
     padding: 90px 0;
+  }
+
+  .about-step-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .about-stat-card {
+    padding: 28px;
+  }
+
+  .about-list {
+    padding-left: 18px;
   }
 
   .specialty-grid {
@@ -1016,6 +1192,15 @@ p {
 @media (max-width: 520px) {
   :root {
     font-size: 15px;
+  }
+
+  .about-stat-card {
+    padding: 24px;
+  }
+
+  .about-step h3 {
+    font-size: 1.1rem;
+    letter-spacing: 0.08rem;
   }
 
   .hero-title {
