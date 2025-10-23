@@ -2,6 +2,10 @@
 
 Moderna platforma za prikaz i upravljanje reklamama sa **AI chatbot** asistentom, admin panelom i GDPR cookie consent sistemom.
 
+## 🚀 Live Demo
+
+**🌐 Production:** [sajt-reklama.vercel.app](https://sajt-reklama.vercel.app)
+
 ## ✨ Features
 
 - 📱 **Responsive dizajn** - Radi na svim uređajima
@@ -13,25 +17,69 @@ Moderna platforma za prikaz i upravljanje reklamama sa **AI chatbot** asistentom
 - ⚡ **API** - RESTful API sa error handling-om
 - 🤖 **AI Chatbot** - Groq-powered korisnički servis sa fallback odgovorima
 
-## 📦 Instalacija
+## 📂 Project Structure
+
+```
+sajt-reklama/
+├── public/              # Main application files (served on Vercel)
+│   ├── index.html       # Landing page with ads display
+│   ├── upload.html      # Upload new advertisement form
+│   ├── chatbot.js       # AI chatbot widget
+│   ├── chatbot-styles.css
+│   ├── cookie-consent.js
+│   └── cookie-styles.css
+├── css/                 # Shared stylesheets
+│   └── styles.css       # Main CSS with dark theme
+├── js/                  # JavaScript modules
+│   └── app.js           # Portfolio/demo site scripts
+├── assets/              # Images and static files
+│   └── img/
+├── server.js            # Express backend API
+├── chatbot-service.js   # AI chatbot logic (Groq SDK)
+├── ads.json             # Advertisement database (file-based)
+├── vercel.json          # Vercel deployment config
+├── index.html           # Bakery demo (Vespera Hearth)
+├── about.html           # AI portfolio page
+├── portfolio.html       # MAX Portfolio showcase
+└── README.md            # This file
+```
+
+## 📦 Quick Start
+
+### Prerequisites
+
+- **Node.js** 18+ ([Download here](https://nodejs.org/))
+- **Git** ([Download here](https://git-scm.com/))
+- **Groq API Key** (Free - [Get it here](https://console.groq.com/))
+
+### Installation
 
 ```bash
-# Clone repo
-git clone https://github.com/your-username/sajt-reklama.git
+# 1. Clone repository
+git clone https://github.com/nidzp/sajt-reklama.git
 cd sajt-reklama
 
-# Install dependencies
+# 2. Install dependencies
 npm install
 
-# Create .env file (already exists)
-# Add your settings to .env
+# 3. Create .env file
+cp .env.example .env
 
-# Run development server
+# 4. Add your Groq API key to .env
+# GROQ_API_KEY=gsk_your_actual_api_key_here
+
+# 5. Run development server
 npm run dev
 
-# Run production server
-npm start
+# Server running on http://localhost:3000
 ```
+
+### Verifying Installation
+
+1. Open `http://localhost:3000` - Should see landing page with features
+2. Open `http://localhost:3000/upload.html` - Upload form
+3. Click chatbot button (bottom right) - AI assistant widget
+4. Check terminal for: `✓ AI Chatbot enabled with Groq (llama3-8b-8192)`
 
 ## 🤖 AI Chatbot
 
@@ -135,43 +183,121 @@ fetch("/api/chat", {
 }
 ```
 
-## 🚀 Deployment na Vercel
+## 🚀 Deployment to Vercel
 
-### Automatski (preporučeno):
+### Method 1: GitHub Integration (Recommended)
 
-1. Push na GitHub:
+1. **Push to GitHub:**
+   ```bash
+   git add .
+   git commit -m "Ready for deployment"
+   git push
+   ```
+
+2. **Connect Vercel:**
+   - Go to [vercel.com](https://vercel.com) and login
+   - Click "Add New Project"
+   - Import your GitHub repository
+   - Vercel auto-detects settings from `vercel.json`
+
+3. **Add Environment Variables:**
+   In Vercel dashboard → Settings → Environment Variables:
+   
+   | Variable | Value | Description |
+   |----------|-------|-------------|
+   | `NODE_ENV` | `production` | Environment mode |
+   | `ALLOWED_ORIGINS` | `https://your-app.vercel.app` | CORS allowed origins |
+   | `GROQ_API_KEY` | `gsk_your_actual_key` | Groq API key (get free at console.groq.com) |
+   | `AI_MODEL` | `llama3-8b-8192` | AI model to use |
+   | `CHATBOT_ENABLED` | `true` | Enable/disable chatbot |
+   | `GOOGLE_ANALYTICS_ID` | `G-XXXXXXXXXX` | (Optional) GA4 tracking ID |
+
+4. **Deploy:**
+   - Click "Deploy"
+   - Wait ~60 seconds
+   - Visit your live site!
+
+### Method 2: Vercel CLI
 
 ```bash
-git add .
-git commit -m "Ready for deployment"
-git push
-```
-
-2. Idi na [vercel.com](https://vercel.com)
-3. Import GitHub repository
-4. Dodaj Environment Variables:
-   - `NODE_ENV` = `production`
-   - `ALLOWED_ORIGINS` = `https://your-domain.vercel.app`
-   - `GOOGLE_ANALYTICS_ID` = `G-XXXXXXXXXX`
-5. Deploy!
-
-### Manual:
-
-```bash
+# Install Vercel CLI
 npm install -g vercel
+
+# Login to Vercel
 vercel login
+
+# Deploy
 vercel
+
+# Add environment variables
+vercel env add GROQ_API_KEY
+vercel env add NODE_ENV production
+vercel env add CHATBOT_ENABLED true
+
+# Deploy to production
+vercel --prod
 ```
 
-### Environment Variables za Vercel:
+### Troubleshooting Vercel Deployment
 
-```env
-NODE_ENV=production
-ALLOWED_ORIGINS=https://your-domain.vercel.app
-GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-GROQ_API_KEY=gsk_your_actual_key_here
-AI_MODEL=llama3-8b-8192
-CHATBOT_ENABLED=true
+**404 NOT_FOUND Error:**
+- ✅ Fixed in `vercel.json` with proper static file serving
+- Check that `vercel.json` includes builds for `public/`, `css/`, `js/`, `assets/`
+
+**API not working:**
+- Verify environment variables are set in Vercel dashboard
+- Check Vercel logs: Dashboard → Deployments → [Latest] → View Function Logs
+
+**Chatbot not responding:**
+- Ensure `GROQ_API_KEY` is set correctly
+- Chatbot will use fallback responses if API key is missing
+- Test status endpoint: `https://your-app.vercel.app/api/chat/status`
+
+## 🧪 Testing Your Deployment
+
+### Quick Smoke Test (2 minutes)
+
+1. **Visit Homepage:**
+   ```
+   https://sajt-reklama.vercel.app/
+   ```
+   - ✅ Purple gradient theme loads
+   - ✅ "Sajt Reklama Platform" title visible
+   - ✅ Features section shows 6 cards
+   - ✅ Demo ads display in grid
+
+2. **Test Upload:**
+   ```
+   https://sajt-reklama.vercel.app/upload.html
+   ```
+   - ✅ Form visible with 2 input fields
+   - ✅ Preview updates when typing image URL
+   - ✅ Submit creates new ad
+
+3. **Test AI Chatbot:**
+   - ✅ Chat widget button (bottom right corner)
+   - ✅ Click opens chat window
+   - ✅ Type "Kako da postavim reklamu?" and press Enter
+   - ✅ Bot responds (or shows fallback message)
+
+4. **Test API:**
+   ```bash
+   curl https://sajt-reklama.vercel.app/api/health
+   # Should return: {"status":"ok","chatbot":true,...}
+   ```
+
+### Full Testing Suite
+
+```bash
+# Test all endpoints
+curl https://sajt-reklama.vercel.app/api/health
+curl https://sajt-reklama.vercel.app/api/ads
+curl https://sajt-reklama.vercel.app/api/chat/status
+
+# Test chatbot
+curl -X POST https://sajt-reklama.vercel.app/api/chat \
+  -H "Content-Type: application/json" \
+  -d '{"message":"Zdravo","history":[]}'
 ```
 
 ## 📁 Struktura Projekta
