@@ -249,7 +249,9 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
     }
 
     if (message.length > 500) {
-      return res.status(400).json({ error: "Message too long (max 500 characters)" });
+      return res
+        .status(400)
+        .json({ error: "Message too long (max 500 characters)" });
     }
 
     const conversationHistory = Array.isArray(history)
@@ -257,7 +259,7 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
       : [];
 
     // Pass page context to chatbot (defaults to 'bakery' if not provided)
-    const context = pageContext || 'bakery';
+    const context = pageContext || "bakery";
     const result = await chatbot.chat(message, conversationHistory, context);
 
     res.json({

@@ -174,8 +174,9 @@ class Chatbot {
 
     try {
       // Detect page context
-      const pageContext = window.portfolioPageContext?.type || 
-                         (window.location.pathname.includes('contact') ? 'portfolio' : 'bakery');
+      const pageContext =
+        window.portfolioPageContext?.type ||
+        (window.location.pathname.includes("contact") ? "portfolio" : "bakery");
 
       const response = await fetch(`${this.API_URL}/chat`, {
         method: "POST",
@@ -185,7 +186,7 @@ class Chatbot {
         body: JSON.stringify({
           message: message,
           history: this.conversationHistory.slice(-20), // Limit history size
-          pageContext: pageContext
+          pageContext: pageContext,
         }),
       });
 
