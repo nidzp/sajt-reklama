@@ -3,38 +3,73 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Upload Reklamu</title>
-    <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
-    />
-    <link rel="stylesheet" href="cookie-styles.css" />
-    <link rel="stylesheet" href="chatbot-styles.css" />
+    <title>Upload Reklamu - Sajt Reklama</title>
+    <meta name="description" content="Upload new advertisement to our platform">
+    <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/styles.css" />
+    <link rel="stylesheet" href="/public/cookie-styles.css" />
+    <link rel="stylesheet" href="/public/chatbot-styles.css" />
   </head>
   <body>
-    <div class="container mt-5">
-      <h1>Upload Reklamu</h1>
-      <form id="uploadForm">
-        <div class="mb-3">
-          <label for="imageUrl" class="form-label">URL slike</label>
-          <input type="text" class="form-control" id="imageUrl" required />
-        </div>
-        <div class="mb-3">
-          <label for="adLink" class="form-label">URL reklame</label>
-          <input type="text" class="form-control" id="adLink" required />
-        </div>
-        <button type="submit" class="btn btn-primary">Upload Reklamu</button>
-      </form>
-      <div id="preview" class="mt-3" style="display: none">
-        <h3>Pregled</h3>
-        <img id="previewImage" src="" alt="Pregled slike" class="img-fluid" />
-        <a id="previewLink" href="" target="_blank" class="btn btn-success mt-2"
-          >Pogledajte reklamu</a
-        >
+    <header class="site-header" style="padding: 1rem 0; background: var(--color-surface); box-shadow: var(--shadow-header);">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="/" class="wordmark" style="font-size: 1.5rem; font-weight: 700; color: var(--color-accent-bright); text-decoration: none;">Sajt Reklama</a>
+        <nav style="display: flex; gap: 2rem; align-items: center;">
+          <a href="/" style="color: var(--color-text); text-decoration: none;">Home</a>
+          <a href="/upload.html" style="color: var(--color-accent-bright); text-decoration: none; font-weight: 600;">Upload</a>
+          <a href="/portfolio.html" style="color: var(--color-text); text-decoration: none;">Portfolio</a>
+        </nav>
       </div>
-    </div>
+    </header>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <main style="padding: 4rem 0; min-height: calc(100vh - 200px);">
+      <div class="container" style="max-width: 800px; margin: 0 auto; padding: 0 1rem;">
+        <h1 style="font-size: 2.5rem; margin-bottom: 2rem; text-align: center; background: linear-gradient(135deg, var(--color-accent-bright), var(--color-accent)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;">Upload Novu Reklamu</h1>
+        <div style="background: var(--color-overlay-panel); border-radius: 16px; padding: 2rem; border: 1px solid var(--border-soft);">
+          <form id="uploadForm">
+            <div style="margin-bottom: 1.5rem;">
+              <label for="imageUrl" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-bright); font-weight: 600;">URL Slike</label>
+              <input type="url" id="imageUrl" required placeholder="https://example.com/image.jpg" style="width: 100%; padding: 1rem; background: var(--color-overlay-deep); border: 1px solid var(--border-strong); border-radius: 12px; color: var(--color-text); font-size: 1rem;" />
+              <small style="color: var(--color-text-soft); display: block; margin-top: 0.5rem;">Unesite direktan URL ka slici (jpg, png, webp...)</small>
+            </div>
+            <div style="margin-bottom: 1.5rem;">
+              <label for="adLink" style="display: block; margin-bottom: 0.5rem; color: var(--color-text-bright); font-weight: 600;">URL Reklame (link)</label>
+              <input type="url" id="adLink" required placeholder="https://your-website.com" style="width: 100%; padding: 1rem; background: var(--color-overlay-deep); border: 1px solid var(--border-strong); border-radius: 12px; color: var(--color-text); font-size: 1rem;" />
+              <small style="color: var(--color-text-soft); display: block; margin-top: 0.5rem;">Link na koji će korisnici biti preusmereni</small>
+            </div>
+            <button type="submit" class="cta-button" style="width: 100%; padding: 1rem 2rem; background: linear-gradient(135deg, var(--color-accent), var(--color-accent-soft)); color: white; border: none; border-radius: 12px; font-weight: 600; font-size: 1.1rem; cursor: pointer; transition: transform 0.3s ease;" onmouseover="this.style.transform='scale(1.02)';" onmouseout="this.style.transform='scale(1)';">
+              📤 Upload Reklamu
+            </button>
+          </form>
+        </div>
+
+        <div id="preview" style="display: none; margin-top: 2rem; padding: 2rem; background: var(--color-overlay-panel); border-radius: 16px; border: 1px solid var(--border-soft);">
+          <h3 style="font-size: 1.5rem; margin-bottom: 1rem; color: var(--color-accent-bright);">👁️ Pregled</h3>
+          <div style="border-radius: 12px; overflow: hidden; margin-bottom: 1rem;">
+            <img id="previewImage" src="" alt="Pregled slike" style="width: 100%; height: auto; display: block;" />
+          </div>
+          <p style="color: var(--color-text-soft); margin-bottom: 1rem;">Link: <a id="previewLinkText" href="" target="_blank" rel="noopener" style="color: var(--color-accent-bright); word-break: break-all;"></a></p>
+          <a id="previewLink" href="" target="_blank" rel="noopener" class="cta-button" style="display: inline-block; padding: 0.75rem 1.5rem; background: var(--color-overlay-deep); border: 2px solid var(--border-strong); color: var(--color-text); text-decoration: none; border-radius: 12px; font-weight: 600;">
+            Testiraj Link →
+          </a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer" style="padding: 2rem 0; background: var(--color-surface); text-align: center; border-top: 1px solid var(--border-subtle);">
+      <div class="container" style="max-width: 1200px; margin: 0 auto; padding: 0 1rem;">
+        <p style="color: var(--color-text-soft); margin-bottom: 1rem;">&copy; 2025 Sajt Reklama. AI-Powered Advertising Platform.</p>
+        <div style="display: flex; gap: 2rem; justify-content: center; flex-wrap: wrap;">
+          <a href="/" style="color: var(--color-text-soft); text-decoration: none;">Home</a>
+          <a href="/upload.html" style="color: var(--color-text-soft); text-decoration: none;">Upload</a>
+          <a href="/portfolio.html" style="color: var(--color-text-soft); text-decoration: none;">Portfolio</a>
+          <a href="https://github.com/nidzp/sajt-reklama" target="_blank" rel="noopener" style="color: var(--color-text-soft); text-decoration: none;">GitHub</a>
+        </div>
+      </div>
+    </footer>
     <script src="cookie-consent.js"></script>
     <script src="chatbot.js"></script>
     <script>
@@ -50,9 +85,13 @@
           const previewImage = document.getElementById("previewImage");
           const previewLink = document.getElementById("previewLink");
 
+          const adLink = document.getElementById("adLink").value.trim();
+          
           if (imageUrl) {
             previewImage.src = imageUrl;
-            previewLink.href = imageUrl;
+            previewLink.href = adLink || imageUrl;
+            document.getElementById("previewLinkText").href = adLink || imageUrl;
+            document.getElementById("previewLinkText").textContent = adLink || imageUrl;
             document.getElementById("preview").style.display = "block";
           } else {
             document.getElementById("preview").style.display = "none";
