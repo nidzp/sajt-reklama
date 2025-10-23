@@ -1,6 +1,5 @@
 // Vercel Serverless Function for chatbot API
-require("dotenv").config();
-const ChatbotService = require("../chatbot-service");
+const ChatbotService = require("../chatbot-service.js");
 
 // Initialize chatbot service
 const chatbot = new ChatbotService();
