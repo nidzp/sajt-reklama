@@ -7,7 +7,7 @@ class CookieConsent {
 
   init() {
     if (!this.hasConsent()) {
-      this.showBanner();
+      setTimeout(() => this.showBanner(), 1000);
     } else if (this.isAnalyticsEnabled()) {
       this.enableAnalytics();
     }
@@ -28,11 +28,11 @@ class CookieConsent {
       <div class="cookie-consent-content">
         <div class="cookie-text">
           <h4>🍪 Kolačići (Cookies)</h4>
-          <p>Koristimo kolačiće za poboljšanje vašeg iskustva. Klikanjem na "Prihvatam" pristajete na upotrebu kolačića.</p>
+          <p>Koristimo kolačiće za poboljšanje vašeg iskustva na sajtu. Klikanjem na "Prihvatam sve" pristajete na upotrebu svih kolačića.</p>
         </div>
         <div class="cookie-buttons">
-          <button id="cookie-accept" class="btn btn-primary">Prihvatam</button>
-          <button id="cookie-decline" class="btn btn-secondary">Odbij</button>
+          <button id="cookie-accept" class="btn btn-primary">Prihvatam sve</button>
+          <button id="cookie-decline" class="btn btn-secondary">Samo neophodni</button>
           <button id="cookie-settings" class="btn btn-link">Podešavanja</button>
         </div>
       </div>
@@ -63,12 +63,14 @@ class CookieConsent {
     localStorage.setItem(this.analyticsKey, "true");
     this.enableAnalytics();
     this.hideBanner();
+    this.showToast("Kolačići prihvaćeni ✓");
   }
 
   declineAll() {
     localStorage.setItem(this.consentKey, "true");
     localStorage.setItem(this.analyticsKey, "false");
     this.hideBanner();
+    this.showToast("Sačuvani samo neophodni kolačići");
   }
 
   showSettings() {
@@ -78,22 +80,30 @@ class CookieConsent {
       <div class="modal-overlay">
         <div class="modal-content">
           <h3>Podešavanja Kolačića</h3>
+          <p class="modal-description">Upravljajte kolačićima koji se koriste na ovom sajtu.</p>
+          
           <div class="cookie-option">
             <label>
-              <input type="checkbox" id="essential-cookies" checked disabled>
-              <strong>Neophodni kolačići</strong>
-              <p>Potrebni za rad sajta (uvek omogućeni)</p>
+              <div class="cookie-option-header">
+                <input type="checkbox" id="essential-cookies" checked disabled>
+                <strong>Neophodni kolačići</strong>
+              </div>
+              <p>Potrebni za osnovno funkcionisanje sajta. Ne mogu se isključiti.</p>
             </label>
           </div>
+          
           <div class="cookie-option">
             <label>
-              <input type="checkbox" id="analytics-cookies">
-              <strong>Analitički kolačići</strong>
-              <p>Pomažu nam da razumemo kako koristite sajt</p>
+              <div class="cookie-option-header">
+                <input type="checkbox" id="analytics-cookies" checked>
+                <strong>Analitički kolačići</strong>
+              </div>
+              <p>Pomažu nam da razumemo kako koristite sajt i da poboljšamo vaše iskustvo.</p>
             </label>
           </div>
+          
           <div class="modal-buttons">
-            <button id="save-settings" class="btn btn-primary">Sačuvaj</button>
+            <button id="save-settings" class="btn btn-primary">Sačuvaj podešavanja</button>
             <button id="close-modal" class="btn btn-secondary">Otkaži</button>
           </div>
         </div>
@@ -114,18 +124,27 @@ class CookieConsent {
 
       modal.remove();
       this.hideBanner();
+      this.showToast("Podešavanja sačuvana ✓");
     });
 
     document.getElementById("close-modal")?.addEventListener("click", () => {
       modal.remove();
     });
+
+    modal.querySelector(".modal-overlay")?.addEventListener("click", (e) => {
+      if (e.target.classList.contains("modal-overlay")) {
+        modal.remove();
+      }
+    });
   }
 
   enableAnalytics() {
-    // Google Analytics integration
-    const gaId = "G-XXXXXXXXXX"; // Replace with your GA ID
+    const gaId = "G-XXXXXXXXXX"; // Replace with actual GA ID from .env
 
-    if (window.gtag) return; // Already loaded
+    if (window.gtag) {
+      console.log("Analytics already loaded");
+      return;
+    }
 
     const script = document.createElement("script");
     script.async = true;
@@ -136,10 +155,14 @@ class CookieConsent {
     function gtag() {
       dataLayer.push(arguments);
     }
+    window.gtag = gtag;
     gtag("js", new Date());
-    gtag("config", gaId);
+    gtag("config", gaId, {
+      anonymize_ip: true,
+      cookie_flags: "SameSite=None;Secure",
+    });
 
-    console.log("Analytics enabled");
+    console.log("✓ Analytics enabled");
   }
 
   hideBanner() {
@@ -148,6 +171,22 @@ class CookieConsent {
       banner.style.animation = "slideDown 0.3s ease-out";
       setTimeout(() => banner.remove(), 300);
     }
+  }
+
+  showToast(message) {
+    const toast = document.createElement("div");
+    toast.className = "cookie-toast";
+    toast.textContent = message;
+    document.body.appendChild(toast);
+
+    setTimeout(() => {
+      toast.classList.add("show");
+    }, 100);
+
+    setTimeout(() => {
+      toast.classList.remove("show");
+      setTimeout(() => toast.remove(), 300);
+    }, 3000);
   }
 }
 

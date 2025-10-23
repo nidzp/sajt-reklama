@@ -1,75 +1,93 @@
-# Sajt Reklama Platform
+# 🎯 Sajt Reklama Platform
 
-Modern advertising platform with admin panel and cookie consent.
+Moderna platforma za prikaz i upravljanje reklamama sa admin panelom i GDPR cookie consent sistemom.
 
-## Features
+## ✨ Features
 
-- 📱 Responsive ad display
-- 🎨 Modern UI with animations
-- 🛡️ Security features (Helmet, CORS, Rate Limiting)
-- 🍪 GDPR-compliant cookie consent
-- 📊 Analytics integration ready
-- 🚀 Vercel deployment ready
+- 📱 **Responsive dizajn** - Radi na svim uređajima
+- 🎨 **Moderan UI** - Gradient animacije i smooth transitions
+- 🛡️ **Sigurnost** - Helmet, CORS, Rate Limiting, Input validation
+- 🍪 **GDPR Compliant** - Cookie consent sa podešavanjima
+- 📊 **Analytics Ready** - Google Analytics integracija
+- 🚀 **Vercel Ready** - Konfigurisan za instant deployment
+- ⚡ **API** - RESTful API sa error handling-om
 
-## Setup
+## 📦 Instalacija
 
-1. Install dependencies:
+```bash
+# Clone repo
+git clone https://github.com/your-username/sajt-reklama.git
+cd sajt-reklama
 
-   ```bash
-   npm install
-   ```
+# Install dependencies
+npm install
 
-2. Create `.env` file:
+# Create .env file (already exists)
+# Add your settings to .env
 
-   ```env
-   PORT=3000
-   NODE_ENV=development
-   ALLOWED_ORIGINS=http://localhost:3000
-   GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
-   ```
+# Run development server
+npm run dev
 
-3. Run development server:
+# Run production server
+npm start
+```
 
-   ```bash
-   npm run dev
-   ```
+## 🔧 Environment Variables
 
-4. Build and deploy to Vercel:
+```env
+PORT=3000
+NODE_ENV=development
+ALLOWED_ORIGINS=http://localhost:3000,https://your-domain.vercel.app
+GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX
+```
 
-   ```bash
-   vercel
-   ```
+## 🌐 API Endpoints
 
-## API Endpoints
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/ads` | Dohvati sve reklame |
+| POST | `/api/ads` | Dodaj novu reklamu |
+| DELETE | `/api/ads/:id` | Obriši reklamu |
+| GET | `/api/health` | Health check |
 
-- `GET /api/ads` - Get all ads
-- `POST /api/ads` - Create new ad
-- `DELETE /api/ads/:id` - Delete ad
-- `GET /api/health` - Health check
+### Primer POST request:
 
-## Security
+```javascript
+fetch('/api/ads', {
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify({
+    image: 'https://example.com/image.jpg',
+    link: 'https://example.com'
+  })
+})
+```
 
-- Rate limiting enabled
-- CORS configured
-- Helmet security headers
-- Input validation
-- Error handling
+## 🚀 Deployment na Vercel
 
-## Deployment
+### Automatski (preporučeno):
 
-### Vercel
+1. Push na GitHub:
+```bash
+git add .
+git commit -m "Ready for deployment"
+git push
+```
 
-1. Push to GitHub
-2. Import project in Vercel
-3. Add environment variables
-4. Deploy
+2. Idi na [vercel.com](https://vercel.com)
+3. Import GitHub repository
+4. Dodaj Environment Variables:
+   - `NODE_ENV` = `production`
+   - `ALLOWED_ORIGINS` = `https://your-domain.vercel.app`
+   - `GOOGLE_ANALYTICS_ID` = `G-XXXXXXXXXX`
+5. Deploy!
 
-Environment variables needed:
+### Manual:
 
-- `NODE_ENV=production`
-- `ALLOWED_ORIGINS=https://your-domain.vercel.app`
-- `GOOGLE_ANALYTICS_ID=G-XXXXXXXXXX`
+```bash
+npm install -g vercel
+vercel login
+vercel
+```
 
-## License
-
-MIT
+## 📁 Struktura Projekta

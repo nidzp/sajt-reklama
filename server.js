@@ -13,7 +13,8 @@ const ADS_FILE = path.join(__dirname, "ads.json");
 // Security middleware
 app.use(
   helmet({
-    contentSecurityPolicy: false, // Disable for now, configure properly for production
+    contentSecurityPolicy: false,
+    crossOriginEmbedderPolicy: false,
   })
 );
 
@@ -39,13 +40,13 @@ app.use(
 const limiter = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutes
   max: 100, // limit each IP to 100 requests per windowMs
-  message: "Too many requests from this IP, please try again later.",
+  message: { error: "Too many requests from this IP, please try again later." },
 });
 
 const uploadLimiter = rateLimit({
   windowMs: 60 * 60 * 1000, // 1 hour
   max: 10, // limit uploads
-  message: "Too many uploads, please try again later.",
+  message: { error: "Too many uploads, please try again later." },
 });
 
 app.use("/api/", limiter);
@@ -56,9 +57,10 @@ app.use(express.static("public"));
 async function initAdsFile() {
   try {
     await fs.access(ADS_FILE);
+    console.log("✓ ads.json exists");
   } catch {
     await fs.writeFile(ADS_FILE, JSON.stringify([], null, 2));
-    console.log("Created ads.json file");
+    console.log("✓ Created ads.json file");
   }
 }
 
@@ -85,12 +87,13 @@ async function writeAds(ads) {
 
 // Validation helper
 function validateAd(ad) {
-  if (!ad.image || typeof ad.image !== "string") {
+  if (!ad.image || typeof ad.image !== "string" || ad.image.trim() === "") {
     return { valid: false, error: "Valid image URL is required" };
   }
-  if (!ad.link || typeof ad.link !== "string") {
+  if (!ad.link || typeof ad.link !== "string" || ad.link.trim() === "") {
     return { valid: false, error: "Valid link URL is required" };
   }
+
   // Basic URL validation
   try {
     new URL(ad.link);
@@ -98,6 +101,7 @@ function validateAd(ad) {
   } catch {
     return { valid: false, error: "Invalid URL format" };
   }
+
   return { valid: true };
 }
 
@@ -107,6 +111,7 @@ app.get("/api/ads", async (req, res) => {
     const ads = await readAds();
     res.json(ads);
   } catch (error) {
+    console.error("Error fetching ads:", error);
     res.status(500).json({ error: "Failed to fetch ads" });
   }
 });
@@ -124,14 +129,15 @@ app.post("/api/ads", uploadLimiter, async (req, res) => {
     const ads = await readAds();
     const newAd = {
       id: Date.now(),
-      image,
-      link,
+      image: image.trim(),
+      link: link.trim(),
       createdAt: new Date().toISOString(),
     };
 
     ads.push(newAd);
     await writeAds(ads);
 
+    console.log("✓ New ad created:", newAd.id);
     res.status(201).json(newAd);
   } catch (error) {
     console.error("Error creating ad:", error);
@@ -154,6 +160,7 @@ app.delete("/api/ads/:id", async (req, res) => {
     }
 
     await writeAds(filteredAds);
+    console.log("✓ Ad deleted:", id);
     res.json({ message: "Ad deleted successfully" });
   } catch (error) {
     console.error("Error deleting ad:", error);
@@ -163,7 +170,11 @@ app.delete("/api/ads/:id", async (req, res) => {
 
 // Health check
 app.get("/api/health", (req, res) => {
-  res.json({ status: "ok", timestamp: new Date().toISOString() });
+  res.json({
+    status: "ok",
+    timestamp: new Date().toISOString(),
+    env: process.env.NODE_ENV,
+  });
 });
 
 // 404 handler
@@ -184,11 +195,19 @@ app.use((err, req, res, next) => {
 
 // Start server
 async function start() {
-  await initAdsFile();
-  app.listen(PORT, () => {
-    console.log(`Server running on port ${PORT}`);
-    console.log(`Environment: ${process.env.NODE_ENV || "development"}`);
-  });
+  try {
+    await initAdsFile();
+    app.listen(PORT, () => {
+      console.log("==========================================");
+      console.log(`🚀 Server running on port ${PORT}`);
+      console.log(`📦 Environment: ${process.env.NODE_ENV || "development"}`);
+      console.log(`🌐 URL: http://localhost:${PORT}`);
+      console.log("==========================================");
+    });
+  } catch (error) {
+    console.error("Failed to start server:", error);
+    process.exit(1);
+  }
 }
 
-start().catch(console.error);
+start();
