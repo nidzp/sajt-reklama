@@ -11,177 +11,131 @@
     <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/css/styles.css" />
     <link rel="stylesheet" href="/public/cookie-styles.css" />
     <link rel="stylesheet" href="/public/chatbot-styles.css" />
+    <style>
+      :root {
+        --color-bg-dark: #0a0a0a;
+        --color-bg-darker: #050505;
+        --color-primary-red: #dc143c;
+        --color-primary-purple: #8b00ff;
+        --color-dark-blue: #0d1b2a;
+        --color-light-blue: #00d4ff;
+        --color-cyan-glow: #00ffff;
+        --color-text-white: #ffffff;
+        --color-text-gray: #b0b0b0;
+        --color-card-bg: rgba(13, 27, 42, 0.6);
+        --color-border: rgba(0, 212, 255, 0.3);
+        --glow-blue: 0 0 20px rgba(0, 212, 255, 0.6), 0 0 40px rgba(0, 212, 255, 0.3);
+        --glow-cyan: 0 0 20px rgba(0, 255, 255, 0.8), 0 0 40px rgba(0, 255, 255, 0.4);
+        --glow-red: 0 0 20px rgba(220, 20, 60, 0.6), 0 0 40px rgba(220, 20, 60, 0.3);
+      }
+      
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      body {
+        font-family: 'Rajdhani', sans-serif;
+        background: linear-gradient(135deg, var(--color-bg-darker) 0%, var(--color-dark-blue) 50%, var(--color-bg-dark) 100%);
+        color: var(--color-text-white);
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      
+      .orbitron {
+        font-family: 'Orbitron', sans-serif;
+      }
+    </style>
   </head>
   <body>
-    <header
-      class="site-header"
-      style="
-        padding: 1rem 0;
-        background: var(--color-surface);
-        box-shadow: var(--shadow-header);
-      "
-    >
-      <div
-        class="container"
-        style="
-          max-width: 1200px;
-          margin: 0 auto;
-          padding: 0 1rem;
-          display: flex;
-          justify-content: space-between;
-          align-items: center;
-        "
-      >
-        <a
-          href="/"
-          class="wordmark"
-          style="
-            font-size: 1.5rem;
-            font-weight: 700;
-            color: var(--color-accent-bright);
-            text-decoration: none;
-          "
-          >Sajt Reklama</a
-        >
-        <nav style="display: flex; gap: 2rem; align-items: center">
-          <a href="/" style="color: var(--color-text); text-decoration: none"
-            >Home</a
-          >
-          <a
-            href="/upload.html"
-            style="color: var(--color-text); text-decoration: none"
-            >Upload</a
-          >
-          <a
-            href="/portfolio.html"
-            style="color: var(--color-text); text-decoration: none"
-            >Portfolio</a
-          >
+    <header style="padding: 1.5rem 0; background: rgba(10, 10, 10, 0.95); backdrop-filter: blur(10px); border-bottom: 2px solid var(--color-light-blue); box-shadow: 0 4px 30px rgba(0, 212, 255, 0.2); position: sticky; top: 0; z-index: 1000;">
+      <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; display: flex; justify-content: space-between; align-items: center;">
+        <a href="/" class="orbitron" style="font-size: 1.8rem; font-weight: 900; background: linear-gradient(135deg, var(--color-light-blue), var(--color-primary-purple), var(--color-primary-red)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-decoration: none; text-shadow: var(--glow-cyan); letter-spacing: 2px;">
+          SAJT REKLAMA
+        </a>
+        <nav style="display: flex; gap: 3rem; align-items: center;">
+          <a href="/" class="orbitron" style="color: var(--color-light-blue); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; letter-spacing: 1px;" onmouseover="this.style.textShadow='var(--glow-cyan)'; this.style.color='var(--color-cyan-glow)'" onmouseout="this.style.textShadow='none'; this.style.color='var(--color-light-blue)'">HOME</a>
+          <a href="/upload.html" class="orbitron" style="color: var(--color-light-blue); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; letter-spacing: 1px;" onmouseover="this.style.textShadow='var(--glow-cyan)'; this.style.color='var(--color-cyan-glow)'" onmouseout="this.style.textShadow='none'; this.style.color='var(--color-light-blue)'">UPLOAD</a>
+          <a href="/portfolio.html" class="orbitron" style="color: var(--color-light-blue); text-decoration: none; font-weight: 600; font-size: 1.1rem; transition: all 0.3s ease; letter-spacing: 1px;" onmouseover="this.style.textShadow='var(--glow-cyan)'; this.style.color='var(--color-cyan-glow)'" onmouseout="this.style.textShadow='none'; this.style.color='var(--color-light-blue)'">PORTFOLIO</a>
         </nav>
       </div>
     </header>
 
     <main>
-      <section
-        style="
-          padding: 4rem 0;
-          text-align: center;
-          background: linear-gradient(
-            180deg,
-            var(--color-bg-gradient-start) 0%,
-            var(--color-bg-gradient-mid) 50%,
-            var(--color-bg-gradient-end) 100%
-          );
-        "
-      >
-        <div
-          class="container"
-          style="max-width: 1200px; margin: 0 auto; padding: 0 1rem"
-        >
-          <h1
-            style="
-              font-size: 3rem;
-              margin-bottom: 1rem;
-              background: linear-gradient(
-                135deg,
-                var(--color-accent-bright),
-                var(--color-accent)
-              );
-              -webkit-background-clip: text;
-              -webkit-text-fill-color: transparent;
-              background-clip: text;
-            "
-          >
-            Sajt Reklama Platform
+      <section style="padding: 6rem 0; text-align: center; background: radial-gradient(circle at 50% 50%, rgba(0, 212, 255, 0.1) 0%, transparent 50%), linear-gradient(135deg, var(--color-bg-darker) 0%, var(--color-dark-blue) 100%); position: relative; overflow: hidden;">
+        <!-- Animated background elements -->
+        <div style="position: absolute; top: 20%; left: 10%; width: 300px; height: 300px; background: radial-gradient(circle, var(--color-primary-red) 0%, transparent 70%); opacity: 0.1; filter: blur(80px); animation: float 8s ease-in-out infinite;"></div>
+        <div style="position: absolute; bottom: 20%; right: 10%; width: 400px; height: 400px; background: radial-gradient(circle, var(--color-light-blue) 0%, transparent 70%); opacity: 0.15; filter: blur(100px); animation: float 10s ease-in-out infinite reverse;"></div>
+        
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem; position: relative; z-index: 1;">
+          <div style="display: inline-block; padding: 0.5rem 1.5rem; background: rgba(0, 212, 255, 0.1); border: 1px solid var(--color-light-blue); border-radius: 50px; margin-bottom: 2rem; box-shadow: var(--glow-blue);">
+            <span class="orbitron" style="color: var(--color-cyan-glow); font-size: 0.9rem; font-weight: 600; letter-spacing: 2px;">⚡ AI-POWERED PLATFORM</span>
+          </div>
+          
+          <h1 class="orbitron" style="font-size: 4.5rem; font-weight: 900; margin-bottom: 1.5rem; background: linear-gradient(135deg, #ffffff 0%, var(--color-light-blue) 30%, var(--color-primary-purple) 60%, var(--color-primary-red) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-shadow: 0 0 40px rgba(0, 212, 255, 0.3); line-height: 1.2; letter-spacing: 3px;">
+            SAJT REKLAMA
           </h1>
-          <p
-            style="
-              font-size: 1.25rem;
-              color: var(--color-text-soft);
-              margin-bottom: 2rem;
-            "
-          >
-            Moderna platforma za prikaz i upravljanje reklamama sa AI chatbot
-            asistentom
+          
+          <h2 class="orbitron" style="font-size: 2rem; font-weight: 700; margin-bottom: 1rem; color: var(--color-light-blue); text-shadow: var(--glow-blue); letter-spacing: 2px;">
+            ADVERTISING PLATFORM
+          </h2>
+          
+          <p style="font-size: 1.3rem; color: var(--color-text-gray); margin-bottom: 3rem; max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.6; font-weight: 500;">
+            Moderna platforma za prikaz i upravljanje reklamama sa <span style="color: var(--color-light-blue); font-weight: 700;">AI chatbot</span> asistentom, admin panelom i GDPR sistemom
           </p>
-          <div
-            style="
-              display: flex;
-              gap: 1rem;
-              justify-content: center;
-              flex-wrap: wrap;
-            "
-          >
-            <a
-              href="/upload.html"
-              class="cta-button"
-              style="
-                display: inline-block;
-                padding: 1rem 2rem;
-                background: linear-gradient(
-                  135deg,
-                  var(--color-accent),
-                  var(--color-accent-soft)
-                );
-                color: white;
-                text-decoration: none;
-                border-radius: 12px;
-                font-weight: 600;
-                transition: transform 0.3s ease;
-              "
-            >
-              Upload Reklamu
+          
+          <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-bottom: 3rem;">
+            <a href="/upload.html" class="orbitron" style="display: inline-block; padding: 1.2rem 3rem; background: linear-gradient(135deg, var(--color-primary-red), var(--color-primary-purple)); color: white; text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; box-shadow: 0 10px 40px rgba(220, 20, 60, 0.4), var(--glow-red); transition: all 0.3s ease; border: 2px solid transparent;" onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.boxShadow='0 15px 50px rgba(220, 20, 60, 0.6), var(--glow-red)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.boxShadow='0 10px 40px rgba(220, 20, 60, 0.4), var(--glow-red)'">
+              🚀 UPLOAD REKLAMU
             </a>
-            <a
-              href="/portfolio.html"
-              class="cta-button"
-              style="
-                display: inline-block;
-                padding: 1rem 2rem;
-                background: var(--color-overlay-deep);
-                border: 2px solid var(--border-strong);
-                color: var(--color-text);
-                text-decoration: none;
-                border-radius: 12px;
-                font-weight: 600;
-                transition: transform 0.3s ease;
-              "
-            >
-              View Portfolio
+            <a href="/portfolio.html" class="orbitron" style="display: inline-block; padding: 1.2rem 3rem; background: rgba(0, 212, 255, 0.1); backdrop-filter: blur(10px); border: 2px solid var(--color-light-blue); color: var(--color-light-blue); text-decoration: none; border-radius: 50px; font-weight: 700; font-size: 1.1rem; letter-spacing: 2px; box-shadow: var(--glow-blue); transition: all 0.3s ease;" onmouseover="this.style.transform='translateY(-5px) scale(1.05)'; this.style.background='rgba(0, 212, 255, 0.2)'; this.style.boxShadow='0 15px 50px rgba(0, 212, 255, 0.6)'" onmouseout="this.style.transform='translateY(0) scale(1)'; this.style.background='rgba(0, 212, 255, 0.1)'; this.style.boxShadow='var(--glow-blue)'">
+              📂 VIEW PORTFOLIO
             </a>
+          </div>
+          
+          <!-- Stats -->
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 2rem; max-width: 900px; margin: 0 auto; margin-top: 4rem;">
+            <div style="padding: 1.5rem; background: var(--color-card-bg); border-radius: 20px; border: 1px solid var(--color-border); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+              <div class="orbitron" style="font-size: 2.5rem; font-weight: 900; color: var(--color-light-blue); text-shadow: var(--glow-blue); margin-bottom: 0.5rem;">⚡</div>
+              <div class="orbitron" style="font-size: 1.1rem; font-weight: 700; color: var(--color-text-white); letter-spacing: 1px;">INSTANT</div>
+              <div style="font-size: 0.9rem; color: var(--color-text-gray); margin-top: 0.5rem;">Upload u sekundi</div>
+            </div>
+            <div style="padding: 1.5rem; background: var(--color-card-bg); border-radius: 20px; border: 1px solid var(--color-border); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+              <div class="orbitron" style="font-size: 2.5rem; font-weight: 900; color: var(--color-primary-purple); text-shadow: 0 0 20px rgba(139, 0, 255, 0.6); margin-bottom: 0.5rem;">🤖</div>
+              <div class="orbitron" style="font-size: 1.1rem; font-weight: 700; color: var(--color-text-white); letter-spacing: 1px;">AI CHATBOT</div>
+              <div style="font-size: 0.9rem; color: var(--color-text-gray); margin-top: 0.5rem;">24/7 podrška</div>
+            </div>
+            <div style="padding: 1.5rem; background: var(--color-card-bg); border-radius: 20px; border: 1px solid var(--color-border); backdrop-filter: blur(10px); box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);">
+              <div class="orbitron" style="font-size: 2.5rem; font-weight: 900; color: var(--color-primary-red); text-shadow: var(--glow-red); margin-bottom: 0.5rem;">🔒</div>
+              <div class="orbitron" style="font-size: 1.1rem; font-weight: 700; color: var(--color-text-white); letter-spacing: 1px;">SECURE</div>
+              <div style="font-size: 0.9rem; color: var(--color-text-gray); margin-top: 0.5rem;">GDPR compliant</div>
+            </div>
           </div>
         </div>
       </section>
+      
+      <style>
+        @keyframes float {
+          0%, 100% { transform: translateY(0) scale(1); }
+          50% { transform: translateY(-30px) scale(1.1); }
+        }
+      </style>
 
-      <section id="features" style="padding: 4rem 0">
-        <div
-          class="container"
-          style="max-width: 1200px; margin: 0 auto; padding: 0 1rem"
-        >
-          <h2
-            style="
-              text-align: center;
-              font-size: 2.5rem;
-              margin-bottom: 3rem;
-              color: var(--color-text-bright);
-            "
-          >
-            Platform Features
-          </h2>
-          <div
-            style="
-              display: grid;
-              grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-              gap: 2rem;
-            "
-          >
+      <section id="features" style="padding: 6rem 0; background: linear-gradient(180deg, var(--color-bg-darker) 0%, rgba(13, 27, 42, 0.3) 100%); position: relative;">
+        <div style="max-width: 1400px; margin: 0 auto; padding: 0 2rem;">
+          <div style="text-align: center; margin-bottom: 4rem;">
+            <h2 class="orbitron" style="font-size: 3rem; font-weight: 900; margin-bottom: 1rem; background: linear-gradient(135deg, var(--color-light-blue), var(--color-primary-purple)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; letter-spacing: 3px;">
+              PLATFORM FEATURES
+            </h2>
+            <div style="width: 100px; height: 3px; background: linear-gradient(90deg, transparent, var(--color-light-blue), transparent); margin: 1rem auto; box-shadow: var(--glow-blue);"></div>
+          </div>
+          
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem;">
             <div
               style="
                 padding: 2rem;
