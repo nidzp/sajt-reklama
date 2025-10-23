@@ -187,7 +187,9 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
 
     // Limit message length
     if (message.length > 500) {
-      return res.status(400).json({ error: "Poruka je predugačka (max 500 karaktera)" });
+      return res
+        .status(400)
+        .json({ error: "Poruka je predugačka (max 500 karaktera)" });
     }
 
     // Sanitize history

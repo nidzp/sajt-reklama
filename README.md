@@ -45,6 +45,7 @@ Chatbot koristi **Groq AI** (besplatno) sa fallback sistemom:
 4. Dodaj u `.env` fajl
 
 ### Features:
+
 - ⚡ Ultra brzi odgovori (Groq je najbrži AI)
 - 🔄 Automatski fallback na statične odgovore
 - 💬 Conversational AI sa kontekstom
@@ -54,6 +55,7 @@ Chatbot koristi **Groq AI** (besplatno) sa fallback sistemom:
 - 📊 Pametno prepoznavanje namere
 
 ### Podržane teme:
+
 - Kako postaviti reklamu
 - Cene i paketi
 - Kontakt informacije
@@ -101,25 +103,25 @@ npm run dev
 
 ### Chatbot Endpoints:
 
-| Method | Endpoint | Description |
-|--------|----------|-------------|
-| POST | `/api/chat` | Pošalji poruku AI chatbot-u |
-| GET | `/api/chat/status` | Status chatbot servisa |
+| Method | Endpoint           | Description                 |
+| ------ | ------------------ | --------------------------- |
+| POST   | `/api/chat`        | Pošalji poruku AI chatbot-u |
+| GET    | `/api/chat/status` | Status chatbot servisa      |
 
 #### Chat Request Example:
 
 ```javascript
-fetch('/api/chat', {
-  method: 'POST',
-  headers: { 'Content-Type': 'application/json' },
+fetch("/api/chat", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
   body: JSON.stringify({
-    message: 'Kako da postavim reklamu?',
+    message: "Kako da postavim reklamu?",
     history: [
-      { role: 'user', content: 'Zdravo' },
-      { role: 'assistant', content: 'Zdravo! Kako mogu da pomognem?' }
-    ]
-  })
-})
+      { role: "user", content: "Zdravo" },
+      { role: "assistant", content: "Zdravo! Kako mogu da pomognem?" },
+    ],
+  }),
+});
 ```
 
 #### Chat Response:

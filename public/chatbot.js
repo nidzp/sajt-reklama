@@ -2,11 +2,12 @@ class Chatbot {
   constructor() {
     this.isOpen = false;
     this.conversationHistory = [];
-    this.API_URL = window.location.hostname === 'localhost' 
-      ? 'http://localhost:3000/api' 
-      : '/api';
+    this.API_URL =
+      window.location.hostname === "localhost"
+        ? "http://localhost:3000/api"
+        : "/api";
     this.isTyping = false;
-    
+
     this.init();
   }
 
@@ -20,15 +21,15 @@ class Chatbot {
     try {
       const response = await fetch(`${this.API_URL}/chat/status`);
       const data = await response.json();
-      console.log('Chatbot status:', data);
+      console.log("Chatbot status:", data);
     } catch (error) {
-      console.log('Chatbot status check failed:', error);
+      console.log("Chatbot status check failed:", error);
     }
   }
 
   createWidget() {
-    const widget = document.createElement('div');
-    widget.id = 'chatbot-widget';
+    const widget = document.createElement("div");
+    widget.id = "chatbot-widget";
     widget.innerHTML = `
       <!-- Chat Button -->
       <button id="chatbot-button" class="chatbot-button" aria-label="Otvori chat">
@@ -98,94 +99,94 @@ class Chatbot {
         </div>
       </div>
     `;
-    
+
     document.body.appendChild(widget);
   }
 
   attachEventListeners() {
-    const button = document.getElementById('chatbot-button');
-    const closeBtn = document.getElementById('chatbot-close');
-    const form = document.getElementById('chatbot-form');
-    const messagesDiv = document.getElementById('chatbot-messages');
+    const button = document.getElementById("chatbot-button");
+    const closeBtn = document.getElementById("chatbot-close");
+    const form = document.getElementById("chatbot-form");
+    const messagesDiv = document.getElementById("chatbot-messages");
 
-    button.addEventListener('click', () => this.toggleChat());
-    closeBtn.addEventListener('click', () => this.toggleChat());
-    form.addEventListener('submit', (e) => this.handleSubmit(e));
+    button.addEventListener("click", () => this.toggleChat());
+    closeBtn.addEventListener("click", () => this.toggleChat());
+    form.addEventListener("submit", (e) => this.handleSubmit(e));
 
     // Quick actions
-    messagesDiv.addEventListener('click', (e) => {
-      if (e.target.classList.contains('quick-action')) {
+    messagesDiv.addEventListener("click", (e) => {
+      if (e.target.classList.contains("quick-action")) {
         const message = e.target.dataset.message;
         this.sendMessage(message);
       }
     });
 
     // Auto-resize input
-    const input = document.getElementById('chatbot-input');
-    input.addEventListener('input', () => {
+    const input = document.getElementById("chatbot-input");
+    input.addEventListener("input", () => {
       if (input.value.length > 450) {
-        input.style.borderColor = '#ff6b6b';
+        input.style.borderColor = "#ff6b6b";
       } else {
-        input.style.borderColor = '';
+        input.style.borderColor = "";
       }
     });
   }
 
   toggleChat() {
     this.isOpen = !this.isOpen;
-    const window = document.getElementById('chatbot-window');
-    const button = document.getElementById('chatbot-button');
-    const badge = document.getElementById('chatbot-badge');
-    
+    const window = document.getElementById("chatbot-window");
+    const button = document.getElementById("chatbot-button");
+    const badge = document.getElementById("chatbot-badge");
+
     if (this.isOpen) {
-      window.classList.add('open');
-      button.classList.add('hidden');
-      badge.style.display = 'none';
-      document.getElementById('chatbot-input').focus();
+      window.classList.add("open");
+      button.classList.add("hidden");
+      badge.style.display = "none";
+      document.getElementById("chatbot-input").focus();
     } else {
-      window.classList.remove('open');
-      button.classList.remove('hidden');
+      window.classList.remove("open");
+      button.classList.remove("hidden");
     }
   }
 
   async handleSubmit(e) {
     e.preventDefault();
-    const input = document.getElementById('chatbot-input');
+    const input = document.getElementById("chatbot-input");
     const message = input.value.trim();
-    
+
     if (!message || this.isTyping) return;
-    
-    input.value = '';
+
+    input.value = "";
     await this.sendMessage(message);
   }
 
   async sendMessage(message) {
-    this.addMessage(message, 'user');
+    this.addMessage(message, "user");
     this.isTyping = true;
     this.showTyping();
 
     try {
       const response = await fetch(`${this.API_URL}/chat`, {
-        method: 'POST',
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           message: message,
-          history: this.conversationHistory
-        })
+          history: this.conversationHistory,
+        }),
       });
 
       const data = await response.json();
 
       if (!response.ok) {
-        throw new Error(data.error || 'Greška pri slanju poruke');
+        throw new Error(data.error || "Greška pri slanju poruke");
       }
 
       // Update conversation history
       this.conversationHistory.push(
-        { role: 'user', content: message },
-        { role: 'assistant', content: data.message }
+        { role: "user", content: message },
+        { role: "assistant", content: data.message }
       );
 
       // Keep only last 10 messages
@@ -195,22 +196,21 @@ class Chatbot {
 
       setTimeout(() => {
         this.hideTyping();
-        this.addMessage(data.message, 'bot', data.source);
-        
+        this.addMessage(data.message, "bot", data.source);
+
         // Update model badge
         if (data.model) {
-          document.getElementById('chat-model').textContent = 
-            data.source === 'ai' ? 'AI Model' : 'Auto Reply';
+          document.getElementById("chat-model").textContent =
+            data.source === "ai" ? "AI Model" : "Auto Reply";
         }
       }, 500);
-
     } catch (error) {
-      console.error('Chat error:', error);
+      console.error("Chat error:", error);
       this.hideTyping();
       this.addMessage(
-        'Izvinjavam se, došlo je do greške. Molimo pokušajte ponovo ili kontaktirajte podršku.',
-        'bot',
-        'error'
+        "Izvinjavam se, došlo je do greške. Molimo pokušajte ponovo ili kontaktirajte podršku.",
+        "bot",
+        "error"
       );
     } finally {
       this.isTyping = false;
@@ -218,59 +218,63 @@ class Chatbot {
   }
 
   addMessage(text, type, source) {
-    const messagesDiv = document.getElementById('chatbot-messages');
-    const messageDiv = document.createElement('div');
+    const messagesDiv = document.getElementById("chatbot-messages");
+    const messageDiv = document.createElement("div");
     messageDiv.className = `chatbot-message ${type}`;
-    
-    const avatar = type === 'user' ? '👤' : '🤖';
-    const sourceLabel = source === 'ai' ? ' <small>(AI)</small>' : 
-                       source === 'fallback' ? ' <small>(Auto)</small>' : '';
-    
+
+    const avatar = type === "user" ? "👤" : "🤖";
+    const sourceLabel =
+      source === "ai"
+        ? " <small>(AI)</small>"
+        : source === "fallback"
+        ? " <small>(Auto)</small>"
+        : "";
+
     messageDiv.innerHTML = `
       <div class="message-avatar">${avatar}</div>
       <div class="message-content">
         <p>${this.formatMessage(text)}</p>
-        ${source ? `<div class="message-source">${sourceLabel}</div>` : ''}
+        ${source ? `<div class="message-source">${sourceLabel}</div>` : ""}
       </div>
     `;
-    
+
     messagesDiv.appendChild(messageDiv);
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 
   formatMessage(text) {
     // Convert line breaks
-    text = text.replace(/\n/g, '<br>');
-    
+    text = text.replace(/\n/g, "<br>");
+
     // Convert URLs to links
     text = text.replace(
       /(https?:\/\/[^\s]+)/g,
       '<a href="$1" target="_blank" rel="noopener">$1</a>'
     );
-    
+
     // Convert emails to mailto links
     text = text.replace(
       /([a-zA-Z0-9._-]+@[a-zA-Z0-9._-]+\.[a-zA-Z0-9._-]+)/g,
       '<a href="mailto:$1">$1</a>'
     );
-    
+
     return text;
   }
 
   showTyping() {
-    document.getElementById('chatbot-typing').style.display = 'flex';
-    const messagesDiv = document.getElementById('chatbot-messages');
+    document.getElementById("chatbot-typing").style.display = "flex";
+    const messagesDiv = document.getElementById("chatbot-messages");
     messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 
   hideTyping() {
-    document.getElementById('chatbot-typing').style.display = 'none';
+    document.getElementById("chatbot-typing").style.display = "none";
   }
 }
 
 // Initialize chatbot when DOM is ready
-if (document.readyState === 'loading') {
-  document.addEventListener('DOMContentLoaded', () => new Chatbot());
+if (document.readyState === "loading") {
+  document.addEventListener("DOMContentLoaded", () => new Chatbot());
 } else {
   new Chatbot();
 }
