@@ -1,5 +1,6 @@
 const Groq = require("groq-sdk");
 
+// Dual AI Bot System: Bakery bot (product info) + Portfolio bot (hire nidzp)
 class ChatbotService {
   constructor() {
     this.groq = null;
