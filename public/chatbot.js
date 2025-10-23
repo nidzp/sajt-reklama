@@ -39,21 +39,21 @@ class Chatbot {
     widget.id = "chatbot-widget";
     widget.innerHTML = `
       <!-- Chat Button -->
-      <button id="chatbot-button" class="chatbot-button" aria-label="Otvori chat">
+      <button id="chatbot-button" class="chatbot-button" aria-label="Open chat">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
           <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
-        <span class="chatbot-badge" id="chatbot-badge">1</span>
+        <span class="chatbot-badge" id="chatbot-badge">💬</span>
       </button>
 
       <!-- Chat Window -->
       <div id="chatbot-window" class="chatbot-window">
         <div class="chatbot-header">
           <div class="chatbot-header-info">
-            <h3>AI Asistent 🤖</h3>
+            <h3>Portfolio AI Assistant 🤖</h3>
             <span class="chatbot-status">Online</span>
           </div>
-          <button id="chatbot-close" class="chatbot-close" aria-label="Zatvori chat">
+          <button id="chatbot-close" class="chatbot-close" aria-label="Close chat">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="18" y1="6" x2="6" y2="18"></line>
               <line x1="6" y1="6" x2="18" y2="18"></line>
@@ -65,12 +65,12 @@ class Chatbot {
           <div class="chatbot-message bot">
             <div class="message-avatar">🤖</div>
             <div class="message-content">
-              <p>Zdravo! 👋 Dobrodošli na Sajt Reklama platformu.</p>
-              <p>Kako mogu da vam pomognem danas?</p>
+              <p>Hello! 👋 Welcome to my portfolio.</p>
+              <p>I'm an AI assistant here to answer your questions about my work, skills, and experience. How can I help you today?</p>
               <div class="quick-actions">
-                <button class="quick-action" data-message="Kako da postavim reklamu?">📤 Postavi reklamu</button>
-                <button class="quick-action" data-message="Koje su cene?">💰 Cene</button>
-                <button class="quick-action" data-message="Kontakt informacije">📞 Kontakt</button>
+                <button class="quick-action" data-message="Tell me about your projects">� Projects</button>
+                <button class="quick-action" data-message="What are your skills?">� Skills</button>
+                <button class="quick-action" data-message="How can I contact you?">� Contact</button>
               </div>
             </div>
           </div>
@@ -89,11 +89,11 @@ class Chatbot {
           <input 
             type="text" 
             id="chatbot-input" 
-            placeholder="Napišite poruku..." 
+            placeholder="Ask me anything about my work..." 
             maxlength="500"
             autocomplete="off"
           >
-          <button type="submit" id="chatbot-send" aria-label="Pošalji">
+          <button type="submit" id="chatbot-send" aria-label="Send">
             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
               <line x1="22" y1="2" x2="11" y2="13"></line>
               <polygon points="22 2 15 22 11 13 2 9 22 2"></polygon>
@@ -102,7 +102,7 @@ class Chatbot {
         </form>
 
         <div class="chatbot-footer">
-          <small>Powered by AI • <span id="chat-model">Groq</span></small>
+          <small>Powered by AI • <span id="chat-model">Groq AI</span></small>
         </div>
       </div>
     `;
@@ -218,10 +218,11 @@ class Chatbot {
 
       // Friendly error message
       this.addMessage(
-        "😊 Trenutno imam tehničke poteškoće. Evo nekoliko načina da dobijete pomoć:\n\n" +
-          "📧 Email: info@sajt-reklama.rs\n" +
-          "📞 Telefon: +381 11 123 4567\n" +
-          "💬 Ili probajte ponovo za trenutak!",
+        "😊 I'm experiencing some technical difficulties at the moment. Here are other ways to reach me:\n\n" +
+          "📧 Use the contact form on this page\n" +
+          "� Connect with me on LinkedIn\n" +
+          "� Check out my GitHub profile\n\n" +
+          "Or try again in a moment!",
         "bot",
         "error"
       );

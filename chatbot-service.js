@@ -35,26 +35,88 @@ class ChatbotService {
       );
     }
 
-    this.systemPrompt = `Ti si AI asistent za platformu za reklame "Sajt Reklama". 
-Tvoj zadatak je da pomogneš korisnicima sa pitanjima o:
-- Kako postaviti reklamu
-- Cene i paketi (基本 paket 100 RSD/mesec, Premium 500 RSD/mesec, VIP 1000 RSD/mesec)
-- Tehnička podrška
-- Pravila i uslovi korišćenja
+    this.systemPrompt = `You are an AI assistant for a professional web developer's portfolio website.
 
-Uvek odgovaraj ljubazno, jasno i koncizno na srpskom jeziku.
-Ako ne znaš odgovor, uputi korisnika da kontaktira podršku na: info@sajt-reklama.rs`;
+About the developer:
+- 5+ years of web development experience
+- Specializes in: React, Next.js, Node.js, AI integration, responsive design
+- Completed 50+ successful projects
+- Expert in full-stack development, UI/UX design, and modern web technologies
+- Available for: freelance projects, consulting, full-time opportunities
 
-    // Fallback responses za kada AI nije dostupan
+Featured projects:
+1. E-Commerce Platform - Full-stack solution with AI recommendations (React, Node.js, MongoDB, AI/ML)
+2. Analytics Dashboard - Real-time data visualization with AI insights (Vue.js, D3.js, Python)
+3. AI Chatbot System - NLP-powered customer support (Groq AI, Express, WebSocket)
+4. Fintech Dashboard - Stock tracking and portfolio management (Next.js, TypeScript, GraphQL)
+5. SaaS Management Platform - Project management with team collaboration (React, PostgreSQL, Docker)
+6. Smart Home IoT Hub - AI automation for smart devices (Node.js, MQTT, TensorFlow, AWS IoT)
+
+Your role:
+- Answer questions about the developer's skills, experience, and projects
+- Help potential clients understand what services are offered
+- Explain technical details about projects and technologies used
+- Be professional, friendly, and enthusiastic about web development
+- Encourage visitors to get in touch for collaborations
+
+Always respond in English, be concise but informative, and showcase the developer's expertise.`;
+
+    // Fallback responses when AI is not available
     this.fallbackResponses = {
       default:
-        "Hvala na pitanju! Za detaljne informacije, kontaktirajte nas na info@sajt-reklama.rs ili pozovite +381 11 123 4567",
+        "Thanks for your interest! I'm a web developer with 5+ years of experience in React, Node.js, and AI integration. Feel free to explore my projects or use the contact form to get in touch!",
       greeting:
-        "Zdravo! 👋 Dobrodošli na Sajt Reklama platformu. Kako mogu da vam pomognem danas?",
-      upload:
-        "Da postavite reklamu:\n1. Kliknite na 'Upload' dugme\n2. Unesite URL slike\n3. Dodajte link ka vašem sajtu\n4. Kliknite 'Upload Reklamu'\n\nCena osnovnog paketa je 100 RSD/mesec.",
-      prices:
-        "Naši paketi:\n\n📦 BASIC - 100 RSD/mesec\n- Do 5 reklama\n- Osnovna analitika\n\n⭐ PREMIUM - 500 RSD/mesec\n- Do 20 reklama\n- Napredna analitika\n- Prioritetna podrška\n\n👑 VIP - 100
+        "Hello! 👋 Welcome to my portfolio. I'm a full-stack web developer specializing in modern JavaScript frameworks and AI integration. How can I help you today?",
+      projects:
+        "I've completed 50+ projects including:\n\n🛒 E-Commerce Platform - AI-powered recommendations\n📊 Analytics Dashboard - Real-time data visualization\n🤖 AI Chatbot - NLP customer support\n💰 Fintech Dashboard - Stock tracking\n📱 SaaS Platform - Team collaboration\n🏠 IoT Hub - Smart home automation\n\nWould you like to know more about any specific project?",
+      skills:
+        "My technical skills:\n\n⚛️ Frontend: React, Next.js, Vue.js, TypeScript\n🟢 Backend: Node.js, Express, Python\n🤖 AI/ML: Groq, TensorFlow, NLP\n🗄️ Databases: MongoDB, PostgreSQL, Redis\n☁️ DevOps: Docker, AWS, Vercel\n🎨 Design: UI/UX, Responsive Design\n\nI'm always learning new technologies!",
+      contact:
+        "I'd love to hear about your project! 🚀\n\nYou can:\n📧 Use the contact form on this page\n💼 Connect on LinkedIn\n🐙 Check my GitHub\n\nI typically respond within 24 hours!",
+    };
+  }
+
+  detectIntent(message) {
+    const lowerMsg = message.toLowerCase();
+
+    if (
+      lowerMsg.includes("hello") ||
+      lowerMsg.includes("hi") ||
+      lowerMsg.includes("hey") ||
+      lowerMsg.includes("zdravo")
+    ) {
+      return "greeting";
+    }
+
+    if (
+      lowerMsg.includes("project") ||
+      lowerMsg.includes("work") ||
+      lowerMsg.includes("portfolio") ||
+      lowerMsg.includes("built") ||
+      lowerMsg.includes("created")
+    ) {
+      return "projects";
+    }
+
+    if (
+      lowerMsg.includes("skill") ||
+      lowerMsg.includes("technology") ||
+      lowerMsg.includes("tech stack") ||
+      lowerMsg.includes("experience") ||
+      lowerMsg.includes("know")
+    ) {
+      return "skills";
+    }
+
+    if (
+      lowerMsg.includes("contact") ||
+      lowerMsg.includes("email") ||
+      lowerMsg.includes("reach") ||
+      lowerMsg.includes("hire") ||
+      lowerMsg.includes("available")
+    ) {
+      return "contact";
+    }
 
     return "default";
   }
