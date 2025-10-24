@@ -171,6 +171,7 @@ p {
   z-index: 1000;
   transition: background-color var(--transition-base),
     box-shadow var(--transition-base);
+  -webkit-backdrop-filter: blur(12px);
   backdrop-filter: blur(12px);
   /* Account for device safe areas on mobile */
   padding-top: env(safe-area-inset-top, 0);
@@ -486,6 +487,7 @@ p {
   box-shadow: var(--shadow-soft);
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   border: 1px solid var(--border-subtle);
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
 }
 
@@ -777,6 +779,7 @@ p {
   display: flex;
   align-items: center;
   justify-content: center;
+  -webkit-backdrop-filter: blur(18px);
   backdrop-filter: blur(18px);
   z-index: 2000;
 }
