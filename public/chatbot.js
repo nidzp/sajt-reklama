@@ -3,7 +3,7 @@ class Chatbot {
     this.isOpen = false;
     this.conversationHistory = [];
     // Fixed API URL for both local and Vercel deployment
-    this.API_URL = window.location.hostname === 'localhost' ? '' : '';
+    this.API_URL = window.location.hostname === "localhost" ? "" : "";
     this.isTyping = false;
 
     this.init();
