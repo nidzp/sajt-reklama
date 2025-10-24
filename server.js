@@ -106,6 +106,14 @@ const chatLimiter = rateLimit({
 app.use("/api/", limiter);
 app.use(express.json({ limit: "10mb" }));
 
+// Serve static files from ROOT (CSS, JS, Assets)
+app.use(
+  express.static(__dirname, {
+    maxAge: "1d",
+    etag: true,
+  })
+);
+
 // Serve static files from public directory
 app.use(
   express.static(path.join(__dirname, "public"), {
