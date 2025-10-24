@@ -232,7 +232,7 @@ app.use((req, res) => {
   if (req.path.startsWith("/api/")) {
     res.status(404).json({ error: "Endpoint nije pronađen" });
   } else {
-    res.sendFile(path.join(__dirname, "public", "index.html"));
+    res.sendFile(path.join(__dirname, "index.html"));
   }
 });
 
