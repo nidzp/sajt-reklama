@@ -54,8 +54,7 @@ module.exports = async (req, res) => {
     const context = "bakery";
 
     // Single system prompt for bakery only
-    const systemPrompt =
-      "You are a friendly AI assistant for Vespera Hearth Bakery. Provide helpful information about artisan breads, sourdough health benefits, and baking traditions. This is a demo site showcasing web development skills.";
+    const systemPrompt = "You are a friendly AI assistant for Vespera Hearth Bakery. Provide helpful information about artisan breads, sourdough health benefits, and baking traditions. This is a demo site showcasing web development skills.";
 
     // Try Groq AI
     if (groq) {
@@ -64,7 +63,7 @@ module.exports = async (req, res) => {
           messages: [
             { role: "system", content: systemPrompt },
             ...conversationHistory,
-            { role: "user", content: message },
+            { role: "user", content: message }
           ],
           model: "llama3-8b-8192",
           temperature: 0.7,
@@ -84,8 +83,7 @@ module.exports = async (req, res) => {
     }
 
     // Fallback response for bakery
-    const fallbackMsg =
-      "Welcome to Vespera Hearth Bakery! 🥖 I can help you with our menu, sourdough health benefits, baking traditions, or orders. What would you like to know?";
+    const fallbackMsg = "Welcome to Vespera Hearth Bakery! 🥖 I can help you with our menu, sourdough health benefits, baking traditions, or orders. What would you like to know?";
 
     res.status(200).json({
       message: fallbackMsg,
