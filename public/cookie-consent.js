@@ -139,7 +139,8 @@ class CookieConsent {
   }
 
   enableAnalytics() {
-    const gaId = "G-XXXXXXXXXX"; // Replace with actual GA ID from .env
+    // Check if GA ID is available from env or use demo mode
+    const gaId = window.GA_TRACKING_ID || "G-DEMO-MODE";
 
     if (window.gtag) {
       console.log("Analytics already loaded");

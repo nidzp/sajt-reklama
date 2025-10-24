@@ -2,8 +2,6 @@ class Chatbot {
   constructor() {
     this.isOpen = false;
     this.conversationHistory = [];
-    // Fixed API URL for both local and Vercel deployment
-    this.API_URL = window.location.hostname === "localhost" ? "" : "";
     this.isTyping = false;
 
     this.init();
@@ -27,7 +25,10 @@ class Chatbot {
 
       // Update UI based on status
       if (!data.enabled || !data.hasApiKey) {
-        document.querySelector(".chatbot-status").textContent = "Fallback Mode";
+        const statusEl = document.querySelector(".chatbot-status");
+        if (statusEl) {
+          statusEl.textContent = "Fallback Mode";
+        }
       }
     } catch (error) {
       console.log("Chatbot running in fallback mode");
@@ -116,6 +117,11 @@ class Chatbot {
     const form = document.getElementById("chatbot-form");
     const messagesDiv = document.getElementById("chatbot-messages");
 
+    if (!button || !closeBtn || !form || !messagesDiv) {
+      console.error("Chatbot: Required elements not found");
+      return;
+    }
+
     button.addEventListener("click", () => this.toggleChat());
     closeBtn.addEventListener("click", () => this.toggleChat());
     form.addEventListener("submit", (e) => this.handleSubmit(e));
@@ -145,11 +151,14 @@ class Chatbot {
     const button = document.getElementById("chatbot-button");
     const badge = document.getElementById("chatbot-badge");
 
+    if (!window || !button) return;
+
     if (this.isOpen) {
       window.classList.add("open");
       button.classList.add("hidden");
-      badge.style.display = "none";
-      document.getElementById("chatbot-input").focus();
+      if (badge) badge.style.display = "none";
+      const input = document.getElementById("chatbot-input");
+      if (input) input.focus();
     } else {
       window.classList.remove("open");
       button.classList.remove("hidden");
@@ -159,8 +168,9 @@ class Chatbot {
   async handleSubmit(e) {
     e.preventDefault();
     const input = document.getElementById("chatbot-input");
+    if (!input) return;
+    
     const message = input.value.trim();
-
     if (!message || this.isTyping) return;
 
     input.value = "";
@@ -214,8 +224,8 @@ class Chatbot {
 
         // Update model badge
         const modelBadge = document.getElementById("chat-model");
-        if (modelBadge && data.model) {
-          modelBadge.textContent = data.source === "ai" ? "🤖 AI" : "💬 Auto";
+        if (modelBadge) {
+          modelBadge.textContent = data.source === "ai" ? "🤖 AI" : "💬 Fallback";
         }
       }, 500);
     } catch (error) {
@@ -239,6 +249,8 @@ class Chatbot {
 
   addMessage(text, type, source) {
     const messagesDiv = document.getElementById("chatbot-messages");
+    if (!messagesDiv) return;
+    
     const messageDiv = document.createElement("div");
     messageDiv.className = `chatbot-message ${type}`;
 
@@ -259,7 +271,9 @@ class Chatbot {
     `;
 
     messagesDiv.appendChild(messageDiv);
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    if (messagesDiv) {
+      messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    }
   }
 
   formatMessage(text) {
@@ -285,13 +299,15 @@ class Chatbot {
   }
 
   showTyping() {
-    document.getElementById("chatbot-typing").style.display = "flex";
+    const typing = document.getElementById("chatbot-typing");
     const messagesDiv = document.getElementById("chatbot-messages");
-    messagesDiv.scrollTop = messagesDiv.scrollHeight;
+    if (typing) typing.style.display = "flex";
+    if (messagesDiv) messagesDiv.scrollTop = messagesDiv.scrollHeight;
   }
 
   hideTyping() {
-    document.getElementById("chatbot-typing").style.display = "none";
+    const typing = document.getElementById("chatbot-typing");
+    if (typing) typing.style.display = "none";
   }
 }
 
