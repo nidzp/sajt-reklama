@@ -1,7 +1,7 @@
 {
   "name": "sajt-reklama",
   "version": "1.0.0",
-  "description": "Advertising website platform with AI chatbot",
+  "description": "Vespera Hearth Bakery - Advertising website platform",
   "main": "server.js",
   "scripts": {
     "start": "node server.js",
@@ -12,7 +12,6 @@
     "dotenv": "^16.3.1",
     "express": "^4.18.2",
     "express-rate-limit": "^7.1.5",
-    "groq-sdk": "^0.3.3",
     "helmet": "^7.1.0"
   },
   "devDependencies": {

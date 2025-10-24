@@ -6,23 +6,7 @@ const rateLimit = require("express-rate-limit");
 const fs = require("fs").promises;
 const path = require("path");
 
-// Initialize chatbot with error handling
-let chatbot;
-try {
-  chatbot = require("./chatbot-service");
-} catch (error) {
-  console.error("⚠ Chatbot service failed to load:", error.message);
-  // Create fallback chatbot
-  chatbot = {
-    enabled: false,
-    chat: async (message) => ({
-      response: "Za pomoć kontaktirajte: info@sajt-reklama.rs",
-      source: "fallback",
-      model: "none",
-    }),
-    getFallbackResponse: () => "Za pomoć kontaktirajte: info@sajt-reklama.rs",
-  };
-}
+// Chatbot disabled - simple bakery site only
 
 const app = express();
 const PORT = process.env.PORT || 3000;
@@ -97,12 +81,6 @@ const uploadLimiter = rateLimit({
   message: { error: "Previše upload-a. Pokušajte ponovo za 1 sat." },
 });
 
-const chatLimiter = rateLimit({
-  windowMs: 1 * 60 * 1000,
-  max: 30,
-  message: { error: "Previše poruka. Sačekajte trenutak." },
-});
-
 app.use("/api/", limiter);
 app.use(express.json({ limit: "10mb" }));
 
@@ -121,20 +99,6 @@ app.use(
     etag: true,
   })
 );
-
-// Explicitly serve chatbot and cookie files
-app.get("/chatbot.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "chatbot.js"));
-});
-app.get("/chatbot-styles.css", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "chatbot-styles.css"));
-});
-app.get("/cookie-consent.js", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "cookie-consent.js"));
-});
-app.get("/cookie-styles.css", (req, res) => {
-  res.sendFile(path.join(__dirname, "public", "cookie-styles.css"));
-});
 
 // Initialize ads.json if it doesn't exist
 async function initAdsFile() {
@@ -261,56 +225,7 @@ app.delete("/api/ads/:id", async (req, res) => {
   }
 });
 
-// Chatbot endpoints
-app.post("/api/chat", chatLimiter, async (req, res) => {
-  try {
-    const { message, history, pageContext } = req.body;
-
-    if (!message || typeof message !== "string" || message.trim() === "") {
-      return res.status(400).json({ error: "Message is required" });
-    }
-
-    if (message.length > 500) {
-      return res
-        .status(400)
-        .json({ error: "Message too long (max 500 characters)" });
-    }
-
-    const conversationHistory = Array.isArray(history)
-      ? history.slice(-20).filter((h) => h.role && h.content)
-      : [];
-
-    // Always use bakery context
-    const context = "bakery";
-    const result = await chatbot.chat(message, conversationHistory, context);
-
-    res.json({
-      message: result.response,
-      source: result.source,
-      model: result.model,
-      context: context,
-      timestamp: new Date().toISOString(),
-    });
-  } catch (error) {
-    console.error("Chat error:", error);
-    res.status(200).json({
-      message:
-        "For help contact:\n📧 hello@vesperahearth.rs\n📞 +381 11 123 4567",
-      source: "fallback",
-      model: "error-handler",
-      timestamp: new Date().toISOString(),
-    });
-  }
-});
-
-app.get("/api/chat/status", (req, res) => {
-  res.json({
-    enabled: chatbot.enabled,
-    model: chatbot.model || "fallback",
-    hasApiKey: !!chatbot.groq,
-    timestamp: new Date().toISOString(),
-  });
-});
+// Chatbot disabled - use contact form instead
 
 // 404 handler
 app.use((req, res) => {
@@ -338,9 +253,7 @@ async function start() {
       console.log("==========================================");
       console.log(`🚀 Server running on port ${PORT}`);
       console.log(`📦 Environment: ${process.env.NODE_ENV || "development"}`);
-      console.log(
-        `🤖 Chatbot: ${chatbot.enabled ? "Enabled" : "Fallback mode"}`
-      );
+      console.log("� Vespera Hearth Bakery - Simple Site");
       if (isVercel) console.log(`☁️  Running on Vercel`);
       console.log("==========================================");
     });
