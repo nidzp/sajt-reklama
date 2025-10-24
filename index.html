@@ -1,476 +1,949 @@
-﻿<!DOCTYPE html><!DOCTYPE html>
+﻿<!DOCTYPE html><!DOCTYPE html><!DOCTYPE html>
 
-<html lang="en"><html lang="en">
+<html lang="en">
 
-<head><head>
+<head><html lang="en"><html lang="en">
+
+  <meta charset="UTF-8">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"><head><head>
+
+  <meta name="description" content="Premium Digital Creative Studio - Apple Typography meets Rockstar Games Cinematic Experience">
 
   <meta charset="UTF-8">  <meta charset="UTF-8">
 
+  <title>NIDZP • Premium Digital Studio</title>
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
-  <meta name="description" content="Premium Digital Creative Studio - Apple Typography meets Rockstar Games Cinematic Experience">    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <!-- Google Fonts: Apple-inspired sans-serif -->
 
-  <meta name="theme-color" content="#0a0a0a">    <title
+  <link rel="preconnect" href="https://fonts.googleapis.com">  <meta name="description" content="Premium Digital Creative Studio - Apple Typography meets Rockstar Games Cinematic Experience">    <meta name="viewport" content="width=device-width, initial-scale=1" />
 
-      data-i18n-title-en="Vespera Hearth Bakery | Twilight Boulangerie"
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">  <meta name="theme-color" content="#0a0a0a">    <title
+
+
+
+  <!-- CSS -->      data-i18n-title-en="Vespera Hearth Bakery | Twilight Boulangerie"
+
+  <link rel="stylesheet" href="/assets/css/styles.css">
 
   <title>NIDZP • Premium Digital Studio</title>      data-i18n-title-sr="Pekara Vespera Ognjište | Pekara sumraka"
 
-    >
+  <style>
 
-  <!-- Google Fonts: Apple-inspired sans-serif -->      Vespera Hearth Bakery | Twilight Boulangerie
+    /* Additional branding touches */    >
+
+    body {
+
+      background: linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 100%);  <!-- Google Fonts: Apple-inspired sans-serif -->      Vespera Hearth Bakery | Twilight Boulangerie
+
+    }
 
   <link rel="preconnect" href="https://fonts.googleapis.com">    </title>
 
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <meta
+    .accent-text {
 
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">      name="description"
+      color: var(--color-accent-gold);  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <meta
 
-      data-i18n-content-en="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
+      font-weight: 700;
 
-  <!-- CSS -->      data-i18n-content-sr="Pekara Vespera Ognjište stvara hlebove u malim serijama i sjajne poslastice za sanjare beogradskih noci."
+    }  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">      name="description"
 
-  <link rel="stylesheet" href="/assets/css/styles.css">      content="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
+
+
+    .expertise-grid {      data-i18n-content-en="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));  <!-- CSS -->      data-i18n-content-sr="Pekara Vespera Ognjište stvara hlebove u malim serijama i sjajne poslastice za sanjare beogradskih noci."
+
+      gap: var(--spacing-2xl);
+
+      margin: var(--spacing-3xl) 0;  <link rel="stylesheet" href="/assets/css/styles.css">      content="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
+
+    }
 
     />
 
-  <style>    <meta
+    .expertise-card {
 
-    /* Additional branding touches */      property="og:title"
+      padding: var(--spacing-2xl);  <style>    <meta
 
-    body {      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
+      background: var(--color-dark-secondary);
 
-      background: linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 100%);      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
+      border: 1px solid var(--color-border-subtle);    /* Additional branding touches */      property="og:title"
 
-    }      content="Vespera Hearth Bakery | Twilight Boulangerie"
+      border-radius: var(--radius-lg);
 
-    />
+      transition: all var(--duration-normal) var(--easing-ease-out);    body {      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
 
-    .hero-video {    <meta
+      cursor: pointer;
+
+    }      background: linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 100%);      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
+
+
+
+    .expertise-card:hover {    }      content="Vespera Hearth Bakery | Twilight Boulangerie"
+
+      background: var(--color-charcoal);
+
+      border-color: var(--color-accent-gold);    />
+
+      transform: translateY(-8px);
+
+      box-shadow: var(--shadow-lg);    .hero-video {    <meta
+
+    }
 
       width: 100%;      property="og:description"
 
-      height: 100%;      data-i18n-content-en="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
+    .expertise-card h3 {
 
-      object-fit: cover;      data-i18n-content-sr="Zakoracite u sjaj zanatskih hlebova, svetlucavih poslastica i vecernjih degustacija na Beogradu na vodi."
+      color: var(--color-accent-gold);      height: 100%;      data-i18n-content-en="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
 
-    }      content="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
+      margin-bottom: var(--spacing-md);
 
-    />
+    }      object-fit: cover;      data-i18n-content-sr="Zakoracite u sjaj zanatskih hlebova, svetlucavih poslastica i vecernjih degustacija na Beogradu na vodi."
 
-    .accent-text {    <meta property="og:type" content="website" />
 
-      color: var(--color-accent-gold);    <meta property="og:url" content="https://vesperahearth.example.com/" />
 
-      font-weight: 700;    <meta property="og:image" content="assets/img/10.jpg" />
+    .process-timeline {    }      content="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
 
-    }    <meta
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));    />
+
+      gap: var(--spacing-2xl);
+
+      position: relative;    .accent-text {    <meta property="og:type" content="website" />
+
+      padding: var(--spacing-2xl) 0;
+
+    }      color: var(--color-accent-gold);    <meta property="og:url" content="https://vesperahearth.example.com/" />
+
+
+
+    .process-step {      font-weight: 700;    <meta property="og:image" content="assets/img/10.jpg" />
+
+      position: relative;
+
+      padding-left: var(--spacing-xl);    }    <meta
+
+    }
 
       property="og:locale"
 
-    .expertise-grid {      data-i18n-content-en="en_US"
+    .process-step::before {
 
-      display: grid;      data-i18n-content-sr="sr_RS"
+      content: attr(data-step);    .expertise-grid {      data-i18n-content-en="en_US"
 
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));      content="en_US"
+      position: absolute;
 
-      gap: var(--spacing-2xl);    />
+      left: 0;      display: grid;      data-i18n-content-sr="sr_RS"
 
-      margin: var(--spacing-3xl) 0;    <meta property="og:locale:alternate" content="sr_RS" />
+      top: 0;
 
-    }    <meta name="twitter:card" content="summary_large_image" />
+      font-size: var(--text-4xl);      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));      content="en_US"
 
-    <meta
+      font-weight: 700;
 
-    .expertise-card {      name="twitter:title"
+      color: var(--color-accent-gold);      gap: var(--spacing-2xl);    />
 
-      padding: var(--spacing-2xl);      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
+      opacity: 0.3;
 
-      background: var(--color-dark-secondary);      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
+    }      margin: var(--spacing-3xl) 0;    <meta property="og:locale:alternate" content="sr_RS" />
 
-      border: 1px solid var(--color-border-subtle);      content="Vespera Hearth Bakery | Twilight Boulangerie"
 
-      border-radius: var(--radius-lg);    />
 
-      transition: all var(--duration-normal) var(--easing-ease-out);    <meta
+    .process-step h4 {    }    <meta name="twitter:card" content="summary_large_image" />
+
+      color: var(--color-text-primary);
+
+    }    <meta
+
+
+
+    .testimonials {    .expertise-card {      name="twitter:title"
+
+      display: grid;
+
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));      padding: var(--spacing-2xl);      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
+
+      gap: var(--spacing-2xl);
+
+    }      background: var(--color-dark-secondary);      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
+
+
+
+    .testimonial-card {      border: 1px solid var(--color-border-subtle);      content="Vespera Hearth Bakery | Twilight Boulangerie"
+
+      padding: var(--spacing-2xl);
+
+      background: var(--color-dark-secondary);      border-radius: var(--radius-lg);    />
+
+      border-left: 4px solid var(--color-accent-gold);
+
+      border-radius: var(--radius-md);      transition: all var(--duration-normal) var(--easing-ease-out);    <meta
+
+    }
 
       cursor: pointer;      name="twitter:description"
 
-    }      data-i18n-content-en="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
+    .testimonial-quote {
 
-      data-i18n-content-sr="Rezervišite zanatske hlebove, kroasane i degustacije pod mesecinom uz beogradsku nocnu pekaru."
+      font-size: var(--text-lg);    }      data-i18n-content-en="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
 
-    .expertise-card:hover {      content="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
+      font-style: italic;
 
-      background: var(--color-charcoal);    />
+      color: var(--color-text-secondary);      data-i18n-content-sr="Rezervišite zanatske hlebove, kroasane i degustacije pod mesecinom uz beogradsku nocnu pekaru."
 
-      border-color: var(--color-accent-gold);    <meta
+      margin-bottom: var(--spacing-md);
+
+    }    .expertise-card:hover {      content="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
+
+
+
+    .testimonial-author {      background: var(--color-charcoal);    />
+
+      font-weight: 600;
+
+      color: var(--color-text-primary);      border-color: var(--color-accent-gold);    <meta
+
+    }
 
       transform: translateY(-8px);      name="theme-color"
 
-      box-shadow: var(--shadow-lg);      content="#130924"
+    .stats-grid {
 
-    }      media="(prefers-color-scheme: dark)"
+      display: grid;      box-shadow: var(--shadow-lg);      content="#130924"
 
-    />
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+
+      gap: var(--spacing-2xl);    }      media="(prefers-color-scheme: dark)"
+
+      text-align: center;
+
+      margin: var(--spacing-3xl) 0;    />
+
+    }
 
     .expertise-card h3 {    <meta
 
-      color: var(--color-accent-gold);      name="theme-color"
+    .stat {
+
+      padding: var(--spacing-2xl);      color: var(--color-accent-gold);      name="theme-color"
+
+    }
 
       margin-bottom: var(--spacing-md);      content="#2a1744"
 
-    }      media="(prefers-color-scheme: light)"
+    .stat-number {
 
-    />
+      font-size: var(--text-5xl);    }      media="(prefers-color-scheme: light)"
 
-    .process-timeline {    <link rel="canonical" href="https://vesperahearth.example.com/" />
+      font-weight: 700;
 
-      display: grid;    <link
+      color: var(--color-accent-gold);    />
 
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));      rel="alternate"
+      margin-bottom: var(--spacing-sm);
+
+    }    .process-timeline {    <link rel="canonical" href="https://vesperahearth.example.com/" />
+
+
+
+    .stat-label {      display: grid;    <link
+
+      font-size: var(--text-lg);
+
+      color: var(--color-text-secondary);      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));      rel="alternate"
+
+    }
 
       gap: var(--spacing-2xl);      hreflang="en"
 
-      position: relative;      href="https://vesperahearth.example.com/en"
+    @media (max-width: 768px) {
 
-      padding: var(--spacing-2xl) 0;    />
+      .hero-content h1 {      position: relative;      href="https://vesperahearth.example.com/en"
 
-    }    <link
+        font-size: var(--text-4xl);
 
-      rel="alternate"
+      }      padding: var(--spacing-2xl) 0;    />
 
-    .process-step {      hreflang="sr"
 
-      position: relative;      href="https://vesperahearth.example.com/sr"
 
-      padding-left: var(--spacing-xl);    />
+      .expertise-grid {    }    <link
 
-    }    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
+        grid-template-columns: 1fr;
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+      }      rel="alternate"
 
-    .process-step::before {    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 
-      content: attr(data-step);    <link
 
-      position: absolute;      href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap"
+      .process-timeline {    .process-step {      hreflang="sr"
 
-      left: 0;      rel="stylesheet"
+        grid-template-columns: 1fr;
 
-      top: 0;    />
+      }      position: relative;      href="https://vesperahearth.example.com/sr"
 
-      font-size: var(--text-4xl);    <link rel="stylesheet" href="css/styles.css" />
+    }
 
-      font-weight: 700;    <script defer src="js/app.js"></script>
+  </style>      padding-left: var(--spacing-xl);    />
 
-      color: var(--color-accent-gold);  </head>
+</head>
 
-      opacity: 0.3;  <body>
+<body>    }    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
 
-    }    <header class="site-header transparent" data-header>
+  <!-- ==========================================
 
-      <div class="container header-inner">
+       NAVIGATION    <link rel="preconnect" href="https://fonts.googleapis.com" />
+
+       ========================================== -->
+
+  <nav>    .process-step::before {    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <div class="container">
+
+      <div class="nav-logo">NIDZP</div>      content: attr(data-step);    <link
+
+      <ul class="nav-links">
+
+        <li><a href="#work">Work</a></li>      position: absolute;      href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap"
+
+        <li><a href="#expertise">Expertise</a></li>
+
+        <li><a href="#process">Process</a></li>      left: 0;      rel="stylesheet"
+
+        <li><a href="#contact">Contact</a></li>
+
+      </ul>      top: 0;    />
+
+    </div>
+
+  </nav>      font-size: var(--text-4xl);    <link rel="stylesheet" href="css/styles.css" />
+
+
+
+  <!-- ==========================================      font-weight: 700;    <script defer src="js/app.js"></script>
+
+       HERO SECTION (Cinematic)
+
+       ========================================== -->      color: var(--color-accent-gold);  </head>
+
+  <section class="hero-section">
+
+    <img      opacity: 0.3;  <body>
+
+      class="hero-bg"
+
+      src="https://images.unsplash.com/photo-1587620591699-f3bffbe68da1?w=1920&q=80"    }    <header class="site-header transparent" data-header>
+
+      alt="Digital Studio Background"
+
+      loading="lazy"      <div class="container header-inner">
+
+    >
 
     .process-step h4 {        <a
 
+    <div class="hero-overlay"></div>
+
       color: var(--color-text-primary);          href="#home"
 
-    }          class="wordmark"
+    <div class="hero-content reveal">
+
+      <h1>Crafting <span class="accent-text">Digital Experiences</span></h1>    }          class="wordmark"
+
+      <p>Premium web design, cutting-edge animations, and strategic digital presence for brands that demand excellence.</p>
 
           data-i18n-en="Vespera Hearth Bakery"
 
-    .testimonials {          data-i18n-sr="Pekara Vespera Ognjište"
+      <div class="hero-cta">
 
-      display: grid;          >Vespera Hearth Bakery</a
+        <a href="#contact" class="btn btn-primary">Start Project</a>    .testimonials {          data-i18n-sr="Pekara Vespera Ognjište"
 
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));        >
+        <a href="#work" class="btn btn-secondary">View Work</a>
 
-      gap: var(--spacing-2xl);        <nav
+      </div>      display: grid;          >Vespera Hearth Bakery</a
 
-    }          class="main-nav"
+    </div>
 
-          id="primary-navigation"
+  </section>      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));        >
 
-    .testimonial-card {          data-nav
 
-      padding: var(--spacing-2xl);          aria-label="Primary navigation"
 
-      background: var(--color-dark-secondary);          data-i18n-aria-en="Primary navigation"
+  <!-- ==========================================      gap: var(--spacing-2xl);        <nav
 
-      border-left: 4px solid var(--color-accent-gold);          data-i18n-aria-sr="Glavna navigacija"
+       FEATURED WORK SECTION
 
-      border-radius: var(--radius-md);        >
+       ========================================== -->    }          class="main-nav"
 
-    }          <ul>
+  <section id="work" class="section">
 
-            <li>
+    <div class="container">          id="primary-navigation"
 
-    .testimonial-quote {              <a href="#home" data-i18n-en="Home" data-i18n-sr="Pocetna"
+      <h2 class="section-title reveal">Featured Work</h2>
 
-      font-size: var(--text-lg);                >Home</a
+      <p class="section-subtitle reveal">Curated projects showcasing strategic design and technical excellence</p>    .testimonial-card {          data-nav
 
-      font-style: italic;              >
 
-      color: var(--color-text-secondary);            </li>
 
-      margin-bottom: var(--spacing-md);            <li>
+      <!-- Feature 1: Split Layout -->      padding: var(--spacing-2xl);          aria-label="Primary navigation"
 
-    }              <a href="#story" data-i18n-en="Story" data-i18n-sr="Prica"
+      <div class="feature-section reveal">
 
-                >Story</a
+        <div class="feature-image reveal--scale">      background: var(--color-dark-secondary);          data-i18n-aria-en="Primary navigation"
 
-    .testimonial-author {              >
+          <img
 
-      font-weight: 600;            </li>
+            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80"      border-left: 4px solid var(--color-accent-gold);          data-i18n-aria-sr="Glavna navigacija"
 
-      color: var(--color-text-primary);            <li>
+            alt="Digital Strategy Project"
 
-    }              <a
+            loading="lazy"      border-radius: var(--radius-md);        >
 
-                href="#specialties"
+          >
 
-    .stats-grid {                data-i18n-en="Specialties"
+        </div>    }          <ul>
 
-      display: grid;                data-i18n-sr="Specijaliteti"
+        <div class="feature-content reveal--right">
 
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                >Specialties</a
+          <h2>Digital Strategy</h2>            <li>
 
-      gap: var(--spacing-2xl);              >
+          <p>We architect digital ecosystems that drive measurable business results through data-driven design and user-centric innovation.</p>
 
-      text-align: center;            </li>
+          <p class="small">Case Study: 340% increase in user engagement, 180% boost in conversion rates</p>    .testimonial-quote {              <a href="#home" data-i18n-en="Home" data-i18n-sr="Pocetna"
 
-      margin: var(--spacing-3xl) 0;            <li>
+          <a href="/portfolio.html" class="btn btn-secondary mt-lg">View Case Studies →</a>
 
-    }              <a href="#catalog" data-i18n-en="Catalog" data-i18n-sr="Katalog"
-
-                >Catalog</a
-
-    .stat {              >
-
-      padding: var(--spacing-2xl);            </li>
-
-    }            <li>
-
-              <a href="#gallery" data-i18n-en="Gallery" data-i18n-sr="Galerija"
-
-    .stat-number {                >Gallery</a
-
-      font-size: var(--text-5xl);              >
-
-      font-weight: 700;            </li>
-
-      color: var(--color-accent-gold);            <li>
-
-      margin-bottom: var(--spacing-sm);              <a
-
-    }                href="#stories"
-
-                data-i18n-en="Bakery Stories"
-
-    .stat-label {                data-i18n-sr="Bakerske price"
-
-      font-size: var(--text-lg);                >Bakery Stories</a
-
-      color: var(--color-text-secondary);              >
-
-    }            </li>
-
-            <li>
-
-    @media (max-width: 768px) {              <a href="#orders" data-i18n-en="Orders" data-i18n-sr="Porudzbine"
-
-      .hero-content h1 {                >Orders</a
-
-        font-size: var(--text-4xl);              >
-
-      }            </li>
-
-            <li>
-
-      .expertise-grid {              <a href="#visit" data-i18n-en="Visit" data-i18n-sr="Poseta"
-
-        grid-template-columns: 1fr;                >Visit</a
-
-      }              >
-
-            </li>
-
-      .process-timeline {            <li>
-
-        grid-template-columns: 1fr;              <a
-
-      }                href="/public/contact.html"
-
-    }                data-i18n-en="Contact Developer"
-
-  </style>                data-i18n-sr="Kontaktiraj programera"
-
-</head>                >Contact Developer</a
-
-<body>              >
-
-  <!-- ==========================================            </li>
-
-       NAVIGATION          </ul>
-
-       ========================================== -->          <button
-
-  <nav>            class="language-toggle"
-
-    <div class="container">            type="button"
-
-      <div class="nav-logo">NIDZP</div>            aria-label="Toggle language"
-
-      <ul class="nav-links">            aria-pressed="false"
-
-        <li><a href="#work">Work</a></li>            data-lang-toggle
-
-        <li><a href="#expertise">Expertise</a></li>            data-i18n-aria-en="Toggle language"
-
-        <li><a href="#process">Process</a></li>            data-i18n-aria-sr="Promeni jezik"
-
-        <li><a href="#contact">Contact</a></li>          >
-
-      </ul>            <span data-i18n-en="EN" data-i18n-sr="SR">EN</span>
-
-    </div>            <small data-i18n-en="| SR" data-i18n-sr="| EN">| SR</small>
-
-  </nav>          </button>
-
-        </nav>
-
-  <!-- ==========================================        <button
-
-       HERO SECTION (Cinematic)          class="hamburger"
-
-       ========================================== -->          type="button"
-
-  <section class="hero-section">          aria-label="Open navigation"
-
-    <!-- Optional: Video Background -->          aria-expanded="false"
-
-    <!-- <video class="hero-bg" autoplay muted loop>          aria-controls="primary-navigation"
-
-      <source src="https://videos.pexels.com/video-files/..." type="video/mp4">          data-hamburger
-
-    </video> -->          data-aria-open-en="Open navigation"
-
-          data-aria-open-sr="Otvori navigaciju"
-
-    <!-- Fallback: Image Background -->          data-aria-close-en="Close navigation"
-
-    <img          data-aria-close-sr="Zatvori navigaciju"
-
-      class="hero-bg"        >
-
-      src="https://images.unsplash.com/photo-1587620591699-f3bffbe68da1?w=1920&q=80"          <span></span>
-
-      alt="Digital Studio"          <span></span>
-
-      loading="lazy"          <span></span>
-
-    >        </button>
+        </div>      font-size: var(--text-lg);                >Home</a
 
       </div>
 
-    <!-- Dark Overlay -->    </header>
+      font-style: italic;              >
 
-    <div class="hero-overlay"></div>
+      <!-- Feature 2: Split Layout Reversed -->
 
-    <main>
+      <div class="feature-section reverse reveal mt-lg">      color: var(--color-text-secondary);            </li>
 
-    <!-- Hero Content -->      <section id="home" class="hero">
+        <div class="feature-image reveal--scale">
 
-    <div class="hero-content reveal">        <div class="hero-background">
+          <img      margin-bottom: var(--spacing-md);            <li>
 
-      <h1>Crafting <span class="accent-text">Digital Experiences</span></h1>          <img
+            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80"
 
-      <p>Premium web design, cutting-edge animations, and strategic digital presence for brands that demand excellence.</p>            src="assets/img/10.jpg"
+            alt="Animation and Interaction Design"    }              <a href="#story" data-i18n-en="Story" data-i18n-sr="Prica"
 
-            alt="Hands presenting a hearth-baked sourdough loaf"
+            loading="lazy"
 
-      <div class="hero-cta">            data-i18n-alt-en="Hands presenting a hearth-baked sourdough loaf"
+          >                >Story</a
 
-        <a href="#contact" class="btn btn-primary">Start Project</a>            data-i18n-alt-sr="Ruke drze hleb pecen na ognjistu"
+        </div>
 
-        <a href="#work" class="btn btn-secondary">View Work</a>            decoding="async"
+        <div class="feature-content reveal--left">    .testimonial-author {              >
 
-      </div>          />
+          <h2>Cinematic Animation</h2>
 
-    </div>        </div>
+          <p>Elevate user experience with high-impact animations inspired by premium brands. From micro-interactions to full-screen cinematics, we create moments that captivate.</p>      font-weight: 600;            </li>
 
-  </section>        <div class="container hero-content">
+          <p class="small">Technology: CSS3 Transforms, WebGL, Intersection Observer API</p>
 
-          <h1
+          <a href="/portfolio.html" class="btn btn-secondary mt-lg">Explore Animations →</a>      color: var(--color-text-primary);            <li>
 
-  <!-- ==========================================            class="hero-title reveal-sequence"
+        </div>
 
-       FEATURED WORK SECTION            data-i18n-en="Vespera Hearth Bakery"
+      </div>    }              <a
 
-       ========================================== -->            data-i18n-sr="Pekara Vespera Ognjište"
 
-  <section id="work" class="section">          >
 
-    <div class="container">            Vespera Hearth Bakery
+      <!-- Feature 3: Split Layout -->                href="#specialties"
 
-      <h2 class="section-title reveal">Featured Work</h2>          </h1>
+      <div class="feature-section reveal mt-lg">
 
-      <p class="section-subtitle reveal">Curated projects showcasing strategic design and technical excellence</p>          <p
+        <div class="feature-image reveal--scale">    .stats-grid {                data-i18n-en="Specialties"
 
-            class="hero-subtitle reveal-sequence"
+          <img
 
-      <!-- Feature 1: Split Layout (Image Left) -->            data-i18n-en="Where heritage rises nightly"
+            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"      display: grid;                data-i18n-sr="Specijaliteti"
 
-      <div class="feature-section reveal">            data-i18n-sr="Mesto gde tradicija raste svake noci"
+            alt="Performance Optimization"
 
-        <div class="feature-image reveal--scale">          >
+            loading="lazy"      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                >Specialties</a
 
-          <img            Where heritage rises nightly
+          >
 
-            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80"          </p>
+        </div>      gap: var(--spacing-2xl);              >
 
-            alt="Digital Strategy"          <p
+        <div class="feature-content reveal--right">
+
+          <h2>Performance First</h2>      text-align: center;            </li>
+
+          <p>Stunning visuals mean nothing without speed. We deliver pixel-perfect designs optimized for 60fps and sub-second load times across all devices.</p>
+
+          <p class="small">Average Load: 1.2s | PageSpeed: 95+ | Lighthouse Score: 98+</p>      margin: var(--spacing-3xl) 0;            <li>
+
+          <a href="#contact" class="btn btn-secondary mt-lg">Let's Optimize →</a>
+
+        </div>    }              <a href="#catalog" data-i18n-en="Catalog" data-i18n-sr="Katalog"
+
+      </div>
+
+    </div>                >Catalog</a
+
+  </section>
+
+    .stat {              >
+
+  <!-- ==========================================
+
+       EXPERTISE SECTION      padding: var(--spacing-2xl);            </li>
+
+       ========================================== -->
+
+  <section id="expertise" class="section">    }            <li>
+
+    <div class="container">
+
+      <h2 class="section-title reveal">Core Expertise</h2>              <a href="#gallery" data-i18n-en="Gallery" data-i18n-sr="Galerija"
+
+      <p class="section-subtitle reveal">A comprehensive toolkit for modern digital excellence</p>
+
+    .stat-number {                >Gallery</a
+
+      <div class="expertise-grid reveal-group">
+
+        <div class="expertise-card reveal">      font-size: var(--text-5xl);              >
+
+          <h3>UI/UX Design</h3>
+
+          <p>Minimalist interfaces inspired by Apple's design language. High-contrast typography, generous whitespace, and intuitive navigation that feels effortless.</p>      font-weight: 700;            </li>
+
+        </div>
+
+      color: var(--color-accent-gold);            <li>
+
+        <div class="expertise-card reveal">
+
+          <h3>Frontend Engineering</h3>      margin-bottom: var(--spacing-sm);              <a
+
+          <p>Vanilla JavaScript, CSS3 animations, and semantic HTML5. No bloated frameworks—just pure, performant code optimized for speed and accessibility.</p>
+
+        </div>    }                href="#stories"
+
+
+
+        <div class="expertise-card reveal">                data-i18n-en="Bakery Stories"
+
+          <h3>Motion Design</h3>
+
+          <p>Cinematic animations inspired by Rockstar Games' launch sequences. Parallax effects, reveal-on-scroll, 3D transforms, and smooth transitions.</p>    .stat-label {                data-i18n-sr="Bakerske price"
+
+        </div>
+
+      font-size: var(--text-lg);                >Bakery Stories</a
+
+        <div class="expertise-card reveal">
+
+          <h3>Brand Strategy</h3>      color: var(--color-text-secondary);              >
+
+          <p>Beyond aesthetics. We align digital presence with brand values, creating cohesive visual identities that resonate with target audiences and drive loyalty.</p>
+
+        </div>    }            </li>
+
+
+
+        <div class="expertise-card reveal">            <li>
+
+          <h3>Responsive Design</h3>
+
+          <p>Mobile-first architecture ensuring flawless experiences across devices. Scalable typography, fluid grids, and touch-optimized interactions for the modern web.</p>    @media (max-width: 768px) {              <a href="#orders" data-i18n-en="Orders" data-i18n-sr="Porudzbine"
+
+        </div>
+
+      .hero-content h1 {                >Orders</a
+
+        <div class="expertise-card reveal">
+
+          <h3>Performance Optimization</h3>        font-size: var(--text-4xl);              >
+
+          <p>Every millisecond matters. We implement lazy loading, image optimization, and monitoring to ensure your site runs at peak performance.</p>
+
+        </div>      }            </li>
+
+      </div>
+
+            <li>
+
+      <!-- Stats -->
+
+      <div class="stats-grid reveal-group">      .expertise-grid {              <a href="#visit" data-i18n-en="Visit" data-i18n-sr="Poseta"
+
+        <div class="stat reveal">
+
+          <div class="stat-number">50+</div>        grid-template-columns: 1fr;                >Visit</a
+
+          <div class="stat-label">Projects Delivered</div>
+
+        </div>      }              >
+
+
+
+        <div class="stat reveal">            </li>
+
+          <div class="stat-number">95%</div>
+
+          <div class="stat-label">Client Satisfaction</div>      .process-timeline {            <li>
+
+        </div>
+
+        grid-template-columns: 1fr;              <a
+
+        <div class="stat reveal">
+
+          <div class="stat-number">12</div>      }                href="/public/contact.html"
+
+          <div class="stat-label">Industry Awards</div>
+
+        </div>    }                data-i18n-en="Contact Developer"
+
+
+
+        <div class="stat reveal">  </style>                data-i18n-sr="Kontaktiraj programera"
+
+          <div class="stat-number">7</div>
+
+          <div class="stat-label">Years Experience</div></head>                >Contact Developer</a
+
+        </div>
+
+      </div><body>              >
+
+    </div>
+
+  </section>  <!-- ==========================================            </li>
+
+
+
+  <!-- ==========================================       NAVIGATION          </ul>
+
+       PROCESS SECTION
+
+       ========================================== -->       ========================================== -->          <button
+
+  <section id="process" class="section">
+
+    <div class="container">  <nav>            class="language-toggle"
+
+      <h2 class="section-title reveal">Our Process</h2>
+
+      <p class="section-subtitle reveal">Strategic approach from concept to deployment</p>    <div class="container">            type="button"
+
+
+
+      <div class="process-timeline reveal-group">      <div class="nav-logo">NIDZP</div>            aria-label="Toggle language"
+
+        <div class="process-step reveal" data-step="01">
+
+          <h4>Discovery</h4>      <ul class="nav-links">            aria-pressed="false"
+
+          <p>We immerse ourselves in your brand, audience, and goals. Through research and strategy sessions, we identify opportunities and define the vision.</p>
+
+        </div>        <li><a href="#work">Work</a></li>            data-lang-toggle
+
+
+
+        <div class="process-step reveal" data-step="02">        <li><a href="#expertise">Expertise</a></li>            data-i18n-aria-en="Toggle language"
+
+          <h4>Design</h4>
+
+          <p>High-fidelity wireframes and interactive prototypes bring ideas to life. We iterate based on feedback, ensuring pixel-perfect designs that convert.</p>        <li><a href="#process">Process</a></li>            data-i18n-aria-sr="Promeni jezik"
+
+        </div>
+
+        <li><a href="#contact">Contact</a></li>          >
+
+        <div class="process-step reveal" data-step="03">
+
+          <h4>Development</h4>      </ul>            <span data-i18n-en="EN" data-i18n-sr="SR">EN</span>
+
+          <p>Clean, semantic code built for performance. We implement animations, optimize assets, and ensure cross-browser compatibility and accessibility.</p>
+
+        </div>    </div>            <small data-i18n-en="| SR" data-i18n-sr="| EN">| SR</small>
+
+
+
+        <div class="process-step reveal" data-step="04">  </nav>          </button>
+
+          <h4>Launch & Scale</h4>
+
+          <p>Deployment, monitoring, and continuous optimization. We ensure your digital presence remains competitive with performance analytics and growth strategies.</p>        </nav>
+
+        </div>
+
+      </div>  <!-- ==========================================        <button
+
+    </div>
+
+  </section>       HERO SECTION (Cinematic)          class="hamburger"
+
+
+
+  <!-- ==========================================       ========================================== -->          type="button"
+
+       TESTIMONIALS SECTION
+
+       ========================================== -->  <section class="hero-section">          aria-label="Open navigation"
+
+  <section class="section">
+
+    <div class="container">    <!-- Optional: Video Background -->          aria-expanded="false"
+
+      <h2 class="section-title reveal">What Clients Say</h2>
+
+    <!-- <video class="hero-bg" autoplay muted loop>          aria-controls="primary-navigation"
+
+      <div class="testimonials reveal-group">
+
+        <div class="testimonial-card reveal">      <source src="https://videos.pexels.com/video-files/..." type="video/mp4">          data-hamburger
+
+          <div class="testimonial-quote">
+
+            "Their approach to animation and performance transformed our user engagement metrics. The site feels like a premium product."    </video> -->          data-aria-open-en="Open navigation"
+
+          </div>
+
+          <div class="testimonial-author">Alex Chen, CEO @ TechStartup</div>          data-aria-open-sr="Otvori navigaciju"
+
+        </div>
+
+    <!-- Fallback: Image Background -->          data-aria-close-en="Close navigation"
+
+        <div class="testimonial-card reveal">
+
+          <div class="testimonial-quote">    <img          data-aria-close-sr="Zatvori navigaciju"
+
+            "Working with NIDZP was a game-changer. The attention to detail in typography and animation is unmatched. Highly recommend."
+
+          </div>      class="hero-bg"        >
+
+          <div class="testimonial-author">Sarah Williams, Creative Director @ BrandCo</div>
+
+        </div>      src="https://images.unsplash.com/photo-1587620591699-f3bffbe68da1?w=1920&q=80"          <span></span>
+
+
+
+        <div class="testimonial-card reveal">      alt="Digital Studio"          <span></span>
+
+          <div class="testimonial-quote">
+
+            "Not just beautiful design—the site loads in under a second. The performance optimization expertise is exceptional."      loading="lazy"          <span></span>
+
+          </div>
+
+          <div class="testimonial-author">Marcus Johnson, CTO @ FinTech Solutions</div>    >        </button>
+
+        </div>
+
+      </div>      </div>
+
+    </div>
+
+  </section>    <!-- Dark Overlay -->    </header>
+
+
+
+  <!-- ==========================================    <div class="hero-overlay"></div>
+
+       CONTACT SECTION
+
+       ========================================== -->    <main>
+
+  <section id="contact" class="section">
+
+    <div class="container">    <!-- Hero Content -->      <section id="home" class="hero">
+
+      <h2 class="section-title reveal">Ready to Create?</h2>
+
+      <p class="section-subtitle reveal">Let's discuss your next digital project</p>    <div class="hero-content reveal">        <div class="hero-background">
+
+
+
+      <div style="max-width: 600px; margin: 0 auto;" class="reveal">      <h1>Crafting <span class="accent-text">Digital Experiences</span></h1>          <img
+
+        <form>
+
+          <div class="form-group">      <p>Premium web design, cutting-edge animations, and strategic digital presence for brands that demand excellence.</p>            src="assets/img/10.jpg"
+
+            <label class="form-label" for="form-name">Full Name</label>
+
+            <input            alt="Hands presenting a hearth-baked sourdough loaf"
+
+              class="form-input"
+
+              type="text"      <div class="hero-cta">            data-i18n-alt-en="Hands presenting a hearth-baked sourdough loaf"
+
+              id="form-name"
+
+              name="name"        <a href="#contact" class="btn btn-primary">Start Project</a>            data-i18n-alt-sr="Ruke drze hleb pecen na ognjistu"
+
+              placeholder="Your Name"
+
+              required        <a href="#work" class="btn btn-secondary">View Work</a>            decoding="async"
+
+            >
+
+          </div>      </div>          />
+
+
+
+          <div class="form-group">    </div>        </div>
+
+            <label class="form-label" for="form-email">Email Address</label>
+
+            <input  </section>        <div class="container hero-content">
+
+              class="form-input"
+
+              type="email"          <h1
+
+              id="form-email"
+
+              name="email"  <!-- ==========================================            class="hero-title reveal-sequence"
+
+              placeholder="your@email.com"
+
+              required       FEATURED WORK SECTION            data-i18n-en="Vespera Hearth Bakery"
+
+            >
+
+          </div>       ========================================== -->            data-i18n-sr="Pekara Vespera Ognjište"
+
+
+
+          <div class="form-group">  <section id="work" class="section">          >
+
+            <label class="form-label" for="form-project">Project Type</label>
+
+            <select class="form-input" id="form-project" name="project" required>    <div class="container">            Vespera Hearth Bakery
+
+              <option value="">Select a project type...</option>
+
+              <option value="web-design">Web Design & Development</option>      <h2 class="section-title reveal">Featured Work</h2>          </h1>
+
+              <option value="animation">Animation & Motion</option>
+
+              <option value="branding">Brand Strategy & Identity</option>      <p class="section-subtitle reveal">Curated projects showcasing strategic design and technical excellence</p>          <p
+
+              <option value="optimization">Performance Optimization</option>
+
+              <option value="other">Other</option>            class="hero-subtitle reveal-sequence"
+
+            </select>
+
+          </div>      <!-- Feature 1: Split Layout (Image Left) -->            data-i18n-en="Where heritage rises nightly"
+
+
+
+          <div class="form-group">      <div class="feature-section reveal">            data-i18n-sr="Mesto gde tradicija raste svake noci"
+
+            <label class="form-label" for="form-message">Tell us about your project</label>
+
+            <textarea        <div class="feature-image reveal--scale">          >
+
+              class="form-textarea"
+
+              id="form-message"          <img            Where heritage rises nightly
+
+              name="message"
+
+              placeholder="Your vision, goals, and any specific requirements..."            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80"          </p>
+
+              required
+
+            ></textarea>            alt="Digital Strategy"          <p
+
+          </div>
 
             loading="lazy"            class="hero-subtitle secondary reveal-sequence"
 
-          >            data-i18n-en="Small-batch breads and luminous pastries crafted for nightfall dreamers."
+          <button type="submit" class="btn btn-primary">Send Message</button>
 
-        </div>            data-i18n-sr="Male serije hlebova i svetlucavih poslastica stvarene za sanjare sumraka."
+        </form>          >            data-i18n-en="Small-batch breads and luminous pastries crafted for nightfall dreamers."
+
+      </div>
+
+    </div>        </div>            data-i18n-sr="Male serije hlebova i svetlucavih poslastica stvarene za sanjare sumraka."
+
+  </section>
 
         <div class="feature-content reveal--right">          >
 
-          <h2>Digital Strategy</h2>            Small-batch breads and luminous pastries crafted for nightfall
+  <!-- ==========================================
 
-          <p>We don't just build websites. We architect digital ecosystems that drive measurable business results through data-driven design and user-centric innovation.</p>            dreamers.
+       FOOTER          <h2>Digital Strategy</h2>            Small-batch breads and luminous pastries crafted for nightfall
 
-          <p class="small">Case Study: 340% increase in user engagement, 180% boost in conversion rates</p>          </p>
+       ========================================== -->
 
-          <a href="/portfolio.html" class="btn btn-secondary mt-lg">View Case Studies →</a>          <div class="hero-actions reveal-sequence">
+  <footer>          <p>We don't just build websites. We architect digital ecosystems that drive measurable business results through data-driven design and user-centric innovation.</p>            dreamers.
 
-        </div>            <a
+    <div class="container">
 
-      </div>              href="#specialties"
+      <div class="footer-content">          <p class="small">Case Study: 340% increase in user engagement, 180% boost in conversion rates</p>          </p>
 
-              class="cta-button"
+        <div class="footer-column">
+
+          <h3>NIDZP Studio</h3>          <a href="/portfolio.html" class="btn btn-secondary mt-lg">View Case Studies →</a>          <div class="hero-actions reveal-sequence">
+
+          <p>Premium digital experiences that drive results. We blend Apple's typographic elegance with Rockstar's cinematic intensity.</p>
+
+        </div>        </div>            <a
+
+
+
+        <div class="footer-column">      </div>              href="#specialties"
+
+          <h3>Services</h3>
+
+          <p>UI/UX Design • Frontend Development • Animation • Branding • Performance Optimization</p>              class="cta-button"
+
+        </div>
 
       <!-- Feature 2: Split Layout (Image Right) -->              data-i18n-en="Explore Specialties"
 
-      <div class="feature-section reverse reveal mt-lg">              data-i18n-sr="Istraži specijalitete"
+        <div class="footer-column">
 
-        <div class="feature-image reveal--scale">              >Explore Specialties</a
+          <h3>Connect</h3>      <div class="feature-section reverse reveal mt-lg">              data-i18n-sr="Istraži specijalitete"
+
+          <p>Email: hello@nidzp.dev<br>Twitter: @nidzp<br>LinkedIn: /in/nidzp</p>
+
+        </div>        <div class="feature-image reveal--scale">              >Explore Specialties</a
+
+      </div>
 
           <img            >
 
-            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80"          </div>
+      <div class="footer-bottom">
 
-            alt="Animation & Interaction"          <div class="scroll-cue reveal-sequence">
+        <p>&copy; 2025 NIDZP. All rights reserved. Crafted with excellence.</p>            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80"          </div>
+
+      </div>
+
+    </div>            alt="Animation & Interaction"          <div class="scroll-cue reveal-sequence">
+
+  </footer>
 
             loading="lazy"            <span data-i18n-en="Scroll" data-i18n-sr="Skroluj">Scroll</span>
 
-          >            <div class="arrow" aria-hidden="true"></div>
+  <!-- JavaScript -->
 
-        </div>          </div>
+  <script src="/assets/js/main.js"></script>          >            <div class="arrow" aria-hidden="true"></div>
+
+</body>
+
+</html>        </div>          </div>
+
 
         <div class="feature-content reveal--left">        </div>
 
