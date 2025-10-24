@@ -114,6 +114,20 @@ app.use(
   })
 );
 
+// Explicitly serve chatbot and cookie files
+app.get("/chatbot.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "chatbot.js"));
+});
+app.get("/chatbot-styles.css", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "chatbot-styles.css"));
+});
+app.get("/cookie-consent.js", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "cookie-consent.js"));
+});
+app.get("/cookie-styles.css", (req, res) => {
+  res.sendFile(path.join(__dirname, "public", "cookie-styles.css"));
+});
+
 // Initialize ads.json if it doesn't exist
 async function initAdsFile() {
   try {

@@ -2,8 +2,8 @@ class Chatbot {
   constructor() {
     this.isOpen = false;
     this.conversationHistory = [];
-    // Fixed API URL for Vercel deployment
-    this.API_URL = "/api";
+    // Fixed API URL for both local and Vercel deployment
+    this.API_URL = window.location.hostname === 'localhost' ? '' : '';
     this.isTyping = false;
 
     this.init();
@@ -17,7 +17,7 @@ class Chatbot {
 
   async checkStatus() {
     try {
-      const response = await fetch(`${this.API_URL}/chat/status`);
+      const response = await fetch(`/api/chat/status`);
       if (!response.ok) {
         console.log("Chatbot API not available, using fallback mode");
         return;
@@ -178,7 +178,7 @@ class Chatbot {
         window.portfolioPageContext?.type ||
         (window.location.pathname.includes("contact") ? "portfolio" : "bakery");
 
-      const response = await fetch(`${this.API_URL}/chat`, {
+      const response = await fetch(`/api/chat`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
