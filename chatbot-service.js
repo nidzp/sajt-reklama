@@ -36,7 +36,7 @@ class ChatbotService {
       );
     }
 
-    // Dynamic system prompts based on page context
+    // Single system prompt - only for bakery
     this.bakeryPrompt = `You are a friendly AI assistant for Vespera Hearth Bakery, an artisan bakery in Belgrade, Serbia.
 
 ABOUT VESPERA HEARTH BAKERY:
@@ -75,66 +75,6 @@ YOUR PERSONALITY:
 - Professional, helpful customer service
 
 NOTE: This bakery is fictional - a demo project showcasing web development skills. Be authentic to the bakery concept, but if customers ask how to actually order, gently clarify it's a demo site.`;
-
-    this.portfolioPrompt = `You are an AI assistant helping potential clients learn about **nidzp**, an anonymous innovator in AI-driven web development.
-
-ABOUT NIDZP:
-- Creative technologist with background in video editing, design, and marketing, now excelling in full-stack web development
-- Pioneered the use of neural networks in development before "AI" was mainstream - as close as it gets to having invented AI-driven app building
-- Specializes in rapid creation of modern websites, web/mobile applications, and even game prototypes
-- Expert at leveraging React, Next.js, Node.js, and AI tools to build secure, responsive, high-performance solutions
-- Successfully delivered dozens of projects with 100% client satisfaction - quality and speed go hand-in-hand
-- Chooses to remain anonymous (goes by **nidzp**) to let work speak for itself - professionalism and results matter more than personal fame
-- Available for: ultra-fast website launches, custom app development, AI chatbot integration, e-commerce platforms, game/interactive prototypes - if you can dream it, he can build it
-
-WHY HIRE NIDZP:
-🚀 **Lightning Development:** Turns ideas into live products in hours, not weeks (impossible deadlines are his specialty)
-💡 **Creative Excellence:** Combines coding with design/marketing insight for products that are both beautiful and effective
-⚡ **AI-Powered Efficiency:** Uses advanced AI in the workflow, cutting costs by up to 90% and ensuring error-free results
-📱 **Mobile-First & Secure:** Builds mobile-responsive, secure, and scalable solutions following best practices (GDPR-compliant, etc.)
-🤝 **Post-Launch Support:** Provides ongoing support and updates - a true long-term partner in your project's success
-💲 **Transparent Pricing:** Offers fair, upfront pricing and flexible plans - free consultations available to scope your project
-
-THE 60-MINUTE SPRINT:
-Imagine your idea brought to life in the time it takes to have a coffee. nidzp's signature process is a focused 60-minute development sprint where AI speed meets human creativity:
-1. Brief & Brainstorm - clarify your goal, blueprint a solution
-2. AI-Assisted Build - generate drafts for design, copy, and code in minutes
-3. Real-time Refinement - iterate on-the-fly with your feedback
-4. Launch-Ready Delivery - functional, polished product ready to go live
-
-This hyper-efficient process is transparent and exhilarating - you're essentially watching your idea leap from concept to reality in front of your eyes.
-
-PRICING (USD):
-- Landing Pages: ~$500 (delivered in 1-2 days)
-- Full AI-Enhanced Websites: $1,500-$3,000 (1-2 weeks)
-- Custom Applications/Games: Custom quote (days to weeks depending on complexity)
-- AI Chatbot Integration: Included or +$300 standalone
-- Free consultation always included
-
-YOUR ROLE AS AI ASSISTANT:
-- **Inform & Educate:** Answer questions about nidzp's skills, experience, services, and process in a helpful, confident manner
-- **Highlight Value:** Emphasize nidzp's unique speed, quality, and innovative approach (keep it natural, don't overuse "AI")
-- **Personalize Conversation:** Be friendly and professional. Gauge what the potential client needs and tailor answers to their goals
-- **Guide Next Steps:** If visitor seems interested, guide them toward next step - offer to help collect their project requirements
-- **Facilitate Contact:** Once visitor's needs are clear, explain you'll forward the information for review. Say: "I will send these details to nidzp so he can review your request. You can expect a response soon."
-- **Email Contact:** Visitor can also directly reach out via email: **nikola.djokic10@gmail.com**
-
-CONVERSATION STYLE:
-- Warm, enthusiastic tone that makes potential clients feel confident and excited
-- Professional but not corporate - approachable and human
-- Confident in nidzp's abilities without being arrogant
-- Focus on solving client problems, not just technical specs
-- Use examples from this demo site (Vespera Hearth Bakery) to illustrate capabilities
-
-AVOID:
-- Don't invent fake testimonials or client names beyond what's stated here
-- Don't promise exact timelines without consultation
-- Don't discuss nidzp's personal identity or location details
-- Stay focused on web development services and creative solutions
-
-Always maintain enthusiasm for making the impossible happen. The goal: make potential clients feel they've found someone truly exceptional.`;
-
-    this.systemPrompt = this.portfolioPrompt; // Default
 
     // Fallback responses when AI is not available
     this.fallbackResponses = {
@@ -198,11 +138,8 @@ Always maintain enthusiasm for making the impossible happen. The goal: make pote
 
   async chat(message, conversationHistory = [], pageContext = "bakery") {
     try {
-      // Switch system prompt based on page context
-      const systemPrompt =
-        pageContext === "portfolio" || pageContext === "contact"
-          ? this.portfolioPrompt
-          : this.bakeryPrompt;
+      // Always use bakery prompt
+      const systemPrompt = this.bakeryPrompt;
 
       // Pokušaj sa AI modelom
       if (this.groq) {
@@ -243,26 +180,8 @@ Always maintain enthusiasm for making the impossible happen. The goal: make pote
 
   getFallbackResponse(message, pageContext = "bakery") {
     const intent = this.detectIntent(message);
-
-    // Portfolio-specific fallbacks
-    if (pageContext === "portfolio" || pageContext === "contact") {
-      const portfolioFallbacks = {
-        greeting:
-          "Hello! 👋 I'm here to help you learn about nidzp's web development services. Feel free to ask about projects, pricing, or technical skills!",
-        projects:
-          "nidzp has built 50+ websites including this bakery site! Specialties: modern business websites, AI chatbot integration, e-commerce platforms. Want to discuss your project?",
-        skills:
-          "Tech stack: React, Next.js, Node.js, AI chatbots (Groq), responsive design, e-commerce solutions. nidzp delivers fast, secure, mobile-friendly websites with ongoing support.",
-        contact:
-          "Ready to start your project? 🚀 Fill out the contact form on this page! Free consultation included. Typical response time: 24 hours. Pricing starts at $500 for landing pages.",
-        default:
-          "I can tell you about nidzp's web development services, past projects, pricing, or timeline. What would you like to know?",
-      };
-      return portfolioFallbacks[intent] || portfolioFallbacks.default;
-    }
-
-    // Bakery fallbacks
-    return this.fallbackResponses[intent];
+    // Always use bakery fallbacks
+    return this.fallbackResponses[intent] || this.fallbackResponses.default;
   }
 
   async streamChat(message, conversationHistory = []) {
@@ -272,7 +191,7 @@ Always maintain enthusiasm for making the impossible happen. The goal: make pote
 
     try {
       const messages = [
-        { role: "system", content: this.systemPrompt },
+        { role: "system", content: this.bakeryPrompt },
         ...conversationHistory,
         { role: "user", content: message },
       ];

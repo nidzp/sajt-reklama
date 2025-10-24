@@ -50,14 +50,11 @@ module.exports = async (req, res) => {
       ? history.slice(-20).filter((h) => h.role && h.content)
       : [];
 
-    // Get page context (defaults to 'bakery')
-    const context = pageContext || "bakery";
+    // Always use bakery context
+    const context = "bakery";
 
-    // System prompts based on context
-    const bakeryPrompt = "You are a friendly AI assistant for Vespera Hearth Bakery. Provide helpful information about artisan breads, sourdough health benefits, and baking traditions.";
-    const portfolioPrompt = "You are an AI assistant helping clients learn about nidzp, an AI web architect. Emphasize lightning speed (60-min sprint), creative excellence, AI-powered workflow, and transparent pricing ($500-$3000). Contact: nikola.djokic10@gmail.com";
-    
-    const systemPrompt = context === "portfolio" ? portfolioPrompt : bakeryPrompt;
+    // Single system prompt for bakery only
+    const systemPrompt = "You are a friendly AI assistant for Vespera Hearth Bakery. Provide helpful information about artisan breads, sourdough health benefits, and baking traditions. This is a demo site showcasing web development skills.";
 
     // Try Groq AI
     if (groq) {
@@ -85,10 +82,8 @@ module.exports = async (req, res) => {
       }
     }
 
-    // Fallback response
-    const fallbackMsg = context === "portfolio" 
-      ? "Hi! I'm experiencing technical difficulties. Please contact nidzp directly at nikola.djokic10@gmail.com or use the contact form above. Services include websites ($500+), apps ($1500-$3000), and AI integration. The 60-minute sprint process delivers results fast!"
-      : "Welcome to Vespera Hearth Bakery! 🥖 For menu info, health benefits of sourdough, or orders, please use our contact form. This is a demo site showcasing web development capabilities.";
+    // Fallback response for bakery
+    const fallbackMsg = "Welcome to Vespera Hearth Bakery! 🥖 I can help you with our menu, sourdough health benefits, baking traditions, or orders. What would you like to know?";
 
     res.status(200).json({
       message: fallbackMsg,

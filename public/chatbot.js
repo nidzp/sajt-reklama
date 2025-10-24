@@ -51,7 +51,7 @@ class Chatbot {
       <div id="chatbot-window" class="chatbot-window">
         <div class="chatbot-header">
           <div class="chatbot-header-info">
-            <h3>Portfolio AI Assistant 🤖</h3>
+            <h3>Vespera Bakery AI �</h3>
             <span class="chatbot-status">Online</span>
           </div>
           <button id="chatbot-close" class="chatbot-close" aria-label="Close chat">
@@ -169,7 +169,7 @@ class Chatbot {
     e.preventDefault();
     const input = document.getElementById("chatbot-input");
     if (!input) return;
-    
+
     const message = input.value.trim();
     if (!message || this.isTyping) return;
 
@@ -183,10 +183,8 @@ class Chatbot {
     this.showTyping();
 
     try {
-      // Detect page context
-      const pageContext =
-        window.portfolioPageContext?.type ||
-        (window.location.pathname.includes("contact") ? "portfolio" : "bakery");
+      // Always use bakery context
+      const pageContext = "bakery";
 
       const response = await fetch(`/api/chat`, {
         method: "POST",
@@ -225,7 +223,8 @@ class Chatbot {
         // Update model badge
         const modelBadge = document.getElementById("chat-model");
         if (modelBadge) {
-          modelBadge.textContent = data.source === "ai" ? "🤖 AI" : "💬 Fallback";
+          modelBadge.textContent =
+            data.source === "ai" ? "🤖 AI" : "💬 Fallback";
         }
       }, 500);
     } catch (error) {
@@ -250,7 +249,7 @@ class Chatbot {
   addMessage(text, type, source) {
     const messagesDiv = document.getElementById("chatbot-messages");
     if (!messagesDiv) return;
-    
+
     const messageDiv = document.createElement("div");
     messageDiv.className = `chatbot-message ${type}`;
 

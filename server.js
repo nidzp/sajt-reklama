@@ -272,8 +272,8 @@ app.post("/api/chat", chatLimiter, async (req, res) => {
       ? history.slice(-20).filter((h) => h.role && h.content)
       : [];
 
-    // Pass page context to chatbot (defaults to 'bakery' if not provided)
-    const context = pageContext || "bakery";
+    // Always use bakery context
+    const context = "bakery";
     const result = await chatbot.chat(message, conversationHistory, context);
 
     res.json({
