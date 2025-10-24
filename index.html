@@ -1334,6 +1334,104 @@
           </div>
         </div>
       </section>
+
+      <!-- Contact Developer Section -->
+      <section id="contact-developer" class="contact-developer section">
+        <div class="container">
+          <div>
+            <h2>Work with a Developer</h2>
+            <p>Need a custom website, AI integration, or e-commerce platform? nidzp specializes in fast, secure web development.</p>
+          </div>
+
+          <div class="developer-grid">
+            <!-- Developer Info -->
+            <div class="developer-card">
+              <h3>nidzp — AI Web Architect</h3>
+              <p>Custom web development meets artificial intelligence. Fast websites that convert, secure backends that scale, and AI features that wow.</p>
+              
+              <div class="expertise-list">
+                <h4>Expertise</h4>
+                <ul>
+                  <li>🌐 Web Development & Design</li>
+                  <li>🤖 AI Chatbots & Integration</li>
+                  <li>🛒 E-Commerce Platforms</li>
+                  <li>⚡ Performance & Optimization</li>
+                </ul>
+              </div>
+
+              <div class="contact-box">
+                <p>📧 Contact</p>
+                <a href="mailto:nikola.djokic10@gmail.com">nikola.djokic10@gmail.com</a>
+              </div>
+            </div>
+
+            <!-- Developer Form -->
+            <div class="developer-card">
+              <h3>Get a Quote</h3>
+              <form id="developer-form" novalidate>
+                <div>
+                  <label for="dev-name">Your Name</label>
+                  <input id="dev-name" type="text" required placeholder="Full name" />
+                </div>
+                <div>
+                  <label for="dev-email">Email</label>
+                  <input id="dev-email" type="email" required placeholder="your@email.com" />
+                </div>
+                <div>
+                  <label for="dev-project">Project Type</label>
+                  <select id="dev-project" required>
+                    <option value="">Select a project type</option>
+                    <option value="website">Website</option>
+                    <option value="ecommerce">E-commerce Store</option>
+                    <option value="chatbot">AI Chatbot</option>
+                    <option value="custom">Custom Solution</option>
+                  </select>
+                </div>
+                <div>
+                  <label for="dev-message">Tell me about your project</label>
+                  <textarea id="dev-message" required rows="3" placeholder="What do you need?"></textarea>
+                </div>
+                <button type="submit">Send Request</button>
+                <p class="form-feedback" role="status" hidden>Thank you! I'll respond within 24 hours.</p>
+              </form>
+            </div>
+          </div>
+
+          <div class="cta-box">
+            <p>💡 Prefer to explore more? <a href="portfolio.html">View Portfolio</a></p>
+          </div>
+        </div>
+
+        <script>
+          document.getElementById('developer-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const name = document.getElementById('dev-name').value.trim();
+            const email = document.getElementById('dev-email').value.trim();
+            const project = document.getElementById('dev-project').value;
+            const message = document.getElementById('dev-message').value.trim();
+
+            if (!name || !email || !project || !message) {
+              alert('Please fill in all fields.');
+              return;
+            }
+
+            if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+              alert('Please enter a valid email.');
+              return;
+            }
+
+            console.log('Developer Contact Form Submission:', { name, email, project, message });
+            
+            const feedbackEl = this.querySelector('.form-feedback');
+            feedbackEl.hidden = false;
+            this.reset();
+            
+            setTimeout(() => {
+              feedbackEl.hidden = true;
+            }, 5000);
+          });
+        </script>
+      </section>
     </main>
 
     <footer class="site-footer">
