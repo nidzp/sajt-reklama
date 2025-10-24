@@ -1,0 +1,914 @@
+/* ==========================================
+   PREMIUM BRAND WEBSITE - Apple + Rockstar Aesthetic
+   ========================================== */
+
+/* ==========================================
+   1. DESIGN TOKENS & CSS CUSTOM PROPERTIES
+   ========================================== */
+
+:root {
+  /* Color Palette: Minimalist + Metallic Accents */
+  --color-black: #0a0a0a;
+  --color-dark-bg: #0f0f0f;
+  --color-dark-secondary: #1a1a1a;
+  --color-charcoal: #2d2d2d;
+  --color-accent-gold: #d4af37;
+  --color-accent-silver: #e8e8e8;
+  --color-text-primary: #ffffff;
+  --color-text-secondary: #b0b0b0;
+  --color-border-subtle: rgba(255, 255, 255, 0.08);
+  --color-border-light: rgba(255, 255, 255, 0.15);
+
+  /* Typography: Apple SF Pro-inspired (Segoe UI as fallback) */
+  --font-primary: -apple-system, BlinkMacSystemFont, "Segoe UI",
+    "Helvetica Neue", sans-serif;
+  --font-mono: "SF Mono", "Monaco", "Inconsolata", monospace;
+
+  /* Font Sizes: Premium Hierarchy */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.5rem;
+  --text-2xl: 2rem;
+  --text-3xl: 2.5rem;
+  --text-4xl: 3.5rem;
+  --text-5xl: 4.5rem;
+  --text-6xl: 6rem;
+
+  /* Line Heights: Typographic Precision */
+  --lh-tight: 1.2;
+  --lh-normal: 1.5;
+  --lh-relaxed: 1.75;
+
+  /* Spacing: 8px Grid System */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+  --spacing-2xl: 4rem;
+  --spacing-3xl: 6rem;
+
+  /* Shadows: Cinematic Depth */
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.4);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.5);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.6);
+  --shadow-xl: 0 24px 64px rgba(0, 0, 0, 0.7);
+
+  /* Border Radius: Subtle Curves */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
+  --radius-xl: 16px;
+  --radius-2xl: 20px;
+
+  /* Animation Timings: Smooth & Premium */
+  --duration-fast: 200ms;
+  --duration-normal: 350ms;
+  --duration-slow: 500ms;
+  --easing-ease-out: cubic-bezier(0.23, 1, 0.32, 1);
+  --easing-ease-in-out: cubic-bezier(0.645, 0.045, 0.355, 1);
+  --easing-spring: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+/* ==========================================
+   2. RESET & BASE STYLES
+   ========================================== */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-primary);
+  background-color: var(--color-dark-bg);
+  color: var(--color-text-primary);
+  line-height: var(--lh-normal);
+  font-size: var(--text-base);
+  font-weight: 400;
+  letter-spacing: -0.3px;
+  overflow-x: hidden;
+}
+
+/* Remove list styling */
+ul,
+ol {
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: color var(--duration-fast) var(--easing-ease-out);
+}
+
+button {
+  font-family: var(--font-primary);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ==========================================
+   3. TYPOGRAPHY SYSTEM
+   ========================================== */
+
+h1 {
+  font-size: var(--text-6xl);
+  line-height: var(--lh-tight);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: var(--spacing-lg);
+}
+
+h2 {
+  font-size: var(--text-4xl);
+  line-height: var(--lh-tight);
+  font-weight: 600;
+  letter-spacing: -0.5px;
+  margin-bottom: var(--spacing-md);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  line-height: var(--lh-normal);
+  font-weight: 600;
+  letter-spacing: -0.3px;
+  margin-bottom: var(--spacing-md);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  line-height: var(--lh-normal);
+  font-weight: 500;
+  letter-spacing: -0.2px;
+  margin-bottom: var(--spacing-sm);
+}
+
+p {
+  margin-bottom: var(--spacing-md);
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+}
+
+p.large {
+  font-size: var(--text-2xl);
+  line-height: var(--lh-relaxed);
+}
+
+p.small {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+/* ==========================================
+   4. BUTTON STYLES
+   ========================================== */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--spacing-md) var(--spacing-xl);
+  font-size: var(--text-base);
+  font-weight: 500;
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-normal) var(--easing-ease-out);
+  position: relative;
+  overflow: hidden;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+/* Primary Button: Gold Accent */
+.btn-primary {
+  background: linear-gradient(135deg, var(--color-accent-gold), #e8c547);
+  color: var(--color-black);
+  box-shadow: var(--shadow-md);
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 20px 40px rgba(212, 175, 55, 0.4);
+}
+
+.btn-primary:active {
+  transform: translateY(0);
+}
+
+/* Secondary Button: Outline */
+.btn-secondary {
+  border: 2px solid var(--color-accent-gold);
+  color: var(--color-accent-gold);
+  background: transparent;
+}
+
+.btn-secondary:hover {
+  background: rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+/* ==========================================
+   5. REVEAL ANIMATIONS (Core Magic)
+   ========================================== */
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translateX(60px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes rotateIn {
+  from {
+    opacity: 0;
+    transform: perspective(1000px) rotateX(-90deg);
+  }
+  to {
+    opacity: 1;
+    transform: perspective(1000px) rotateX(0);
+  }
+}
+
+@keyframes slideInFromLeft {
+  from {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slideInFromRight {
+  from {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Reveal animation states */
+.reveal {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.reveal.active {
+  animation: fadeInUp var(--duration-slow) var(--easing-ease-out);
+}
+
+.reveal--left.active {
+  animation: fadeInLeft var(--duration-slow) var(--easing-ease-out);
+}
+
+.reveal--right.active {
+  animation: fadeInRight var(--duration-slow) var(--easing-ease-out);
+}
+
+.reveal--scale.active {
+  animation: scaleIn var(--duration-slow) var(--easing-ease-out);
+}
+
+.reveal--rotate.active {
+  animation: rotateIn var(--duration-slow) var(--easing-ease-out);
+}
+
+/* Stagger children animation */
+.reveal-group > * {
+  opacity: 0;
+  animation-fill-mode: forwards;
+}
+
+.reveal-group.active > * {
+  animation: fadeInUp var(--duration-slow) var(--easing-ease-out);
+}
+
+.reveal-group.active > :nth-child(1) {
+  animation-delay: 0ms;
+}
+.reveal-group.active > :nth-child(2) {
+  animation-delay: 100ms;
+}
+.reveal-group.active > :nth-child(3) {
+  animation-delay: 200ms;
+}
+.reveal-group.active > :nth-child(4) {
+  animation-delay: 300ms;
+}
+.reveal-group.active > :nth-child(5) {
+  animation-delay: 400ms;
+}
+.reveal-group.active > :nth-child(6) {
+  animation-delay: 500ms;
+}
+
+/* ==========================================
+   6. PARALLAX & SCROLL EFFECTS
+   ========================================== */
+
+.parallax-container {
+  position: relative;
+  overflow: hidden;
+}
+
+.parallax-layer {
+  transition: transform 0.3s ease-out;
+}
+
+/* ==========================================
+   7. HERO SECTION (Cinematic)
+   ========================================== */
+
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: var(--color-dark-bg);
+}
+
+/* Hero Background Video/Image */
+.hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: 0;
+}
+
+/* Hero Overlay Gradient */
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(10, 10, 10, 0.7) 0%,
+    rgba(15, 15, 15, 0.5) 50%,
+    rgba(20, 20, 20, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+/* Hero Content */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  max-width: 900px;
+  padding: var(--spacing-3xl);
+}
+
+.hero-content h1 {
+  font-size: clamp(3rem, 8vw, 6rem);
+  margin-bottom: var(--spacing-lg);
+  animation: fadeInDown var(--duration-slow) var(--easing-ease-out);
+}
+
+.hero-content p {
+  font-size: var(--text-2xl);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-2xl);
+  animation: fadeInUp var(--duration-slow) var(--easing-ease-out);
+  animation-delay: 200ms;
+}
+
+.hero-cta {
+  display: flex;
+  gap: var(--spacing-md);
+  justify-content: center;
+  flex-wrap: wrap;
+  animation: fadeInUp var(--duration-slow) var(--easing-ease-out);
+  animation-delay: 400ms;
+}
+
+/* ==========================================
+   8. FEATURE SECTIONS (Split Layout)
+   ========================================== */
+
+.feature-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  padding: var(--spacing-3xl);
+  min-height: 600px;
+}
+
+.feature-section.reverse {
+  direction: rtl;
+}
+
+.feature-section.reverse > * {
+  direction: ltr;
+}
+
+.feature-image {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+}
+
+.feature-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--easing-ease-out);
+}
+
+.feature-section:hover .feature-image img {
+  transform: scale(1.05);
+}
+
+.feature-content h2 {
+  color: var(--color-text-primary);
+  margin-bottom: var(--spacing-md);
+}
+
+.feature-content p {
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-lg);
+  line-height: var(--lh-relaxed);
+}
+
+/* ==========================================
+   9. PORTFOLIO GRID (Hover Effects)
+   ========================================== */
+
+.portfolio-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-2xl);
+  padding: var(--spacing-3xl);
+}
+
+.portfolio-card {
+  position: relative;
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  aspect-ratio: 1 / 1;
+  cursor: pointer;
+}
+
+.portfolio-card-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform var(--duration-slow) var(--easing-ease-out);
+}
+
+.portfolio-card-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    135deg,
+    rgba(212, 175, 55, 0.8),
+    rgba(232, 232, 232, 0.6)
+  );
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity var(--duration-normal) var(--easing-ease-out);
+  z-index: 2;
+  padding: var(--spacing-lg);
+  text-align: center;
+}
+
+.portfolio-card:hover .portfolio-card-image {
+  transform: scale(1.1);
+}
+
+.portfolio-card:hover .portfolio-card-overlay {
+  opacity: 1;
+}
+
+.portfolio-card-title {
+  font-size: var(--text-xl);
+  font-weight: 600;
+  color: var(--color-black);
+  margin-bottom: var(--spacing-sm);
+}
+
+.portfolio-card-desc {
+  font-size: var(--text-sm);
+  color: var(--color-black);
+}
+
+/* ==========================================
+   10. FORM STYLES (Minimalist)
+   ========================================== */
+
+.form-group {
+  margin-bottom: var(--spacing-lg);
+}
+
+.form-label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-sm);
+}
+
+.form-input,
+.form-textarea {
+  width: 100%;
+  padding: var(--spacing-md);
+  background: var(--color-dark-secondary);
+  border: 2px solid var(--color-border-subtle);
+  color: var(--color-text-primary);
+  border-radius: var(--radius-md);
+  font-family: var(--font-primary);
+  font-size: var(--text-base);
+  transition: all var(--duration-normal) var(--easing-ease-out);
+}
+
+.form-input:focus,
+.form-textarea:focus {
+  outline: none;
+  border-color: var(--color-accent-gold);
+  background: var(--color-dark-secondary);
+  box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-input::placeholder {
+  color: var(--color-text-secondary);
+}
+
+.form-textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+/* ==========================================
+   11. SECTION CONTAINERS
+   ========================================== */
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 0 var(--spacing-lg);
+}
+
+.section {
+  padding: var(--spacing-3xl) var(--spacing-lg);
+  border-top: 1px solid var(--color-border-subtle);
+}
+
+.section-title {
+  font-size: var(--text-4xl);
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: var(--spacing-3xl);
+  color: var(--color-text-primary);
+}
+
+.section-subtitle {
+  font-size: var(--text-lg);
+  text-align: center;
+  color: var(--color-text-secondary);
+  margin-bottom: var(--spacing-2xl);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* ==========================================
+   12. NAVIGATION
+   ========================================== */
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: auto;
+  background: rgba(10, 10, 10, 0.8);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 100;
+  border-bottom: 1px solid var(--color-border-subtle);
+  padding: var(--spacing-md) var(--spacing-lg);
+}
+
+nav .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-logo {
+  font-size: var(--text-xl);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+  color: var(--color-accent-gold);
+}
+
+.nav-links {
+  display: flex;
+  gap: var(--spacing-xl);
+  list-style: none;
+}
+
+.nav-links a {
+  font-size: var(--text-sm);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--color-text-secondary);
+  position: relative;
+}
+
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--color-accent-gold);
+  transition: width var(--duration-normal) var(--easing-ease-out);
+}
+
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ==========================================
+   13. FOOTER
+   ========================================== */
+
+footer {
+  background: var(--color-dark-secondary);
+  border-top: 1px solid var(--color-border-subtle);
+  padding: var(--spacing-3xl) var(--spacing-lg);
+}
+
+.footer-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.footer-column h3 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--spacing-md);
+  color: var(--color-accent-gold);
+}
+
+.footer-column p {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: var(--spacing-2xl);
+  border-top: 1px solid var(--color-border-subtle);
+  color: var(--color-text-secondary);
+  font-size: var(--text-sm);
+}
+
+/* ==========================================
+   14. RESPONSIVE DESIGN (Mobile First)
+   ========================================== */
+
+@media (max-width: 768px) {
+  :root {
+    --text-4xl: 2.5rem;
+    --text-5xl: 3rem;
+    --text-6xl: 3.5rem;
+  }
+
+  h1 {
+    font-size: var(--text-4xl);
+  }
+
+  .feature-section {
+    grid-template-columns: 1fr;
+    gap: var(--spacing-2xl);
+    min-height: auto;
+    padding: var(--spacing-2xl);
+  }
+
+  .feature-section.reverse {
+    direction: ltr;
+  }
+
+  .portfolio-grid {
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--spacing-lg);
+    padding: var(--spacing-2xl);
+  }
+
+  .nav-links {
+    gap: var(--spacing-lg);
+  }
+
+  .hero-content {
+    padding: var(--spacing-2xl);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(2rem, 6vw, 4rem);
+  }
+
+  .hero-content p {
+    font-size: var(--text-lg);
+  }
+
+  .hero-cta {
+    flex-direction: column;
+  }
+
+  .btn {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --spacing-3xl: 3rem;
+    --text-2xl: 1.5rem;
+    --text-3xl: 2rem;
+  }
+
+  .nav-links {
+    gap: var(--spacing-md);
+    font-size: var(--text-xs);
+  }
+
+  .hero-content h1 {
+    font-size: clamp(1.5rem, 5vw, 2.5rem);
+  }
+
+  .section {
+    padding: var(--spacing-2xl) var(--spacing-md);
+  }
+}
+
+/* ==========================================
+   15. PERFORMANCE OPTIMIZATIONS
+   ========================================== */
+
+/* Reduce animations on reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* GPU acceleration for smooth animations */
+.reveal,
+.parallax-layer,
+.portfolio-card-image {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+  will-change: transform;
+}
+
+/* Lazy load images */
+img[loading="lazy"] {
+  background: linear-gradient(
+    90deg,
+    var(--color-charcoal) 25%,
+    var(--color-dark-secondary) 50%,
+    var(--color-charcoal) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% 0;
+  }
+  100% {
+    background-position: -200% 0;
+  }
+}
+
+/* ==========================================
+   16. UTILITY CLASSES
+   ========================================== */
+
+.text-center {
+  text-align: center;
+}
+
+.mt-lg {
+  margin-top: var(--spacing-lg);
+}
+
+.mb-lg {
+  margin-bottom: var(--spacing-lg);
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.hidden {
+  display: none !important;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}

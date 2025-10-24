@@ -1,987 +1,495 @@
-﻿<!DOCTYPE html><!DOCTYPE html>
-
-<html lang="en"><html lang="en">
-
-<head><head>
-
-  <meta charset="UTF-8">  <meta charset="UTF-8">
-
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-
-  <meta name="description" content="Premium Digital Creative Studio - Apple Typography meets Rockstar Games Cinematic Experience">    <meta name="viewport" content="width=device-width, initial-scale=1" />
-
-  <meta name="theme-color" content="#0a0a0a">    <title
-
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title
       data-i18n-title-en="Vespera Hearth Bakery | Twilight Boulangerie"
-
-  <title>NIDZP • Premium Digital Studio</title>      data-i18n-title-sr="Pekara Vespera Ognjište | Pekara sumraka"
-
+      data-i18n-title-sr="Pekara Vespera Ognjište | Pekara sumraka"
     >
-
-  <!-- Google Fonts: Apple-inspired sans-serif -->      Vespera Hearth Bakery | Twilight Boulangerie
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">    </title>
-
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>    <meta
-
-  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">      name="description"
-
-      data-i18n-content-en="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
-
-  <!-- CSS -->      data-i18n-content-sr="Pekara Vespera Ognjište stvara hlebove u malim serijama i sjajne poslastice za sanjare beogradskih noci."
-
-  <link rel="stylesheet" href="/assets/css/styles.css">      content="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
-
-    />
-
-  <style>    <meta
-
-    /* Additional branding touches */      property="og:title"
-
-    body {      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
-
-      background: linear-gradient(135deg, #0a0a0a 0%, #0f0f0f 100%);      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
-
-    }      content="Vespera Hearth Bakery | Twilight Boulangerie"
-
-    />
-
-    .hero-video {    <meta
-
-      width: 100%;      property="og:description"
-
-      height: 100%;      data-i18n-content-en="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
-
-      object-fit: cover;      data-i18n-content-sr="Zakoracite u sjaj zanatskih hlebova, svetlucavih poslastica i vecernjih degustacija na Beogradu na vodi."
-
-    }      content="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
-
-    />
-
-    .accent-text {    <meta property="og:type" content="website" />
-
-      color: var(--color-accent-gold);    <meta property="og:url" content="https://vesperahearth.example.com/" />
-
-      font-weight: 700;    <meta property="og:image" content="assets/img/10.jpg" />
-
-    }    <meta
-
-      property="og:locale"
-
-    .expertise-grid {      data-i18n-content-en="en_US"
-
-      display: grid;      data-i18n-content-sr="sr_RS"
-
-      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));      content="en_US"
-
-      gap: var(--spacing-2xl);    />
-
-      margin: var(--spacing-3xl) 0;    <meta property="og:locale:alternate" content="sr_RS" />
-
-    }    <meta name="twitter:card" content="summary_large_image" />
-
+      Vespera Hearth Bakery | Twilight Boulangerie
+    </title>
     <meta
-
-    .expertise-card {      name="twitter:title"
-
-      padding: var(--spacing-2xl);      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
-
-      background: var(--color-dark-secondary);      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
-
-      border: 1px solid var(--color-border-subtle);      content="Vespera Hearth Bakery | Twilight Boulangerie"
-
-      border-radius: var(--radius-lg);    />
-
-      transition: all var(--duration-normal) var(--easing-ease-out);    <meta
-
-      cursor: pointer;      name="twitter:description"
-
-    }      data-i18n-content-en="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
-
+      name="description"
+      data-i18n-content-en="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
+      data-i18n-content-sr="Pekara Vespera Ognjište stvara hlebove u malim serijama i sjajne poslastice za sanjare beogradskih noci."
+      content="Vespera Hearth Bakery crafts small-batch breads and radiant pastries for Belgrade’s nightfall dreamers."
+    />
+    <meta
+      property="og:title"
+      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
+      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
+      content="Vespera Hearth Bakery | Twilight Boulangerie"
+    />
+    <meta
+      property="og:description"
+      data-i18n-content-en="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
+      data-i18n-content-sr="Zakoracite u sjaj zanatskih hlebova, svetlucavih poslastica i vecernjih degustacija na Beogradu na vodi."
+      content="Step into a glow of artisan breads, luminous pastries, and nightfall tastings in Belgrade Waterfront."
+    />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://vesperahearth.example.com/" />
+    <meta property="og:image" content="assets/img/10.jpg" />
+    <meta
+      property="og:locale"
+      data-i18n-content-en="en_US"
+      data-i18n-content-sr="sr_RS"
+      content="en_US"
+    />
+    <meta property="og:locale:alternate" content="sr_RS" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta
+      name="twitter:title"
+      data-i18n-content-en="Vespera Hearth Bakery | Twilight Boulangerie"
+      data-i18n-content-sr="Pekara Vespera Ognjište | Pekara sumraka"
+      content="Vespera Hearth Bakery | Twilight Boulangerie"
+    />
+    <meta
+      name="twitter:description"
+      data-i18n-content-en="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
       data-i18n-content-sr="Rezervišite zanatske hlebove, kroasane i degustacije pod mesecinom uz beogradsku nocnu pekaru."
-
-    .expertise-card:hover {      content="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
-
-      background: var(--color-charcoal);    />
-
-      border-color: var(--color-accent-gold);    <meta
-
-      transform: translateY(-8px);      name="theme-color"
-
-      box-shadow: var(--shadow-lg);      content="#130924"
-
-    }      media="(prefers-color-scheme: dark)"
-
+      content="Reserve artisan breads, croissants, and moonlit tastings with Belgrade's nocturnal bakery."
     />
-
-    .expertise-card h3 {    <meta
-
-      color: var(--color-accent-gold);      name="theme-color"
-
-      margin-bottom: var(--spacing-md);      content="#2a1744"
-
-    }      media="(prefers-color-scheme: light)"
-
+    <meta
+      name="theme-color"
+      content="#130924"
+      media="(prefers-color-scheme: dark)"
     />
-
-    .process-timeline {    <link rel="canonical" href="https://vesperahearth.example.com/" />
-
-      display: grid;    <link
-
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));      rel="alternate"
-
-      gap: var(--spacing-2xl);      hreflang="en"
-
-      position: relative;      href="https://vesperahearth.example.com/en"
-
-      padding: var(--spacing-2xl) 0;    />
-
-    }    <link
-
+    <meta
+      name="theme-color"
+      content="#2a1744"
+      media="(prefers-color-scheme: light)"
+    />
+    <link rel="canonical" href="https://vesperahearth.example.com/" />
+    <link
       rel="alternate"
-
-    .process-step {      hreflang="sr"
-
-      position: relative;      href="https://vesperahearth.example.com/sr"
-
-      padding-left: var(--spacing-xl);    />
-
-    }    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
-
+      hreflang="en"
+      href="https://vesperahearth.example.com/en"
+    />
+    <link
+      rel="alternate"
+      hreflang="sr"
+      href="https://vesperahearth.example.com/sr"
+    />
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
-
-    .process-step::before {    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-
-      content: attr(data-step);    <link
-
-      position: absolute;      href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap"
-
-      left: 0;      rel="stylesheet"
-
-      top: 0;    />
-
-      font-size: var(--text-4xl);    <link rel="stylesheet" href="css/styles.css" />
-
-      font-weight: 700;    <script defer src="js/app.js"></script>
-
-      color: var(--color-accent-gold);  </head>
-
-      opacity: 0.3;  <body>
-
-    }    <header class="site-header transparent" data-header>
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lustria&family=Montserrat:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+    <script defer src="js/app.js"></script>
+  </head>
+  <body>
+    <header class="site-header transparent" data-header>
       <div class="container header-inner">
-
-    .process-step h4 {        <a
-
-      color: var(--color-text-primary);          href="#home"
-
-    }          class="wordmark"
-
+        <a
+          href="#home"
+          class="wordmark"
           data-i18n-en="Vespera Hearth Bakery"
-
-    .testimonials {          data-i18n-sr="Pekara Vespera Ognjište"
-
-      display: grid;          >Vespera Hearth Bakery</a
-
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));        >
-
-      gap: var(--spacing-2xl);        <nav
-
-    }          class="main-nav"
-
+          data-i18n-sr="Pekara Vespera Ognjište"
+          >Vespera Hearth Bakery</a
+        >
+        <nav
+          class="main-nav"
           id="primary-navigation"
-
-    .testimonial-card {          data-nav
-
-      padding: var(--spacing-2xl);          aria-label="Primary navigation"
-
-      background: var(--color-dark-secondary);          data-i18n-aria-en="Primary navigation"
-
-      border-left: 4px solid var(--color-accent-gold);          data-i18n-aria-sr="Glavna navigacija"
-
-      border-radius: var(--radius-md);        >
-
-    }          <ul>
-
+          data-nav
+          aria-label="Primary navigation"
+          data-i18n-aria-en="Primary navigation"
+          data-i18n-aria-sr="Glavna navigacija"
+        >
+          <ul>
             <li>
-
-    .testimonial-quote {              <a href="#home" data-i18n-en="Home" data-i18n-sr="Pocetna"
-
-      font-size: var(--text-lg);                >Home</a
-
-      font-style: italic;              >
-
-      color: var(--color-text-secondary);            </li>
-
-      margin-bottom: var(--spacing-md);            <li>
-
-    }              <a href="#story" data-i18n-en="Story" data-i18n-sr="Prica"
-
-                >Story</a
-
-    .testimonial-author {              >
-
-      font-weight: 600;            </li>
-
-      color: var(--color-text-primary);            <li>
-
-    }              <a
-
-                href="#specialties"
-
-    .stats-grid {                data-i18n-en="Specialties"
-
-      display: grid;                data-i18n-sr="Specijaliteti"
-
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));                >Specialties</a
-
-      gap: var(--spacing-2xl);              >
-
-      text-align: center;            </li>
-
-      margin: var(--spacing-3xl) 0;            <li>
-
-    }              <a href="#catalog" data-i18n-en="Catalog" data-i18n-sr="Katalog"
-
-                >Catalog</a
-
-    .stat {              >
-
-      padding: var(--spacing-2xl);            </li>
-
-    }            <li>
-
-              <a href="#gallery" data-i18n-en="Gallery" data-i18n-sr="Galerija"
-
-    .stat-number {                >Gallery</a
-
-      font-size: var(--text-5xl);              >
-
-      font-weight: 700;            </li>
-
-      color: var(--color-accent-gold);            <li>
-
-      margin-bottom: var(--spacing-sm);              <a
-
-    }                href="#stories"
-
-                data-i18n-en="Bakery Stories"
-
-    .stat-label {                data-i18n-sr="Bakerske price"
-
-      font-size: var(--text-lg);                >Bakery Stories</a
-
-      color: var(--color-text-secondary);              >
-
-    }            </li>
-
-            <li>
-
-    @media (max-width: 768px) {              <a href="#orders" data-i18n-en="Orders" data-i18n-sr="Porudzbine"
-
-      .hero-content h1 {                >Orders</a
-
-        font-size: var(--text-4xl);              >
-
-      }            </li>
-
-            <li>
-
-      .expertise-grid {              <a href="#visit" data-i18n-en="Visit" data-i18n-sr="Poseta"
-
-        grid-template-columns: 1fr;                >Visit</a
-
-      }              >
-
+              <a href="#home" data-i18n-en="Home" data-i18n-sr="Pocetna"
+                >Home</a
+              >
             </li>
-
-      .process-timeline {            <li>
-
-        grid-template-columns: 1fr;              <a
-
-      }                href="/public/contact.html"
-
-    }                data-i18n-en="Contact Developer"
-
-  </style>                data-i18n-sr="Kontaktiraj programera"
-
-</head>                >Contact Developer</a
-
-<body>              >
-
-  <!-- ==========================================            </li>
-
-       NAVIGATION          </ul>
-
-       ========================================== -->          <button
-
-  <nav>            class="language-toggle"
-
-    <div class="container">            type="button"
-
-      <div class="nav-logo">NIDZP</div>            aria-label="Toggle language"
-
-      <ul class="nav-links">            aria-pressed="false"
-
-        <li><a href="#work">Work</a></li>            data-lang-toggle
-
-        <li><a href="#expertise">Expertise</a></li>            data-i18n-aria-en="Toggle language"
-
-        <li><a href="#process">Process</a></li>            data-i18n-aria-sr="Promeni jezik"
-
-        <li><a href="#contact">Contact</a></li>          >
-
-      </ul>            <span data-i18n-en="EN" data-i18n-sr="SR">EN</span>
-
-    </div>            <small data-i18n-en="| SR" data-i18n-sr="| EN">| SR</small>
-
-  </nav>          </button>
-
+            <li>
+              <a href="#story" data-i18n-en="Story" data-i18n-sr="Prica"
+                >Story</a
+              >
+            </li>
+            <li>
+              <a
+                href="#specialties"
+                data-i18n-en="Specialties"
+                data-i18n-sr="Specijaliteti"
+                >Specialties</a
+              >
+            </li>
+            <li>
+              <a href="#catalog" data-i18n-en="Catalog" data-i18n-sr="Katalog"
+                >Catalog</a
+              >
+            </li>
+            <li>
+              <a href="#gallery" data-i18n-en="Gallery" data-i18n-sr="Galerija"
+                >Gallery</a
+              >
+            </li>
+            <li>
+              <a
+                href="#stories"
+                data-i18n-en="Bakery Stories"
+                data-i18n-sr="Bakerske price"
+                >Bakery Stories</a
+              >
+            </li>
+            <li>
+              <a href="#orders" data-i18n-en="Orders" data-i18n-sr="Porudzbine"
+                >Orders</a
+              >
+            </li>
+            <li>
+              <a href="#visit" data-i18n-en="Visit" data-i18n-sr="Poseta"
+                >Visit</a
+              >
+            </li>
+            <li>
+              <a
+                href="/public/contact.html"
+                data-i18n-en="Contact Developer"
+                data-i18n-sr="Kontaktiraj programera"
+                >Contact Developer</a
+              >
+            </li>
+          </ul>
+          <button
+            class="language-toggle"
+            type="button"
+            aria-label="Toggle language"
+            aria-pressed="false"
+            data-lang-toggle
+            data-i18n-aria-en="Toggle language"
+            data-i18n-aria-sr="Promeni jezik"
+          >
+            <span data-i18n-en="EN" data-i18n-sr="SR">EN</span>
+            <small data-i18n-en="| SR" data-i18n-sr="| EN">| SR</small>
+          </button>
         </nav>
-
-  <!-- ==========================================        <button
-
-       HERO SECTION (Cinematic)          class="hamburger"
-
-       ========================================== -->          type="button"
-
-  <section class="hero-section">          aria-label="Open navigation"
-
-    <!-- Optional: Video Background -->          aria-expanded="false"
-
-    <!-- <video class="hero-bg" autoplay muted loop>          aria-controls="primary-navigation"
-
-      <source src="https://videos.pexels.com/video-files/..." type="video/mp4">          data-hamburger
-
-    </video> -->          data-aria-open-en="Open navigation"
-
+        <button
+          class="hamburger"
+          type="button"
+          aria-label="Open navigation"
+          aria-expanded="false"
+          aria-controls="primary-navigation"
+          data-hamburger
+          data-aria-open-en="Open navigation"
           data-aria-open-sr="Otvori navigaciju"
-
-    <!-- Fallback: Image Background -->          data-aria-close-en="Close navigation"
-
-    <img          data-aria-close-sr="Zatvori navigaciju"
-
-      class="hero-bg"        >
-
-      src="https://images.unsplash.com/photo-1587620591699-f3bffbe68da1?w=1920&q=80"          <span></span>
-
-      alt="Digital Studio"          <span></span>
-
-      loading="lazy"          <span></span>
-
-    >        </button>
-
+          data-aria-close-en="Close navigation"
+          data-aria-close-sr="Zatvori navigaciju"
+        >
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
       </div>
-
-    <!-- Dark Overlay -->    </header>
-
-    <div class="hero-overlay"></div>
+    </header>
 
     <main>
-
-    <!-- Hero Content -->      <section id="home" class="hero">
-
-    <div class="hero-content reveal">        <div class="hero-background">
-
-      <h1>Crafting <span class="accent-text">Digital Experiences</span></h1>          <img
-
-      <p>Premium web design, cutting-edge animations, and strategic digital presence for brands that demand excellence.</p>            src="assets/img/10.jpg"
-
+      <section id="home" class="hero">
+        <div class="hero-background">
+          <img
+            src="assets/img/10.jpg"
             alt="Hands presenting a hearth-baked sourdough loaf"
-
-      <div class="hero-cta">            data-i18n-alt-en="Hands presenting a hearth-baked sourdough loaf"
-
-        <a href="#contact" class="btn btn-primary">Start Project</a>            data-i18n-alt-sr="Ruke drze hleb pecen na ognjistu"
-
-        <a href="#work" class="btn btn-secondary">View Work</a>            decoding="async"
-
-      </div>          />
-
-    </div>        </div>
-
-  </section>        <div class="container hero-content">
-
-          <h1
-
-  <!-- ==========================================            class="hero-title reveal-sequence"
-
-       FEATURED WORK SECTION            data-i18n-en="Vespera Hearth Bakery"
-
-       ========================================== -->            data-i18n-sr="Pekara Vespera Ognjište"
-
-  <section id="work" class="section">          >
-
-    <div class="container">            Vespera Hearth Bakery
-
-      <h2 class="section-title reveal">Featured Work</h2>          </h1>
-
-      <p class="section-subtitle reveal">Curated projects showcasing strategic design and technical excellence</p>          <p
-
-            class="hero-subtitle reveal-sequence"
-
-      <!-- Feature 1: Split Layout (Image Left) -->            data-i18n-en="Where heritage rises nightly"
-
-      <div class="feature-section reveal">            data-i18n-sr="Mesto gde tradicija raste svake noci"
-
-        <div class="feature-image reveal--scale">          >
-
-          <img            Where heritage rises nightly
-
-            src="https://images.unsplash.com/photo-1561070791-2526d30994b5?w=600&q=80"          </p>
-
-            alt="Digital Strategy"          <p
-
-            loading="lazy"            class="hero-subtitle secondary reveal-sequence"
-
-          >            data-i18n-en="Small-batch breads and luminous pastries crafted for nightfall dreamers."
-
-        </div>            data-i18n-sr="Male serije hlebova i svetlucavih poslastica stvarene za sanjare sumraka."
-
-        <div class="feature-content reveal--right">          >
-
-          <h2>Digital Strategy</h2>            Small-batch breads and luminous pastries crafted for nightfall
-
-          <p>We don't just build websites. We architect digital ecosystems that drive measurable business results through data-driven design and user-centric innovation.</p>            dreamers.
-
-          <p class="small">Case Study: 340% increase in user engagement, 180% boost in conversion rates</p>          </p>
-
-          <a href="/portfolio.html" class="btn btn-secondary mt-lg">View Case Studies →</a>          <div class="hero-actions reveal-sequence">
-
-        </div>            <a
-
-      </div>              href="#specialties"
-
-              class="cta-button"
-
-      <!-- Feature 2: Split Layout (Image Right) -->              data-i18n-en="Explore Specialties"
-
-      <div class="feature-section reverse reveal mt-lg">              data-i18n-sr="Istraži specijalitete"
-
-        <div class="feature-image reveal--scale">              >Explore Specialties</a
-
-          <img            >
-
-            src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=600&q=80"          </div>
-
-            alt="Animation & Interaction"          <div class="scroll-cue reveal-sequence">
-
-            loading="lazy"            <span data-i18n-en="Scroll" data-i18n-sr="Skroluj">Scroll</span>
-
-          >            <div class="arrow" aria-hidden="true"></div>
-
-        </div>          </div>
-
-        <div class="feature-content reveal--left">        </div>
-
-          <h2>Cinematic Animation</h2>      </section>
-
-          <p>Elevate user experience with high-impact animations inspired by premium brands. From micro-interactions to full-screen cinematics, we create moments that captivate.</p>
-
-          <p class="small">Technology: CSS3 Transforms, WebGL, Intersection Observer API</p>      <section id="story" class="story section">
-
-          <a href="/portfolio.html" class="btn btn-secondary mt-lg">Explore Animations →</a>        <div class="container story-grid">
-
-        </div>          <div class="story-text reveal-on-scroll">
-
-      </div>            <h2 data-i18n-en="Our Story" data-i18n-sr="Naša prica">
-
-              Our Story
-
-      <!-- Feature 3: Split Layout (Image Left) -->            </h2>
-
-      <div class="feature-section reveal mt-lg">            <p
-
-        <div class="feature-image reveal--scale">              data-i18n-en="Founder Livia Vespera lit the first ember to revive her grandmother’s twilight recipes. Every loaf carries three generations of whispered devotion."
-
-          <img              data-i18n-sr="Osnivacica Livia Vespera zapalila je prvi žar kako bi oživela bakine recepte sumraka. Svaki hleb nosi tri generacije šaputave posvecenosti."
-
-            src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=600&q=80"            >
-
-            alt="Performance Optimization"              Founder Livia Vespera lit the first ember to revive her
-
-            loading="lazy"              grandmother’s twilight recipes. Every loaf carries three
-
-          >              generations of whispered devotion.
-
-        </div>            </p>
-
-        <div class="feature-content reveal--right">            <p
-
-          <h2>Performance First</h2>              data-i18n-en="We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike."
-
-          <p>Stunning visuals mean nothing without speed. We deliver pixel-perfect designs optimized for 60fps, lazy-loaded assets, and sub-second load times across all devices.</p>              data-i18n-sr="Testo odmaramo sa strpljenjem, puštamo puter da se opusti pod nocnim svetlima i provlacimo dim lavande kroz vazduh da docekamo komšije i putnike."
-
-          <p class="small">Average Load: 1.2s | PageSpeed: 95+ | Lighthouse Score: 98+</p>            >
-
-          <a href="#contact" class="btn btn-secondary mt-lg">Let's Optimize →</a>              We proof dough with patience, let butter rest beneath midnight
-
-        </div>              lights, and weave lavender smoke through the air to welcome
-
-      </div>              neighbors and travelers alike.
-
-    </div>            </p>
-
-  </section>            <p
-
-              data-i18n-en="Step inside to hear the hush of hearth-stones, the hum of vintage ovens, and the laughter of the night crew who believes bread tastes best after dusk."
-
-  <!-- ==========================================              data-i18n-sr="Zakoracite unutra da cujete tišinu ognjišta, zujanje starih peci i smeh nocne ekipe koja veruje da hleb ima najbolji ukus posle sumraka."
-
-       EXPERTISE SECTION            >
-
-       ========================================== -->              Step inside to hear the hush of hearth-stones, the hum of vintage
-
-  <section id="expertise" class="section">              ovens, and the laughter of the night crew who believes bread
-
-    <div class="container">              tastes best after dusk.
-
-      <h2 class="section-title reveal">Core Expertise</h2>            </p>
-
-      <p class="section-subtitle reveal">A comprehensive toolkit for modern digital excellence</p>          </div>
-
-          <figure class="story-visual reveal-on-scroll">
-
-      <div class="expertise-grid reveal-group">            <img
-
-        <div class="expertise-card reveal">              src="assets/img/6.jpg"
-
-          <h3>UI/UX Design</h3>              alt="Bakery counter filled with brownies and twists"
-
-          <p>Minimalist interfaces inspired by Apple's design language. High-contrast typography, generous whitespace, and intuitive navigation that feels effortless.</p>              data-i18n-alt-en="Bakery counter filled with brownies and twists"
-
-        </div>              data-i18n-alt-sr="Ilustracija sjajnog pekarskog ognjišta"
-
-              loading="lazy"
-
-        <div class="expertise-card reveal">              decoding="async"
-
-          <h3>Frontend Engineering</h3>            />
-
-          <p>Vanilla JavaScript, CSS3 animations, and semantic HTML5. No bloated frameworks—just pure, performant code optimized for speed and accessibility.</p>            <figcaption
-
-        </div>              data-i18n-en="Evening counter set with hearth baked brownies and twists."
-
-              data-i18n-sr="Ilustracija nadahnuta našim nocnim pekarskim ritualima."
-
-        <div class="expertise-card reveal">            >
-
-          <h3>Motion Design</h3>              Evening counter set with hearth baked brownies and twists.
-
-          <p>Cinematic animations inspired by Rockstar Games' launch sequences. Parallax effects, reveal-on-scroll, 3D transforms, and smooth transitions that engage users.</p>            </figcaption>
-
-        </div>          </figure>
-
+            data-i18n-alt-en="Hands presenting a hearth-baked sourdough loaf"
+            data-i18n-alt-sr="Ruke drze hleb pecen na ognjistu"
+            decoding="async"
+          />
         </div>
+        <div class="container hero-content">
+          <h1
+            class="hero-title reveal-sequence"
+            data-i18n-en="Vespera Hearth Bakery"
+            data-i18n-sr="Pekara Vespera Ognjište"
+          >
+            Vespera Hearth Bakery
+          </h1>
+          <p
+            class="hero-subtitle reveal-sequence"
+            data-i18n-en="Where heritage rises nightly"
+            data-i18n-sr="Mesto gde tradicija raste svake noci"
+          >
+            Where heritage rises nightly
+          </p>
+          <p
+            class="hero-subtitle secondary reveal-sequence"
+            data-i18n-en="Small-batch breads and luminous pastries crafted for nightfall dreamers."
+            data-i18n-sr="Male serije hlebova i svetlucavih poslastica stvarene za sanjare sumraka."
+          >
+            Small-batch breads and luminous pastries crafted for nightfall
+            dreamers.
+          </p>
+          <div class="hero-actions reveal-sequence">
+            <a
+              href="#specialties"
+              class="cta-button"
+              data-i18n-en="Explore Specialties"
+              data-i18n-sr="Istraži specijalitete"
+              >Explore Specialties</a
+            >
+          </div>
+          <div class="scroll-cue reveal-sequence">
+            <span data-i18n-en="Scroll" data-i18n-sr="Skroluj">Scroll</span>
+            <div class="arrow" aria-hidden="true"></div>
+          </div>
+        </div>
+      </section>
 
-        <div class="expertise-card reveal">      </section>
+      <section id="story" class="story section">
+        <div class="container story-grid">
+          <div class="story-text reveal-on-scroll">
+            <h2 data-i18n-en="Our Story" data-i18n-sr="Naša prica">
+              Our Story
+            </h2>
+            <p
+              data-i18n-en="Founder Livia Vespera lit the first ember to revive her grandmother’s twilight recipes. Every loaf carries three generations of whispered devotion."
+              data-i18n-sr="Osnivacica Livia Vespera zapalila je prvi žar kako bi oživela bakine recepte sumraka. Svaki hleb nosi tri generacije šaputave posvecenosti."
+            >
+              Founder Livia Vespera lit the first ember to revive her
+              grandmother’s twilight recipes. Every loaf carries three
+              generations of whispered devotion.
+            </p>
+            <p
+              data-i18n-en="We proof dough with patience, let butter rest beneath midnight lights, and weave lavender smoke through the air to welcome neighbors and travelers alike."
+              data-i18n-sr="Testo odmaramo sa strpljenjem, puštamo puter da se opusti pod nocnim svetlima i provlacimo dim lavande kroz vazduh da docekamo komšije i putnike."
+            >
+              We proof dough with patience, let butter rest beneath midnight
+              lights, and weave lavender smoke through the air to welcome
+              neighbors and travelers alike.
+            </p>
+            <p
+              data-i18n-en="Step inside to hear the hush of hearth-stones, the hum of vintage ovens, and the laughter of the night crew who believes bread tastes best after dusk."
+              data-i18n-sr="Zakoracite unutra da cujete tišinu ognjišta, zujanje starih peci i smeh nocne ekipe koja veruje da hleb ima najbolji ukus posle sumraka."
+            >
+              Step inside to hear the hush of hearth-stones, the hum of vintage
+              ovens, and the laughter of the night crew who believes bread
+              tastes best after dusk.
+            </p>
+          </div>
+          <figure class="story-visual reveal-on-scroll">
+            <img
+              src="assets/img/6.jpg"
+              alt="Bakery counter filled with brownies and twists"
+              data-i18n-alt-en="Bakery counter filled with brownies and twists"
+              data-i18n-alt-sr="Ilustracija sjajnog pekarskog ognjišta"
+              loading="lazy"
+              decoding="async"
+            />
+            <figcaption
+              data-i18n-en="Evening counter set with hearth baked brownies and twists."
+              data-i18n-sr="Ilustracija nadahnuta našim nocnim pekarskim ritualima."
+            >
+              Evening counter set with hearth baked brownies and twists.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
 
-          <h3>Brand Strategy</h3>
-
-          <p>Beyond aesthetics. We align digital presence with brand values, creating cohesive visual identities that resonate with target audiences and drive loyalty.</p>      <section id="specialties" class="specialties section">
-
-        </div>        <div class="container">
-
+      <section id="specialties" class="specialties section">
+        <div class="container">
           <div class="section-heading reveal-on-scroll">
-
-        <div class="expertise-card reveal">            <h2
-
-          <h3>Responsive Design</h3>              data-i18n-en="Signature Specialties"
-
-          <p>Mobile-first architecture ensuring flawless experiences across devices. Scalable typography, fluid grids, and touch-optimized interactions for the modern web.</p>              data-i18n-sr="Potpisni specijaliteti"
-
-        </div>            >
-
+            <h2
+              data-i18n-en="Signature Specialties"
+              data-i18n-sr="Potpisni specijaliteti"
+            >
               Signature Specialties
-
-        <div class="expertise-card reveal">            </h2>
-
-          <h3>Performance Optimization</h3>            <p
-
-          <p>Every millisecond matters. We implement lazy loading, image optimization, CSS-in-JS strategies, and monitoring to ensure your site runs at peak performance.</p>              data-i18n-en="Taste a constellation of breads, pâtisserie, and savory rituals plated after dusk."
-
-        </div>              data-i18n-sr="Probajte sazvežde hlebova, poslastica i slanih rituala koji se služe nakon sumraka."
-
-      </div>            >
-
+            </h2>
+            <p
+              data-i18n-en="Taste a constellation of breads, pâtisserie, and savory rituals plated after dusk."
+              data-i18n-sr="Probajte sazvežde hlebova, poslastica i slanih rituala koji se služe nakon sumraka."
+            >
               Taste a constellation of breads, pâtisserie, and savory rituals
-
-      <!-- Stats -->              plated after dusk.
-
-      <div class="stats-grid reveal-group">            </p>
-
-        <div class="stat reveal">          </div>
-
-          <div class="stat-number">50+</div>          <div class="specialty-grid">
-
-          <div class="stat-label">Projects Delivered</div>            <article class="specialty-card reveal-on-scroll">
-
-        </div>              <div class="image-wrap">
-
-                <img
-
-        <div class="stat reveal">                  src="assets/img/8.jpg"
-
-          <div class="stat-number">95%</div>                  alt="Rustic sourdough loaf sliced on a baking tray"
-
-          <div class="stat-label">Client Satisfaction</div>                  data-i18n-alt-en="Rustic sourdough loaf sliced on a baking tray"
-
-        </div>                  data-i18n-alt-sr="Rusticni hleb od kiselog testa narezan na plehu"
-
-                  loading="lazy"
-
-        <div class="stat reveal">                  decoding="async"
-
-          <div class="stat-number">12</div>                />
-
-          <div class="stat-label">Industry Awards</div>              </div>
-
-        </div>              <div class="specialty-body">
-
-                <h3
-
-        <div class="stat reveal">                  data-i18n-en="Midnight Sourdough"
-
-          <div class="stat-number">7</div>                  data-i18n-sr="Midnight sourdough"
-
-          <div class="stat-label">Years Experience</div>                >
-
-        </div>                  Midnight Sourdough
-
-      </div>                </h3>
-
-    </div>                <p
-
-  </section>                  data-i18n-en="Slow-fermented wheat kissed with blackberry smoke and ember salt."
-
-                  data-i18n-sr="Polako fermentisana pšenica dodirnuta dimom kupine i solju žara."
-
-  <!-- ==========================================                >
-
-       PROCESS SECTION                  Slow-fermented wheat kissed with blackberry smoke and ember
-
-       ========================================== -->                  salt.
-
-  <section id="process" class="section">                </p>
-
-    <div class="container">                <span
-
-      <h2 class="section-title reveal">Our Process</h2>                  class="quality-badge"
-
-      <p class="section-subtitle reveal">Strategic approach from concept to deployment</p>                  data-i18n-en="Baked in stone hearth"
-
-                  data-i18n-sr="Peceno u kamenom ognjištu"
-
-      <div class="process-timeline reveal-group">                  >Baked in stone hearth</span
-
-        <div class="process-step reveal" data-step="01">                >
-
-          <h4>Discovery</h4>                <p
-
-          <p>We immerse ourselves in your brand, audience, and goals. Through research and strategy sessions, we identify opportunities and define the vision.</p>                  class="flavor-note"
-
-        </div>                  data-i18n-en="Order for twilight dinner tables."
-
-                  data-i18n-sr="Porucite za sumracne trpeze."
-
-        <div class="process-step reveal" data-step="02">                >
-
-          <h4>Design</h4>                  Order for twilight dinner tables.
-
-          <p>High-fidelity wireframes and interactive prototypes bring ideas to life. We iterate based on feedback, ensuring pixel-perfect designs that convert.</p>                </p>
-
-        </div>              </div>
-
-            </article>
-
-        <div class="process-step reveal" data-step="03">            <article class="specialty-card reveal-on-scroll">
-
-          <h4>Development</h4>              <div class="image-wrap">
-
-          <p>Clean, semantic code built for performance. We implement animations, optimize assets, and ensure cross-browser compatibility and accessibility standards.</p>                <img
-
-        </div>                  src="assets/img/7.jpg"
-
-                  alt="Croissants drizzled with dark chocolate"
-
-        <div class="process-step reveal" data-step="04">                  data-i18n-alt-en="Croissants drizzled with dark chocolate"
-
-          <h4>Launch & Scale</h4>                  data-i18n-alt-sr="Galaksija brioš cvorovi sa glazurom"
-
-          <p>Deployment, monitoring, and continuous optimization. We ensure your digital presence remains competitive with performance analytics and growth strategies.</p>                  loading="lazy"
-
-        </div>                  decoding="async"
-
-      </div>                />
-
-    </div>              </div>
-
-  </section>              <div class="specialty-body">
-
-                <h3
-
-  <!-- ==========================================                  data-i18n-en="Violet Nebula Brioche"
-
-       TESTIMONIALS SECTION                  data-i18n-sr="Violet nebula brioš"
-
-       ========================================== -->                >
-
-  <section class="section">                  Violet Nebula Brioche
-
-    <div class="container">                </h3>
-
-      <h2 class="section-title reveal">What Clients Say</h2>                <p
-
-                  data-i18n-en="Feather-light knots brushed with cassis syrup and pearlescent sugar."
-
-      <div class="testimonials reveal-group">                  data-i18n-sr="Lagani cvorovi premazani sirupom od crne ribizle i bisernim šecerom."
-
-        <div class="testimonial-card reveal">                >
-
-          <div class="testimonial-quote">                  Feather-light knots brushed with cassis syrup and pearlescent
-
-            "Their approach to animation and performance transformed our user engagement metrics. The site feels like a premium product."                  sugar.
-
-          </div>                </p>
-
-          <div class="testimonial-author">Alex Chen, CEO @ TechStartup</div>                <span
-
-        </div>                  class="quality-badge"
-
-                  data-i18n-en="Served warm after sunset"
-
-        <div class="testimonial-card reveal">                  data-i18n-sr="Služi se toplo posle zalaska sunca"
-
-          <div class="testimonial-quote">                  >Served warm after sunset</span
-
-            "Working with NIDZP was a game-changer. The attention to detail in typography and animation is unmatched. Highly recommend."                >
-
-          </div>                <p
-
-          <div class="testimonial-author">Sarah Williams, Creative Director @ BrandCo</div>                  class="flavor-note"
-
-        </div>                  data-i18n-en="Pair with lavender cold brew."
-
-                  data-i18n-sr="Uparite sa hladnom kafom od lavande."
-
-        <div class="testimonial-card reveal">                >
-
-          <div class="testimonial-quote">                  Pair with lavender cold brew.
-
-            "Not just beautiful design—the site loads in under a second. The performance optimization expertise is exceptional."                </p>
-
-          </div>              </div>
-
-          <div class="testimonial-author">Marcus Johnson, CTO @ FinTech Solutions</div>            </article>
-
-        </div>            <article class="specialty-card reveal-on-scroll">
-
-      </div>              <div class="image-wrap">
-
-    </div>                <img
-
-  </section>                  src="assets/img/2.jpg"
-
-                  alt="Whole chocolate torte on a linen covered stand"
-
-  <!-- ==========================================                  data-i18n-alt-en="Whole chocolate torte on a linen covered stand"
-
-       CONTACT SECTION                  data-i18n-alt-sr="Cokoladna torta na postolju prekrivenom platnom"
-
-       ========================================== -->                  loading="lazy"
-
-  <section id="contact" class="section">                  decoding="async"
-
-    <div class="container">                />
-
-      <h2 class="section-title reveal">Ready to Create?</h2>              </div>
-
-      <p class="section-subtitle reveal">Let's discuss your next digital project</p>              <div class="specialty-body">
-
-                <h3
-
-      <div style="max-width: 600px; margin: 0 auto;" class="reveal">                  data-i18n-en="Prismatic Torte"
-
-        <form>                  data-i18n-sr="Prizmaticna torta"
-
-          <div class="form-group">                >
-
-            <label class="form-label" for="name">Full Name</label>                  Prismatic Torte
-
-            <input                </h3>
-
-              class="form-input"                <p
-
-              type="text"                  data-i18n-en="Velvet sponge layered with star anise ganache and mirror glaze."
-
-              id="name"                  data-i18n-sr="Baršunasta kora sa ganašom od zvezdanog anisa i ogledalskom glazurom."
-
-              name="name"                >
-
-              placeholder="Your Name"                  Velvet sponge layered with star anise ganache and mirror
-
-              required                  glaze.
-
-            >                </p>
-
-          </div>                <span
-
-                  class="quality-badge"
-
-          <div class="form-group">                  data-i18n-en="Made to celebrate milestones"
-
-            <label class="form-label" for="email">Email Address</label>                  data-i18n-sr="Stvorena za obeležavanje trenutaka"
-
-            <input                  >Made to celebrate milestones</span
-
-              class="form-input"                >
-
-              type="email"                <p
-
-              id="email"                  class="flavor-note"
-
-              name="email"                  data-i18n-en="Reserve 48 hours ahead."
-
-              placeholder="your@email.com"                  data-i18n-sr="Rezervišite 48 sati unapred."
-
-              required                >
-
-            >                  Reserve 48 hours ahead.
-
-          </div>                </p>
-
-              </div>
-
-          <div class="form-group">            </article>
-
-            <label class="form-label" for="project">Project Type</label>            <article class="specialty-card reveal-on-scroll">
-
-            <select class="form-input" id="project" name="project" required>              <div class="image-wrap">
-
-              <option value="">Select a project type...</option>                <img
-
-              <option value="web-design">Web Design & Development</option>                  src="assets/img/1.jpg"
-
-              <option value="animation">Animation & Motion</option>                  alt="Assorted iced pastries stacked on a bakery table"
-
-              <option value="branding">Brand Strategy & Identity</option>                  data-i18n-alt-en="Assorted iced pastries stacked on a bakery table"
-
-              <option value="optimization">Performance Optimization</option>                  data-i18n-alt-sr="Razne glazirane poslastice na pekarskom stolu"
-
-              <option value="other">Other</option>                  loading="lazy"
-
-            </select>                  decoding="async"
-
-          </div>                />
-
-              </div>
-
-          <div class="form-group">              <div class="specialty-body">
-
-            <label class="form-label" for="message">Tell us about your project</label>                <h3
-
-            <textarea                  data-i18n-en="Aurora Mille-Feuille"
-
-              class="form-textarea"                  data-i18n-sr="Aurora mille-feuille"
-
-              id="message"                >
-
-              name="message"                  Aurora Mille-Feuille
-
-              placeholder="Your vision, goals, and any specific requirements..."                </h3>
-
-              required                <p
-
-            ></textarea>                  data-i18n-en="Puff pastry laminated with vanilla bean custard and candied petals."
-
-          </div>                  data-i18n-sr="Lisnato testo sa kremom od mahune vanile i kandiranim laticama."
-
-                >
-
-          <button type="submit" class="btn btn-primary" style="width: 100%; text-align: center;">                  Puff pastry laminated with vanilla bean custard and candied
-
-            Send Message                  petals.
-
-          </button>                </p>
-
-        </form>                <span
-
-      </div>                  class="quality-badge"
-
-    </div>                  data-i18n-en="Layers crackle at first bite"
-
-  </section>                  data-i18n-sr="Slojevi pucketaju pri prvom zalogaju"
-
-                  >Layers crackle at first bite</span
-
-  <!-- ==========================================                >
-
-       FOOTER                <p
-
-       ========================================== -->                  class="flavor-note"
-
-  <footer>                  data-i18n-en="Serve with midnight tea flights."
-
-    <div class="container">                  data-i18n-sr="Poslužite uz nocne cajne degustacije."
-
-      <div class="footer-content">                >
-
-        <div class="footer-column">                  Serve with midnight tea flights.
-
-          <h3>NIDZP Studio</h3>                </p>
-
-          <p>Premium digital experiences that drive results. We blend Apple's typographic elegance with Rockstar's cinematic intensity.</p>              </div>
-
-        </div>            </article>
-
+              plated after dusk.
+            </p>
+          </div>
+          <div class="specialty-grid">
             <article class="specialty-card reveal-on-scroll">
-
-        <div class="footer-column">              <div class="image-wrap">
-
-          <h3>Services</h3>                <img
-
-          <p>UI/UX Design • Frontend Development • Animation • Branding • Performance Optimization</p>                  src="assets/img/5.jpg"
-
-        </div>                  alt="Seed crusted loaf partly sliced on board"
-
+              <div class="image-wrap">
+                <img
+                  src="assets/img/8.jpg"
+                  alt="Rustic sourdough loaf sliced on a baking tray"
+                  data-i18n-alt-en="Rustic sourdough loaf sliced on a baking tray"
+                  data-i18n-alt-sr="Rusticni hleb od kiselog testa narezan na plehu"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="specialty-body">
+                <h3
+                  data-i18n-en="Midnight Sourdough"
+                  data-i18n-sr="Midnight sourdough"
+                >
+                  Midnight Sourdough
+                </h3>
+                <p
+                  data-i18n-en="Slow-fermented wheat kissed with blackberry smoke and ember salt."
+                  data-i18n-sr="Polako fermentisana pšenica dodirnuta dimom kupine i solju žara."
+                >
+                  Slow-fermented wheat kissed with blackberry smoke and ember
+                  salt.
+                </p>
+                <span
+                  class="quality-badge"
+                  data-i18n-en="Baked in stone hearth"
+                  data-i18n-sr="Peceno u kamenom ognjištu"
+                  >Baked in stone hearth</span
+                >
+                <p
+                  class="flavor-note"
+                  data-i18n-en="Order for twilight dinner tables."
+                  data-i18n-sr="Porucite za sumracne trpeze."
+                >
+                  Order for twilight dinner tables.
+                </p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img
+                  src="assets/img/7.jpg"
+                  alt="Croissants drizzled with dark chocolate"
+                  data-i18n-alt-en="Croissants drizzled with dark chocolate"
+                  data-i18n-alt-sr="Galaksija brioš cvorovi sa glazurom"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="specialty-body">
+                <h3
+                  data-i18n-en="Violet Nebula Brioche"
+                  data-i18n-sr="Violet nebula brioš"
+                >
+                  Violet Nebula Brioche
+                </h3>
+                <p
+                  data-i18n-en="Feather-light knots brushed with cassis syrup and pearlescent sugar."
+                  data-i18n-sr="Lagani cvorovi premazani sirupom od crne ribizle i bisernim šecerom."
+                >
+                  Feather-light knots brushed with cassis syrup and pearlescent
+                  sugar.
+                </p>
+                <span
+                  class="quality-badge"
+                  data-i18n-en="Served warm after sunset"
+                  data-i18n-sr="Služi se toplo posle zalaska sunca"
+                  >Served warm after sunset</span
+                >
+                <p
+                  class="flavor-note"
+                  data-i18n-en="Pair with lavender cold brew."
+                  data-i18n-sr="Uparite sa hladnom kafom od lavande."
+                >
+                  Pair with lavender cold brew.
+                </p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img
+                  src="assets/img/2.jpg"
+                  alt="Whole chocolate torte on a linen covered stand"
+                  data-i18n-alt-en="Whole chocolate torte on a linen covered stand"
+                  data-i18n-alt-sr="Cokoladna torta na postolju prekrivenom platnom"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="specialty-body">
+                <h3
+                  data-i18n-en="Prismatic Torte"
+                  data-i18n-sr="Prizmaticna torta"
+                >
+                  Prismatic Torte
+                </h3>
+                <p
+                  data-i18n-en="Velvet sponge layered with star anise ganache and mirror glaze."
+                  data-i18n-sr="Baršunasta kora sa ganašom od zvezdanog anisa i ogledalskom glazurom."
+                >
+                  Velvet sponge layered with star anise ganache and mirror
+                  glaze.
+                </p>
+                <span
+                  class="quality-badge"
+                  data-i18n-en="Made to celebrate milestones"
+                  data-i18n-sr="Stvorena za obeležavanje trenutaka"
+                  >Made to celebrate milestones</span
+                >
+                <p
+                  class="flavor-note"
+                  data-i18n-en="Reserve 48 hours ahead."
+                  data-i18n-sr="Rezervišite 48 sati unapred."
+                >
+                  Reserve 48 hours ahead.
+                </p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img
+                  src="assets/img/1.jpg"
+                  alt="Assorted iced pastries stacked on a bakery table"
+                  data-i18n-alt-en="Assorted iced pastries stacked on a bakery table"
+                  data-i18n-alt-sr="Razne glazirane poslastice na pekarskom stolu"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="specialty-body">
+                <h3
+                  data-i18n-en="Aurora Mille-Feuille"
+                  data-i18n-sr="Aurora mille-feuille"
+                >
+                  Aurora Mille-Feuille
+                </h3>
+                <p
+                  data-i18n-en="Puff pastry laminated with vanilla bean custard and candied petals."
+                  data-i18n-sr="Lisnato testo sa kremom od mahune vanile i kandiranim laticama."
+                >
+                  Puff pastry laminated with vanilla bean custard and candied
+                  petals.
+                </p>
+                <span
+                  class="quality-badge"
+                  data-i18n-en="Layers crackle at first bite"
+                  data-i18n-sr="Slojevi pucketaju pri prvom zalogaju"
+                  >Layers crackle at first bite</span
+                >
+                <p
+                  class="flavor-note"
+                  data-i18n-en="Serve with midnight tea flights."
+                  data-i18n-sr="Poslužite uz nocne cajne degustacije."
+                >
+                  Serve with midnight tea flights.
+                </p>
+              </div>
+            </article>
+            <article class="specialty-card reveal-on-scroll">
+              <div class="image-wrap">
+                <img
+                  src="assets/img/5.jpg"
+                  alt="Seed crusted loaf partly sliced on board"
                   data-i18n-alt-en="Seed crusted loaf partly sliced on board"
-
-        <div class="footer-column">                  data-i18n-alt-sr="Slana fokaca sa povrcem iz žara"
-
-          <h3>Connect</h3>                  loading="lazy"
-
-          <p>Email: hello@nidzp.dev<br>                  decoding="async"
-
-          Twitter: @nidzp<br>                />
-
-          LinkedIn: /in/nidzp</p>              </div>
-
-        </div>              <div class="specialty-body">
-
-      </div>                <h3
-
+                  data-i18n-alt-sr="Slana fokaca sa povrcem iz žara"
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+              <div class="specialty-body">
+                <h3
                   data-i18n-en="Ember Garden Focaccia"
-
-      <div class="footer-bottom">                  data-i18n-sr="Žar vrt fokaca"
-
-        <p>&copy; 2025 NIDZP. All rights reserved. Crafted with excellence.</p>                >
-
-      </div>                  Ember Garden Focaccia
-
-    </div>                </h3>
-
-  </footer>                <p
-
+                  data-i18n-sr="Žar vrt fokaca"
+                >
+                  Ember Garden Focaccia
+                </h3>
+                <p
                   data-i18n-en="Charred rosemary oil, ember-roasted tomatoes, and cracked pepper stardust."
-
-  <!-- JavaScript -->                  data-i18n-sr="Uljem od žarenog ruzmarina, paradajzom pecenim u žaru i zrncima bibera kao zvezdana prašina."
-
-  <script src="/assets/js/main.js"></script>                >
-
-</body>                  Charred rosemary oil, ember-roasted tomatoes, and cracked
-
-</html>                  pepper stardust.
-
+                  data-i18n-sr="Uljem od žarenog ruzmarina, paradajzom pecenim u žaru i zrncima bibera kao zvezdana prašina."
+                >
+                  Charred rosemary oil, ember-roasted tomatoes, and cracked
+                  pepper stardust.
                 </p>
                 <span
                   class="quality-badge"
