@@ -3,9 +3,11 @@
 ## 🚨 DEPLOYMENT_NOT_FOUND Error - Resolved
 
 ### Problem
+
 Vercel vraća `DEPLOYMENT_NOT_FOUND` (404) grešku pri pokušaju pristupa sajtu.
 
 ### Root Cause Analysis
+
 1. **Neispravna `vercel.json` konfiguracija** - koristili smo deprecated `rewrites` sintaksu koja pokušava da preusmeri sve zahteve na `server.js` koji nije serverless funkcija
 2. **Missing static file serving** - Vercel nije znao gde da pronađe HTML fajlove
 3. **File structure mismatch** - HTML fajlovi su u `/public/` ali konfiguracija nije bila tačna
@@ -17,6 +19,7 @@ Vercel vraća `DEPLOYMENT_NOT_FOUND` (404) grešku pri pokušaju pristupa sajtu.
 ### 1. Updated `vercel.json`
 
 **Stara konfiguracija (POGREŠNA)**:
+
 ```json
 {
   "rewrites": [
@@ -29,6 +32,7 @@ Vercel vraća `DEPLOYMENT_NOT_FOUND` (404) grešku pri pokušaju pristupa sajtu.
 ```
 
 **Nova konfiguracija (ISPRAVNA)**:
+
 ```json
 {
   "cleanUrls": true,
@@ -38,6 +42,7 @@ Vercel vraća `DEPLOYMENT_NOT_FOUND` (404) grešku pri pokušaju pristupa sajtu.
 ```
 
 ### Što ova promena radi:
+
 - ✅ `cleanUrls: true` - omogućava pristup `/portfolio` umesto `/portfolio.html`
 - ✅ `trailingSlash: false` - uklanja trailing slash sa URL-ova
 - ✅ `public: true` - označava da je ovo public static site (omogućava listing direktorijuma)
@@ -75,6 +80,7 @@ sajt-reklama/
 #### Automatsko Detektovanje:
 
 1. **Static Files** (`/public/`):
+
    - Vercel automatski serve-uje sve fajlove iz `/public/` direktorijuma
    - `index.html` → `https://sajt-reklama.vercel.app/`
    - `portfolio.html` → `https://sajt-reklama.vercel.app/portfolio`
@@ -82,6 +88,7 @@ sajt-reklama/
    - `chatbot.html` → `https://sajt-reklama.vercel.app/chatbot`
 
 2. **Serverless Functions** (`/api/`):
+
    - Svaki `.js` fajl u `/api/` postaje serverless endpoint
    - `groq-chat.js` → `https://sajt-reklama.vercel.app/api/groq-chat`
    - `health.js` → `https://sajt-reklama.vercel.app/api/health`
@@ -95,17 +102,20 @@ sajt-reklama/
 ## 🔧 Common Vercel Configuration Patterns
 
 ### Pattern 1: Static Site (Current Setup)
+
 ```json
 {
   "cleanUrls": true,
   "trailingSlash": false
 }
 ```
+
 **Use case**: Pure static HTML sites sa serverless API funkcijama
 
 ---
 
 ### Pattern 2: Redirects
+
 ```json
 {
   "redirects": [
@@ -121,6 +131,7 @@ sajt-reklama/
 ---
 
 ### Pattern 3: Rewrites (za API proxy)
+
 ```json
 {
   "rewrites": [
@@ -131,11 +142,13 @@ sajt-reklama/
   ]
 }
 ```
+
 **Note**: Koristi SAMO za proxying ka eksternim API-jima, ne za internal routing!
 
 ---
 
 ### Pattern 4: Headers (CORS, Security)
+
 ```json
 {
   "headers": [
@@ -143,7 +156,10 @@ sajt-reklama/
       "source": "/api/(.*)",
       "headers": [
         { "key": "Access-Control-Allow-Origin", "value": "*" },
-        { "key": "Access-Control-Allow-Methods", "value": "GET,POST,PUT,DELETE" }
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET,POST,PUT,DELETE"
+        }
       ]
     }
   ]
@@ -155,6 +171,7 @@ sajt-reklama/
 ## 🚀 Deployment Workflow
 
 ### Local Development:
+
 ```bash
 # Start local server (koristi server.js sa Express)
 node server.js
@@ -165,6 +182,7 @@ npm run dev
 ```
 
 ### Vercel Deployment:
+
 ```bash
 # Preview deployment
 vercel
@@ -203,6 +221,7 @@ Po deploy-u na Vercel, proveri:
 Idi na: https://vercel.com/nidzps-projects/sajt-reklama/settings/environment-variables
 
 Dodaj:
+
 ```
 GROQ_API_KEY = <your-api-key-from-env-file>
 AI_MODEL = llama-3.1-8b-instant
@@ -212,6 +231,7 @@ NODE_ENV = production
 ```
 
 **VAŽNO**: Posle dodavanja env variables, **redeploy-uj**:
+
 ```bash
 vercel --prod
 ```
@@ -221,15 +241,19 @@ vercel --prod
 ## 🔍 Debugging Vercel Errors
 
 ### Error: DEPLOYMENT_NOT_FOUND (404)
+
 **Uzrok**: Fajl ne postoji ili je routing pogrešan
 **Fix**:
+
 1. Proveri da fajl postoji u `/public/`
 2. Proveri `vercel.json` routing
 3. Proveri da li je deployment uspešan: `vercel ls`
 
 ### Error: FUNCTION_INVOCATION_FAILED (500)
+
 **Uzrok**: Serverless funkcija ima grešku
 **Fix**:
+
 1. Proveri logs: `vercel logs <deployment-url>`
 2. Proveri da li export-uješ default handler:
    ```js
@@ -238,8 +262,10 @@ vercel --prod
 3. Proveri environment variables
 
 ### Error: FUNCTION_INVOCATION_TIMEOUT (504)
+
 **Uzrok**: Funkcija traje duže od 10s (Hobby plan) ili 60s (Pro)
 **Fix**:
+
 1. Optimizuj kod
 2. Dodaj timeout config u `vercel.json`:
    ```json
@@ -253,8 +279,10 @@ vercel --prod
    ```
 
 ### Error: DNS_HOSTNAME_NOT_FOUND (502)
+
 **Uzrok**: Custom domain nije konfigurisan
 **Fix**:
+
 1. Dodaj domain u Vercel dashboard
 2. Konfiguriši DNS zapise (A ili CNAME)
 3. Sačekaj DNS propagaciju (24-48h)
@@ -264,17 +292,20 @@ vercel --prod
 ## 📝 Best Practices
 
 1. **File Organization**:
+
    - HTML → `/public/`
    - API endpoints → `/api/`
    - Assets → `/assets/` ili `/public/assets/`
    - Config → root (`vercel.json`, `package.json`)
 
 2. **vercel.json Simplicity**:
+
    - Koristi minimalno konfiguracije
    - Vercel automatski detektuje većinu stvari
    - Samo dodaj custom rules ako je potrebno
 
 3. **Environment Variables**:
+
    - NIKAD ne commit-uj secrets u git
    - Dodaj u Vercel dashboard
    - Koristi `.env` samo za local development
@@ -294,7 +325,7 @@ vercel --prod
 ✅ **Static Files**: Svi HTML fajlovi rade  
 ✅ **API Endpoints**: Groq chatbot endpoint funkcionalan  
 ✅ **SSL**: HTTPS aktivan  
-✅ **CORS**: Konfigurisan za localhost + Vercel + InfinityFree  
+✅ **CORS**: Konfigurisan za localhost + Vercel + InfinityFree
 
 **Live URL**: https://sajt-reklama.vercel.app  
 **Latest Deployment**: https://sajt-reklama-2tr4b6pb3-nidzps-projects.vercel.app  
