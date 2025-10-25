@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="sr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Chatbot - NIDZP Studio</title>
+    <meta name="description" content="Razgovarajte sa našim AI asistentom o web razvoju, dizajnu i digitalnoj strategiji">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="/assets/css/styles.css">
+    <style>
+        /* Chatbot-specific styles */
+        .chatbot-container {
+            max-width: 900px;
+            margin: 120px auto 60px;
+            padding: 0 20px;
+            min-height: calc(100vh - 200px);
+        }
+
+        .chatbot-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .chatbot-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 700;
+            margin-bottom: 16px;
+            background: linear-gradient(135deg, var(--color-accent-gold) 0%, #fff 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .chatbot-header p {
+            font-size: 1.1rem;
+            color: var(--color-text-secondary);
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .chat-window {
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            margin-bottom: 20px;
+            min-height: 500px;
+            max-height: 600px;
+            overflow-y: auto;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .chat-messages {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .message {
+            display: flex;
+            gap: 12px;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .message.user {
+            flex-direction: row-reverse;
+        }
+
+        .message-avatar {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            flex-shrink: 0;
+        }
+
+        .message.user .message-avatar {
+            background: linear-gradient(135deg, var(--color-accent-gold), #c9a961);
+        }
+
+        .message.ai .message-avatar {
+            background: linear-gradient(135deg, #6366f1, #8b5cf6);
+        }
+
+        .message-content {
+            max-width: 70%;
+            background: rgba(30, 30, 30, 0.8);
+            padding: 16px 20px;
+            border-radius: 16px;
+            line-height: 1.6;
+            position: relative;
+        }
+
+        .message.user .message-content {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.2), rgba(212, 175, 55, 0.1));
+            border: 1px solid rgba(212, 175, 55, 0.3);
+        }
+
+        .message.ai .message-content {
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(99, 102, 241, 0.2);
+        }
+
+        .message-time {
+            font-size: 0.75rem;
+            color: var(--color-text-secondary);
+            margin-top: 8px;
+            display: block;
+        }
+
+        .typing-indicator {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 20px;
+        }
+
+        .typing-indicator.active {
+            display: flex;
+        }
+
+        .typing-dots {
+            display: flex;
+            gap: 4px;
+        }
+
+        .typing-dots span {
+            width: 8px;
+            height: 8px;
+            background: var(--color-accent-gold);
+            border-radius: 50%;
+            animation: typingDot 1.4s infinite;
+        }
+
+        .typing-dots span:nth-child(2) {
+            animation-delay: 0.2s;
+        }
+
+        .typing-dots span:nth-child(3) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes typingDot {
+            0%, 60%, 100% { transform: translateY(0); opacity: 0.4; }
+            30% { transform: translateY(-10px); opacity: 1; }
+        }
+
+        .chat-input-wrapper {
+            background: rgba(20, 20, 20, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 20px;
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+        }
+
+        .chat-input-form {
+            display: flex;
+            gap: 12px;
+        }
+
+        .chat-input {
+            flex: 1;
+            background: rgba(30, 30, 30, 0.8);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 12px;
+            padding: 16px 20px;
+            color: var(--color-text-primary);
+            font-size: 1rem;
+            font-family: 'Inter', sans-serif;
+            resize: none;
+            transition: all 0.3s ease;
+            min-height: 56px;
+            max-height: 150px;
+        }
+
+        .chat-input:focus {
+            outline: none;
+            border-color: var(--color-accent-gold);
+            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+        }
+
+        .chat-submit {
+            background: linear-gradient(135deg, var(--color-accent-gold), #c9a961);
+            border: none;
+            border-radius: 12px;
+            padding: 16px 32px;
+            color: var(--color-black);
+            font-weight: 600;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            align-self: flex-end;
+            white-space: nowrap;
+        }
+
+        .chat-submit:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+        }
+
+        .chat-submit:active {
+            transform: translateY(0);
+        }
+
+        .chat-submit:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
+        .error-message {
+            background: rgba(239, 68, 68, 0.1);
+            border: 1px solid rgba(239, 68, 68, 0.3);
+            border-radius: 12px;
+            padding: 16px;
+            color: #f87171;
+            text-align: center;
+            margin-bottom: 20px;
+            display: none;
+        }
+
+        .error-message.active {
+            display: block;
+            animation: fadeInUp 0.3s ease-out;
+        }
+
+        .quick-prompts {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .quick-prompt {
+            background: rgba(30, 30, 30, 0.5);
+            border: 1px solid rgba(212, 175, 55, 0.2);
+            border-radius: 20px;
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            color: var(--color-text-primary);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .quick-prompt:hover {
+            border-color: var(--color-accent-gold);
+            background: rgba(212, 175, 55, 0.1);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile responsive */
+        @media (max-width: 768px) {
+            .chatbot-container {
+                margin-top: 100px;
+                padding: 0 16px;
+            }
+
+            .chat-window {
+                padding: 20px;
+                min-height: 400px;
+                max-height: 500px;
+            }
+
+            .message-content {
+                max-width: 85%;
+            }
+
+            .chat-input-form {
+                flex-direction: column;
+            }
+
+            .chat-submit {
+                width: 100%;
+            }
+
+            .quick-prompts {
+                flex-direction: column;
+            }
+
+            .quick-prompt {
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        /* Scrollbar styling */
+        .chat-window::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        .chat-window::-webkit-scrollbar-track {
+            background: rgba(30, 30, 30, 0.3);
+            border-radius: 10px;
+        }
+
+        .chat-window::-webkit-scrollbar-thumb {
+            background: rgba(212, 175, 55, 0.3);
+            border-radius: 10px;
+        }
+
+        .chat-window::-webkit-scrollbar-thumb:hover {
+            background: rgba(212, 175, 55, 0.5);
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="nav">
+        <div class="nav__container">
+            <a href="/" class="nav__logo">NIDZP</a>
+            <ul class="nav__links">
+                <li><a href="/">Početna</a></li>
+                <li><a href="/portfolio.html">Portfolio</a></li>
+                <li><a href="/chatbot.html" class="active">AI Chat</a></li>
+                <li><a href="/contact.html">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Chatbot Container -->
+    <div class="chatbot-container">
+        <div class="chatbot-header reveal">
+            <h1>AI Asistent</h1>
+            <p>Pitajte me bilo šta o web razvoju, dizajnu ili našim uslugama</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage"></div>
+
+        <!-- Quick Prompts -->
+        <div class="quick-prompts reveal" id="quickPrompts">
+            <button class="quick-prompt" data-prompt="Koje usluge nudite?">Koje usluge nudite?</button>
+            <button class="quick-prompt" data-prompt="Pokažite mi vaš portfolio">Pokažite mi vaš portfolio</button>
+            <button class="quick-prompt" data-prompt="Koliko koštaju vaše usluge?">Koliko koštaju vaše usluge?</button>
+            <button class="quick-prompt" data-prompt="Kako započeti saradnju?">Kako započeti saradnju?</button>
+        </div>
+
+        <!-- Chat Window -->
+        <div class="chat-window reveal" id="chatWindow">
+            <div class="chat-messages" id="chatMessages">
+                <!-- Welcome message -->
+                <div class="message ai">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        Zdravo! Ja sam AI asistent NIDZP Studio-a. Kako vam mogu pomoći danas?
+                        <span class="message-time" id="welcomeTime"></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Typing indicator -->
+            <div class="typing-indicator" id="typingIndicator">
+                <div class="message-avatar" style="background: linear-gradient(135deg, #6366f1, #8b5cf6);">🤖</div>
+                <div class="typing-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chat Input -->
+        <div class="chat-input-wrapper reveal">
+            <form class="chat-input-form" id="chatForm">
+                <textarea 
+                    class="chat-input" 
+                    id="chatInput" 
+                    placeholder="Napišite vašu poruku ovde..."
+                    rows="1"
+                    required
+                ></textarea>
+                <button type="submit" class="chat-submit" id="chatSubmit">
+                    Pošalji
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer__container">
+            <div class="footer__content">
+                <div class="footer__brand">
+                    <h3>NIDZP Studio</h3>
+                    <p>Premium Digital Creative Studio</p>
+                </div>
+                <div class="footer__links">
+                    <a href="/">Početna</a>
+                    <a href="/portfolio.html">Portfolio</a>
+                    <a href="/chatbot.html">AI Chat</a>
+                    <a href="/contact.html">Kontakt</a>
+                </div>
+            </div>
+            <div class="footer__bottom">
+                <p>&copy; 2024 NIDZP Studio. Sva prava zadržana.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+    <script>
+        // Chatbot functionality
+        class ChatbotController {
+            constructor() {
+                this.chatForm = document.getElementById('chatForm');
+                this.chatInput = document.getElementById('chatInput');
+                this.chatSubmit = document.getElementById('chatSubmit');
+                this.chatMessages = document.getElementById('chatMessages');
+                this.chatWindow = document.getElementById('chatWindow');
+                this.typingIndicator = document.getElementById('typingIndicator');
+                this.errorMessage = document.getElementById('errorMessage');
+                this.quickPrompts = document.querySelectorAll('.quick-prompt');
+                
+                this.conversationHistory = [];
+                
+                this.init();
+            }
+
+            init() {
+                // Set welcome time
+                document.getElementById('welcomeTime').textContent = this.formatTime(new Date());
+
+                // Form submit
+                this.chatForm.addEventListener('submit', (e) => {
+                    e.preventDefault();
+                    this.handleSubmit();
+                });
+
+                // Auto-resize textarea
+                this.chatInput.addEventListener('input', () => {
+                    this.chatInput.style.height = 'auto';
+                    this.chatInput.style.height = this.chatInput.scrollHeight + 'px';
+                });
+
+                // Quick prompts
+                this.quickPrompts.forEach(btn => {
+                    btn.addEventListener('click', () => {
+                        this.chatInput.value = btn.dataset.prompt;
+                        this.chatInput.focus();
+                        this.handleSubmit();
+                    });
+                });
+
+                // Enter to submit (Shift+Enter for new line)
+                this.chatInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter' && !e.shiftKey) {
+                        e.preventDefault();
+                        this.handleSubmit();
+                    }
+                });
+            }
+
+            async handleSubmit() {
+                const message = this.chatInput.value.trim();
+                
+                if (!message) return;
+
+                // Hide error message
+                this.hideError();
+
+                // Add user message to chat
+                this.addMessage('user', message);
+
+                // Clear input
+                this.chatInput.value = '';
+                this.chatInput.style.height = 'auto';
+
+                // Disable form
+                this.setLoading(true);
+
+                try {
+                    // Call Groq API
+                    const response = await fetch('/api/groq-chat', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                        },
+                        body: JSON.stringify({
+                            message,
+                            conversationHistory: this.conversationHistory,
+                        }),
+                    });
+
+                    const data = await response.json();
+
+                    if (!response.ok || !data.success) {
+                        throw new Error(data.error || 'Greška pri komunikaciji sa serverom');
+                    }
+
+                    // Add AI response
+                    this.addMessage('ai', data.response);
+
+                    // Update conversation history
+                    this.conversationHistory.push(
+                        { role: 'user', content: message },
+                        { role: 'assistant', content: data.response }
+                    );
+
+                    // Keep only last 10 messages
+                    if (this.conversationHistory.length > 20) {
+                        this.conversationHistory = this.conversationHistory.slice(-20);
+                    }
+
+                } catch (error) {
+                    console.error('Chat error:', error);
+                    this.showError(error.message || 'Došlo je do greške. Pokušajte ponovo.');
+                    
+                    // Add error message to chat
+                    this.addMessage('ai', 'Izvinite, došlo je do greške. Molim vas pokušajte ponovo za nekoliko trenutaka.');
+                } finally {
+                    this.setLoading(false);
+                }
+            }
+
+            addMessage(type, content) {
+                const messageDiv = document.createElement('div');
+                messageDiv.className = `message ${type}`;
+                
+                const avatar = document.createElement('div');
+                avatar.className = 'message-avatar';
+                avatar.textContent = type === 'user' ? '👤' : '🤖';
+                
+                const contentDiv = document.createElement('div');
+                contentDiv.className = 'message-content';
+                
+                const text = document.createElement('span');
+                text.textContent = content;
+                
+                const time = document.createElement('span');
+                time.className = 'message-time';
+                time.textContent = this.formatTime(new Date());
+                
+                contentDiv.appendChild(text);
+                contentDiv.appendChild(time);
+                
+                messageDiv.appendChild(avatar);
+                messageDiv.appendChild(contentDiv);
+                
+                this.chatMessages.appendChild(messageDiv);
+                
+                // Scroll to bottom
+                this.scrollToBottom();
+            }
+
+            setLoading(isLoading) {
+                this.chatSubmit.disabled = isLoading;
+                this.chatInput.disabled = isLoading;
+                
+                if (isLoading) {
+                    this.typingIndicator.classList.add('active');
+                    this.chatSubmit.textContent = 'Šaljem...';
+                } else {
+                    this.typingIndicator.classList.remove('active');
+                    this.chatSubmit.textContent = 'Pošalji';
+                    this.chatInput.focus();
+                }
+                
+                this.scrollToBottom();
+            }
+
+            showError(message) {
+                this.errorMessage.textContent = message;
+                this.errorMessage.classList.add('active');
+            }
+
+            hideError() {
+                this.errorMessage.classList.remove('active');
+            }
+
+            scrollToBottom() {
+                setTimeout(() => {
+                    this.chatWindow.scrollTop = this.chatWindow.scrollHeight;
+                }, 100);
+            }
+
+            formatTime(date) {
+                return date.toLocaleTimeString('sr-RS', { 
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                });
+            }
+        }
+
+        // Initialize chatbot when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            new ChatbotController();
+        });
+    </script>
+</body>
+</html>
