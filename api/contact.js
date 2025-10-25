@@ -47,21 +47,33 @@ function validateContactInput(data) {
 
   // Validate name
   if (!name || typeof name !== "string" || !name.trim()) {
-    return { valid: false, error: "Name is required and must be a non-empty string" };
+    return {
+      valid: false,
+      error: "Name is required and must be a non-empty string",
+    };
   }
 
   // Validate email
   if (!email || typeof email !== "string" || !email.trim()) {
-    return { valid: false, error: "Email is required and must be a non-empty string" };
+    return {
+      valid: false,
+      error: "Email is required and must be a non-empty string",
+    };
   }
 
   if (!EMAIL_REGEX.test(email.trim())) {
-    return { valid: false, error: "Email must be a valid email address (e.g., user@example.com)" };
+    return {
+      valid: false,
+      error: "Email must be a valid email address (e.g., user@example.com)",
+    };
   }
 
   // Validate message
   if (!message || typeof message !== "string" || !message.trim()) {
-    return { valid: false, error: "Message is required and must be a non-empty string" };
+    return {
+      valid: false,
+      error: "Message is required and must be a non-empty string",
+    };
   }
 
   return { valid: true };
@@ -78,11 +90,11 @@ async function logContactRequest(name, email, message) {
     };
 
     const logLine = JSON.stringify(logEntry) + "\n";
-    
+
     // Use /tmp directory for Vercel serverless (writable)
     // In local development, this will write to project root
-    const logPath = process.env.VERCEL 
-      ? "/tmp/contact.log" 
+    const logPath = process.env.VERCEL
+      ? "/tmp/contact.log"
       : path.join(process.cwd(), "contact.log");
 
     await fs.appendFile(logPath, logLine, "utf-8");
@@ -154,7 +166,9 @@ Provide analysis in JSON format as specified.`;
     try {
       analysis = JSON.parse(aiResponse);
     } catch (parseError) {
-      throw new Error(`Failed to parse AI response as JSON: ${parseError.message}`);
+      throw new Error(
+        `Failed to parse AI response as JSON: ${parseError.message}`
+      );
     }
 
     // Validate analysis structure
@@ -186,9 +200,9 @@ Provide analysis in JSON format as specified.`;
 export default async function handler(req, res) {
   // Only allow POST requests
   if (req.method !== "POST") {
-    return res.status(405).json({ 
-      ok: false, 
-      error: "Method not allowed. Use POST." 
+    return res.status(405).json({
+      ok: false,
+      error: "Method not allowed. Use POST.",
     });
   }
 
@@ -197,8 +211,8 @@ export default async function handler(req, res) {
 
     // PATCH 2: Log every request (before validation)
     await logContactRequest(
-      name || "(empty)", 
-      email || "(empty)", 
+      name || "(empty)",
+      email || "(empty)",
       message || "(empty)"
     );
 
@@ -220,7 +234,6 @@ export default async function handler(req, res) {
 
     // Success response
     return res.status(200).json(result);
-
   } catch (error) {
     // PATCH 3: Comprehensive error handling
     console.error("Contact API Error:", error);
@@ -244,7 +257,9 @@ export default async function handler(req, res) {
     // Generic error response
     return res.status(500).json({
       ok: false,
-      error: error.message || "An unexpected error occurred while processing your request.",
+      error:
+        error.message ||
+        "An unexpected error occurred while processing your request.",
     });
   }
 }

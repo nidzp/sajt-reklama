@@ -1,397 +1,408 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Contact Form - NIDZP Studio</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/assets/css/styles.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
     <style>
+      .contact-form-container {
+        max-width: 600px;
+        margin: 120px auto 60px;
+        padding: 0 20px;
+      }
+
+      .form-header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+
+      .form-header h1 {
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        margin-bottom: 16px;
+        background: linear-gradient(
+          135deg,
+          var(--color-accent-gold) 0%,
+          #fff 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .contact-form {
+        background: rgba(20, 20, 20, 0.5);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        border-radius: 20px;
+        padding: 40px;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .form-group {
+        margin-bottom: 24px;
+      }
+
+      .form-group label {
+        display: block;
+        margin-bottom: 8px;
+        font-weight: 500;
+        color: var(--color-text-primary);
+      }
+
+      .form-group input,
+      .form-group textarea {
+        width: 100%;
+        background: rgba(30, 30, 30, 0.8);
+        border: 1px solid rgba(212, 175, 55, 0.3);
+        border-radius: 12px;
+        padding: 14px 18px;
+        color: var(--color-text-primary);
+        font-size: 1rem;
+        font-family: "Inter", sans-serif;
+        transition: all 0.3s ease;
+      }
+
+      .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+      }
+
+      .form-group input:focus,
+      .form-group textarea:focus {
+        outline: none;
+        border-color: var(--color-accent-gold);
+        box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
+      }
+
+      .form-error {
+        color: #f87171;
+        font-size: 0.875rem;
+        margin-top: 8px;
+        display: none;
+      }
+
+      .form-error.active {
+        display: block;
+      }
+
+      .submit-btn {
+        width: 100%;
+        background: linear-gradient(135deg, var(--color-accent-gold), #c9a961);
+        border: none;
+        border-radius: 12px;
+        padding: 16px 32px;
+        color: var(--color-black);
+        font-weight: 600;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: all 0.3s ease;
+      }
+
+      .submit-btn:hover:not(:disabled) {
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
+      }
+
+      .submit-btn:disabled {
+        opacity: 0.5;
+        cursor: not-allowed;
+      }
+
+      .response-box {
+        margin-top: 20px;
+        padding: 20px;
+        border-radius: 12px;
+        display: none;
+      }
+
+      .response-box.success {
+        background: rgba(34, 197, 94, 0.1);
+        border: 1px solid rgba(34, 197, 94, 0.3);
+        color: #86efac;
+        display: block;
+      }
+
+      .response-box.error {
+        background: rgba(239, 68, 68, 0.1);
+        border: 1px solid rgba(239, 68, 68, 0.3);
+        color: #f87171;
+        display: block;
+      }
+
+      .analysis-result {
+        margin-top: 15px;
+        padding: 15px;
+        background: rgba(40, 40, 40, 0.5);
+        border-radius: 8px;
+      }
+
+      .analysis-result h3 {
+        font-size: 1.1rem;
+        margin-bottom: 12px;
+        color: var(--color-accent-gold);
+      }
+
+      .analysis-result p {
+        margin: 8px 0;
+        line-height: 1.6;
+      }
+
+      .analysis-result strong {
+        color: var(--color-accent-gold);
+      }
+
+      @media (max-width: 768px) {
         .contact-form-container {
-            max-width: 600px;
-            margin: 120px auto 60px;
-            padding: 0 20px;
-        }
-
-        .form-header {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .form-header h1 {
-            font-size: clamp(2rem, 5vw, 3rem);
-            font-weight: 700;
-            margin-bottom: 16px;
-            background: linear-gradient(135deg, var(--color-accent-gold) 0%, #fff 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
+          margin-top: 100px;
+          padding: 0 16px;
         }
 
         .contact-form {
-            background: rgba(20, 20, 20, 0.5);
-            border: 1px solid rgba(212, 175, 55, 0.2);
-            border-radius: 20px;
-            padding: 40px;
-            backdrop-filter: blur(10px);
-            -webkit-backdrop-filter: blur(10px);
+          padding: 30px 20px;
         }
-
-        .form-group {
-            margin-bottom: 24px;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 8px;
-            font-weight: 500;
-            color: var(--color-text-primary);
-        }
-
-        .form-group input,
-        .form-group textarea {
-            width: 100%;
-            background: rgba(30, 30, 30, 0.8);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 12px;
-            padding: 14px 18px;
-            color: var(--color-text-primary);
-            font-size: 1rem;
-            font-family: 'Inter', sans-serif;
-            transition: all 0.3s ease;
-        }
-
-        .form-group textarea {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        .form-group input:focus,
-        .form-group textarea:focus {
-            outline: none;
-            border-color: var(--color-accent-gold);
-            box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.1);
-        }
-
-        .form-error {
-            color: #f87171;
-            font-size: 0.875rem;
-            margin-top: 8px;
-            display: none;
-        }
-
-        .form-error.active {
-            display: block;
-        }
-
-        .submit-btn {
-            width: 100%;
-            background: linear-gradient(135deg, var(--color-accent-gold), #c9a961);
-            border: none;
-            border-radius: 12px;
-            padding: 16px 32px;
-            color: var(--color-black);
-            font-weight: 600;
-            font-size: 1rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .submit-btn:hover:not(:disabled) {
-            transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(212, 175, 55, 0.3);
-        }
-
-        .submit-btn:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
-        }
-
-        .response-box {
-            margin-top: 20px;
-            padding: 20px;
-            border-radius: 12px;
-            display: none;
-        }
-
-        .response-box.success {
-            background: rgba(34, 197, 94, 0.1);
-            border: 1px solid rgba(34, 197, 94, 0.3);
-            color: #86efac;
-            display: block;
-        }
-
-        .response-box.error {
-            background: rgba(239, 68, 68, 0.1);
-            border: 1px solid rgba(239, 68, 68, 0.3);
-            color: #f87171;
-            display: block;
-        }
-
-        .analysis-result {
-            margin-top: 15px;
-            padding: 15px;
-            background: rgba(40, 40, 40, 0.5);
-            border-radius: 8px;
-        }
-
-        .analysis-result h3 {
-            font-size: 1.1rem;
-            margin-bottom: 12px;
-            color: var(--color-accent-gold);
-        }
-
-        .analysis-result p {
-            margin: 8px 0;
-            line-height: 1.6;
-        }
-
-        .analysis-result strong {
-            color: var(--color-accent-gold);
-        }
-
-        @media (max-width: 768px) {
-            .contact-form-container {
-                margin-top: 100px;
-                padding: 0 16px;
-            }
-
-            .contact-form {
-                padding: 30px 20px;
-            }
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
     <!-- Navigation -->
     <nav class="nav">
-        <div class="nav__container">
-            <a href="/" class="nav__logo">NIDZP</a>
-            <ul class="nav__links">
-                <li><a href="/">Početna</a></li>
-                <li><a href="/portfolio.html">Portfolio</a></li>
-                <li><a href="/chatbot.html">AI Chat</a></li>
-                <li><a href="/contact.html">Kontakt</a></li>
-            </ul>
-        </div>
+      <div class="nav__container">
+        <a href="/" class="nav__logo">NIDZP</a>
+        <ul class="nav__links">
+          <li><a href="/">Početna</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/chatbot.html">AI Chat</a></li>
+          <li><a href="/contact.html">Kontakt</a></li>
+        </ul>
+      </div>
     </nav>
 
     <!-- Contact Form Container -->
     <div class="contact-form-container">
-        <div class="form-header reveal">
-            <h1>AI-Powered Contact Analysis</h1>
-            <p style="color: var(--color-text-secondary);">
-                Our AI assistant will analyze your message and provide intelligent routing
-            </p>
+      <div class="form-header reveal">
+        <h1>AI-Powered Contact Analysis</h1>
+        <p style="color: var(--color-text-secondary)">
+          Our AI assistant will analyze your message and provide intelligent
+          routing
+        </p>
+      </div>
+
+      <form class="contact-form reveal" id="contactForm">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input
+            type="text"
+            id="name"
+            name="name"
+            placeholder="John Doe"
+            required
+          />
+          <div class="form-error" id="nameError"></div>
         </div>
 
-        <form class="contact-form reveal" id="contactForm">
-            <div class="form-group">
-                <label for="name">Your Name *</label>
-                <input 
-                    type="text" 
-                    id="name" 
-                    name="name" 
-                    placeholder="John Doe"
-                    required
-                >
-                <div class="form-error" id="nameError"></div>
-            </div>
+        <div class="form-group">
+          <label for="email">Email Address *</label>
+          <input
+            type="email"
+            id="email"
+            name="email"
+            placeholder="john@example.com"
+            required
+          />
+          <div class="form-error" id="emailError"></div>
+        </div>
 
-            <div class="form-group">
-                <label for="email">Email Address *</label>
-                <input 
-                    type="email" 
-                    id="email" 
-                    name="email" 
-                    placeholder="john@example.com"
-                    required
-                >
-                <div class="form-error" id="emailError"></div>
-            </div>
+        <div class="form-group">
+          <label for="message">Your Message *</label>
+          <textarea
+            id="message"
+            name="message"
+            placeholder="I'm interested in collaborating on a web development project..."
+            required
+          ></textarea>
+          <div class="form-error" id="messageError"></div>
+        </div>
 
-            <div class="form-group">
-                <label for="message">Your Message *</label>
-                <textarea 
-                    id="message" 
-                    name="message" 
-                    placeholder="I'm interested in collaborating on a web development project..."
-                    required
-                ></textarea>
-                <div class="form-error" id="messageError"></div>
-            </div>
+        <button type="submit" class="submit-btn" id="submitBtn">
+          Send Message
+        </button>
+      </form>
 
-            <button type="submit" class="submit-btn" id="submitBtn">
-                Send Message
-            </button>
-        </form>
-
-        <div class="response-box" id="responseBox"></div>
+      <div class="response-box" id="responseBox"></div>
     </div>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__content">
-                <div class="footer__brand">
-                    <h3>NIDZP Studio</h3>
-                    <p>Premium Digital Creative Studio</p>
-                </div>
-                <div class="footer__links">
-                    <a href="/">Početna</a>
-                    <a href="/portfolio.html">Portfolio</a>
-                    <a href="/chatbot.html">AI Chat</a>
-                    <a href="/contact.html">Kontakt</a>
-                </div>
-            </div>
-            <div class="footer__bottom">
-                <p>&copy; 2024 NIDZP Studio. Sva prava zadržana.</p>
-            </div>
+      <div class="footer__container">
+        <div class="footer__content">
+          <div class="footer__brand">
+            <h3>NIDZP Studio</h3>
+            <p>Premium Digital Creative Studio</p>
+          </div>
+          <div class="footer__links">
+            <a href="/">Početna</a>
+            <a href="/portfolio.html">Portfolio</a>
+            <a href="/chatbot.html">AI Chat</a>
+            <a href="/contact.html">Kontakt</a>
+          </div>
         </div>
+        <div class="footer__bottom">
+          <p>&copy; 2024 NIDZP Studio. Sva prava zadržana.</p>
+        </div>
+      </div>
     </footer>
 
     <script src="/assets/js/main.js"></script>
     <script>
-        // Contact Form Handler
-        class ContactFormController {
-            constructor() {
-                this.form = document.getElementById('contactForm');
-                this.submitBtn = document.getElementById('submitBtn');
-                this.responseBox = document.getElementById('responseBox');
-                
-                this.nameInput = document.getElementById('name');
-                this.emailInput = document.getElementById('email');
-                this.messageInput = document.getElementById('message');
-                
-                this.nameError = document.getElementById('nameError');
-                this.emailError = document.getElementById('emailError');
-                this.messageError = document.getElementById('messageError');
-                
-                this.init();
+      // Contact Form Handler
+      class ContactFormController {
+        constructor() {
+          this.form = document.getElementById("contactForm");
+          this.submitBtn = document.getElementById("submitBtn");
+          this.responseBox = document.getElementById("responseBox");
+
+          this.nameInput = document.getElementById("name");
+          this.emailInput = document.getElementById("email");
+          this.messageInput = document.getElementById("message");
+
+          this.nameError = document.getElementById("nameError");
+          this.emailError = document.getElementById("emailError");
+          this.messageError = document.getElementById("messageError");
+
+          this.init();
+        }
+
+        init() {
+          this.form.addEventListener("submit", (e) => {
+            e.preventDefault();
+            this.handleSubmit();
+          });
+
+          // Clear errors on input
+          [this.nameInput, this.emailInput, this.messageInput].forEach(
+            (input) => {
+              input.addEventListener("input", () => {
+                this.clearError(input);
+              });
+            }
+          );
+        }
+
+        clearError(input) {
+          const errorId = input.id + "Error";
+          const errorEl = document.getElementById(errorId);
+          if (errorEl) {
+            errorEl.classList.remove("active");
+            errorEl.textContent = "";
+          }
+        }
+
+        clearAllErrors() {
+          [this.nameError, this.emailError, this.messageError].forEach((el) => {
+            el.classList.remove("active");
+            el.textContent = "";
+          });
+        }
+
+        showError(field, message) {
+          const errorEl = document.getElementById(field + "Error");
+          if (errorEl) {
+            errorEl.textContent = message;
+            errorEl.classList.add("active");
+          }
+        }
+
+        validateForm() {
+          this.clearAllErrors();
+          let isValid = true;
+
+          // Validate name
+          if (!this.nameInput.value.trim()) {
+            this.showError("name", "Name is required");
+            isValid = false;
+          }
+
+          // Validate email
+          const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+          if (!this.emailInput.value.trim()) {
+            this.showError("email", "Email is required");
+            isValid = false;
+          } else if (!emailRegex.test(this.emailInput.value.trim())) {
+            this.showError("email", "Please enter a valid email address");
+            isValid = false;
+          }
+
+          // Validate message
+          if (!this.messageInput.value.trim()) {
+            this.showError("message", "Message is required");
+            isValid = false;
+          }
+
+          return isValid;
+        }
+
+        async handleSubmit() {
+          if (!this.validateForm()) {
+            return;
+          }
+
+          this.setLoading(true);
+          this.hideResponse();
+
+          const formData = {
+            name: this.nameInput.value.trim(),
+            email: this.emailInput.value.trim(),
+            message: this.messageInput.value.trim(),
+          };
+
+          try {
+            const response = await fetch("/api/contact", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify(formData),
+            });
+
+            const data = await response.json();
+
+            if (!response.ok || !data.ok) {
+              throw new Error(data.error || "Failed to send message");
             }
 
-            init() {
-                this.form.addEventListener('submit', (e) => {
-                    e.preventDefault();
-                    this.handleSubmit();
-                });
+            this.showSuccess(data.analysis);
+            this.form.reset();
+          } catch (error) {
+            console.error("Contact form error:", error);
+            this.showErrorResponse(error.message);
+          } finally {
+            this.setLoading(false);
+          }
+        }
 
-                // Clear errors on input
-                [this.nameInput, this.emailInput, this.messageInput].forEach(input => {
-                    input.addEventListener('input', () => {
-                        this.clearError(input);
-                    });
-                });
-            }
+        setLoading(isLoading) {
+          this.submitBtn.disabled = isLoading;
+          this.submitBtn.textContent = isLoading
+            ? "Analyzing..."
+            : "Send Message";
+        }
 
-            clearError(input) {
-                const errorId = input.id + 'Error';
-                const errorEl = document.getElementById(errorId);
-                if (errorEl) {
-                    errorEl.classList.remove('active');
-                    errorEl.textContent = '';
-                }
-            }
+        hideResponse() {
+          this.responseBox.className = "response-box";
+          this.responseBox.innerHTML = "";
+        }
 
-            clearAllErrors() {
-                [this.nameError, this.emailError, this.messageError].forEach(el => {
-                    el.classList.remove('active');
-                    el.textContent = '';
-                });
-            }
-
-            showError(field, message) {
-                const errorEl = document.getElementById(field + 'Error');
-                if (errorEl) {
-                    errorEl.textContent = message;
-                    errorEl.classList.add('active');
-                }
-            }
-
-            validateForm() {
-                this.clearAllErrors();
-                let isValid = true;
-
-                // Validate name
-                if (!this.nameInput.value.trim()) {
-                    this.showError('name', 'Name is required');
-                    isValid = false;
-                }
-
-                // Validate email
-                const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-                if (!this.emailInput.value.trim()) {
-                    this.showError('email', 'Email is required');
-                    isValid = false;
-                } else if (!emailRegex.test(this.emailInput.value.trim())) {
-                    this.showError('email', 'Please enter a valid email address');
-                    isValid = false;
-                }
-
-                // Validate message
-                if (!this.messageInput.value.trim()) {
-                    this.showError('message', 'Message is required');
-                    isValid = false;
-                }
-
-                return isValid;
-            }
-
-            async handleSubmit() {
-                if (!this.validateForm()) {
-                    return;
-                }
-
-                this.setLoading(true);
-                this.hideResponse();
-
-                const formData = {
-                    name: this.nameInput.value.trim(),
-                    email: this.emailInput.value.trim(),
-                    message: this.messageInput.value.trim(),
-                };
-
-                try {
-                    const response = await fetch('/api/contact', {
-                        method: 'POST',
-                        headers: {
-                            'Content-Type': 'application/json',
-                        },
-                        body: JSON.stringify(formData),
-                    });
-
-                    const data = await response.json();
-
-                    if (!response.ok || !data.ok) {
-                        throw new Error(data.error || 'Failed to send message');
-                    }
-
-                    this.showSuccess(data.analysis);
-                    this.form.reset();
-
-                } catch (error) {
-                    console.error('Contact form error:', error);
-                    this.showErrorResponse(error.message);
-                } finally {
-                    this.setLoading(false);
-                }
-            }
-
-            setLoading(isLoading) {
-                this.submitBtn.disabled = isLoading;
-                this.submitBtn.textContent = isLoading ? 'Analyzing...' : 'Send Message';
-            }
-
-            hideResponse() {
-                this.responseBox.className = 'response-box';
-                this.responseBox.innerHTML = '';
-            }
-
-            showSuccess(analysis) {
-                this.responseBox.className = 'response-box success';
-                this.responseBox.innerHTML = `
+        showSuccess(analysis) {
+          this.responseBox.className = "response-box success";
+          this.responseBox.innerHTML = `
                     <h3>✅ Message Sent Successfully!</h3>
                     <p>Our AI has analyzed your message. We'll get back to you shortly.</p>
                     
@@ -404,22 +415,22 @@
                         <p style="white-space: pre-line; margin-top: 8px; padding-left: 12px; border-left: 2px solid var(--color-accent-gold);">${analysis.suggested_reply}</p>
                     </div>
                 `;
-            }
+        }
 
-            showErrorResponse(message) {
-                this.responseBox.className = 'response-box error';
-                this.responseBox.innerHTML = `
+        showErrorResponse(message) {
+          this.responseBox.className = "response-box error";
+          this.responseBox.innerHTML = `
                     <h3>❌ Error</h3>
                     <p>${message}</p>
                     <p style="margin-top: 10px; font-size: 0.9rem;">Please try again or contact us directly at info@nidzp.com</p>
                 `;
-            }
         }
+      }
 
-        // Initialize form controller when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            new ContactFormController();
-        });
+      // Initialize form controller when DOM is ready
+      document.addEventListener("DOMContentLoaded", () => {
+        new ContactFormController();
+      });
     </script>
-</body>
+  </body>
 </html>

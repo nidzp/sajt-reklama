@@ -13,6 +13,7 @@ This document describes the complete implementation of the Contact API for NIDZP
 **Location**: `/api/contact.js` (lines 39-62)
 
 **Implementation**:
+
 - ✅ Validates `name`, `email`, and `message` fields
 - ✅ Requires non-empty strings after trimming whitespace
 - ✅ Email validation using regex: `/^[^\s@]+@[^\s@]+\.[^\s@]+$/`
@@ -20,6 +21,7 @@ This document describes the complete implementation of the Contact API for NIDZP
 - ✅ No new dependencies introduced
 
 **Example Responses**:
+
 ```json
 // Missing name
 {
@@ -41,6 +43,7 @@ This document describes the complete implementation of the Contact API for NIDZP
 **Location**: `/api/contact.js` (lines 64-87)
 
 **Implementation**:
+
 - ✅ Logs every incoming request to `contact.log`
 - ✅ Each log line is a JSON object with ISO timestamp, name, email, message
 - ✅ Uses built-in `fs/promises` module with `fs.appendFile`
@@ -48,8 +51,14 @@ This document describes the complete implementation of the Contact API for NIDZP
 - ✅ Works on Vercel serverless (`/tmp/contact.log`) and local development
 
 **Log Format**:
+
 ```json
-{"timestamp":"2025-10-25T04:45:12.345Z","name":"John Doe","email":"john@example.com","message":"I'm interested in hiring you..."}
+{
+  "timestamp": "2025-10-25T04:45:12.345Z",
+  "name": "John Doe",
+  "email": "john@example.com",
+  "message": "I'm interested in hiring you..."
+}
 ```
 
 **Vercel Note**: On Vercel, logs are written to `/tmp/` directory (ephemeral, cleared between invocations). For persistent logging, integrate with external service (Logtail, DataDog, etc.).
@@ -61,6 +70,7 @@ This document describes the complete implementation of the Contact API for NIDZP
 **Location**: `/api/contact.js` (lines 89-177)
 
 **Implementation**:
+
 - ✅ Refactored to `async/await` syntax (function `analyzeContactMessage`)
 - ✅ Sequential flow: validate → call Groq API → parse JSON → return analysis
 - ✅ Comprehensive error handling:
@@ -73,6 +83,7 @@ This document describes the complete implementation of the Contact API for NIDZP
 - ✅ Returns `{ ok: false, error: error.message }` with HTTP 500 on failure
 
 **Error Response Examples**:
+
 ```json
 // Rate limit hit
 {
@@ -100,12 +111,14 @@ This document describes the complete implementation of the Contact API for NIDZP
 **Location**: `/api/health.js`
 
 **Implementation**:
+
 - ✅ GET route at `/api/health`
 - ✅ Returns HTTP 200 with `{ ok: true, timestamp: <ISO> }`
 - ✅ No external calls
 - ✅ Simple and fast (<10ms response time)
 
 **Response**:
+
 ```json
 {
   "ok": true,
@@ -125,6 +138,7 @@ This document describes the complete implementation of the Contact API for NIDZP
 **Location**: `/api/contact.js` (lines 6-36)
 
 **Implementation**:
+
 - ✅ Semaphore pattern with counter and FIFO queue
 - ✅ Limits concurrent Groq API calls to **3 maximum**
 - ✅ Excess requests wait in queue until slot available
@@ -134,22 +148,28 @@ This document describes the complete implementation of the Contact API for NIDZP
 - ✅ Graceful handling on high load
 
 **How It Works**:
+
 1. Request arrives → tries to acquire semaphore slot
 2. If < 3 requests running → proceeds immediately
 3. If = 3 requests running → waits in queue
 4. When request completes → releases slot → next in queue proceeds
 
 **Class Implementation**:
+
 ```javascript
 class Semaphore {
   constructor(max) {
-    this.max = max;        // 3 for Groq
-    this.current = 0;      // Current running count
-    this.queue = [];       // Pending requests (FIFO)
+    this.max = max; // 3 for Groq
+    this.current = 0; // Current running count
+    this.queue = []; // Pending requests (FIFO)
   }
 
-  async acquire() { /* ... */ }
-  release() { /* ... */ }
+  async acquire() {
+    /* ... */
+  }
+  release() {
+    /* ... */
+  }
 }
 ```
 
@@ -273,8 +293,13 @@ ab -n 20 -c 10 -p request.json -T application/json \
 ```
 
 **Create `request.json`**:
+
 ```json
-{"name":"Test User","email":"test@example.com","message":"This is a test message for load testing."}
+{
+  "name": "Test User",
+  "email": "test@example.com",
+  "message": "This is a test message for load testing."
+}
 ```
 
 ---
@@ -283,12 +308,12 @@ ab -n 20 -c 10 -p request.json -T application/json \
 
 ### Expected Response Times
 
-| Scenario | Response Time |
-|----------|---------------|
-| Valid request (no queue) | 2-4 seconds |
-| Valid request (queued) | 4-10 seconds |
-| Invalid input | <100ms |
-| Health check | <10ms |
+| Scenario                 | Response Time |
+| ------------------------ | ------------- |
+| Valid request (no queue) | 2-4 seconds   |
+| Valid request (queued)   | 4-10 seconds  |
+| Invalid input            | <100ms        |
+| Health check             | <10ms         |
 
 ### Groq API Limits
 
@@ -331,6 +356,7 @@ vercel --prod
 **Description**: Analyze contact form submission using AI
 
 **Request Body**:
+
 ```json
 {
   "name": "John Doe",
@@ -340,6 +366,7 @@ vercel --prod
 ```
 
 **Success Response** (200):
+
 ```json
 {
   "ok": true,
@@ -357,6 +384,7 @@ vercel --prod
 ```
 
 **Error Response** (400):
+
 ```json
 {
   "ok": false,
@@ -365,6 +393,7 @@ vercel --prod
 ```
 
 **Error Response** (500):
+
 ```json
 {
   "ok": false,
@@ -379,6 +408,7 @@ vercel --prod
 **Description**: Health check endpoint for uptime monitoring
 
 **Response** (200):
+
 ```json
 {
   "ok": true,
@@ -428,6 +458,7 @@ sajt-reklama/
 **Problem**: `contact.log` file not created
 
 **Solution**:
+
 ```bash
 # Check current directory
 pwd
@@ -444,11 +475,13 @@ chmod 644 contact.log
 **Problem**: Getting "Too many requests" errors
 
 **Possible Causes**:
+
 1. Semaphore not working (check implementation)
 2. Groq API free tier limit exceeded (30 req/min)
 3. Multiple deployments hitting same API key
 
 **Solution**:
+
 - Verify semaphore is limiting to 3 concurrent calls
 - Check Groq dashboard for usage stats
 - Wait 1 minute and retry
@@ -460,11 +493,13 @@ chmod 644 contact.log
 **Problem**: Requests taking >10 seconds
 
 **Possible Causes**:
+
 1. Queuing due to high load (expected with semaphore)
 2. Groq API slow response
 3. Network latency
 
 **Solution**:
+
 - Check load test results to see queue behavior
 - Monitor Groq API status
 - Consider upgrading to Groq Pro for faster responses
@@ -476,7 +511,7 @@ chmod 644 contact.log
 - [Groq API Documentation](https://console.groq.com/docs)
 - [Vercel Serverless Functions](https://vercel.com/docs/functions)
 - [OpenAI SDK (Groq-compatible)](https://github.com/openai/openai-node)
-- [Semaphore Pattern](https://en.wikipedia.org/wiki/Semaphore_(programming))
+- [Semaphore Pattern](<https://en.wikipedia.org/wiki/Semaphore_(programming)>)
 
 ---
 
