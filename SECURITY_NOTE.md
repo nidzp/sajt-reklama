@@ -30,11 +30,13 @@ A Groq API key was accidentally committed to the repository in `SETUP_GUIDE.md`.
 GitHub is blocking the push because the secret still exists in commit history. Options:
 
 **Option A**: Allow the secret (temporary, until key is rotated)
+
 - Visit: https://github.com/nidzp/sajt-reklama/security/secret-scanning/unblock-secret/34XVnSAs7u9S6ajLJpbeFYF3yfO
 - Click "Allow secret"
 - **Then immediately rotate the API key!**
 
 **Option B**: Rewrite commit history (removes secret permanently)
+
 ```bash
 # Interactive rebase to remove secret from all commits
 git rebase -i HEAD~10
@@ -49,6 +51,7 @@ git push --force origin main
 ```
 
 **Option C**: Use BFG Repo-Cleaner (automated history rewrite)
+
 ```bash
 # Install BFG
 # https://rtyley.github.io/bfg-repo-cleaner/
@@ -67,11 +70,13 @@ git push --force origin main
 ### Prevention:
 
 ✅ **Already implemented**:
+
 - `.env.example` with placeholder values
 - `.gitignore` includes `.env`
 - Documentation uses placeholders
 
 🔒 **Recommended**:
+
 - Enable GitHub Secret Scanning: https://github.com/nidzp/sajt-reklama/settings/security_analysis
 - Use environment variables for all secrets
 - Never commit `.env` files
