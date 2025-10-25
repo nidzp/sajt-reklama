@@ -1,118 +1,190 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact NIDZP Studio - Let's Build Something Amazing">
-  <title>Contact • NIDZP Studio</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="/assets/css/styles.css">
-</head>
-<body>
-  <nav>
-    <div class="container">
-      <div class="nav-logo">NIDZP</div>
-      <ul class="nav-links">
-        <li><a href="/">Home</a></li>
-        <li><a href="/portfolio.html">Portfolio</a></li>
-        <li><a href="/contact.html">Contact</a></li>
-      </ul>
-    </div>
-  </nav>
-
-  <section class="hero-section" style="min-height: 60vh;">
-    <img class="hero-bg" src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80" alt="Contact Background" loading="lazy">
-    <div class="hero-overlay"></div>
-    <div class="hero-content reveal">
-      <h1>Let's <span style="color: var(--color-accent-gold); font-weight: 700;">Create Together</span></h1>
-      <p>Have a project in mind? Let's discuss how we can bring your vision to life.</p>
-    </div>
-  </section>
-
-  <section id="contact" class="section">
-    <div class="container">
-      <h2 class="section-title reveal">Get in Touch</h2>
-      <p class="section-subtitle reveal">Fill out the form below and we'll respond within 24 hours</p>
-
-      <div style="max-width: 600px; margin: 0 auto;" class="reveal">
-        <form>
-          <div class="form-group">
-            <label class="form-label" for="name">Full Name</label>
-            <input class="form-input" type="text" id="name" name="name" placeholder="John Doe" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="email">Email Address</label>
-            <input class="form-input" type="email" id="email" name="email" placeholder="john@example.com" required>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="project">Project Type</label>
-            <select class="form-input" id="project" name="project" required>
-              <option value="">Select a project type...</option>
-              <option value="web-design">Web Design & Development</option>
-              <option value="animation">Animation & Motion</option>
-              <option value="branding">Brand Strategy & Identity</option>
-              <option value="optimization">Performance Optimization</option>
-              <option value="other">Other</option>
-            </select>
-          </div>
-
-          <div class="form-group">
-            <label class="form-label" for="message">Project Details</label>
-            <textarea class="form-textarea" id="message" name="message" placeholder="Tell us about your project, goals, and requirements..." required></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary" style="width: 100%;">Send Message</button>
-        </form>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Contact NIDZP Studio - Let's Build Something Amazing"
+    />
+    <title>Contact • NIDZP Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/assets/css/styles.css" />
+  </head>
+  <body>
+    <nav>
+      <div class="container">
+        <div class="nav-logo">NIDZP</div>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/portfolio.html">Portfolio</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
       </div>
-    </div>
-  </section>
+    </nav>
 
-  <section class="section" style="background: var(--color-dark-secondary);">
-    <div class="container">
-      <h2 class="section-title reveal">Other Ways to Reach Us</h2>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: var(--spacing-2xl); text-align: center;" class="reveal-group">
-        <div class="reveal">
-          <h3 style="color: var(--color-accent-gold); margin-bottom: var(--spacing-sm);">Email</h3>
-          <p>hello@nidzp.dev</p>
-        </div>
-        <div class="reveal">
-          <h3 style="color: var(--color-accent-gold); margin-bottom: var(--spacing-sm);">Phone</h3>
-          <p>+1 (555) 123-4567</p>
-        </div>
-        <div class="reveal">
-          <h3 style="color: var(--color-accent-gold); margin-bottom: var(--spacing-sm);">Location</h3>
-          <p>Belgrade, Serbia</p>
+    <section class="hero-section" style="min-height: 60vh">
+      <img
+        class="hero-bg"
+        src="https://images.unsplash.com/photo-1557804506-669a67965ba0?w=1920&q=80"
+        alt="Contact Background"
+        loading="lazy"
+      />
+      <div class="hero-overlay"></div>
+      <div class="hero-content reveal">
+        <h1>
+          Let's
+          <span style="color: var(--color-accent-gold); font-weight: 700"
+            >Create Together</span
+          >
+        </h1>
+        <p>
+          Have a project in mind? Let's discuss how we can bring your vision to
+          life.
+        </p>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container">
+        <h2 class="section-title reveal">Get in Touch</h2>
+        <p class="section-subtitle reveal">
+          Fill out the form below and we'll respond within 24 hours
+        </p>
+
+        <div style="max-width: 600px; margin: 0 auto" class="reveal">
+          <form>
+            <div class="form-group">
+              <label class="form-label" for="name">Full Name</label>
+              <input
+                class="form-input"
+                type="text"
+                id="name"
+                name="name"
+                placeholder="John Doe"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="email">Email Address</label>
+              <input
+                class="form-input"
+                type="email"
+                id="email"
+                name="email"
+                placeholder="john@example.com"
+                required
+              />
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="project">Project Type</label>
+              <select class="form-input" id="project" name="project" required>
+                <option value="">Select a project type...</option>
+                <option value="web-design">Web Design & Development</option>
+                <option value="animation">Animation & Motion</option>
+                <option value="branding">Brand Strategy & Identity</option>
+                <option value="optimization">Performance Optimization</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label class="form-label" for="message">Project Details</label>
+              <textarea
+                class="form-textarea"
+                id="message"
+                name="message"
+                placeholder="Tell us about your project, goals, and requirements..."
+                required
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary" style="width: 100%">
+              Send Message
+            </button>
+          </form>
         </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <footer>
-    <div class="container">
-      <div class="footer-content">
-        <div class="footer-column">
-          <h3>NIDZP Studio</h3>
-          <p>Premium digital experiences that drive results.</p>
-        </div>
-        <div class="footer-column">
-          <h3>Services</h3>
-          <p>UI/UX Design • Frontend Development • Animation</p>
-        </div>
-        <div class="footer-column">
-          <h3>Connect</h3>
-          <p>Email: hello@nidzp.dev<br>Twitter: @nidzp</p>
+    <section class="section" style="background: var(--color-dark-secondary)">
+      <div class="container">
+        <h2 class="section-title reveal">Other Ways to Reach Us</h2>
+        <div
+          style="
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: var(--spacing-2xl);
+            text-align: center;
+          "
+          class="reveal-group"
+        >
+          <div class="reveal">
+            <h3
+              style="
+                color: var(--color-accent-gold);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              Email
+            </h3>
+            <p>hello@nidzp.dev</p>
+          </div>
+          <div class="reveal">
+            <h3
+              style="
+                color: var(--color-accent-gold);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              Phone
+            </h3>
+            <p>+1 (555) 123-4567</p>
+          </div>
+          <div class="reveal">
+            <h3
+              style="
+                color: var(--color-accent-gold);
+                margin-bottom: var(--spacing-sm);
+              "
+            >
+              Location
+            </h3>
+            <p>Belgrade, Serbia</p>
+          </div>
         </div>
       </div>
-      <div class="footer-bottom">
-        <p>&copy; 2025 NIDZP. All rights reserved.</p>
-      </div>
-    </div>
-  </footer>
+    </section>
 
-  <script src="/assets/js/main.js"></script>
-</body>
+    <footer>
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-column">
+            <h3>NIDZP Studio</h3>
+            <p>Premium digital experiences that drive results.</p>
+          </div>
+          <div class="footer-column">
+            <h3>Services</h3>
+            <p>UI/UX Design • Frontend Development • Animation</p>
+          </div>
+          <div class="footer-column">
+            <h3>Connect</h3>
+            <p>Email: hello@nidzp.dev<br />Twitter: @nidzp</p>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2025 NIDZP. All rights reserved.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="/assets/js/main.js"></script>
+  </body>
 </html>
