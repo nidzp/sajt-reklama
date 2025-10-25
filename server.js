@@ -54,6 +54,11 @@ app.use(
         return callback(null, true);
       }
 
+      // Allow InfinityFree domain
+      if (origin && origin.includes("infinityfreeapp.com")) {
+        return callback(null, true);
+      }
+
       // Check allowed origins
       if (allowedOrigins.includes(origin)) {
         callback(null, true);
