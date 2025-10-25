@@ -1,23 +1,39 @@
-# 🎯 Sajt Reklama Platform
+# NIDZP Design - Professional Portfolio & AI-Powered Contact System
 
-Moderna platforma za prikaz i upravljanje reklamama sa **AI chatbot** asistentom, admin panelom i GDPR cookie consent sistemom.
+🚀 **Modern web portfolio with AI chatbot integration and automated contact management**
 
-## 🚀 Live Demo
+## � Overview
 
-**🌐 Production:** [sajt-reklama.vercel.app](https://sajt-reklama.vercel.app)
+This repository contains two main projects:
 
-## ✨ Features
+1. **Express API** (Root) - Serverless backend with AI-powered contact form analysis
+2. **React Portfolio** (`/react-portfolio/`) - Modern CV portfolio with interactive chatbot
 
-- 📱 **Responsive dizajn** - Radi na svim uređajima
-- 🎨 **Moderan UI** - Gradient animacije i smooth transitions
-- 🛡️ **Sigurnost** - Helmet, CORS, Rate Limiting, Input validation
-- 🍪 **GDPR Compliant** - Cookie consent sa podešavanjima
-- 📊 **Analytics Ready** - Google Analytics integracija
-- 🚀 **Vercel Ready** - Konfigurisan za instant deployment
-- ⚡ **API** - RESTful API sa error handling-om
-- 🤖 **AI Chatbot** - Groq-powered korisnički servis sa fallback odgovorima
+---
 
-## 📂 Project Structure
+## 🎯 Features
+
+### Express API (Deployed on Vercel)
+
+- ✅ **AI Contact Analysis** - Groq LLaMA 3.1 integration for intelligent message processing
+- ✅ **Concurrency Control** - Semaphore limiting (max 3 concurrent API calls)
+- ✅ **Request Validation** - Email regex, input sanitization
+- ✅ **Request Logging** - File-based logging for all contact submissions
+- ✅ **Health Check Endpoint** - `/api/health` for monitoring
+- ✅ **Error Handling** - Comprehensive 429/401/500 error responses
+
+### React Portfolio (Vite + Tailwind CSS)
+
+- 🎨 **Modern UI** - Tailwind CSS with gradient design
+- � **Professional CV** - Experience timeline, skills grid, contact info
+- � **Interactive ChatBot** - Lead capture (name, email, project details)
+- 📧 **EmailJS Integration** - Sends leads to nikola.djokic@gmail.com
+- 📱 **Responsive Design** - Mobile-first approach
+- 🔤 **Inter Font** - Clean, modern typography
+
+---
+
+## 🏗️ Project Structure
 
 ```
 sajt-reklama/

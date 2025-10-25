@@ -168,6 +168,11 @@ app.get("/api/health", (req, res) => {
   });
 });
 
+// ElectroGroup redirect (Patch 6)
+app.get("/electrogroup", (req, res) => {
+  res.redirect(301, "https://nidzp-fjvjiii3t-nidzps-projects.vercel.app");
+});
+
 // Ads endpoints
 app.get("/api/ads", async (req, res) => {
   try {
