@@ -661,8 +661,8 @@ nav {
   width: 100%;
   height: auto;
   background: rgba(10, 10, 10, 0.8);
-  backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
   z-index: 100;
   border-bottom: 1px solid var(--color-border-subtle);
   padding: var(--spacing-md) var(--spacing-lg);
@@ -764,7 +764,7 @@ footer {
   .feature-section {
     grid-template-columns: 1fr;
     gap: var(--spacing-2xl);
-    min-height: auto;
+    min-height: unset;
     padding: var(--spacing-2xl);
   }
 
@@ -912,3 +912,33 @@ img[loading="lazy"] {
   white-space: nowrap;
   border-width: 0;
 }
+
+/* Expertise Card Styles */
+.expertise-card {
+  padding: var(--spacing-2xl);
+  background: var(--color-dark-secondary);
+  border: 1px solid var(--color-border-subtle);
+  border-radius: var(--radius-lg);
+  transition: all var(--duration-normal) var(--easing-ease-out);
+  cursor: pointer;
+}
+
+.expertise-card:hover {
+  background: var(--color-charcoal);
+  border-color: var(--color-accent-gold);
+  transform: translateY(-8px);
+  box-shadow: var(--shadow-lg);
+}
+
+.expertise-card h3 {
+  color: var(--color-accent-gold);
+  margin-bottom: var(--spacing-md);
+  font-size: var(--text-xl);
+}
+
+.expertise-card p {
+  color: var(--color-text-secondary);
+  font-size: var(--text-base);
+  line-height: var(--lh-relaxed);
+}
+
