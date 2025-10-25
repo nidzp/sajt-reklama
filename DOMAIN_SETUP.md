@@ -15,8 +15,8 @@
 
 1. **Go to Vercel Dashboard**:
    - Visit: https://vercel.com/nidzps-projects/sajt-reklama/settings/domains
-   
 2. **Add Custom Domain**:
+
    - Click "Add Domain"
    - Enter your domain (e.g., `nidzpdesing.com` or InfinityFree subdomain)
    - Click "Add"
@@ -40,15 +40,18 @@ vercel domains add if0-40249576.infinityfreeapp.com --project=sajt-reklama
 ## 🌐 Step 2: Configure DNS on InfinityFree
 
 1. **Login to InfinityFree**:
+
    - Go to: https://dash.infinityfree.com/accounts/if0_40249576
 
 2. **Access DNS Management**:
+
    - Click on your account `if0_40249576`
    - Go to "DNS Records" or "Domain Settings"
 
 3. **Add DNS Records from Vercel**:
 
    **For A Record** (if Vercel provides):
+
    ```
    Type: A
    Name: @ (or subdomain like www)
@@ -57,6 +60,7 @@ vercel domains add if0-40249576.infinityfreeapp.com --project=sajt-reklama
    ```
 
    **For CNAME Record** (recommended):
+
    ```
    Type: CNAME
    Name: www (or your subdomain)
@@ -80,6 +84,7 @@ Vercel automatically provisions SSL certificates via Let's Encrypt once DNS is c
 **Wait Time**: 24-48 hours for DNS propagation
 
 **Check SSL Status**:
+
 ```bash
 # Verify SSL
 curl -I https://your-domain.com
@@ -97,6 +102,7 @@ VERCEL_PROJECT_TOKEN=prj_8G4qihPWDBfPqtFI27aSFVkUEsFm
 ```
 
 **Add to Vercel Dashboard**:
+
 1. Go to: https://vercel.com/nidzps-projects/sajt-reklama/settings/environment-variables
 2. Add:
    - `GROQ_API_KEY` = `<your-groq-api-key>` (from .env file)
@@ -119,6 +125,7 @@ vercel --prod
 ```
 
 **Test the deployment**:
+
 ```bash
 # Check if site is live on Vercel
 curl https://sajt-reklama.vercel.app
@@ -150,6 +157,7 @@ curl -H "Origin: https://if0-40249576.infinityfreeapp.com" -I https://sajt-rekla
 ## 🔍 Troubleshooting
 
 ### DNS Not Resolving
+
 ```bash
 # Check DNS propagation
 nslookup your-domain.com 8.8.8.8
@@ -159,18 +167,21 @@ dig your-domain.com
 ```
 
 ### SSL Certificate Not Provisioning
+
 - Wait 24-48 hours for DNS propagation
 - Ensure CNAME/A records point to Vercel
 - Check Vercel dashboard for SSL status
 - Try removing and re-adding domain in Vercel
 
 ### CORS Errors
+
 - Verify `ALLOWED_ORIGINS` includes your domain
 - Check browser console for exact origin
 - Update `server.js` CORS configuration if needed
 - Redeploy after changes
 
 ### 404 Errors
+
 - Check Vercel deployment logs
 - Verify `vercel.json` rewrites configuration
 - Ensure all files are in `/public/` directory
@@ -201,6 +212,7 @@ openssl s_client -connect your-domain.com:443 -servername your-domain.com
 ## 🎯 Expected Result
 
 After DNS propagation (24-48 hours):
+
 - ✅ Site accessible at: `https://your-domain.com`
 - ✅ SSL certificate active (HTTPS)
 - ✅ AI Chatbot functional
