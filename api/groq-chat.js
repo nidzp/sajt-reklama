@@ -58,7 +58,9 @@ Respond naturally and helpfully. Use emojis sparingly (max 1-2 per response).`;
       stream: false,
     });
 
-    const aiResponse = completion.choices?.[0]?.message?.content || "I apologize, but I couldn't generate a response. Please try again.";
+    const aiResponse =
+      completion.choices?.[0]?.message?.content ||
+      "I apologize, but I couldn't generate a response. Please try again.";
 
     // Return response with metadata
     res.status(200).json({
@@ -72,7 +74,6 @@ Respond naturally and helpfully. Use emojis sparingly (max 1-2 per response).`;
         total_tokens: completion.usage?.total_tokens || 0,
       },
     });
-
   } catch (error) {
     console.error("Groq API Error:", error);
 
